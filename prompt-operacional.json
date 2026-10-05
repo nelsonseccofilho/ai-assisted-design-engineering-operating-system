@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "name": "AI-Assisted Design Engineering Operating System",
+    "version": "3.3.0",
+    "status": "CANONICAL_DERIVATIVE",
+    "canonical_source": "PROMPT_OPERACIONAL_MASTER.md",
+    "scope": "generic",
+    "privacy_rule": "Real project context belongs only in ignored local runtime files."
+  },
+  "runtime_files": {
+    "project_context": "PROJECT_CONTEXT.local.md",
+    "current_handoff": "HANDOFF_CURRENT.local.md"
+  },
+  "first_run": {
+    "mode": "generic",
+    "required_initial_fields": [
+      "product_or_project",
+      "primary_stakeholder_or_decision_maker",
+      "journey_or_flow"
+    ],
+    "optional_initial_fields": [
+      "organization_or_client",
+      "work_package_or_initiative"
+    ],
+    "conditional_initial_fields": [
+      "design_system_name",
+      "design_system_url",
+      "primary_work_file_name",
+      "primary_work_file_url"
+    ],
+    "principle": "Collect context just in time, not all at once."
+  },
+  "evidence_priority": [
+    "explicit approved project reference or decision",
+    "requirements from recordings/transcripts/tickets/specifications",
+    "approved existing product behavior",
+    "current canonical Design System or UI Kit",
+    "local or journey-specific components",
+    "external best practices",
+    "inference"
+  ],
+  "reasoning_labels": [
+    "FACT",
+    "INFERENCE",
+    "ASSUMPTION"
+  ],
+  "source_status": [
+    "CANONICAL",
+    "HISTORICAL EVIDENCE",
+    "SUPERSEDED"
+  ],
+  "operational_states": [
+    "NOT STARTED",
+    "IN PROGRESS",
+    "READY FOR QA",
+    "BLOCKED",
+    "READY TO PUBLISH",
+    "FINAL",
+    "REOPENED",
+    "SUPERSEDED"
+  ],
+  "response_contract": [
+    "STATUS",
+    "EVIDENCE",
+    "ACTION",
+    "QA",
+    "NEXT"
+  ],
+  "privacy": {
+    "never_hardcode_in_public_framework": [
+      "real client or organization names",
+      "real stakeholder names",
+      "private Figma URLs or file keys",
+      "private Design System URLs",
+      "proprietary work package or journey names",
+      "internal change IDs",
+      "credentials or tokens",
+      "copied proprietary evidence"
+    ]
+  },
+  "licensing": {
+    "copyright_holder": "Nelson Secco Filho",
+    "copyright_year": 2026,
+    "framework_license": "PolyForm-Noncommercial-1.0.0",
+    "documentation_license": "CC-BY-NC-4.0",
+    "commercial_use": "Requires a separate written commercial license from the copyright holder",
+    "osi_open_source": false
+  },
+  "decision_governance": {
+    "required": true,
+    "framework_index": "DECISION_LOG.md",
+    "framework_records": "docs/decisions/",
+    "template": "docs/decisions/ADR_TEMPLATE.md",
+    "statuses": [
+      "PROPOSED",
+      "ACCEPTED",
+      "REJECTED",
+      "SUPERSEDED",
+      "DEPRECATED"
+    ],
+    "minimum_fields": [
+      "context",
+      "evidence",
+      "decision",
+      "why",
+      "impact",
+      "status"
+    ],
+    "rule": "A significant decision is not complete until it is documented."
+  }
+}
