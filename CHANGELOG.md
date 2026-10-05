@@ -7,7 +7,9 @@ All notable changes to the operating framework are documented here.
 ### Governance
 - adopted Conventional Commits 1.0.0 as the mandatory commit-message convention;
 - added `ADR-0012`;
-- added `CONTRIBUTING.md` with commit types, scopes, examples, and commit discipline.
+- added `CONTRIBUTING.md` with commit types, scopes, examples, and commit discipline;
+- added `ADR-0013` requiring significant commits to reference their Decision ID;
+- added commit-to-decision traceability to the Master and publication checklist.
 
 ## 3.3.0 — 2026-10-05
 

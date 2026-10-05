@@ -93,4 +93,5 @@ Before publishing a release:
 - [ ] New ADRs are indexed in `DECISION_LOG.md`.
 - [ ] Superseded decisions remain historically visible.
 - [ ] Changelog entries reference the decision when relevant.
+- [ ] Commits that implement, change, supersede, or operationalize significant decisions reference the corresponding Decision ID (for example, `Decision: ADR-0013`).
 - [ ] No confidential project/client decision record is included in the public release.

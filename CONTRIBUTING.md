@@ -64,6 +64,9 @@ Use a scope when it improves clarity:
 - Mark breaking changes explicitly with `!` or a `BREAKING CHANGE:` footer.
 - Do not expose private client/project information in commit messages.
 - Significant decisions must also have a persistent decision record; a commit message does not replace an ADR.
+- A commit that implements, changes, supersedes, or operationalizes a significant decision must reference the corresponding Decision ID in its body or footer.
+- Preferred form: `Decision: ADR-XXXX`.
+- Routine commits that do not implement a significant decision do not require an ADR reference.
 
 ## Decision governance
 
@@ -74,3 +77,23 @@ See:
 - `docs/decisions/ADR_TEMPLATE.md`
 
 A significant decision is not complete until its rationale is documented.
+
+### Decision traceability
+
+For a significant change, use this chain:
+
+```text
+ADR / Decision Record
+        ↓
+Conventional Commit
+        ↓
+Changelog / Release
+```
+
+Example:
+
+```text
+docs(governance): link significant commits to ADRs
+
+Decision: ADR-0013
+```

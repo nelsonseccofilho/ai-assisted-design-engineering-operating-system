@@ -38,6 +38,7 @@ Never silently rewrite history.
 | ADR-0010 | 2026-10-05 | ACCEPTED | Require explicit documentation for every significant decision |
 | ADR-0011 | 2026-10-05 | ACCEPTED | Publish the framework as a public, organization-agnostic repository |
 | ADR-0012 | 2026-10-05 | ACCEPTED | Adopt Conventional Commits 1.0.0 for repository history |
+| ADR-0013 | 2026-10-05 | ACCEPTED | Link significant commits to persistent decision records |
 
 ---
 

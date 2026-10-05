@@ -947,3 +947,39 @@ Rules:
 4. A significant change is not complete until its decision record exists.
 5. Decision IDs should remain stable and referenceable from handoffs, changelogs, QA notes, and releases.
 
+
+
+---
+
+# 42. COMMIT-TO-DECISION TRACEABILITY
+
+Repository history and decision history serve different purposes.
+
+- ADR / Decision Record → why a significant decision exists;
+- Commit → what changed in the repository;
+- Changelog / Release → what changed for users or consumers.
+
+When a commit implements, changes, supersedes, or operationalizes a significant decision:
+
+1. ensure the persistent decision record already exists;
+2. use its stable Decision ID;
+3. use a valid Conventional Commit header;
+4. include the decision reference in the commit body or footer:
+
+```text
+Decision: ADR-XXXX
+```
+
+Example:
+
+```text
+docs(governance): link significant commits to ADRs
+
+Decision: ADR-0013
+```
+
+Routine commits without a significant decision do not require an ADR reference.
+
+Do not create meaningless ADRs solely to satisfy commit formatting.
+
+The goal is traceability, not bureaucracy.
