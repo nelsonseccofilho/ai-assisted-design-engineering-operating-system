@@ -153,6 +153,8 @@ Classify when useful:
 
 **NEXT ACTION:** <one concrete operational action for the next session>
 
+
+
 ## DECISION RECORDS
 
 List persistent decision IDs relevant to this handoff.
@@ -163,3 +165,4 @@ List persistent decision IDs relevant to this handoff.
 Do not use the handoff as the only permanent record for significant decisions.
 
 ---
+
