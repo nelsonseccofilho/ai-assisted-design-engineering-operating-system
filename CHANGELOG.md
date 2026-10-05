@@ -2,6 +2,13 @@
 
 All notable changes to the operating framework are documented here.
 
+## Unreleased
+
+### Governance
+- adopted Conventional Commits 1.0.0 as the mandatory commit-message convention;
+- added `ADR-0012`;
+- added `CONTRIBUTING.md` with commit types, scopes, examples, and commit discipline.
+
 ## 3.3.0 — 2026-10-05
 
 ### Decision governance
@@ -12,7 +19,7 @@ All notable changes to the operating framework are documented here.
 - added a mandatory Decision Documentation Protocol to the Master;
 - integrated decision references into Handoff and Project Context templates;
 - added decision-governance checks to the public-release checklist;
-- documented why decision history must be preserved separately from handoffs and changelogs.
+- documented why decision history must be preserved separately from handoffs and changelogs;
 - documented the public repository identity and publication decision in `ADR-0011`;
 - synchronized framework version metadata to `3.3.0` across canonical files.
 
