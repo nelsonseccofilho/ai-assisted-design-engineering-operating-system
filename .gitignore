@@ -1,0 +1,19 @@
+# Project-specific runtime context
+PROJECT_CONTEXT.local.md
+HANDOFF_CURRENT.local.md
+*.private.md
+
+# Secrets / local environment
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.bak
