@@ -3,47 +3,91 @@
 
 Use this file as the shortest entry point for a new AI session.
 
-## Files to load
+## Persistence model
 
-Always read:
+Do not treat model/chat memory as the canonical project database.
+
+The framework supports two modes:
+
+1. **Persistent Project Runtime** — preferred for long-running, multi-chat or multi-operator work.
+2. **Local minimal mode** — `PROJECT_CONTEXT.local.md` + `HANDOFF_CURRENT.local.md` when no persistent runtime exists.
+
+A Project Runtime is a versioned, project-specific operational memory. It does **not** replace live artifact state or primary evidence.
+
+---
+
+## Always load
 
 1. `PROMPT_OPERACIONAL_MASTER.md`
 
-Then load when available:
+---
+
+## If a Persistent Project Runtime is configured
+
+### Runtime access
+
+Classify access first:
+
+- `READ_WRITE`
+- `READ_ONLY`
+- `UNAVAILABLE`
+
+The normal stable bootstrap ref is `main` unless project governance explicitly defines another canonical ref.
+
+### Load
+
+Load when available:
+
+1. project context;
+2. project governance;
+3. project decision index;
+4. artifact / owner registry;
+5. evidence index;
+6. Workstream registry;
+7. selected Workstream `HANDOFF.md`;
+8. selected Workstream `state.json`;
+9. only the relevant Session Record(s) needed for reconciliation.
+
+Then:
+
+10. identify the Human operator;
+11. resolve the stable Operator alias;
+12. resolve the current Chat label when available;
+13. verify no other ACTIVE Workstream owns an overlapping mutation scope;
+14. inspect current live tool/artifact state;
+15. resolve mutation owners and owner-scoped Change History;
+16. reconcile live state against runtime snapshots;
+17. continue from exactly one `NEXT ACTION` only when it remains valid.
+
+A Workstream survives chat and operator changes.
+
+A Session Record represents one material chat and may reference multiple Workstreams.
+
+---
+
+## If only local minimal mode exists
+
+Load when available:
 
 2. `PROJECT_CONTEXT.local.md`
 3. `HANDOFF_CURRENT.local.md`
 
-Do not ask the user to re-explain information that is already present in those files.
+Then:
+
+1. validate current tool state whenever possible;
+2. resolve target mutation owners and read-only dependencies;
+3. load relevant governance / persistent decision / Change History records;
+4. treat the handoff as a snapshot;
+5. reconcile divergence before mutation;
+6. continue from `NEXT ACTION` when still valid.
 
 ---
 
-## Startup behavior
-
-### If `PROJECT_CONTEXT.local.md` exists
-
-1. load the project context;
-2. load the current handoff if available;
-3. validate the current tool state whenever direct inspection is possible;
-4. treat handoff content as a snapshot, not absolute truth;
-5. reconcile any differences before mutating;
-6. resolve target owners and read-only dependencies from the project artifact registry; load relevant governance and persistent decision/change records;
-7. verify each mutation owner's history location and namespace; establish missing owner history before significant-change finalization, without a central fallback log;
-8. continue from `NEXT ACTION` when scope and evidence remain valid.
-
-### If `PROJECT_CONTEXT.local.md` does not exist
+## If no project context exists
 
 Start in generic mode.
 
-Briefly explain that a small amount of project context is useful because it lets the workflow identify:
-
-- the product context;
-- decision authority;
-- current scope;
-- the canonical Design System / UI Kit;
-- the active work file.
-
-Ask for the minimum initial context:
+Ask only for the minimum useful context:
 
 1. Product / project name
 2. Primary stakeholder / decision-maker
@@ -53,48 +97,106 @@ Ask for the minimum initial context:
 6. Design System / UI Kit name and URL — if one exists
 7. Primary work file name and URL
 
-Do not request every possible field at once.
+Collect more context just in time.
 
-Collect additional context only when required by the next safe action.
+---
+
+## Runtime degraded mode
+
+### READ_WRITE
+
+Normal operation. Persist meaningful checkpoints.
+
+### READ_ONLY
+
+Inspection, analysis and reconciliation may continue.
+
+Do not perform significant project mutation whose safe continuity depends on writing the Project Runtime. A deliberate exception requires explicit human authorization, owner-scoped artifact logging, and a pending runtime-sync record.
+
+### UNAVAILABLE
+
+Do not reconstruct project state from chat/model memory.
+
+Safe generic analysis may continue, but reconnect the Project Runtime before project mutation.
+
+---
+
+## Session identity
+
+Keep these separate:
+
+- **Human operator** — accountable person;
+- **Operator alias** — stable alias across chats;
+- **Chat label** — individual conversation identifier;
+- **Workstream ID** — stable unit of continuing work.
+
+Do not encode a mutable operator identity into a Workstream ID.
+
+Recommended Workstream ID:
+
+`WS-YYYYMMDD-NNN-<slug>`
+
+Recommended Session Record path:
+
+`sessions/<OPERATOR_ALIAS>/<YYYY>/<MM>/<YYYY-MM-DD>_<chat-label>.md`
+
+---
+
+## Context-limit continuity trigger
+
+If the interface reports that the conversation reached its maximum duration/context and may continue in a new chat — or shows equivalent wording — treat it as a mandatory continuity trigger.
+
+Do not start new significant scope.
+
+Instead:
+
+1. complete or safely stop the current atomic operation;
+2. validate the latest completed checkpoint;
+3. update the current Workstream handoff;
+4. update machine-readable state when used;
+5. synchronize the Workstream registry;
+6. update/close the material Session Record;
+7. persist the repository checkpoint;
+8. end with exactly one `NEXT ACTION`.
+
+The next chat runs this startup protocol again and reinspects live tool state before continuing.
+
+---
+
+## Mutation record attribution
+
+Persistent owner-scoped Change History remains governed by ADR-0014.
+
+When session attribution is relevant, a meaningful mutation record should include:
+
+- offset-aware timestamp;
+- timezone;
+- Human operator;
+- Operator alias;
+- Chat label;
+- Workstream ID.
+
+---
+
+## Git contract
+
+All framework and adopting Project Runtime repositories use **Conventional Commits 1.0.0** unless stricter project governance says otherwise:
+
+https://www.conventionalcommits.org/en/v1.0.0/
+
+Significant commits reference the relevant persistent Decision ID.
 
 ---
 
 ## Communication
 
-Use the user's language unless they request another one.
+Use the user's language unless requested otherwise.
 
-Prefer concise operational responses:
+Prefer:
 
-### STATUS
-Where the work currently stands.
+`STATUS → EVIDENCE → ACTION → QA → NEXT`
 
-### EVIDENCE
-What supports the conclusion.
-
-### ACTION
-What was done or what will be done.
-
-### QA
-Validation result.
-
-### NEXT
-The next concrete action.
-
----
-
-## Continuity
-
-If the user says only:
-
-> continue
-
-or:
-
-> seguir
-
-execute the Startup Protocol and continue autonomously when scope and evidence are sufficient.
-
-When the conversation approaches its context limit, execute the Handoff Protocol defined in the Master and update `HANDOFF_CURRENT.local.md`.
+If the user says only `continue` or `seguir`, execute this startup protocol and continue autonomously when scope and evidence are sufficient.
 
 ---
 

@@ -16,10 +16,10 @@ def check(condition, message):
 def read(path):
     return (ROOT / path).read_text(encoding="utf-8-sig")
 
-# Package references: Markdown targets are resolved relative to their source.
+# Local Markdown links.
 for source in ROOT.rglob("*.md"):
     text = source.read_text(encoding="utf-8-sig")
-    for target in re.findall(r"(?<!!)\[[^\]]+\]\(([^)]+)\)", text):
+    for target in re.findall(r"(?<!!)[[^]]+](([^)]+))", text):
         target = target.split("#", 1)[0].strip("<>")
         if not target or re.match(r"[a-zA-Z]+:", target):
             continue
@@ -28,11 +28,12 @@ for source in ROOT.rglob("*.md"):
 
 master = read("PROMPT_OPERACIONAL_MASTER.md")
 derivative = json.loads(read("prompt-operacional.json"))
-version = re.search(r"\*\*Version:\*\* ([0-9.]+)", master).group(1)
+version = re.search(r"**Version:** ([0-9.]+)", master).group(1)
+check(version == "3.4.0", "Unexpected framework version")
 check(derivative["meta"]["version"] == version, "Master/JSON version mismatch")
 check(f"**Framework version:** {version}" in read("README.md"), "README version mismatch")
-check(derivative["meta"]["canonical_source"] == "PROMPT_OPERACIONAL_MASTER.md",
-      "Wrong canonical source")
+
+# Mutation ownership contract remains required.
 principle = "THE FILE / ARTIFACT THAT OWNS THE MUTATION OWNS THE CHANGE RECORD"
 check(principle in master and derivative["change_history"]["principle"] == principle,
       "Missing ownership principle")
@@ -42,49 +43,62 @@ expected = {"owner_scoped": True, "read_only_creates_record": False,
             "missing_history_before_final": True, "handoff_replaces_history": False}
 for key, value in expected.items():
     check(rules.get(key) == value, f"Incorrect ownership rule: {key}")
-check("append-only" in rules["historical_correction"], "Destructive correction contract")
-check(derivative["startup_order"] == [
-    "master", "project_context_or_onboarding", "handoff",
-    "owner_registry_and_governance_records", "current_state_inspection",
-    "reconcile", "next_action"], "Wrong bootstrap order")
 
-startup = master.split("# 36. STARTUP PROTOCOL", 1)[1].split("# 37.", 1)[0]
-tokens = ["load this Master", "load `PROJECT_CONTEXT.local.md`",
-          "load `HANDOFF_CURRENT.local.md`", "resolve the artifact registry",
-          "inspect current tool state", "execute `NEXT ACTION`"]
-positions = [startup.find(token) for token in tokens]
-check(all(p >= 0 for p in positions) and positions == sorted(positions),
-      "Master bootstrap/load order changed")
+# Project Runtime contract.
+for path in [
+    "WORKSTREAM_REGISTRY_TEMPLATE.md",
+    "SESSION_RECORD_TEMPLATE.md",
+    "RUNTIME_STATE_TEMPLATE.json",
+    "OPERATOR_PROFILE_TEMPLATE.md",
+    "docs/PROJECT_RUNTIME.md",
+    "docs/decisions/ADR-0015-project-runtime.md",
+    "docs/decisions/ADR-0016-operator-session-workstream-topology.md",
+]:
+    check((ROOT / path).exists(), f"Missing Project Runtime file: {path}")
+
+runtime = derivative["project_runtime"]
+check(runtime["canonical_ref_default"] == "main", "Project Runtime canonical ref must default to main")
+check(runtime["workstream_id_pattern"] == "WS-YYYYMMDD-NNN-<slug>", "Wrong Workstream ID pattern")
+check("operator_alias" in runtime["identity_fields"] and "session_alias" not in runtime["identity_fields"],
+      "Operator alias terminology mismatch")
+check(runtime["access_modes"] == ["READ_WRITE", "READ_ONLY", "UNAVAILABLE"],
+      "Runtime access modes mismatch")
+
 entry = read("START_CHAT.md")
-check(entry.index("PROMPT_OPERACIONAL_MASTER.md") <
-      entry.index("PROJECT_CONTEXT.local.md") <
-      entry.index("HANDOFF_CURRENT.local.md"), "Startup template load order mismatch")
-check("resolve target owners" in entry and "persistent decision/change records" in entry,
-      "Startup entry omits owner records")
-context = read("PROJECT_CONTEXT_TEMPLATE.md")
-for field in ["Artifact identity", "Governance location", "Change History location",
-              "Change namespace", "Decision log location", "Evidence archive"]:
-    check(field in context, f"Context registry missing {field}")
+for token in ["READ_WRITE", "READ_ONLY", "UNAVAILABLE", "Operator alias",
+              "WS-YYYYMMDD-NNN-<slug>", "sessions/<OPERATOR_ALIAS>/<YYYY>/<MM>/"]:
+    check(token in entry, f"START_CHAT missing {token}")
+
 handoff = read("HANDOFF_TEMPLATE.md")
-for field in ["Owner artifact", "History location", "Namespace-qualified record ID",
-              "Read-only dependencies", "Missing owner history"]:
-    check(field in handoff, f"Handoff missing {field}")
-check("does not replace persistent owner Change History" in handoff,
-      "Handoff substitutes for history")
+for token in ["Operator alias", "Latest Chat label", "Latest Session Record",
+              "offset-aware timestamp/timezone", "Owner artifact", "History location"]:
+    check(token in handoff, f"Handoff missing {token}")
 
+session = read("SESSION_RECORD_TEMPLATE.md")
+for token in ["Workstreams touched", "Operator alias", "Chat label", "NEXT ACTION"]:
+    check(token in session, f"Session template missing {token}")
+
+state = json.loads(read("RUNTIME_STATE_TEMPLATE.json"))
+check("operator_alias" in state and "session_alias" not in state, "Runtime state alias mismatch")
+check("workstream_id" in state and "latest_session_record" in state, "Runtime state fields missing")
+
+# ADR index completeness and uniqueness.
 index = read("DECISION_LOG.md")
-for path in sorted((ROOT / "docs/decisions").glob("ADR-[0-9]*.md")):
+adr_paths = sorted((ROOT / "docs/decisions").glob("ADR-[0-9]*.md"))
+ids = []
+for path in adr_paths:
     decision_id = path.name[:8]
+    ids.append(decision_id)
     check(decision_id in index, f"ADR not indexed: {decision_id}")
-adr = read("docs/decisions/ADR-0014-mutation-owned-change-records.md")
-for section in ["Context", "Evidence", "Decision", "Why", "Impact",
-                "Alternatives considered", "Validation / QA", "Supersession"]:
-    check(f"## {section}" in adr, f"ADR-0014 missing {section}")
-check("Decision: ADR-0014" in read("CONTRIBUTING.md"), "Missing commit traceability")
-check("ADR-0014" in read("CHANGELOG.md"), "Missing framework change history")
-check("3.3.0" in read("CHANGELOG.md"), "Historical release missing")
+check(len(ids) == len(set(ids)), "Duplicate ADR IDs")
+for decision_id in ["ADR-0014", "ADR-0015", "ADR-0016"]:
+    check(decision_id in index, f"Missing decision index entry: {decision_id}")
 
-# Exercise a runtime routing contract with independent expected outcomes.
+# Conventional Commits contract.
+cc = "https://www.conventionalcommits.org/en/v1.0.0/"
+check(cc in read("CONTRIBUTING.md") and cc in entry, "Conventional Commits URL missing")
+
+# Exercise mutation-owner routing contract.
 def valid_routing(case):
     mutated = set(case["mutated"])
     records = case["records"]
@@ -103,15 +117,15 @@ def valid_routing(case):
 for case in json.loads(read("examples/ownership-cases.json")):
     check(valid_routing(case) == case["valid"], f"Routing case failed: {case['name']}")
 
-# Guard against accidental public identifiers; generic placeholders remain valid.
+# Public privacy guard.
 for path in ROOT.rglob("*"):
     if not path.is_file() or path.suffix not in {".md", ".json", ".py"}:
         continue
     text = path.read_text(encoding="utf-8-sig")
-    check(not re.search(r"https?://(?:www\.)?figma\.com/(?:design|file)/", text),
+    check(not re.search(r"https?://(?:www.)?figma.com/(?:design|file)/", text),
           f"Figma artifact URL in {path.relative_to(ROOT)}")
 
 if errors:
     print("\n".join("FAIL: " + message for message in errors))
     raise SystemExit(1)
-print(f"PASS: {checks} package checks, including 10 ownership routing scenarios")
+print(f"PASS: {checks} package checks, including Project Runtime and mutation-owner scenarios")

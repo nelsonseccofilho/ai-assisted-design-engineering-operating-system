@@ -40,6 +40,8 @@ Never silently rewrite history.
 | ADR-0012 | 2026-10-05 | ACCEPTED | Adopt Conventional Commits 1.0.0 for repository history |
 | ADR-0013 | 2026-10-05 | ACCEPTED | Link significant commits to persistent decision records |
 | [ADR-0014](docs/decisions/ADR-0014-mutation-owned-change-records.md) | 2026-10-06 | ACCEPTED | The mutation owner owns the persistent change record |
+| [ADR-0015](docs/decisions/ADR-0015-project-runtime.md) | 2026-10-06 | ACCEPTED | Use a persistent Project Runtime as the operational source of truth for long-running work |
+| [ADR-0016](docs/decisions/ADR-0016-operator-session-workstream-topology.md) | 2026-10-06 | ACCEPTED | Separate Operator, Session and Workstream identity and require deterministic cross-chat continuity |
 
 ---
 

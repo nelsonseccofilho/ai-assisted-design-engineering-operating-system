@@ -2,7 +2,7 @@
 
 > Copy this file to `PROJECT_CONTEXT.local.md`.
 >
-> `PROJECT_CONTEXT.local.md` is ignored by Git and is intended for real project-specific context.
+> In local minimal mode, copy this file to `PROJECT_CONTEXT.local.md` and keep it private. In a governed private Project Runtime, project-specific context may be intentionally versioned there.
 
 **Context status:** `DRAFT | ACTIVE | ARCHIVED`  
 **Last updated:** YYYY-MM-DD
@@ -31,7 +31,44 @@
 
 ---
 
-## 2. DESIGN ENVIRONMENT
+## 2. PROJECT RUNTIME
+
+**Persistent Project Runtime enabled:**  
+<yes / no>
+
+**Project Runtime repository / location:**  
+<private repository URL / local path / N/A>
+
+**Canonical stable ref:**  
+<main / governed ref / N/A>
+
+**Workstream registry:**  
+<path / N/A>
+
+**Session record root:**  
+<path / N/A>
+
+**Runtime access expectation:**  
+<READ_WRITE / READ_ONLY / varies / N/A>
+
+A Project Runtime is canonical for operational continuity, not for current live artifact state.
+
+### Operator identity convention
+
+**Human operator model:**  
+<how people are identified>
+
+**Operator alias convention:**  
+<stable aliases / N/A>
+
+**Chat label convention:**  
+<individual conversation labels / N/A>
+
+Keep Human operator, Operator alias, Chat label and Workstream ID separate.
+
+---
+
+## 3. DESIGN ENVIRONMENT
 
 **Design System / UI Kit name:**  
 <name or N/A>
@@ -53,7 +90,7 @@
 
 ---
 
-## 3. GOVERNANCE AND HISTORY
+## 4. GOVERNANCE AND HISTORY
 
 ### Artifact registry
 
@@ -77,7 +114,7 @@ Project-level locations below are compatibility summaries. They do not override 
 
 ---
 
-## 4. EVIDENCE SOURCES
+## 5. EVIDENCE SOURCES
 
 List the sources that may carry requirements or decisions:
 
@@ -88,14 +125,14 @@ Examples: recordings, transcripts, tickets, specs, research, implementation note
 
 ---
 
-## 5. TECHNICAL / PRODUCT CONSTRAINTS
+## 6. TECHNICAL / PRODUCT CONSTRAINTS
 
 - <constraint>
 - <constraint>
 
 ---
 
-## 6. OPERATING NOTES
+## 7. OPERATING NOTES
 
 - <project-specific convention>
 - <project-specific convention>
@@ -104,7 +141,7 @@ Do not place generic framework rules here; those belong in the Master.
 
 ---
 
-## 7. PRIVACY
+## 8. PRIVACY
 
 This file may contain confidential project information.
 

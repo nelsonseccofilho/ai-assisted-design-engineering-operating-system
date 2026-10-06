@@ -2,6 +2,19 @@
 
 All notable changes to the operating framework are documented here.
 
+## 3.4.0 — 2026-10-06
+
+### Project Runtime
+- added a persistent Project Runtime model for multi-chat / multi-operator continuity;
+- separated Operational Runtime truth from current artifact, Design System and evidence authority;
+- added Operator / Session / Workstream identity boundaries;
+- added operator-independent Workstream IDs and global Session Record paths;
+- added continuous handoff and mandatory conversation-limit continuity triggers;
+- added READ_WRITE / READ_ONLY / UNAVAILABLE runtime access modes;
+- added Project Runtime / Workstream / Session / Operator templates;
+- added ADR-0015 and ADR-0016;
+- retained ADR-0014 mutation-owned Change History and added optional timestamp/timezone + session provenance fields.
+
 ## Unreleased
 
 ### Governance

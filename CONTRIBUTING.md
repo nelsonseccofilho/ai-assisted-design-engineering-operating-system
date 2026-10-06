@@ -111,3 +111,18 @@ feat(governance): require mutation-owned change records
 
 Decision: ADR-0014
 ```
+
+
+## Project Runtime contributions
+
+Project Runtime architecture changes are significant framework decisions.
+
+Use these scopes when useful:
+
+- `runtime`
+- `workstreams`
+- `sessions`
+
+Persistent Project Runtime repositories that adopt this framework should also use Conventional Commits 1.0.0 unless stricter governance is documented.
+
+A runtime-specific client Decision prefix may be used privately; never copy confidential project values into this public repository.

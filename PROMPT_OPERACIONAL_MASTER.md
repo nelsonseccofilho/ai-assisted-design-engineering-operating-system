@@ -1,6 +1,6 @@
 # AI-ASSISTED DESIGN ENGINEERING — OPERATING MASTER
 
-**Version:** 3.3.0  
+**Version:** 3.4.0  
 **Status:** CANONICAL  
 **Scope:** Generic / organization-agnostic  
 **Canonical source:** this Markdown file
@@ -995,3 +995,168 @@ Do not create meaningless ADRs solely to satisfy commit formatting.
 Owner Change History must also cite relevant implementation commits when Git is used. A commit or ADR does not replace an external artifact's persistent mutation record.
 
 The goal is traceability, not bureaucracy.
+
+
+---
+
+# 43. PROJECT RUNTIME
+
+For long-running work that must survive many AI conversations, prefer a persistent **Project Runtime** over conversational memory.
+
+A Project Runtime is a project-specific, versioned operational memory that may persist:
+
+- project context;
+- project governance;
+- project decision records;
+- artifact / mutation-owner registries;
+- evidence indexes;
+- Workstream registry;
+- Workstream handoffs;
+- machine-readable Workstream state;
+- operator profiles;
+- Session Records;
+- QA / continuity metadata.
+
+A private client implementation may be called a **Private Project Runtime**.
+
+The Project Runtime is canonical for **operational continuity**, not for every form of truth.
+
+Do not use full chat transcripts as the primary persistent state store.
+
+---
+
+# 44. AUTHORITY BOUNDARIES
+
+Keep sources of truth separated:
+
+- **Primary evidence / requirements** → authoritative at the original source;
+- **Current inspected artifact/tool state** → authoritative for current artifact state;
+- **Current canonical Design System** → authoritative for shared system state;
+- **Project Runtime** → authoritative for operational continuity, governance, coordination and recorded decisions;
+- **Chat/model memory** → non-authoritative convenience only.
+
+When a runtime snapshot and live artifact differ:
+
+`current inspected artifact state > stale runtime snapshot`
+
+Reconcile the difference and update persistent operational state. Do not silently overwrite newer work.
+
+---
+
+# 45. OPERATOR, SESSION, AND WORKSTREAM MODEL
+
+Treat these as independent entities:
+
+- **Human operator** — accountable person;
+- **Operator alias** — stable project-defined alias across chats;
+- **Chat label** — one conversation identifier;
+- **Workstream ID** — persistent unit of work.
+
+A Workstream may span many chats and may transfer between operators.
+
+Do not encode a mutable operator into the Workstream ID.
+
+Recommended ID:
+
+`WS-YYYYMMDD-NNN-<slug>`
+
+A material Session Record represents one chat and may reference multiple Workstreams.
+
+Recommended Session Record path:
+
+`sessions/<OPERATOR_ALIAS>/<YYYY>/<MM>/<YYYY-MM-DD>_<chat-label>.md`
+
+A closed Session Record should be immutable except for explicit append-only correction notes.
+
+A current Workstream handoff/state is not historical session storage.
+
+---
+
+# 46. CONTINUOUS HANDOFF AND CONTEXT-LIMIT TRIGGER
+
+A Workstream handoff is continuously maintained current state.
+
+Do not wait until the final message of a long conversation to reconstruct everything from memory.
+
+After meaningful checkpoints, persist the operational delta when write access exists.
+
+If the interface reports that the conversation reached its maximum duration/context and may continue in a new chat — or shows equivalent wording — treat it as a mandatory continuity trigger.
+
+At that trigger:
+
+1. do not begin new significant scope;
+2. complete or safely stop the current atomic operation;
+3. validate the latest completed checkpoint;
+4. update the Workstream handoff;
+5. update machine-readable state when used;
+6. synchronize the Workstream registry;
+7. update/close the material Session Record;
+8. persist the repository checkpoint;
+9. finish with exactly one `NEXT ACTION`.
+
+The next session reloads persistent state, reinspects live tool state, reconciles divergence, and only then continues.
+
+A context-limit trigger does not authorize new scope.
+
+---
+
+# 47. PROJECT RUNTIME ACCESS MODES
+
+Before relying on a Project Runtime, classify access:
+
+## READ_WRITE
+
+Normal operating mode.
+
+The agent may persist governed checkpoints to the runtime.
+
+## READ_ONLY
+
+The agent may inspect, analyze and reconcile.
+
+Do not perform significant project mutation whose safe continuity depends on writing the runtime.
+
+A human may explicitly authorize a degraded exception when owner-scoped artifact history can still be persisted and pending runtime synchronization is documented.
+
+## UNAVAILABLE
+
+Do not reconstruct project state from model/chat memory.
+
+Safe generic analysis may continue.
+
+Reconnect the Project Runtime before project mutation.
+
+---
+
+# 48. PROJECT RUNTIME DOCUMENT RESPONSIBILITIES
+
+Avoid normative drift by separating document roles:
+
+- **README** → explains the model to humans;
+- **Governance** → determines project rules;
+- **START_CHAT** → executes startup/continuity behavior;
+- **ADR / Decision Record** → explains why significant decisions exist;
+- **HANDOFF.md / state.json** → current Workstream state;
+- **Session Record** → historical material session record;
+- **owner-scoped Change History** → persistent record of actual artifact mutation.
+
+Do not duplicate the entire contract in every file.
+
+---
+
+# 49. SESSION ATTRIBUTION IN MUTATION HISTORY
+
+ADR-0014 remains the ownership rule:
+
+`THE FILE / ARTIFACT THAT OWNS THE MUTATION OWNS THE CHANGE RECORD`
+
+When a mutation is performed through an AI-assisted session, persistent Change History should capture session provenance when useful:
+
+- offset-aware timestamp;
+- timezone;
+- Human operator;
+- Operator alias;
+- Chat label;
+- Workstream ID.
+
+Git commit time is not a substitute for artifact-local mutation provenance.

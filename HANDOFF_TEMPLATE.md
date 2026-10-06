@@ -1,10 +1,16 @@
-# HANDOFF CURRENT — LOCAL TEMPLATE
+# WORKSTREAM HANDOFF / LOCAL CURRENT HANDOFF — TEMPLATE
 
-> Copy this file to `HANDOFF_CURRENT.local.md`.
+> Local minimal mode: copy to `HANDOFF_CURRENT.local.md`.
 >
-> Use together with `PROMPT_OPERACIONAL_MASTER.md` and `PROJECT_CONTEXT.local.md`.
+> Persistent Project Runtime mode: use one current `HANDOFF.md` per Workstream.
+>
+> A handoff stores current state; Session Records store material chat history.
 
-**Snapshot:** YYYY-MM-DD  
+**Snapshot:** <offset-aware timestamp + timezone>
+**Workstream ID:** <WS-ID / N/A in local minimal mode>
+**Current Human operator:** <person / N/A>
+**Operator alias:** <stable alias / N/A>
+**Latest Chat label:** <label / UNRESOLVED / N/A>  
 **Operational status:** `NOT STARTED | IN PROGRESS | READY FOR QA | BLOCKED | READY TO PUBLISH | FINAL | REOPENED | SUPERSEDED`
 
 ---
@@ -98,6 +104,8 @@ Classify when useful:
 **Read-only dependencies / evidence:** <references; no change record unless mutated>  
 **Missing owner history / finalization blockers:** <setup still required or none>
 
+For AI-assisted mutations, include offset-aware timestamp/timezone plus Human operator, Operator alias, Chat label and Workstream ID in owner-scoped records when session provenance is relevant.
+
 Handoff/workstream/chat memory is a snapshot and does not replace persistent owner Change History. Correct historical ownership append-only; retain original archived/pointer evidence.
 
 ---
@@ -143,20 +151,29 @@ Handoff/workstream/chat memory is a snapshot and does not replace persistent own
 
 ---
 
-## 13. LAST COMPLETED ACTION
+## 13. PROJECT RUNTIME CONTINUITY
+
+**Runtime access:** `READ_WRITE | READ_ONLY | UNAVAILABLE | N/A`  
+**Machine-readable state:** <path / N/A>  
+**Latest Session Record:** <global sessions/... path / N/A>  
+**Last Git checkpoint:** <commit / N/A>
+
+---
+
+## 14. LAST COMPLETED ACTION
 
 <exact last completed step>
 
 ---
 
-## 14. NECESSARY LINKS
+## 15. NECESSARY LINKS
 
 - <label>: <URL/location>
 - <label>: <URL/location>
 
 ---
 
-## 15. NEXT ACTION
+## 16. NEXT ACTION
 
 **NEXT ACTION:** <one concrete operational action for the next session>
 

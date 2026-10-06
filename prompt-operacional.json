@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "AI-Assisted Design Engineering Operating System",
-    "version": "3.3.0",
+    "version": "3.4.0",
     "status": "CANONICAL_DERIVATIVE",
     "canonical_source": "PROMPT_OPERACIONAL_MASTER.md",
     "scope": "generic",
@@ -9,7 +9,13 @@
   },
   "runtime_files": {
     "project_context": "PROJECT_CONTEXT.local.md",
-    "current_handoff": "HANDOFF_CURRENT.local.md"
+    "current_handoff": "HANDOFF_CURRENT.local.md",
+    "local_handoff": "HANDOFF_CURRENT.local.md",
+    "workstream_registry_template": "WORKSTREAM_REGISTRY_TEMPLATE.md",
+    "workstream_handoff_template": "HANDOFF_TEMPLATE.md",
+    "session_record_template": "SESSION_RECORD_TEMPLATE.md",
+    "runtime_state_template": "RUNTIME_STATE_TEMPLATE.json",
+    "operator_profile_template": "OPERATOR_PROFILE_TEMPLATE.md"
   },
   "first_run": {
     "mode": "generic",
@@ -137,7 +143,13 @@
       "qa",
       "publication_note",
       "consumer_impact",
-      "supersession"
+      "supersession",
+      "timestamp_with_offset",
+      "timezone",
+      "human_operator",
+      "operator_alias",
+      "chat_label",
+      "workstream_id"
     ],
     "rules": {
       "owner_scoped": true,
@@ -158,5 +170,35 @@
     "current_state_inspection",
     "reconcile",
     "next_action"
-  ]
+  ],
+  "project_runtime": {
+    "preferred_for": "long-running multi-chat or multi-operator work",
+    "canonical_operational_source": true,
+    "canonical_ref_default": "main",
+    "workstream_id_pattern": "WS-YYYYMMDD-NNN-<slug>",
+    "session_record_pattern": "sessions/<OPERATOR_ALIAS>/<YYYY>/<MM>/<YYYY-MM-DD>_<chat-label>.md",
+    "identity_fields": [
+      "human_operator",
+      "operator_alias",
+      "chat_label",
+      "workstream_id"
+    ],
+    "access_modes": [
+      "READ_WRITE",
+      "READ_ONLY",
+      "UNAVAILABLE"
+    ],
+    "chat_memory_authority": "non-authoritative convenience only",
+    "live_artifact_rule": "Current inspected artifact state outranks stale runtime snapshots."
+  },
+  "continuity": {
+    "continuous_handoff": true,
+    "context_limit_trigger": "mandatory",
+    "next_action_count": 1
+  },
+  "git_contract": {
+    "conventional_commits": "1.0.0",
+    "specification": "https://www.conventionalcommits.org/en/v1.0.0/",
+    "significant_commit_decision_reference": true
+  }
 }

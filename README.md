@@ -3,7 +3,7 @@
 > A personal research framework for persistent, evidence-driven collaboration between designers and AI agents across Product Design, UI, Design Systems, Figma, QA, and design operations.
 
 **Status:** Experimental / evolving  
-**Framework version:** 3.3.0  
+**Framework version:** 3.4.0  
 **Canonical operating contract:** `PROMPT_OPERACIONAL_MASTER.md`
 
 [English](#english) · [Português](#português)
@@ -134,6 +134,31 @@ Defines **what is happening now**:
 - exact next action.
 
 ---
+
+## Persistent Project Runtime
+
+For long-running work, the framework supports a **Project Runtime**: a project-specific, versioned operational memory that survives chat boundaries.
+
+It is the place where a project can persist governance, decisions, Workstreams, handoffs, deterministic state, operator identities and Session Records.
+
+It is **not** the universal source of truth:
+
+- requirements remain authoritative at their primary evidence source;
+- the current inspected artifact remains authoritative for current artifact state;
+- the canonical Design System remains authoritative for shared system state;
+- the Project Runtime is authoritative for operational continuity;
+- chat/model memory is convenience only.
+
+A useful model:
+
+```text
+Operating System = how we work
+Project Runtime  = where project operational state persists
+Artifact tools   = where current design / implementation lives
+AI session       = temporary executor
+```
+
+See [Project Runtime](docs/PROJECT_RUNTIME.md).
 
 ## First run
 
@@ -272,6 +297,10 @@ ai-assisted-design-engineering-operating-system/
 ├── PROMPT_OPERACIONAL_MASTER.md
 ├── PROJECT_CONTEXT_TEMPLATE.md
 ├── HANDOFF_TEMPLATE.md
+├── WORKSTREAM_REGISTRY_TEMPLATE.md
+├── SESSION_RECORD_TEMPLATE.md
+├── RUNTIME_STATE_TEMPLATE.json
+├── OPERATOR_PROFILE_TEMPLATE.md
 ├── DECISION_LOG.md
 ├── CHANGELOG.md
 ├── LICENSE
@@ -287,6 +316,7 @@ ai-assisted-design-engineering-operating-system/
     ├── RATIONALE.md
     ├── PUBLICATION_CHECKLIST.md
     ├── CHANGE_RECORD_OWNERSHIP.md
+    ├── PROJECT_RUNTIME.md
     └── decisions/
         ├── ADR_TEMPLATE.md
         └── ADR-0001 ... ADR-0014
@@ -468,6 +498,23 @@ Arquivo real/local:
 Define **o que estamos fazendo agora**.
 
 ---
+
+## Project Runtime persistente
+
+Para trabalhos de longa duração, o framework suporta um **Project Runtime**: uma memória operacional versionada e específica do projeto, independente da memória de uma conversa.
+
+Ele preserva governança, decisões, Workstreams, handoffs, estado determinístico, identidades de operadores e Session Records.
+
+Ele não substitui o estado real da ferramenta nem a evidência primária.
+
+```text
+Operating System = como trabalhamos
+Project Runtime  = onde o estado operacional do projeto persiste
+Ferramentas      = onde vive o artefato atual
+Sessão de IA     = executor temporário
+```
+
+Veja [Project Runtime](docs/PROJECT_RUNTIME.md).
 
 ## Primeira execução
 
