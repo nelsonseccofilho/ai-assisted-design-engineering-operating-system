@@ -667,3 +667,7 @@ The generic framework owns reusable rules, templates, schemas and QA. Populated 
 Generic sources now cover manifest, governance, artifact/evidence registries, operators, sessions, workstreams, reports, backlog, QA and dependency pinning. Public templates intentionally contain placeholders; real operational folders belong in the private instance. See [security boundary](SECURITY.md).
 
 O framework genérico é o master das regras reutilizáveis. Runtimes privados configuram e testam o fluxo. Avanços reutilizáveis devem entrar no framework por PR; depois da promoção, atualize o pin da instância. A estrutura genérica oferece templates, enquanto a instância contém dados reais e histórico privado.
+
+## Canonical runtime layout
+
+Instantiate [runtime-template/](runtime-template/00_START_CHAT.md) using [the classified inventory](runtime-template.index.json). Filenames match the instance root. Root templates are compatibility mirrors. See [synchronization](docs/FRAMEWORK_RUNTIME_SYNC.md) for update planning and privacy boundaries. Framework 3.4.0 remains a candidate until its live gates pass.

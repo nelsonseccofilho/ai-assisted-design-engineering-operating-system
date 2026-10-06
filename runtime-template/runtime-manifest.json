@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "runtime_name": null,
+  "runtime_version": null,
+  "canonical_runtime_ref": "main",
+  "candidate_ref": null,
+  "runtime_repository": null,
+  "framework": {
+    "repository": null,
+    "stable_pin": null,
+    "version": null,
+    "vendored_master": "10_PROMPT_OPERACIONAL_MASTER.md",
+    "candidate": null
+  },
+  "source_of_truth": {
+    "operational": "Project Runtime",
+    "current_artifact": "current inspected artifact",
+    "design_system": "current canonical Design System",
+    "requirements": "primary evidence at original source",
+    "chat_memory": "non-authoritative convenience only"
+  },
+  "operator_identity": [],
+  "session_record_pattern": "sessions/<OPERATOR_ALIAS>/<YYYY>/<MM>/<YYYY-MM-DD>_<chat-label>.md",
+  "workstream_id_pattern": "WS-YYYYMMDD-NNN-<slug>",
+  "workstream_registry": "70_WORKSTREAM_REGISTRY.local.md",
+  "runtime_access_modes": [
+    "READ_WRITE",
+    "READ_ONLY",
+    "UNAVAILABLE"
+  ],
+  "conventional_commits": {
+    "required": true,
+    "version": "1.0.0",
+    "specification": "https://www.conventionalcommits.org/en/v1.0.0/"
+  },
+  "mutation_attribution": [
+    "timestamp_with_offset",
+    "timezone",
+    "human_operator",
+    "operator_alias",
+    "chat_label",
+    "workstream_id"
+  ],
+  "context_limit_trigger": {
+    "mandatory": true,
+    "behavior": "Equivalent context/conversation-limit warnings require controlled continuity."
+  },
+  "bootstrap_files": [
+    "00_START_CHAT.md",
+    "10_PROMPT_OPERACIONAL_MASTER.md",
+    "20_PROJECT_CONTEXT.local.md",
+    "30_GOVERNANCE.local.md",
+    "40_PROJECT_DECISION_LOG.local.md",
+    "50_ARTIFACT_REGISTRY.local.md",
+    "60_EVIDENCE_INDEX.local.md",
+    "70_WORKSTREAM_REGISTRY.local.md"
+  ],
+  "daily_operator_reports": {
+    "required": false,
+    "root": "reports/daily",
+    "statuses": [
+      "NOT_DUE",
+      "DUE",
+      "DRAFT",
+      "SENT",
+      "WAIVED",
+      "SUPERSEDED"
+    ],
+    "languages": [],
+    "timezone": null,
+    "first_report_baseline": "start_of_current_reporting_day",
+    "commands": {},
+    "cursor_rule": "DRAFT never advances; SENT advances to frozen interval_end; last_sent_at stores delivery time.",
+    "day_close_rule": "When required, material activity needs SENT or human WAIVED."
+  },
+  "validation_gates": {
+    "live_report_cycle": "PENDING",
+    "cross_chat_pilot": "PENDING"
+  },
+  "template_sources": {
+    "00_START_CHAT.md": "START_CHAT.md",
+    "10_PROMPT_OPERACIONAL_MASTER.md": "PROMPT_OPERACIONAL_MASTER.md",
+    "20_PROJECT_CONTEXT.local.md": "PROJECT_CONTEXT_TEMPLATE.md",
+    "30_GOVERNANCE.local.md": "GOVERNANCE_TEMPLATE.md",
+    "50_ARTIFACT_REGISTRY.local.md": "ARTIFACT_REGISTRY_TEMPLATE.md",
+    "60_EVIDENCE_INDEX.local.md": "EVIDENCE_INDEX_TEMPLATE.md",
+    "70_WORKSTREAM_REGISTRY.local.md": "WORKSTREAM_REGISTRY_TEMPLATE.md",
+    "FRAMEWORK_DEPENDENCY.md": "FRAMEWORK_DEPENDENCY_TEMPLATE.md",
+    "PACKAGE_QA.md": "RUNTIME_QA_TEMPLATE.md",
+    "BACKLOG.local.md": "BACKLOG_TEMPLATE.md",
+    "operators/<OPERATOR_ALIAS>.md": "OPERATOR_PROFILE_TEMPLATE.md",
+    "sessions/_template/SESSION_RECORD.md": "SESSION_RECORD_TEMPLATE.md",
+    "workstreams/_template/HANDOFF.md": "HANDOFF_TEMPLATE.md",
+    "workstreams/_template/state.json": "RUNTIME_STATE_TEMPLATE.json",
+    "reports/daily/_template/DAILY_REPORT.md": "OPERATOR_DAILY_REPORT_TEMPLATE.md",
+    "reports/daily/_template/state.json": "REPORT_STATE_TEMPLATE.json"
+  },
+  "project_decision_index": {
+    "destination": "40_PROJECT_DECISION_LOG.local.md",
+    "record_template": "docs/decisions/ADR_TEMPLATE.md",
+    "rule": "Create a unique indexed private project decision namespace; do not copy framework decisions as project decisions."
+  }
+}

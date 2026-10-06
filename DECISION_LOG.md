@@ -63,3 +63,5 @@ The Handoff is not a replacement for the Decision Log.
 ## Change ownership
 
 This index contains framework decisions, not external consumer mutation history. ADR-0014 separates rationale from owner-scoped Change History. Project decisions may be shared by linked owner records; unchanged evidence dependencies do not gain change records.
+
+- [ADR-0019 — Canonical runtime package](docs/decisions/ADR-0019-canonical-runtime-package.md)

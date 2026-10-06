@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0",
+  "template_root": "runtime-template",
+  "normalization": "UTF-8, LF line endings",
+  "files": [
+    {
+      "path": "10_PROMPT_OPERACIONAL_MASTER.md",
+      "mode": "shared",
+      "compatibility_alias": "PROMPT_OPERACIONAL_MASTER.md"
+    },
+    {
+      "path": "20_PROJECT_CONTEXT.local.md",
+      "mode": "configured",
+      "compatibility_alias": "PROJECT_CONTEXT_TEMPLATE.md"
+    },
+    {
+      "path": "30_GOVERNANCE.local.md",
+      "mode": "configured",
+      "compatibility_alias": "GOVERNANCE_TEMPLATE.md"
+    },
+    {
+      "path": "50_ARTIFACT_REGISTRY.local.md",
+      "mode": "configured",
+      "compatibility_alias": "ARTIFACT_REGISTRY_TEMPLATE.md"
+    },
+    {
+      "path": "60_EVIDENCE_INDEX.local.md",
+      "mode": "configured",
+      "compatibility_alias": "EVIDENCE_INDEX_TEMPLATE.md"
+    },
+    {
+      "path": "70_WORKSTREAM_REGISTRY.local.md",
+      "mode": "configured",
+      "compatibility_alias": "WORKSTREAM_REGISTRY_TEMPLATE.md"
+    },
+    {
+      "path": "runtime-manifest.json",
+      "mode": "configured",
+      "compatibility_alias": "RUNTIME_MANIFEST_TEMPLATE.json"
+    },
+    {
+      "path": "FRAMEWORK_DEPENDENCY.md",
+      "mode": "configured",
+      "compatibility_alias": "FRAMEWORK_DEPENDENCY_TEMPLATE.md"
+    },
+    {
+      "path": "PACKAGE_QA.md",
+      "mode": "configured",
+      "compatibility_alias": "RUNTIME_QA_TEMPLATE.md"
+    },
+    {
+      "path": "BACKLOG.local.md",
+      "mode": "configured",
+      "compatibility_alias": "BACKLOG_TEMPLATE.md"
+    },
+    {
+      "path": "operators/_template/OPERATOR_PROFILE.md",
+      "mode": "configured",
+      "compatibility_alias": "OPERATOR_PROFILE_TEMPLATE.md"
+    },
+    {
+      "path": "sessions/_template/SESSION_RECORD.md",
+      "mode": "configured",
+      "compatibility_alias": "SESSION_RECORD_TEMPLATE.md"
+    },
+    {
+      "path": "workstreams/_template/HANDOFF.md",
+      "mode": "configured",
+      "compatibility_alias": "HANDOFF_TEMPLATE.md"
+    },
+    {
+      "path": "workstreams/_template/state.json",
+      "mode": "configured",
+      "compatibility_alias": "RUNTIME_STATE_TEMPLATE.json"
+    },
+    {
+      "path": "reports/daily/_template/DAILY_REPORT.md",
+      "mode": "configured",
+      "compatibility_alias": "OPERATOR_DAILY_REPORT_TEMPLATE.md"
+    },
+    {
+      "path": "reports/daily/_template/state.json",
+      "mode": "configured",
+      "compatibility_alias": "REPORT_STATE_TEMPLATE.json"
+    },
+    {
+      "path": "00_START_CHAT.md",
+      "mode": "configured"
+    },
+    {
+      "path": "40_PROJECT_DECISION_LOG.local.md",
+      "mode": "configured"
+    },
+    {
+      "path": "docs/CHANGE_RECORD_OWNERSHIP.md",
+      "mode": "configured",
+      "compatibility_alias": "docs/CHANGE_RECORD_OWNERSHIP.md"
+    },
+    {
+      "path": "docs/decisions/ADR-0014-mutation-owned-change-records.md",
+      "mode": "configured",
+      "compatibility_alias": "docs/decisions/ADR-0014-mutation-owned-change-records.md"
+    },
+    {
+      "path": "docs/decisions/ADR_TEMPLATE.md",
+      "mode": "configured",
+      "compatibility_alias": "docs/decisions/ADR_TEMPLATE.md"
+    },
+    {
+      "path": "scripts/runtime_sync.py",
+      "mode": "shared",
+      "compatibility_alias": "scripts/runtime_sync.py"
+    }
+  ],
+  "private_roots": [
+    "operators",
+    "sessions",
+    "workstreams",
+    "reports"
+  ],
+  "upstream_statuses": [
+    "PROJECT_ONLY",
+    "UPSTREAM_PENDING",
+    "PROMOTED"
+  ]
+}

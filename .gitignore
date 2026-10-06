@@ -25,3 +25,8 @@ workstreams/
 reports/
 runtime-manifest.json
 *.local.md
+
+# Canonical generic seeds only; QA rejects populated runtime records here.
+!runtime-template/
+!runtime-template/**/
+!runtime-template/**

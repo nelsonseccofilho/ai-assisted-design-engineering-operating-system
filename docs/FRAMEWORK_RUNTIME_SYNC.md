@@ -70,3 +70,17 @@ RUNTIME_STATE_TEMPLATE schema 1.1 adds runtime_version to the generic core. Olde
 ## Scope of pilots
 
 Static checks verify repository contracts. A live report pilot requires a persisted DRAFT, actual external sending and SENT confirmation with a correct coverage cursor. A cross-chat pilot requires canonical bootstrap, actual artifact reconciliation and a persisted continuation. A new chat or a repository-only audit alone does not prove either pilot.
+
+## Canonical runtime package (ADR-0019)
+
+The authoritative deployable layout is now `runtime-template/`. Strip that prefix to obtain the identical instance filename. `runtime-template.index.json` is the exhaustive allowlist and classifies each path as shared or configured. Root template names remain compatibility mirrors; edit the canonical source and regenerate its mirror in the same change. QA rejects different contents. Existing root framework entrypoints remain supported.
+
+Shared files are immutable installed content recorded by SHA-256 in the private `framework-lock.json`. A documented stable-baseline exception may retain an older immutable Master while a candidate is being piloted. Keep its stable commit/source/hash separate from candidate source/hash. Do not claim the candidate was released or adopted wholesale.
+
+Configured files are seeds with the same filenames; updates require reviewed migrations and must preserve private values. Populated operators, sessions, reports, workstreams, decisions and evidence are private history, never package inputs. A file's suffix alone is not a privacy boundary. An upstream change must be implemented from generalized requirements in the public branch, never by merging private history.
+
+Run `python scripts/validate_framework.py` and `python scripts/runtime_sync.py --framework .` for public package QA. For an instance, independently fetch the candidate commit named in its lock, then run `python scripts/runtime_sync.py --framework <candidate-checkout> --runtime <instance-checkout> --denylist <private-json-array>`. This command is read-only: errors block consolidation and review items form the update plan. It never overwrites configured files or publishes anything. Verify the checkout SHA separately against the lock and verify any stable exception against its own immutable source.
+
+The private `upstream-disposition.json` records reusable findings with evidence and PROJECT_ONLY, UPSTREAM_PENDING or PROMOTED. PROMOTED means implemented in the linked candidate, not released; release gates remain explicit. New reusable changes must update this registry. The checker reports recorded pending items; it cannot infer semantic reuse from arbitrary prose.
+
+Compatibility migrations retain old path pointers for historical records. Do not rewrite closed sessions or reports. In an existing instance, migrate current references from an artifact-specific registry filename to `50_ARTIFACT_REGISTRY.local.md` and preserve the old name as an alias.

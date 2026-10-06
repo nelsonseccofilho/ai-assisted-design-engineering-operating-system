@@ -252,6 +252,12 @@ for field in ["timestamp_with_offset", "timezone", "human_operator", "operator_a
           field in derivative["change_history"]["record_fields"], f"Mutation provenance drift: {field}")
 check((ROOT / "SECURITY.md").is_file(), "Missing public security boundary")
 
+from runtime_sync import assess, snapshot
+package_errors, _ = assess(snapshot(ROOT))
+for message in package_errors:
+    check(False, message)
+check(not package_errors, "Canonical package parity")
+
 if errors:
     print("\n".join("FAIL: " + message for message in errors))
     raise SystemExit(1)
