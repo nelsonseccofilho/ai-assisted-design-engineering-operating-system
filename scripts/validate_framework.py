@@ -129,12 +129,6 @@ for path in ROOT.rglob("*"):
     check(not re.search(r"https?://(?:www.)?figma.com/(?:design|file)/", text),
           f"Figma artifact URL in {path.relative_to(ROOT)}")
 
-if errors:
-    print("\n".join("FAIL: " + message for message in errors))
-    raise SystemExit(1)
-print(f"PASS: {checks} package checks, including Project Runtime and mutation-owner scenarios")
-
-
 # Operator Daily Report contract.
 report_state = json.loads(read("REPORT_STATE_TEMPLATE.json"))
 check(report_state["status"] == "NOT_DUE", "Report state must begin NOT_DUE")
@@ -143,3 +137,8 @@ check(report_state["first_report_baseline"] == "start_of_current_reporting_day",
 for token in ["DRAFT never advances", "SENT", "Do not invent blockers"]:
     check(token in master or token in read("docs/OPERATOR_DAILY_REPORTS.md"),
           f"Missing report contract token: {token}")
+
+if errors:
+    print("\n".join("FAIL: " + message for message in errors))
+    raise SystemExit(1)
+print(f"PASS: {checks} package checks, including Project Runtime, Operator Daily Reports and mutation-owner scenarios")
