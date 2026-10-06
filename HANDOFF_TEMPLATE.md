@@ -91,7 +91,14 @@ Classify when useful:
 
 ## 7. DECISION / CHANGE HISTORY
 
-- `<record-id>` — <description/status>
+| Owner artifact | History location | Namespace-qualified record ID / status | Actual mutation | Linked owner records / decision IDs |
+|---|---|---|---|---|
+| <owner> | <persistent location> | <namespace:record-id> | <mutation> | <links or N/A> |
+
+**Read-only dependencies / evidence:** <references; no change record unless mutated>  
+**Missing owner history / finalization blockers:** <setup still required or none>
+
+Handoff/workstream/chat memory is a snapshot and does not replace persistent owner Change History. Correct historical ownership append-only; retain original archived/pointer evidence.
 
 ---
 

@@ -281,13 +281,15 @@ ai-assisted-design-engineering-operating-system/
 ├── .gitignore
 ├── examples/
 │   ├── PROJECT_CONTEXT.example.md
-│   └── HANDOFF.example.md
+│   ├── HANDOFF.example.md
+│   └── CHANGE_HISTORY.example.md
 └── docs/
     ├── RATIONALE.md
     ├── PUBLICATION_CHECKLIST.md
+    ├── CHANGE_RECORD_OWNERSHIP.md
     └── decisions/
         ├── ADR_TEMPLATE.md
-        └── ADR-0001 ... ADR-0011
+        └── ADR-0001 ... ADR-0014
 ```
 
 Local runtime files are created from the templates and are not committed:
@@ -574,3 +576,13 @@ O repositório público documenta o método. Contextos específicos de clientes 
 Este é um experimento vivo, não um padrão finalizado.
 
 O framework deve evoluir conforme agentes, ferramentas, MCP e Design Systems evoluírem.
+
+## Mutation-owned Change History / Histórico no owner
+
+**THE FILE / ARTIFACT THAT OWNS THE MUTATION OWNS THE CHANGE RECORD**
+
+Significant mutations have persistent records at each actually changed owner. Read-only dependencies and cited consumer evidence do not gain change records. Shared libraries are not central consumer logs. Register each history location and namespace in project context; establish missing owner history before finalization. Linked multi-owner records and append-only historical corrections preserve traceability. Handoff and chat memory do not replace persistent records.
+
+Mudanças significativas são registradas em cada artefato realmente mutado. Dependências inspecionadas e evidências de consumers não geram records sem mutação. Registre localização e namespace por owner no contexto; resolva history ausente antes de FINAL. Correções históricas preservam o original como evidência archived/pointer e criam cópia canônica vinculada no owner correto.
+
+See [guide](docs/CHANGE_RECORD_OWNERSHIP.md), [ADR-0014](docs/decisions/ADR-0014-mutation-owned-change-records.md) and [generic scenarios](examples/CHANGE_HISTORY.example.md). Run `python scripts/validate_framework.py` plus [publication QA](docs/PUBLICATION_CHECKLIST.md). There is no dependency installation step. Startup order remains Master → Project Context → Handoff → relevant owner governance/records → current inspection → safe next action.

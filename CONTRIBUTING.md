@@ -97,3 +97,17 @@ docs(governance): link significant commits to ADRs
 
 Decision: ADR-0013
 ```
+
+## Change ownership and QA
+
+Apply [ADR-0014](docs/decisions/ADR-0014-mutation-owned-change-records.md). Record mutations in each owning artifact; keep read-only evidence references separate. For this repository, update its own changelog and decision index; external artifacts retain their own histories.
+
+Before proposing integration, run `python scripts/validate_framework.py` and the manual [publication checklist](docs/PUBLICATION_CHECKLIST.md). The automated checks cover package references, derivative parity, bootstrap ordering and generic ownership scenarios; manual review still covers evidence quality, real tool state and confidentiality.
+
+Recommended implementing commit:
+
+```text
+feat(governance): require mutation-owned change records
+
+Decision: ADR-0014
+```

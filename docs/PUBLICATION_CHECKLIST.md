@@ -95,3 +95,16 @@ Before publishing a release:
 - [ ] Changelog entries reference the decision when relevant.
 - [ ] Commits that implement, change, supersede, or operationalize significant decisions reference the corresponding Decision ID (for example, `Decision: ADR-0013`).
 - [ ] No confidential project/client decision record is included in the public release.
+
+## Owner history and package QA
+
+- [ ] Identify every actually mutated owner separately from read-only evidence dependencies.
+- [ ] Every significant mutation has an owner-scoped persistent record; missing history is established before FINAL.
+- [ ] Each owner history location and namespace is registered in project context.
+- [ ] Multi-artifact records link each other; shared libraries do not log consumer-only changes.
+- [ ] Evidence-only consumer inspection and library references create no spurious records.
+- [ ] No central fallback log is used.
+- [ ] Historical ownership corrections retain the original as archived/pointer evidence and link the new canonical copy append-only.
+- [ ] Decisions, owner records, Git implementation and Handoff/workstream links agree; chat memory is not persistent history.
+- [ ] Startup loads Master, context and handoff, resolves owner governance/records, inspects current state and only then mutates.
+- [ ] Run `python scripts/validate_framework.py`; inspect templates and generic examples manually.

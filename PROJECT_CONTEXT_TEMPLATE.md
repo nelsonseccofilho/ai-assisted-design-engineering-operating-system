@@ -55,10 +55,21 @@
 
 ## 3. GOVERNANCE AND HISTORY
 
+### Artifact registry
+
+Keep one row per relevant artifact. Resolve locations before significant-change finalization. Read-only dependencies need no mutation record. Add rows just in time.
+
+| Artifact identity / role | Governance location or baseline | Change History location | Change namespace | Decision log location | Evidence archive |
+|---|---|---|---|---|---|
+| <stable owner / consumer> | <location or Master + context> | <owner-local history or owner-scoped companion; unresolved until established> | <unique owner namespace> | <persistent rationale location> | <location or none> |
+| <stable owner / shared library> | <location or baseline> | <its own history> | <distinct namespace> | <location> | <location or none> |
+
+Project-level locations below are compatibility summaries. They do not override owner routing or permit a central fallback log.
+
 **Governance location:**  
 <URL / page / document / none>
 
-**Decision / change history location:**  
+**Project decision index / history summary location:**  
 <URL / page / document / none>
 
 **Evidence archive location:**  

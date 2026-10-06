@@ -97,3 +97,7 @@ Examples:
 ## Notes
 
 Optional context that should remain historically visible.
+
+## Mutation / Change History references
+
+List actually mutated owners, their history locations, namespace-qualified record IDs, linked records and implementing commits. Evidence-only dependencies do not require change records. An ADR explains rationale and does not replace owner Change History.

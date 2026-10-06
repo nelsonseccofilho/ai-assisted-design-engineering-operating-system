@@ -1,0 +1,152 @@
+[
+  {
+    "name": "read-only",
+    "mutated": [],
+    "records": [],
+    "valid": true
+  },
+  {
+    "name": "consumer adoption",
+    "mutated": [
+      "consumer"
+    ],
+    "records": [
+      {
+        "owner": "consumer",
+        "location": "consumer/history",
+        "namespace": "CONSUMER",
+        "links": []
+      }
+    ],
+    "valid": true
+  },
+  {
+    "name": "library with consumer evidence",
+    "mutated": [
+      "library"
+    ],
+    "records": [
+      {
+        "owner": "library",
+        "location": "library/history",
+        "namespace": "LIBRARY",
+        "links": []
+      }
+    ],
+    "valid": true
+  },
+  {
+    "name": "linked multi-owner",
+    "mutated": [
+      "library",
+      "consumer"
+    ],
+    "records": [
+      {
+        "owner": "library",
+        "location": "library/history",
+        "namespace": "LIBRARY",
+        "links": [
+          "consumer"
+        ]
+      },
+      {
+        "owner": "consumer",
+        "location": "consumer/history",
+        "namespace": "CONSUMER",
+        "links": [
+          "library"
+        ]
+      }
+    ],
+    "valid": true
+  },
+  {
+    "name": "false read-only record",
+    "mutated": [],
+    "records": [
+      {
+        "owner": "library",
+        "location": "library/history",
+        "namespace": "LIBRARY",
+        "links": []
+      }
+    ],
+    "valid": false
+  },
+  {
+    "name": "central fallback",
+    "mutated": [
+      "consumer"
+    ],
+    "records": [
+      {
+        "owner": "consumer",
+        "location": "library/history",
+        "namespace": "CONSUMER",
+        "links": []
+      }
+    ],
+    "valid": false
+  },
+  {
+    "name": "missing record",
+    "mutated": [
+      "consumer"
+    ],
+    "records": [],
+    "valid": false
+  },
+  {
+    "name": "missing history",
+    "mutated": [
+      "consumer"
+    ],
+    "records": [
+      {
+        "owner": "consumer",
+        "location": "",
+        "namespace": "CONSUMER",
+        "links": []
+      }
+    ],
+    "valid": false
+  },
+  {
+    "name": "missing namespace",
+    "mutated": [
+      "consumer"
+    ],
+    "records": [
+      {
+        "owner": "consumer",
+        "location": "consumer/history",
+        "namespace": "",
+        "links": []
+      }
+    ],
+    "valid": false
+  },
+  {
+    "name": "unlinked multi-owner",
+    "mutated": [
+      "library",
+      "consumer"
+    ],
+    "records": [
+      {
+        "owner": "library",
+        "location": "library/history",
+        "namespace": "LIBRARY",
+        "links": []
+      },
+      {
+        "owner": "consumer",
+        "location": "consumer/history",
+        "namespace": "CONSUMER",
+        "links": []
+      }
+    ],
+    "valid": false
+  }
+]

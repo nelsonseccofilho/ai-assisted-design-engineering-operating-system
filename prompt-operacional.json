@@ -107,5 +107,56 @@
       "status"
     ],
     "rule": "A significant decision is not complete until it is documented."
-  }
+  },
+  "change_history": {
+    "principle": "THE FILE / ARTIFACT THAT OWNS THE MUTATION OWNS THE CHANGE RECORD",
+    "decision": "ADR-0014",
+    "registry": "PROJECT_CONTEXT.local.md",
+    "registry_fields": [
+      "artifact_identity",
+      "governance_location",
+      "change_history_location",
+      "change_namespace",
+      "decision_log_location",
+      "evidence_archive"
+    ],
+    "record_fields": [
+      "owner_identity",
+      "history_location",
+      "qualified_record_id",
+      "actual_mutation",
+      "evidence_only_dependencies",
+      "linked_owner_records",
+      "decision_references",
+      "when",
+      "status",
+      "scope",
+      "why",
+      "evidence",
+      "decision",
+      "qa",
+      "publication_note",
+      "consumer_impact",
+      "supersession"
+    ],
+    "rules": {
+      "owner_scoped": true,
+      "read_only_creates_record": false,
+      "multi_owner_linked_records": true,
+      "central_fallback_log": false,
+      "missing_history_before_final": true,
+      "historical_correction": "append-only canonical copy with original archived/pointer evidence",
+      "handoff_replaces_history": false
+    },
+    "framework_history": "CHANGELOG.md"
+  },
+  "startup_order": [
+    "master",
+    "project_context_or_onboarding",
+    "handoff",
+    "owner_registry_and_governance_records",
+    "current_state_inspection",
+    "reconcile",
+    "next_action"
+  ]
 }

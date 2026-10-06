@@ -5,6 +5,9 @@ All notable changes to the operating framework are documented here.
 ## Unreleased
 
 ### Governance
+- added [ADR-0014](docs/decisions/ADR-0014-mutation-owned-change-records.md): mutation owners own persistent change records;
+- integrated owner history routing, artifact registry, append-only ownership correction, startup and completion checks across the Master, templates and JSON derivative;
+- added generic ownership scenarios and executable package QA; existing three-layer architecture and released version metadata remain unchanged for this unreleased addition.
 - adopted Conventional Commits 1.0.0 as the mandatory commit-message convention;
 - added `ADR-0012`;
 - added `CONTRIBUTING.md` with commit types, scopes, examples, and commit discipline;

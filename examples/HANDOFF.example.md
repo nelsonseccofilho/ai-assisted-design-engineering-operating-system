@@ -57,7 +57,7 @@ Validate the rebuild against the approved flow and correct only proven divergenc
 
 ## 4. DECISIONS
 
-- parity must be restored before UX evolution;
+- parity must be restored before UX evolution (persistent rationale: <private-project-decisions>, EXAMPLE-DECISION:parity);
 - journey-specific state treatment remains local until recurrence is demonstrated.
 
 ---
@@ -98,3 +98,9 @@ Completed the scenario mapping and documented the two confirmed divergences.
 ## 10. NEXT ACTION
 
 **NEXT ACTION:** correct the two confirmed state mismatches in the target flow, then run visual and structural QA against the approved reference.
+
+## Persistent owner records / workstream continuity
+
+No design mutation has occurred in this snapshot; completed work is analysis only. No change records are created in the consumer or library. Evidence references and persistent decision rationale remain linked above.
+
+Planned target: consumer, <consumer-history>, EXAMPLE-CONSUMER. Read-only dependency: library, <library-history>, EXAMPLE-LIBRARY. After actual fixes, persist a consumer record and QA, then update the handoff with its qualified ID. Do not create a library record unless the library changes. Missing owner history: none in this fictional registry. This snapshot does not replace persistent Change History.

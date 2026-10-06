@@ -27,7 +27,9 @@ Do not ask the user to re-explain information that is already present in those f
 3. validate the current tool state whenever direct inspection is possible;
 4. treat handoff content as a snapshot, not absolute truth;
 5. reconcile any differences before mutating;
-6. continue from `NEXT ACTION`.
+6. resolve target owners and read-only dependencies from the project artifact registry; load relevant governance and persistent decision/change records;
+7. verify each mutation owner's history location and namespace; establish missing owner history before significant-change finalization, without a central fallback log;
+8. continue from `NEXT ACTION` when scope and evidence remain valid.
 
 ### If `PROJECT_CONTEXT.local.md` does not exist
 
