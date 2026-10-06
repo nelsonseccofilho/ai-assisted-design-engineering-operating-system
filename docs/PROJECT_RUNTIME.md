@@ -106,3 +106,7 @@ Do not use chat memory as a substitute Project Runtime. Reconnect before project
 ## Context-limit trigger
 
 A conversation-limit warning triggers controlled continuity: close the atomic operation, synchronize Workstream state, Session Record and registry, persist a checkpoint, and finish with exactly one NEXT ACTION.
+
+## Complete template surface and upstreaming
+
+Use [framework/runtime synchronization](FRAMEWORK_RUNTIME_SYNC.md) for deterministic assembly, manifest configuration, template mapping, schema compatibility and promotion of reusable pilot learnings. Runtime-specific values remain private; reusable rules belong in the framework.

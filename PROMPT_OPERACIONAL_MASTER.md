@@ -1270,3 +1270,11 @@ Confirmation requires READ_WRITE, an existing operator-matching DRAFT and eviden
 ## Session closure discipline
 
 Keep Session Records OPEN while the conversation continues. A Git checkpoint or PR merge alone does not close a session. Close at actual conversation end, context-limit trigger or explicit human handoff. Preserve premature closures through transparent append-only correction notes.
+
+# 51. FRAMEWORK AND RUNTIME PROMOTION
+
+The generic framework owns reusable operating behavior. Project runtimes pilot and configure that behavior. Reusable findings must receive an upstream disposition in framework contracts, templates, schemas and QA; project-only values remain private.
+
+Follow docs/FRAMEWORK_RUNTIME_SYNC.md and ADR-0018. Manifest bootstrap_files define deterministic runtime load order and explicit filename translations. Keep framework version/pin, runtime version and schema versions independent and validated.
+
+Candidate capability remains separate from stable main until declared QA and live pilot gates pass. After promotion, update each runtime's dependency pin and vendored Master/companions through a governed PR. Do not edit generic method only inside a project's overrides indefinitely.

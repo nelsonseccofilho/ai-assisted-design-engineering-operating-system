@@ -17,7 +17,14 @@
     "runtime_state_template": "RUNTIME_STATE_TEMPLATE.json",
     "operator_profile_template": "OPERATOR_PROFILE_TEMPLATE.md",
     "operator_daily_report_template": "OPERATOR_DAILY_REPORT_TEMPLATE.md",
-    "report_state_template": "REPORT_STATE_TEMPLATE.json"
+    "report_state_template": "REPORT_STATE_TEMPLATE.json",
+    "runtime_manifest_template": "RUNTIME_MANIFEST_TEMPLATE.json",
+    "governance_template": "GOVERNANCE_TEMPLATE.md",
+    "artifact_registry_template": "ARTIFACT_REGISTRY_TEMPLATE.md",
+    "evidence_index_template": "EVIDENCE_INDEX_TEMPLATE.md",
+    "backlog_template": "BACKLOG_TEMPLATE.md",
+    "runtime_qa_template": "RUNTIME_QA_TEMPLATE.md",
+    "framework_dependency_template": "FRAMEWORK_DEPENDENCY_TEMPLATE.md"
   },
   "first_run": {
     "mode": "generic",
@@ -235,5 +242,14 @@
     "blocker_rule": "Do not invent blockers. Distinguish blockers from dependencies.",
     "last_sent_at": "actual external sending timestamp",
     "waiver_advances_cursor": false
+  },
+  "framework_runtime_promotion": {
+    "decision": "ADR-0018",
+    "framework_owns": "reusable method, templates, schemas and QA",
+    "runtime_owns": "project configuration, operational state and pilot evidence",
+    "bootstrap_order_source": "runtime manifest bootstrap_files",
+    "promote_reusable_findings": true,
+    "stable_and_candidate_refs_separate": true,
+    "pin_update": "after framework promotion via governed runtime PR"
   }
 }

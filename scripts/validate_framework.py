@@ -198,6 +198,60 @@ check("Decision: ADR-0014" in read("CONTRIBUTING.md"), "Commit traceability")
 check("ADR-0014" in read("CHANGELOG.md") and "3.3.0" in read("CHANGELOG.md"),
       "Governance/release history")
 
+
+# Framework/runtime template parity from ADR-0018.
+manifest = json.loads(read("RUNTIME_MANIFEST_TEMPLATE.json"))
+check(manifest["schema_version"] == "1.0", "Manifest schema version")
+check(manifest["canonical_runtime_ref"] == "main", "Manifest canonical ref")
+check(manifest["runtime_repository"] is None and manifest["operator_identity"] == [],
+      "Manifest contains instance identity")
+check(manifest["framework"]["stable_pin"] is None and manifest["framework"]["candidate"] is None,
+      "Generic manifest has a private/candidate pin")
+check(manifest["runtime_access_modes"] == runtime["access_modes"], "Manifest access mode drift")
+check(manifest["workstream_id_pattern"] == runtime["workstream_id_pattern"], "Manifest ID drift")
+check(manifest["session_record_pattern"] == runtime["session_record_pattern"], "Manifest session path drift")
+expected_bootstrap = [
+    "00_START_CHAT.md", "10_PROMPT_OPERACIONAL_MASTER.md", "20_PROJECT_CONTEXT.local.md",
+    "30_GOVERNANCE.local.md", "40_PROJECT_DECISION_LOG.local.md", "50_ARTIFACT_REGISTRY.local.md",
+    "60_EVIDENCE_INDEX.local.md", "70_WORKSTREAM_REGISTRY.local.md"]
+check(manifest["bootstrap_files"] == expected_bootstrap, "Deterministic bootstrap drift")
+mapping = manifest["template_sources"]
+assembly = read("docs/FRAMEWORK_RUNTIME_SYNC.md")
+for destination, source in mapping.items():
+    check((ROOT / source).is_file(), f"Missing runtime source: {source}")
+    check(destination in assembly and source in assembly, f"Unmapped assembly source: {source}")
+check(manifest["project_decision_index"]["destination"] == expected_bootstrap[4],
+      "Project decision index bootstrap")
+check((ROOT / manifest["project_decision_index"]["record_template"]).is_file(),
+      "Missing project decision template")
+for field in ["governance_template", "artifact_registry_template", "evidence_index_template",
+              "backlog_template", "runtime_qa_template", "framework_dependency_template",
+              "runtime_manifest_template"]:
+    target = derivative["runtime_files"][field]
+    check((ROOT / target).is_file(), f"Missing generic template mapping: {field}")
+config = manifest["daily_operator_reports"]
+check(config["required"] is False and config["languages"] == [] and config["timezone"] is None,
+      "Generic report policy must remain configurable")
+check(config["statuses"] == derivative["operator_daily_reports"]["statuses"],
+      "Manifest report states drift")
+check(config["first_report_baseline"] == report_state["first_report_baseline"],
+      "Manifest report baseline drift")
+check(manifest["validation_gates"] == {"live_report_cycle": "PENDING", "cross_chat_pilot": "PENDING"},
+      "Generic template must not assert live validation")
+check(state["schema_version"] == "1.1" and state["runtime_version"] is None,
+      "Runtime state schema/version drift")
+check("ADR-0018" in index and "ADR-0018" in read("CHANGELOG.md"),
+      "Promotion ADR not indexed/changelogged")
+check(derivative["framework_runtime_promotion"]["promote_reusable_findings"] is True,
+      "Reusable findings cannot stay private-only")
+check(manifest["conventional_commits"]["version"] == derivative["git_contract"]["conventional_commits"],
+      "Manifest commit contract")
+for field in ["timestamp_with_offset", "timezone", "human_operator", "operator_alias",
+              "chat_label", "workstream_id"]:
+    check(field in manifest["mutation_attribution"] and
+          field in derivative["change_history"]["record_fields"], f"Mutation provenance drift: {field}")
+check((ROOT / "SECURITY.md").is_file(), "Missing public security boundary")
+
 if errors:
     print("\n".join("FAIL: " + message for message in errors))
     raise SystemExit(1)

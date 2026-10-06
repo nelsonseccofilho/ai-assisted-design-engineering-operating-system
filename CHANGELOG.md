@@ -4,6 +4,12 @@ All notable changes to the operating framework are documented here.
 
 ## 3.4.0 — 2026-10-06
 
+### Framework/runtime product parity
+- added manifest, governance, artifact/evidence registry, backlog, QA and dependency templates;
+- added explicit instance assembly and upstream promotion mapping with ADR-0018;
+- aligned Workstream state schema 1.1 with runtime version metadata;
+- made project report configuration and schema extension boundaries explicit.
+
 ### Consolidation QA
 - repaired executable QA regular expressions and strengthened link, JSON and report-state validation;
 - clarified frozen report coverage, delivery timestamps, waiver and idempotent confirmation;

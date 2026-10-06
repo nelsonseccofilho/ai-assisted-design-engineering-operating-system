@@ -156,3 +156,15 @@ Do not commit it to a public repository.
 <private/local path, repository path, or supported project location>
 
 Significant project decisions must be documented persistently and referenced from handoffs.
+
+## Runtime configuration
+
+**Runtime manifest:** <path / N/A>  
+**Governance file:** <path / N/A>  
+**Framework dependency / immutable pin:** <path / commit / N/A>  
+**Daily reports required:** <true / false>  
+**Report timezone:** <IANA timezone / N/A>  
+**Report languages:** <codes / N/A>  
+**Operator command mappings:** <manifest section / N/A>
+
+Use the manifest as configuration authority and keep profiles/state aligned. See [framework/runtime assembly](docs/FRAMEWORK_RUNTIME_SYNC.md).

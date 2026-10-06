@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "workstream_id": null,
   "legacy_workstream_ids": [],
   "status": "PLANNED",
@@ -15,5 +15,6 @@
   "latest_session_record": null,
   "last_completed_action": null,
   "next_action": null,
-  "last_validated_at": null
+  "last_validated_at": null,
+  "runtime_version": null
 }

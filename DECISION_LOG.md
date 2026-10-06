@@ -44,6 +44,8 @@ Never silently rewrite history.
 | [ADR-0016](docs/decisions/ADR-0016-operator-session-workstream-topology.md) | 2026-10-06 | ACCEPTED | Separate Operator, Session and Workstream identity and require deterministic cross-chat continuity |
 | [ADR-0017](docs/decisions/ADR-0017-operator-daily-reports.md) | 2026-10-06 | ACCEPTED | Derive operator daily reports from persistent runtime evidence with a confirmed reporting cursor |
 
+| [ADR-0018](docs/decisions/ADR-0018-framework-runtime-promotion.md) | 2026-10-06 | ACCEPTED | Promote reusable runtime learnings into generic templates and update instance pins after framework promotion |
+
 ---
 
 ## Rule

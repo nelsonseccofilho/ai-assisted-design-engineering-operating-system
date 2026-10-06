@@ -247,3 +247,7 @@ A Project Runtime may make one SENT-or-WAIVED report per reporting day mandatory
 Freeze an offset-aware `interval_end` when generating a DRAFT. On confirmed sending, set `last_confirmed_report_at` to that report's `interval_end`, not its `sent_at`; store the actual send time separately as `last_sent_at`. Activity after generation remains eligible for the next report. Read material deltas in OPEN Session Records as well as new records; a session's creation date alone cannot select its later updates.
 
 Confirmation requires READ_WRITE, an existing operator-matching DRAFT and evidence of actual sending. Invoking the sent command is the human's confirmation; ask only if that intent or the draft is ambiguous. Reject missing, superseded or already confirmed drafts without moving the cursor. Repeated confirmation is idempotent. Refreshing a draft preserves the previous draft as SUPERSEDED. WAIVED records the reporting date, human, time and reason, and does not advance the cursor. Day rollover recomputes DUE from material activity; absence of activity remains NOT_DUE.
+
+## Runtime manifest and template assembly
+
+When a runtime manifest exists, load its declared bootstrap_files in order, resolve generic/private filename translations and verify framework dependency metadata. Check operator command mappings, report policy, timezone and languages against profile/state. See [assembly and promotion](docs/FRAMEWORK_RUNTIME_SYNC.md). Missing configuration is not permission to infer private project facts.

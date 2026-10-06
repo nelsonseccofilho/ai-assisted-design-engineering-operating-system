@@ -659,3 +659,11 @@ Significant mutations have persistent records at each actually changed owner. Re
 Mudanças significativas são registradas em cada artefato realmente mutado. Dependências inspecionadas e evidências de consumers não geram records sem mutação. Registre localização e namespace por owner no contexto; resolva history ausente antes de FINAL. Correções históricas preservam o original como evidência archived/pointer e criam cópia canônica vinculada no owner correto.
 
 See [guide](docs/CHANGE_RECORD_OWNERSHIP.md), [ADR-0014](docs/decisions/ADR-0014-mutation-owned-change-records.md) and [generic scenarios](examples/CHANGE_HISTORY.example.md). Run `python scripts/validate_framework.py` plus [publication QA](docs/PUBLICATION_CHECKLIST.md). There is no dependency installation step. Startup order remains Master → Project Context → Handoff → relevant owner governance/records → current inspection → safe next action.
+
+## Framework and project runtime synchronization
+
+The generic framework owns reusable rules, templates, schemas and QA. Populated private runtimes configure and pilot them. See [promotion and assembly mapping](docs/FRAMEWORK_RUNTIME_SYNC.md) and [ADR-0018](docs/decisions/ADR-0018-framework-runtime-promotion.md).
+
+Generic sources now cover manifest, governance, artifact/evidence registries, operators, sessions, workstreams, reports, backlog, QA and dependency pinning. Public templates intentionally contain placeholders; real operational folders belong in the private instance. See [security boundary](SECURITY.md).
+
+O framework genérico é o master das regras reutilizáveis. Runtimes privados configuram e testam o fluxo. Avanços reutilizáveis devem entrar no framework por PR; depois da promoção, atualize o pin da instância. A estrutura genérica oferece templates, enquanto a instância contém dados reais e histórico privado.
