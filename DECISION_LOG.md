@@ -39,6 +39,7 @@ Never silently rewrite history.
 | ADR-0011 | 2026-10-05 | ACCEPTED | Publish the framework as a public, organization-agnostic repository |
 | ADR-0012 | 2026-10-05 | ACCEPTED | Adopt Conventional Commits 1.0.0 for repository history |
 | ADR-0013 | 2026-10-05 | ACCEPTED | Link significant commits to persistent decision records |
+| [ADR-0014](docs/decisions/ADR-0014-mutation-owned-change-records.md) | 2026-10-06 | ACCEPTED | The mutation owner owns the persistent change record |
 
 ---
 
@@ -53,3 +54,7 @@ Documentation may live in:
 - a project handoff only for temporary operational state, with links to the permanent decision record where applicable.
 
 The Handoff is not a replacement for the Decision Log.
+
+## Change ownership
+
+This index contains framework decisions, not external consumer mutation history. ADR-0014 separates rationale from owner-scoped Change History. Project decisions may be shared by linked owner records; unchanged evidence dependencies do not gain change records.

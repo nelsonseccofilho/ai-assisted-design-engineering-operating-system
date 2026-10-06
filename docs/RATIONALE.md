@@ -761,3 +761,7 @@ This prevents “organizational amnesia” across human and AI sessions.
 The goal is not to document every micro-action.
 
 The goal is to document every decision whose loss would make future work harder to understand, audit, reverse, or evolve.
+
+# 22. Why mutation owners retain history
+
+Centralizing consumer changes in a shared library confuses dependency authority with mutation ownership. Owner-scoped history preserves where the actual mutation occurred while linked records preserve coordination. Evidence-only references remain useful without claiming a mutation. ADR-0014 adds this rule without changing the Operating Model / Project Context / Handoff architecture. Decisions explain rationale; Change History documents mutation; handoff and chat memory provide continuity. See [ownership guide](CHANGE_RECORD_OWNERSHIP.md).

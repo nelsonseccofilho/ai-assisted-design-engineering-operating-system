@@ -229,6 +229,7 @@ It may contain:
 - primary work file URL;
 - approved reference;
 - local components location;
+- artifact registry with per-owner governance, Change History location and namespace;
 - governance location;
 - evidence archive location;
 - decision history location;
@@ -534,7 +535,9 @@ Before mutation, verify as applicable:
 - do-not-touch boundaries identified;
 - existing components searched;
 - impact mapped;
-- expected QA defined.
+- expected QA defined;
+- actual mutation owners separated from read-only evidence dependencies;
+- owner history locations/namespaces resolved and missing-history setup planned.
 
 If something essential to safe mutation is missing, investigate before editing.
 
@@ -576,6 +579,8 @@ Before considering a change complete, validate as applicable:
 - empty/residual layers;
 - canonical vs local ownership;
 - accessibility;
+- persistent records verified in every actually mutated owner, with reciprocal links for multi-artifact work;
+- no records created merely for read-only dependencies;
 - change documentation;
 - publication note;
 - consumer impact.
@@ -588,24 +593,27 @@ Structural-only changes may use structural inspection first, but visible side ef
 
 # 27. CHANGE HISTORY
 
-If the project maintains decision/change history, its location is defined in `PROJECT_CONTEXT.local.md`.
+**THE FILE / ARTIFACT THAT OWNS THE MUTATION OWNS THE CHANGE RECORD**
 
-Use append-only behavior for meaningful decisions.
+A significant mutation must have persistent Change History at its owning file/artifact. A shared library / Design System must not become a central consumer log. Read-only inspection creates no change record in the inspected dependency.
 
-A useful record includes:
+Before mutation, map each target and read-only dependency in the artifact registry in `PROJECT_CONTEXT.local.md`: stable artifact identity, governance location, Change History location and namespace, decision-log location, and evidence archive. Locations must be explicit; a pointer may resolve to a durable owner-scoped companion when inline history is unsupported. A companion must remain attached to that owner, never a central fallback log. Existing project-wide fields are summaries, not routing authority.
 
-- WHEN / STATUS;
-- SCOPE;
-- WHY;
-- EVIDENCE;
-- MUTATION;
-- DECISION;
-- QA;
-- PUBLICATION NOTE;
-- CONSUMER IMPACT;
-- SUPERSESSION when applicable.
+If an owner has no governance/history location, establish its owner-scoped history and register it before finalizing a significant change. Harmless read-only work may continue. The Master plus project context remains the governance baseline when no separate governance document exists; that does not waive persistent Change History.
 
-Never erase history to make the current state look cleaner.
+Record actual mutations, not the number of files inspected:
+- consumer-only adoption may cite the Design System; create only the consumer record if the Design System was not mutated;
+- a Design System change may cite read-only consumer evidence without creating consumer records;
+- actual multi-artifact mutations require linked records in every mutated owner, with stable qualified IDs and a common activity reference;
+- never route a record to another artifact merely because it already has Governance.
+
+Each record includes owner identity, history location, namespace-qualified record ID, actual mutation, evidence-only dependencies, linked owner records, decision references, WHEN / STATUS, SCOPE, WHY, EVIDENCE, DECISION, QA, PUBLICATION NOTE, CONSUMER IMPACT, and SUPERSESSION when applicable.
+
+Historical ownership corrections are append-only: create a canonical copy at the correct owner; append reciprocal links and correction rationale; retain the original as archived/pointer evidence. Do not delete or silently rewrite the original or its stable ID.
+
+Change History records what changed at the owner; Decisions/ADRs explain why significant choices exist; Handoff/workstream/chat memory summarize continuity; Git records implementation. None substitutes for the others. Handoffs must link persistent owner records, never act as their only storage.
+
+For the framework repository itself, `CHANGELOG.md` is its owner-scoped release history, Git identifies changed source files, and `docs/decisions/` stores rationale. This does not authorize recording external consumer mutations in the framework changelog. See [ownership guide](docs/CHANGE_RECORD_OWNERSHIP.md) and [ADR-0014](docs/decisions/ADR-0014-mutation-owned-change-records.md).
 
 ---
 
@@ -784,7 +792,8 @@ Depending on scope, FINAL may require:
 - structural QA;
 - accessibility checks;
 - documentation;
-- relevant evidence coverage.
+- relevant evidence coverage;
+- owner-scoped Change History persisted and registered before significant-change finalization.
 
 If later evidence reveals a real divergence, reopen the work.
 
@@ -799,7 +808,7 @@ On a new session:
 3. if absent, run First-Run Onboarding;
 4. load `HANDOFF_CURRENT.local.md` if present;
 5. identify objective, scope, references, and evidence;
-6. load governance if applicable;
+6. resolve the artifact registry; load relevant owner governance and persistent decision/change records before mutation;
 7. inspect current tool state when possible;
 8. compare real state with the handoff snapshot;
 9. reconstruct current operational state;
@@ -822,7 +831,8 @@ Transfer only operationally useful context:
 - decisions;
 - completed changes;
 - pending changes;
-- change/decision records;
+- change/decision records with owner, location, namespace-qualified ID and linked owner records;
+- read-only dependencies and unresolved owner-history setup;
 - QA status;
 - known problems;
 - open assumptions;
@@ -981,5 +991,7 @@ Decision: ADR-0013
 Routine commits without a significant decision do not require an ADR reference.
 
 Do not create meaningless ADRs solely to satisfy commit formatting.
+
+Owner Change History must also cite relevant implementation commits when Git is used. A commit or ADR does not replace an external artifact's persistent mutation record.
 
 The goal is traceability, not bureaucracy.

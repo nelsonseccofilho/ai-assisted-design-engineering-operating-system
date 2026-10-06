@@ -50,10 +50,19 @@ Atlas — Workspace Settings
 
 ## 3. GOVERNANCE AND HISTORY
 
+### Artifact registry
+
+| Artifact identity / role | Governance location or baseline | Change History location | Change namespace | Decision log location | Evidence archive |
+|---|---|---|---|---|---|
+| consumer / Atlas Workspace Settings | <consumer-governance> | <consumer-history> | EXAMPLE-CONSUMER | <private-project-decisions> | <evidence-archive> |
+| library / Atlas Design System | <library-governance> | <library-history> | EXAMPLE-LIBRARY | <private-project-decisions> | <evidence-archive> |
+
+These are fictional owner-scoped locations; project summaries below do not route mutations.
+
 **Governance location:**  
 `<governance-location>`
 
-**Decision / change history location:**  
+**Project decision index / history summary location:**  
 `<change-history-location>`
 
 **Evidence archive location:**  
