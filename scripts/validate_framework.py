@@ -19,7 +19,7 @@ def read(path):
 # Local Markdown links.
 for source in ROOT.rglob("*.md"):
     text = source.read_text(encoding="utf-8-sig")
-    for target in re.findall(r"(?<!!)[[^]]+](([^)]+))", text):
+    for target in re.findall(r"(?<!!)\[[^\]]+\]\(([^)]+)\)", text):
         target = target.split("#", 1)[0].strip("<>")
         if not target or re.match(r"[a-zA-Z]+:", target):
             continue
@@ -28,7 +28,7 @@ for source in ROOT.rglob("*.md"):
 
 master = read("PROMPT_OPERACIONAL_MASTER.md")
 derivative = json.loads(read("prompt-operacional.json"))
-version = re.search(r"**Version:** ([0-9.]+)", master).group(1)
+version = re.search(r"\*\*Version:\*\* ([0-9.]+)", master).group(1)
 check(version == "3.4.0", "Unexpected framework version")
 check(derivative["meta"]["version"] == version, "Master/JSON version mismatch")
 check(f"**Framework version:** {version}" in read("README.md"), "README version mismatch")
@@ -126,7 +126,7 @@ for path in ROOT.rglob("*"):
     if not path.is_file() or path.suffix not in {".md", ".json", ".py"}:
         continue
     text = path.read_text(encoding="utf-8-sig")
-    check(not re.search(r"https?://(?:www.)?figma.com/(?:design|file)/", text),
+    check(not re.search(r"https?://(?:www\.)?figma\.com/(?:design|file)/", text),
           f"Figma artifact URL in {path.relative_to(ROOT)}")
 
 # Operator Daily Report contract.
@@ -137,6 +137,66 @@ check(report_state["first_report_baseline"] == "start_of_current_reporting_day",
 for token in ["DRAFT never advances", "SENT", "Do not invent blockers"]:
     check(token in master or token in read("docs/OPERATOR_DAILY_REPORTS.md"),
           f"Missing report contract token: {token}")
+
+
+# Parse all JSON files and validate report template integration.
+for path in ROOT.rglob("*.json"):
+    try:
+        json.loads(path.read_text(encoding="utf-8-sig"))
+        check(True, str(path))
+    except ValueError as exc:
+        check(False, f"Invalid JSON: {path.relative_to(ROOT)}: {exc}")
+check(report_state["schema_version"] == "1.1", "Report schema mismatch")
+check(report_state["required"] is False, "Generic reports must remain configurable")
+for field in ["last_sent_at", "reporting_date", "waiver"]:
+    check(field in report_state, f"Missing report field: {field}")
+for key, target in {"operator_daily_report_template": "OPERATOR_DAILY_REPORT_TEMPLATE.md",
+                    "report_state_template": "REPORT_STATE_TEMPLATE.json"}.items():
+    check(derivative["runtime_files"].get(key) == target, f"Report template mapping: {key}")
+check("interval_end" in derivative["operator_daily_reports"]["cursor_rule"],
+      "Cursor must freeze report coverage")
+check(derivative["operator_daily_reports"]["waiver_advances_cursor"] is False,
+      "Waiver cannot advance cursor")
+check("Git checkpoint or PR merge alone" in read("SESSION_RECORD_TEMPLATE.md"),
+      "Missing session closure discipline")
+for target in ["operators/", "sessions/", "workstreams/", "reports/", "*.local.md"]:
+    check(target in read(".gitignore"), f"Unprotected runtime path: {target}")
+
+
+# Preserve stable-main governance checks alongside new runtime checks.
+check(derivative["meta"]["canonical_source"] == "PROMPT_OPERACIONAL_MASTER.md", "Canonical source")
+check("append-only" in rules["historical_correction"], "Destructive correction contract")
+check(derivative["startup_order"] == [
+    "master", "project_context_or_onboarding", "handoff",
+    "owner_registry_and_governance_records", "current_state_inspection",
+    "reconcile", "next_action"], "Wrong bootstrap order")
+startup = master.split("# 36. STARTUP PROTOCOL", 1)[1].split("# 37.", 1)[0]
+tokens = ["load this Master", "load `PROJECT_CONTEXT.local.md`",
+          "load `HANDOFF_CURRENT.local.md`", "resolve the artifact registry",
+          "inspect current tool state", "execute `NEXT ACTION`"]
+positions = [startup.find(token) for token in tokens]
+check(all(p >= 0 for p in positions) and positions == sorted(positions),
+      "Master bootstrap/load order changed")
+minimal = entry.split("## If only local minimal mode exists", 1)[1].split("---", 1)[0]
+check(entry.index("## Always load") < entry.index("## If only local minimal mode exists") and
+      minimal.index("PROJECT_CONTEXT.local.md") < minimal.index("HANDOFF_CURRENT.local.md"),
+      "Startup load order")
+check("resolve target mutation owners" in entry and "Change History records" in entry,
+      "Startup omits owner records")
+context = read("PROJECT_CONTEXT_TEMPLATE.md")
+for field in ["Artifact identity", "Governance location", "Change History location",
+              "Change namespace", "Decision log location", "Evidence archive"]:
+    check(field in context, f"Context registry missing {field}")
+for field in ["Namespace-qualified record ID", "Read-only dependencies", "Missing owner history"]:
+    check(field in handoff, f"Handoff missing {field}")
+check("does not replace persistent owner Change History" in handoff, "Handoff replaces history")
+adr = read("docs/decisions/ADR-0014-mutation-owned-change-records.md")
+for section in ["Context", "Evidence", "Decision", "Why", "Impact",
+                "Alternatives considered", "Validation / QA", "Supersession"]:
+    check(f"## {section}" in adr, f"ADR-0014 missing {section}")
+check("Decision: ADR-0014" in read("CONTRIBUTING.md"), "Commit traceability")
+check("ADR-0014" in read("CHANGELOG.md") and "3.3.0" in read("CHANGELOG.md"),
+      "Governance/release history")
 
 if errors:
     print("\n".join("FAIL: " + message for message in errors))

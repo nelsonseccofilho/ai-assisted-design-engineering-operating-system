@@ -32,3 +32,7 @@
 **Source persistent changes:** <references>
 
 Do not include full chat transcripts.
+
+**Waived by / at / reason:** <human / offset-aware timestamp / reason | N/A>
+
+The frozen Interval end is the coverage cursor upon SENT; Sent at records delivery time separately. Preserve replaced drafts as SUPERSEDED.

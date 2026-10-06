@@ -15,7 +15,9 @@
     "workstream_handoff_template": "HANDOFF_TEMPLATE.md",
     "session_record_template": "SESSION_RECORD_TEMPLATE.md",
     "runtime_state_template": "RUNTIME_STATE_TEMPLATE.json",
-    "operator_profile_template": "OPERATOR_PROFILE_TEMPLATE.md"
+    "operator_profile_template": "OPERATOR_PROFILE_TEMPLATE.md",
+    "operator_daily_report_template": "OPERATOR_DAILY_REPORT_TEMPLATE.md",
+    "report_state_template": "REPORT_STATE_TEMPLATE.json"
   },
   "first_run": {
     "mode": "generic",
@@ -194,7 +196,8 @@
   "continuity": {
     "continuous_handoff": true,
     "context_limit_trigger": "mandatory",
-    "next_action_count": 1
+    "next_action_count": 1,
+    "session_closure": "Only actual conversation end, context-limit trigger or explicit human handoff; a Git checkpoint alone does not close a Session Record."
   },
   "git_contract": {
     "conventional_commits": "1.0.0",
@@ -215,7 +218,7 @@
       "WAIVED",
       "SUPERSEDED"
     ],
-    "cursor_rule": "DRAFT never advances the reporting cursor; SENT advances it.",
+    "cursor_rule": "DRAFT never advances the reporting cursor; SENT advances it to the frozen interval_end, never sent_at.",
     "recommended_first_report_baseline": "start_of_current_reporting_day",
     "source_order": [
       "last_confirmed_report_cursor",
@@ -229,6 +232,8 @@
       "planned_today_or_next",
       "blockers_or_help"
     ],
-    "blocker_rule": "Do not invent blockers. Distinguish blockers from dependencies."
+    "blocker_rule": "Do not invent blockers. Distinguish blockers from dependencies.",
+    "last_sent_at": "actual external sending timestamp",
+    "waiver_advances_cursor": false
   }
 }

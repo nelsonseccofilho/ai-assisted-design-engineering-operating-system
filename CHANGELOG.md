@@ -4,6 +4,11 @@ All notable changes to the operating framework are documented here.
 
 ## 3.4.0 — 2026-10-06
 
+### Consolidation QA
+- repaired executable QA regular expressions and strengthened link, JSON and report-state validation;
+- clarified frozen report coverage, delivery timestamps, waiver and idempotent confirmation;
+- synchronized report template mappings, session closure and private runtime ignore paths.
+
 ### Project Runtime
 - added generic Operator Daily Report contracts with report cursors, DRAFT/SENT semantics and project-configurable mandatory mode;
 - added report/state templates and ADR-0017;

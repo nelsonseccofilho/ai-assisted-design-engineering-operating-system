@@ -51,7 +51,8 @@ Chat/model memory is non-authoritative convenience only.
 project-runtime/
 ├── README.md
 ├── governance...
-├── operator profiles...
+├── operators/
+│   └── <OPERATOR_ALIAS>.md
 ├── sessions/
 │   └── <OPERATOR_ALIAS>/<YYYY>/<MM>/<session>.md
 ├── workstreams/
@@ -59,6 +60,11 @@ project-runtime/
 │   │   ├── HANDOFF.md
 │   │   └── state.json
 │   └── ...
+├── reports/daily/
+│   ├── _template/
+│   └── <OPERATOR_ALIAS>/
+│       ├── state.json
+│       └── <YYYY>/<MM>/<report>.md
 └── workstream registry
 ```
 

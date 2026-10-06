@@ -59,3 +59,5 @@ A single Session Record may reference multiple Workstreams.
 Do not store the full chat transcript.
 
 An OPEN record may be updated during the live session. A CLOSED record is immutable except for explicit append-only correction notes.
+
+Close only at actual conversation end, context-limit trigger or explicit human handoff. A Git checkpoint or PR merge alone is not session closure.
