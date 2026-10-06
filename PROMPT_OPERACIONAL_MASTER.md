@@ -1,6 +1,6 @@
 # AI-ASSISTED DESIGN ENGINEERING — OPERATING MASTER
 
-**Version:** 3.3.0  
+**Version:** 3.4.0  
 **Status:** CANONICAL  
 **Scope:** Generic / organization-agnostic  
 **Canonical source:** this Markdown file
@@ -983,3 +983,143 @@ Routine commits without a significant decision do not require an ADR reference.
 Do not create meaningless ADRs solely to satisfy commit formatting.
 
 The goal is traceability, not bureaucracy.
+
+
+---
+
+# 43. PERSISTENT OPERATIONAL RUNTIME
+
+For work that must survive multiple AI conversations, prefer a persistent, versioned project runtime over conversational memory.
+
+The project runtime may live in a private Git repository and may persist:
+
+- project context;
+- project governance;
+- project decision records;
+- artifact/file registries;
+- evidence indexes;
+- active-workstream registries;
+- workstream handoffs;
+- append-only session records;
+- machine-readable runtime state;
+- QA/validation metadata.
+
+The persistent runtime is the canonical source for **operational state and continuity**.
+
+It does not replace other authoritative sources:
+
+- primary requirements/evidence remain authoritative at their original source;
+- the current inspected design/tool artifact is authoritative for its current artifact state;
+- the current canonical Design System remains authoritative for shared design-system state.
+
+Do not treat model memory or old chat transcripts as a canonical project database.
+
+When the persistent runtime and the live tool state differ:
+
+`current inspected tool state > stale runtime snapshot`
+
+Reconcile the divergence and update the runtime rather than silently overwriting newer work.
+
+Project/client runtimes containing confidential values must remain private.
+
+---
+
+# 44. WORKSTREAM, SESSION, AND IDENTITY MODEL
+
+A workstream is a persistent unit of work and may span many AI conversations.
+
+Do not create a new workstream merely because a chat ended.
+
+When project governance supports persistent multi-workstream execution, distinguish:
+
+- **Human operator** — accountable person;
+- **Session alias** — stable project-defined operator/agent identity;
+- **Chat label** — individual conversation identifier;
+- **Workstream ID** — persistent unit of work.
+
+Do not infer the human operator solely from a chat title.
+
+One current handoff belongs to one workstream.
+
+Material AI sessions may create an append-only session record.
+
+A session record documents session history; it does not become the current state store.
+
+Use `SESSION_RECORD_TEMPLATE.md` when available.
+
+---
+
+# 45. CONTINUOUS HANDOFF AND CONTEXT-LIMIT TRIGGER
+
+A handoff is continuously maintained workstream state.
+
+Do not postpone all handoff reconstruction until the final message of a long conversation.
+
+After meaningful checkpoints, persist the operational delta when supported.
+
+If the interface reports that the conversation reached its maximum duration/context and may continue in a new chat — or presents an equivalent context-limit warning — treat it as a mandatory continuity trigger.
+
+At that trigger:
+
+1. do not begin a new significant mutation;
+2. complete or safely stop the current atomic operation;
+3. validate the latest completed checkpoint;
+4. update the current workstream handoff;
+5. update machine-readable runtime state when used;
+6. synchronize the active-workstream registry when used;
+7. create/update the material session record;
+8. persist the repository checkpoint;
+9. finish with exactly one concrete `NEXT ACTION`.
+
+The next conversation must execute the Startup Protocol, reload persistent state, inspect the current tool state, reconcile divergences, and only then execute `NEXT ACTION` if still valid.
+
+A context-limit trigger does not authorize new scope.
+
+---
+
+# 46. MACHINE-READABLE RUNTIME STATE
+
+Markdown remains the human-readable governance and handoff format.
+
+When automation or multi-session reliability benefits from a deterministic snapshot, a project runtime may also maintain a machine-readable state file.
+
+Recommended fields include:
+
+- runtime/schema version;
+- workstream ID;
+- operational status;
+- human operator;
+- session alias;
+- latest chat label;
+- artifact/file identifiers;
+- latest persistent change record;
+- latest session record;
+- last completed action;
+- next action;
+- last validation timestamp.
+
+The machine-readable state is a projection of the governed runtime, not a replacement for the handoff or decision log.
+
+If machine-readable state conflicts with an inspected live artifact, reconcile before mutation.
+
+---
+
+# 47. REPOSITORY COMMIT CONTRACT
+
+All repositories operating under this framework use **Conventional Commits 1.0.0** unless a stricter repository policy is explicitly documented:
+
+https://www.conventionalcommits.org/en/v1.0.0/
+
+Use a valid Conventional Commit header.
+
+For significant decisions, reference the persistent Decision ID in the body or footer:
+
+```text
+Decision: ADR-XXXX
+```
+
+Private project runtimes may use their own stable project Decision prefix.
+
+Do not place confidential raw evidence or secrets in commit messages.
+
+The repository history records what changed; persistent decision records explain why.

@@ -11,6 +11,19 @@ All notable changes to the operating framework are documented here.
 - added `ADR-0013` requiring significant commits to reference their Decision ID;
 - added commit-to-decision traceability to the Master and publication checklist.
 
+## 3.4.0 — 2026-10-06
+
+### Persistent runtime and continuity
+- defined a private persistent project runtime as the canonical source for operational state and continuity;
+- explicitly separated operational truth from current design/tool state and primary evidence;
+- added persistent workstream, session identity, and append-only session-record concepts;
+- added a mandatory context-limit continuity trigger;
+- added continuous handoff guidance so handoff state is maintained throughout work rather than reconstructed only at chat end;
+- added machine-readable runtime-state guidance;
+- added `ACTIVE_WORKSTREAMS_TEMPLATE.md`, `SESSION_RECORD_TEMPLATE.md`, and `RUNTIME_STATE_TEMPLATE.json`;
+- added `ADR-0014` and `ADR-0015`;
+- made the Conventional Commits 1.0.0 URL explicit in the operating contract.
+
 ## 3.3.0 — 2026-10-05
 
 ### Decision governance

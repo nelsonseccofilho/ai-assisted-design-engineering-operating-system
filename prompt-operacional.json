@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "AI-Assisted Design Engineering Operating System",
-    "version": "3.3.0",
+    "version": "3.4.0",
     "status": "CANONICAL_DERIVATIVE",
     "canonical_source": "PROMPT_OPERACIONAL_MASTER.md",
     "scope": "generic",
@@ -9,7 +9,11 @@
   },
   "runtime_files": {
     "project_context": "PROJECT_CONTEXT.local.md",
-    "current_handoff": "HANDOFF_CURRENT.local.md"
+    "current_handoff": "HANDOFF_CURRENT.local.md",
+    "active_workstreams": "ACTIVE_WORKSTREAMS_TEMPLATE.md",
+    "workstream_handoff": "HANDOFF_TEMPLATE.md",
+    "session_record": "SESSION_RECORD_TEMPLATE.md",
+    "runtime_state": "RUNTIME_STATE_TEMPLATE.json"
   },
   "first_run": {
     "mode": "generic",
@@ -107,5 +111,25 @@
       "status"
     ],
     "rule": "A significant decision is not complete until it is documented."
+  },
+  "persistence": {
+    "operational_source_of_truth": "persistent private project runtime repository when configured",
+    "live_artifact_rule": "Current inspected design/tool state outranks stale runtime snapshots.",
+    "chat_memory_authority": "non-authoritative convenience only",
+    "workstream_survives_chat_changes": true,
+    "append_only_session_records": true,
+    "continuous_handoff": true,
+    "context_limit_trigger": "mandatory continuity handoff and persistence checkpoint"
+  },
+  "session_identity": [
+    "human_operator",
+    "session_alias",
+    "chat_label",
+    "workstream_id"
+  ],
+  "git_contract": {
+    "conventional_commits": "1.0.0",
+    "specification": "https://www.conventionalcommits.org/en/v1.0.0/",
+    "significant_commit_decision_reference": true
   }
 }

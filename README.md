@@ -135,6 +135,61 @@ Defines **what is happening now**:
 
 ---
 
+## Persistent operational runtime
+
+For long-running work, the framework supports a private, versioned project runtime repository.
+
+The runtime is the canonical source for **operational continuity**, including:
+
+- project context and governance;
+- decision records;
+- workstream coordination;
+- current handoffs;
+- append-only session records;
+- machine-readable workstream state.
+
+It is not the universal source of truth:
+
+- primary requirements/evidence remain authoritative at their original source;
+- the current inspected design/tool artifact is authoritative for its current state;
+- the current canonical Design System remains authoritative for shared system state.
+
+A new AI conversation should recover the active workstream from the persistent runtime, inspect the real tool state, reconcile divergence, and continue from the current `NEXT ACTION`.
+
+### Session continuity model
+
+```text
+persistent workstream
+        │
+        ├── HANDOFF.md        current compressed state
+        ├── state.json        optional deterministic agent-readable state
+        └── sessions/
+            ├── session-a.md  append-only history
+            ├── session-b.md
+            └── session-c.md
+```
+
+A new chat continues a workstream; it does not become a new workstream merely because conversational context ended.
+
+When a conversation-limit warning appears, the agent must close the current session safely, synchronize persistent state, and provide exactly one next action before continuation in a new chat.
+
+See:
+
+- `ACTIVE_WORKSTREAMS_TEMPLATE.md`
+- `SESSION_RECORD_TEMPLATE.md`
+- `RUNTIME_STATE_TEMPLATE.json`
+- `HANDOFF_TEMPLATE.md`
+
+### Repository history
+
+All framework and adopting runtime repositories use **Conventional Commits 1.0.0** unless a stricter repository policy is documented:
+
+https://www.conventionalcommits.org/en/v1.0.0/
+
+Significant commits reference persistent Decision IDs.
+
+---
+
 ## First run
 
 The framework starts in **generic mode**.
@@ -272,6 +327,9 @@ ai-assisted-design-engineering-operating-system/
 ├── PROMPT_OPERACIONAL_MASTER.md
 ├── PROJECT_CONTEXT_TEMPLATE.md
 ├── HANDOFF_TEMPLATE.md
+├── ACTIVE_WORKSTREAMS_TEMPLATE.md
+├── SESSION_RECORD_TEMPLATE.md
+├── RUNTIME_STATE_TEMPLATE.json
 ├── DECISION_LOG.md
 ├── CHANGELOG.md
 ├── LICENSE
