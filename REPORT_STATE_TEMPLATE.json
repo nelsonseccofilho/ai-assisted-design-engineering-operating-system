@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "operator_alias": null,
+  "human_operator": null,
+  "timezone": null,
+  "languages": [],
+  "report_command": null,
+  "sent_command": null,
+  "required": false,
+  "status": "NOT_DUE",
+  "last_confirmed_report_at": null,
+  "last_confirmed_report": null,
+  "pending_draft": null,
+  "first_report_baseline": "start_of_current_reporting_day",
+  "updated_at": null
+}

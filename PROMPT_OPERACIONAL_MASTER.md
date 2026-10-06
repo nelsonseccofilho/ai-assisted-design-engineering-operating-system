@@ -1160,3 +1160,103 @@ When a mutation is performed through an AI-assisted session, persistent Change H
 - Workstream ID.
 
 Git commit time is not a substitute for artifact-local mutation provenance.
+
+
+---
+
+# 50. OPERATOR DAILY REPORTS
+
+A Project Runtime may derive human-facing status reports from persistent operational evidence.
+
+This capability converts runtime memory into external team/client communication without making chat/model memory the source of truth.
+
+## 50.1 REPORT SOURCE ORDER
+
+Use:
+
+1. last confirmed report cursor;
+2. Session Records after the cursor;
+3. relevant owner-scoped mutation / Git records;
+4. current Workstream handoff/state;
+5. explicit blockers, dependencies, and help requests.
+
+Do not claim activity solely from conversational memory.
+
+## 50.2 REPORT STATES
+
+Recommended states:
+
+- `NOT_DUE`
+- `DUE`
+- `DRAFT`
+- `SENT`
+- `WAIVED`
+- `SUPERSEDED`
+
+Generation produces or refreshes DRAFT.
+
+DRAFT must not advance the reporting cursor.
+
+Actual sending changes the report to SENT and advances the cursor.
+
+WAIVED requires an explicit human reason.
+
+## 50.3 COMMAND CONVENTION
+
+Recommended default commands:
+
+`<operator_alias_lower>_report`
+
+`<operator_alias_lower>_report_sent`
+
+A project may configure other aliases.
+
+## 50.4 MANDATORY MODE
+
+Daily reporting is project-configurable.
+
+When project governance sets `daily_operator_reports.required = true`, an operator with material project activity must end the reporting day with:
+
+- SENT; or
+- WAIVED with explicit human reason.
+
+A DRAFT does not satisfy mandatory mode.
+
+This is a communication/day-close gate and does not redefine artifact QA or publication status.
+
+## 50.5 FIRST-REPORT BASELINE
+
+When no prior SENT report exists, use the project-configured baseline.
+
+Recommended default:
+
+`start of current reporting day in the configured project timezone`
+
+Do not silently assume an earlier report existed.
+
+## 50.6 OUTPUT CONTRACT
+
+Reports should be concise and recipient-facing.
+
+Prefer outcomes over:
+
+- commit SHAs;
+- node IDs;
+- internal Decision IDs;
+- implementation mechanics.
+
+Include identifiers only when they materially help the recipient.
+
+Use project-configured language(s). When multiple languages are required, preserve equivalent meaning rather than literal translation.
+
+Do not invent blockers.
+
+## 50.7 PERSISTENCE
+
+Recommended paths:
+
+`reports/daily/<OPERATOR_ALIAS>/state.json`
+
+`reports/daily/<OPERATOR_ALIAS>/<YYYY>/<MM>/<YYYY-MM-DD>_<HHmm>_daily-report.md`
+
+Report state is independent from Workstream state because one report may summarize multiple Workstreams.

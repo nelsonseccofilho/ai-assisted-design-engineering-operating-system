@@ -160,6 +160,22 @@ AI session       = temporary executor
 
 See [Project Runtime](docs/PROJECT_RUNTIME.md).
 
+## Operator daily reports
+
+A Project Runtime can derive concise status updates from persistent operational evidence.
+
+The generic model supports:
+
+- per-operator reporting cursors;
+- DRAFT versus SENT distinction;
+- project-configurable languages;
+- human-facing worked / planned / blockers-help summaries;
+- optional mandatory daily mode.
+
+Recommended commands are `<operator_alias_lower>_report` and `<operator_alias_lower>_report_sent`.
+
+See [Operator Daily Reports](docs/OPERATOR_DAILY_REPORTS.md).
+
 ## First run
 
 The framework starts in **generic mode**.
@@ -515,6 +531,16 @@ Sessão de IA     = executor temporário
 ```
 
 Veja [Project Runtime](docs/PROJECT_RUNTIME.md).
+
+## Reports diários por operador
+
+Um Project Runtime pode gerar status diários concisos a partir de evidências operacionais persistentes.
+
+O modelo genérico suporta cursor por operador, distinção DRAFT/SENT, idiomas configuráveis e modo diário obrigatório definido pelo projeto.
+
+Comandos recomendados: `<operator_alias_lower>_report` e `<operator_alias_lower>_report_sent`.
+
+Veja [Operator Daily Reports](docs/OPERATOR_DAILY_REPORTS.md).
 
 ## Primeira execução
 

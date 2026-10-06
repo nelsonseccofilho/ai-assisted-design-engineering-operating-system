@@ -200,5 +200,35 @@
     "conventional_commits": "1.0.0",
     "specification": "https://www.conventionalcommits.org/en/v1.0.0/",
     "significant_commit_decision_reference": true
+  },
+  "operator_daily_reports": {
+    "supported": true,
+    "required_by_default": false,
+    "required_when_project_governance_enables": true,
+    "recommended_generate_command": "<operator_alias_lower>_report",
+    "recommended_sent_command": "<operator_alias_lower>_report_sent",
+    "statuses": [
+      "NOT_DUE",
+      "DUE",
+      "DRAFT",
+      "SENT",
+      "WAIVED",
+      "SUPERSEDED"
+    ],
+    "cursor_rule": "DRAFT never advances the reporting cursor; SENT advances it.",
+    "recommended_first_report_baseline": "start_of_current_reporting_day",
+    "source_order": [
+      "last_confirmed_report_cursor",
+      "session_records",
+      "persistent_mutation_records",
+      "current_workstream_state",
+      "explicit_blockers_dependencies"
+    ],
+    "report_sections": [
+      "worked_since_last_update",
+      "planned_today_or_next",
+      "blockers_or_help"
+    ],
+    "blocker_rule": "Do not invent blockers. Distinguish blockers from dependencies."
   }
 }

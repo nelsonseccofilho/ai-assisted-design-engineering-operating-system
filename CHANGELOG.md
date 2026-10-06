@@ -5,6 +5,8 @@ All notable changes to the operating framework are documented here.
 ## 3.4.0 — 2026-10-06
 
 ### Project Runtime
+- added generic Operator Daily Report contracts with report cursors, DRAFT/SENT semantics and project-configurable mandatory mode;
+- added report/state templates and ADR-0017;
 - added a persistent Project Runtime model for multi-chat / multi-operator continuity;
 - separated Operational Runtime truth from current artifact, Design System and evidence authority;
 - added Operator / Session / Workstream identity boundaries;

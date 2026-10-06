@@ -47,6 +47,10 @@ for key, value in expected.items():
 # Project Runtime contract.
 for path in [
     "WORKSTREAM_REGISTRY_TEMPLATE.md",
+    "OPERATOR_DAILY_REPORT_TEMPLATE.md",
+    "REPORT_STATE_TEMPLATE.json",
+    "docs/OPERATOR_DAILY_REPORTS.md",
+    "docs/decisions/ADR-0017-operator-daily-reports.md",
     "SESSION_RECORD_TEMPLATE.md",
     "RUNTIME_STATE_TEMPLATE.json",
     "OPERATOR_PROFILE_TEMPLATE.md",
@@ -91,7 +95,7 @@ for path in adr_paths:
     ids.append(decision_id)
     check(decision_id in index, f"ADR not indexed: {decision_id}")
 check(len(ids) == len(set(ids)), "Duplicate ADR IDs")
-for decision_id in ["ADR-0014", "ADR-0015", "ADR-0016"]:
+for decision_id in ["ADR-0014", "ADR-0015", "ADR-0016", "ADR-0017"]:
     check(decision_id in index, f"Missing decision index entry: {decision_id}")
 
 # Conventional Commits contract.
@@ -129,3 +133,13 @@ if errors:
     print("\n".join("FAIL: " + message for message in errors))
     raise SystemExit(1)
 print(f"PASS: {checks} package checks, including Project Runtime and mutation-owner scenarios")
+
+
+# Operator Daily Report contract.
+report_state = json.loads(read("REPORT_STATE_TEMPLATE.json"))
+check(report_state["status"] == "NOT_DUE", "Report state must begin NOT_DUE")
+check(report_state["first_report_baseline"] == "start_of_current_reporting_day",
+      "Wrong first-report baseline")
+for token in ["DRAFT never advances", "SENT", "Do not invent blockers"]:
+    check(token in master or token in read("docs/OPERATOR_DAILY_REPORTS.md"),
+          f"Missing report contract token: {token}")

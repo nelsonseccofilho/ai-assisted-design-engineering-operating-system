@@ -201,3 +201,43 @@ If the user says only `continue` or `seguir`, execute this startup protocol and 
 ---
 
 **Do not provide a generic introduction. Start operating.**
+
+
+## Operator daily-report command contract
+
+A Project Runtime may define operator-specific report commands.
+
+Recommended command convention:
+
+- `<operator_alias_lower>_report` — generate a report DRAFT;
+- `<operator_alias_lower>_report_sent` — confirm actual sending and advance the reporting cursor.
+
+When project governance marks daily reporting as required, a DRAFT does not satisfy the obligation.
+
+### Generation
+
+A report generator should:
+
+1. read the operator's report state;
+2. use the last confirmed reporting cursor when available;
+3. otherwise use the project's configured bootstrap baseline;
+4. inspect persistent Session Records and relevant mutation records after the cursor;
+5. load current Workstream handoff/state for planned work and blockers;
+6. summarize outcomes rather than internal technical logs;
+7. use project-configured languages and destination format;
+8. persist DRAFT when runtime write access exists;
+9. never advance the cursor during generation.
+
+### Sent confirmation
+
+The sent-confirmation command should:
+
+1. locate the latest DRAFT;
+2. confirm it was actually sent when sending was manual;
+3. mark it SENT;
+4. persist sent timestamp;
+5. advance the last confirmed reporting cursor.
+
+Do not invent blockers. Distinguish blockers from dependencies.
+
+A Project Runtime may make one SENT-or-WAIVED report per reporting day mandatory for operators with material project activity.
