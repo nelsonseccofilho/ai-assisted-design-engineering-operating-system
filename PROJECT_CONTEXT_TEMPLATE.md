@@ -1,8 +1,10 @@
 # PROJECT CONTEXT — LOCAL TEMPLATE
 
-> Copy this file to `PROJECT_CONTEXT.local.md`.
+> Copy this file to `PROJECT_CONTEXT.local.md` when using a local-only runtime.
 >
-> `PROJECT_CONTEXT.local.md` is ignored by Git and is intended for real project-specific context.
+> When the project uses a persistent private runtime repository, this file may be tracked there according to project privacy/governance rules.
+>
+> Never commit real project context to the public generic framework repository.
 
 **Context status:** `DRAFT | ACTIVE | ARCHIVED`  
 **Last updated:** YYYY-MM-DD
@@ -31,7 +33,31 @@
 
 ---
 
-## 2. DESIGN ENVIRONMENT
+## 2. PERSISTENT OPERATIONAL RUNTIME
+
+**Persistent runtime enabled:**  
+<yes/no>
+
+**Private runtime repository:**  
+<private repository URL / N/A>
+
+**Runtime bootstrap file:**  
+<path / N/A>
+
+**Active-workstream registry:**  
+<path / N/A>
+
+**Session-record location:**  
+<path / N/A>
+
+**Machine-readable state convention:**  
+<path/pattern / N/A>
+
+The runtime repository is the canonical source for operational continuity, not for the live design artifact itself.
+
+---
+
+## 3. DESIGN ENVIRONMENT
 
 **Design System / UI Kit name:**  
 <name or N/A>
@@ -53,20 +79,38 @@
 
 ---
 
-## 3. GOVERNANCE AND HISTORY
+## 4. GOVERNANCE AND HISTORY
 
 **Governance location:**  
-<URL / page / document / none>
+<URL / page / document / repository path / none>
 
 **Decision / change history location:**  
-<URL / page / document / none>
+<URL / page / document / repository path / none>
 
 **Evidence archive location:**  
-<URL / folder / page / none>
+<URL / folder / page / repository path / none>
+
+**Decision log location:**  
+<private/local path, repository path, or supported project location>
 
 ---
 
-## 4. EVIDENCE SOURCES
+## 5. SESSION IDENTITY
+
+**Human operator model:**  
+<how accountable people are identified>
+
+**Session alias convention:**  
+<optional stable alias convention>
+
+**Chat label convention:**  
+<optional individual conversation naming convention>
+
+Do not infer the human operator solely from a chat title.
+
+---
+
+## 6. EVIDENCE SOURCES
 
 List the sources that may carry requirements or decisions:
 
@@ -77,14 +121,14 @@ Examples: recordings, transcripts, tickets, specs, research, implementation note
 
 ---
 
-## 5. TECHNICAL / PRODUCT CONSTRAINTS
+## 7. TECHNICAL / PRODUCT CONSTRAINTS
 
 - <constraint>
 - <constraint>
 
 ---
 
-## 6. OPERATING NOTES
+## 8. OPERATING NOTES
 
 - <project-specific convention>
 - <project-specific convention>
@@ -93,18 +137,10 @@ Do not place generic framework rules here; those belong in the Master.
 
 ---
 
-## 7. PRIVACY
+## 9. PRIVACY
 
 This file may contain confidential project information.
 
 Do not commit it to a public repository.
-
-
----
-
-## Decision governance
-
-**Decision log location:**  
-<private/local path, repository path, or supported project location>
 
 Significant project decisions must be documented persistently and referenced from handoffs.

@@ -8,6 +8,8 @@ All commits must follow **Conventional Commits 1.0.0**:
 
 https://www.conventionalcommits.org/en/v1.0.0/
 
+This convention is part of the operating contract for this framework and for persistent project runtimes that adopt it, unless a stricter repository policy is explicitly documented.
+
 Format:
 
 ```text

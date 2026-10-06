@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "runtime_repository": null,
+  "workstream_id": null,
+  "status": "PLANNED",
+  "human_operator": null,
+  "session_alias": null,
+  "latest_chat_label": null,
+  "artifact": {
+    "system": null,
+    "file_or_repository": null,
+    "scope": null
+  },
+  "latest_persistent_change": null,
+  "latest_session_record": null,
+  "last_completed_action": null,
+  "next_action": null,
+  "last_validated_at": null
+}

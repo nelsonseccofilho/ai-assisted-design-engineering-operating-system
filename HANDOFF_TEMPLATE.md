@@ -1,43 +1,44 @@
-# HANDOFF CURRENT — LOCAL TEMPLATE
+# WORKSTREAM HANDOFF — TEMPLATE
 
-> Copy this file to `HANDOFF_CURRENT.local.md`.
+> Use one current `HANDOFF.md` per persistent workstream when a project runtime supports multiple workstreams.
 >
-> Use together with `PROMPT_OPERACIONAL_MASTER.md` and `PROJECT_CONTEXT.local.md`.
+> For a simple/local-only setup this template may still be copied to `HANDOFF_CURRENT.local.md`.
+>
+> A handoff stores current workstream state. Append-only session history belongs in session records, not here.
 
-**Snapshot:** YYYY-MM-DD  
+**Snapshot:** YYYY-MM-DDTHH:MM:SSZ  
 **Operational status:** `NOT STARTED | IN PROGRESS | READY FOR QA | BLOCKED | READY TO PUBLISH | FINAL | REOPENED | SUPERSEDED`
 
 ---
 
-## 1. CURRENT OBJECTIVE
+## 1. IDENTITY
+
+**Workstream ID:** <stable ID>  
+**Human operator:** <person>  
+**Session alias:** <stable project-defined alias / N/A>  
+**Latest chat label:** <conversation label / N/A>  
+**Latest session record:** <path / N/A>
+
+---
+
+## 2. CURRENT OBJECTIVE
 
 <what is being delivered now>
 
 ---
 
-## 2. ACTIVE SCOPE
+## 3. ACTIVE SCOPE
 
-**Work Package / initiative:**  
-<value or N/A>
-
-**Journey / flow:**  
-<value>
-
-**Work file:**  
-<name + URL>
-
-**Reference / source:**  
-<URL / node / document / N/A>
-
-**Rebuild / consumer / target:**  
-<URL / node / N/A>
-
-**Local Components:**  
-<URL / node / N/A>
+**Work Package / initiative:** <value or N/A>  
+**Journey / flow:** <value>  
+**Work file / artifact:** <name + URL>  
+**Reference / source:** <URL / node / document / N/A>  
+**Rebuild / consumer / target:** <URL / node / N/A>  
+**Local Components:** <URL / node / N/A>
 
 ---
 
-## 3. REQUEST / REQUIREMENT
+## 4. REQUEST / REQUIREMENT
 
 ### Original request
 
@@ -56,79 +57,69 @@
 
 ---
 
-## 4. DECISIONS
+## 5. DECISIONS
 
 - <decision>
-- <decision>
 
-Classify when useful:
-
-- business rule;
-- stakeholder request;
-- approved behavior;
-- UX;
-- UI;
-- Design System;
-- tool limitation;
-- preference;
-- hypothesis.
+Persistent significant decisions must live in the project/framework decision system; this handoff only references them.
 
 ---
 
-## 5. COMPLETED
+## 6. LAST COMPLETED
 
-- <completed mutation / analysis>
+<exact latest completed checkpoint>
+
+---
+
+## 7. COMPLETED
+
 - <completed mutation / analysis>
 
 ---
 
-## 6. PENDING
+## 8. PENDING
 
-- <pending item>
 - <pending item>
 
 ---
 
-## 7. DECISION / CHANGE HISTORY
+## 9. DECISION / CHANGE HISTORY
 
 - `<record-id>` — <description/status>
 
 ---
 
-## 8. QA STATUS
+## 10. QA STATUS
 
 **Status:** `<state>`
 
 ### Passed
-
 - <...>
 
 ### Still required
-
 - <...>
 
 ---
 
-## 9. KNOWN PROBLEMS / RISKS
+## 11. KNOWN PROBLEMS / RISKS
 
 - <problem + impact>
 
 ---
 
-## 10. OPEN ASSUMPTIONS
+## 12. OPEN ASSUMPTIONS
 
 - `ASSUMPTION`: <...>
 
 ---
 
-## 11. DO NOT TOUCH
+## 13. DO NOT TOUCH
 
 - <out-of-scope area>
-- <approved behavior that must be preserved>
 
 ---
 
-## 12. PUBLICATION / CONSUMER IMPACT
+## 14. PUBLICATION / CONSUMER IMPACT
 
 **Publication pending:** yes/no/N/A  
 **Consumer impact:** <...>  
@@ -136,33 +127,28 @@ Classify when useful:
 
 ---
 
-## 13. LAST COMPLETED ACTION
+## 15. PERSISTENT RUNTIME STATE
 
-<exact last completed step>
+**Runtime repository:** <private repo / N/A>  
+**State file:** <path / N/A>  
+**Active-workstream registry:** <path / N/A>  
+**Last Git checkpoint:** <commit / N/A>
 
 ---
 
-## 14. NECESSARY LINKS
+## 16. NECESSARY LINKS
 
 - <label>: <URL/location>
-- <label>: <URL/location>
 
 ---
 
-## 15. NEXT ACTION
+## 17. DECISION RECORDS
 
-**NEXT ACTION:** <one concrete operational action for the next session>
-
-
-
-## DECISION RECORDS
-
-List persistent decision IDs relevant to this handoff.
-
-- `ADR-XXXX` — <decision>
-- `<PROJECT-DECISION-ID>` — <decision>
-
-Do not use the handoff as the only permanent record for significant decisions.
+- `ADR-XXXX` — <framework decision>
+- `<PROJECT-DECISION-ID>` — <project decision>
 
 ---
 
+## 18. NEXT ACTION
+
+**NEXT ACTION:** <exactly one concrete operational action for the next session>
