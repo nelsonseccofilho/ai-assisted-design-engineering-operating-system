@@ -39,6 +39,16 @@ All notable changes to the operating framework are documented here.
 - added explicit compatibility area and runtime READMEs;
 - added ADR-0020.
 
+## 3.6.0 — 2026-10-06
+
+### Zero-chat startup and runtime cleanup
+- added explicit startup intents: CONTINUE_WORKSTREAM, START_NEW_WORKSTREAM and START_NEW_PROJECT;
+- documented how to start a brand-new chat for new work without inheriting an unrelated NEXT ACTION;
+- documented separate-runtime creation for a completely new project/client;
+- added `runtime/compat/ALIASES.local.md` as the single place for legacy path/name mappings;
+- deprecated scattered compatibility pointer files in operational folders;
+- added ADR-0021.
+
 ## Unreleased
 
 ### Governance

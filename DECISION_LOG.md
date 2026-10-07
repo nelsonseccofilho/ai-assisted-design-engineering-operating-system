@@ -67,3 +67,4 @@ This index contains framework decisions, not external consumer mutation history.
 - [ADR-0019 — Canonical runtime package](docs/decisions/ADR-0019-canonical-runtime-package.md)
 
 | [ADR-0020](docs/decisions/ADR-0020-canonical-runtime-root.md) | 2026-10-06 | ACCEPTED | Use the same canonical runtime/ root and relative paths in framework and project instances |
+| [ADR-0021](docs/decisions/ADR-0021-startup-intent-and-clean-runtime.md) | 2026-10-06 | ACCEPTED | Resolve startup intent before Workstream selection and consolidate legacy aliases |

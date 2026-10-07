@@ -3,7 +3,7 @@
 > A personal research framework for persistent, evidence-driven collaboration between designers and AI agents across Product Design, UI, Design Systems, Figma, QA, and design operations.
 
 **Status:** Experimental / evolving  
-**Framework version:** 3.5.0  
+**Framework version:** 3.6.0  
 **Canonical operating contract:** `PROMPT_OPERACIONAL_MASTER.md`
 
 [English](#english) · [Português](#português)
@@ -347,22 +347,28 @@ HANDOFF_CURRENT.local.md
 
 ---
 
-## How to start a new AI session
+## How to start a brand-new AI chat
 
-Provide:
+Use the canonical Project Runtime entrypoint:
 
-1. `START_CHAT.md`
-2. `PROMPT_OPERACIONAL_MASTER.md`
-3. `PROJECT_CONTEXT.local.md` if it exists
-4. `HANDOFF_CURRENT.local.md` if it exists
+`runtime/00_START_CHAT.md`
 
-If project context does not exist yet, the AI runs the First Run Onboarding.
+A new chat must first classify **what kind of start this is**:
 
-If it exists, the AI validates the current tool state and continues from `NEXT ACTION`.
+1. `CONTINUE_WORKSTREAM` — resume existing work;
+2. `START_NEW_WORKSTREAM` — new task, journey, flow or independent objective inside the same project;
+3. `START_NEW_PROJECT` — create a separate Project Runtime for a different project/client/product.
 
-A returning session can begin with:
+Example — new task in an existing project:
 
-> continue
+> Load the Project Runtime from main using `runtime/00_START_CHAT.md`. Intent: `START_NEW_WORKSTREAM`. New work: <describe it>. Do not continue an existing Workstream by default. Check scope overlap, create the new Workstream, and report initialized state before mutation.
+
+Example — completely new project:
+
+> Intent: `START_NEW_PROJECT`. Create a separate private Project Runtime from the generic `runtime/` package. Do not reuse populated context or history from another project.
+
+The base rules still apply in every mode: resolve identity/access, read project governance, inspect evidence and current artifact state, check mutation ownership/scope, validate, persist and hand off.
+
 
 ---
 
@@ -605,22 +611,28 @@ Esses dados pertencem aos arquivos locais de runtime.
 
 ---
 
-## Como iniciar uma nova sessão
+## Como iniciar um chat novo do zero
 
-Forneça:
+Use o ponto de entrada canônico:
 
-1. `START_CHAT.md`
-2. `PROMPT_OPERACIONAL_MASTER.md`
-3. `PROJECT_CONTEXT.local.md`, se existir
-4. `HANDOFF_CURRENT.local.md`, se existir
+`runtime/00_START_CHAT.md`
 
-Se ainda não houver Project Context, a IA executa o First Run Onboarding.
+Um chat novo precisa primeiro declarar **qual tipo de início está acontecendo**:
 
-Se já houver, ela valida o estado atual das ferramentas e continua a partir de `NEXT ACTION`.
+1. `CONTINUE_WORKSTREAM` — continuar um trabalho existente;
+2. `START_NEW_WORKSTREAM` — iniciar uma nova tarefa, jornada, fluxo ou objetivo independente dentro do mesmo projeto;
+3. `START_NEW_PROJECT` — criar um Project Runtime separado para outro projeto/cliente/produto.
 
-Uma sessão recorrente pode começar apenas com:
+Exemplo — nova tarefa dentro do mesmo projeto:
 
-> seguir
+> Carregue o Project Runtime pela `main` usando `runtime/00_START_CHAT.md`. Intent: `START_NEW_WORKSTREAM`. Novo trabalho: <descreva>. Não continue nenhum Workstream existente por padrão. Verifique sobreposição de escopo, crie o novo Workstream e reporte o estado inicializado antes de qualquer mutação.
+
+Exemplo — projeto completamente novo:
+
+> Intent: `START_NEW_PROJECT`. Crie um Project Runtime privado separado a partir do pacote genérico `runtime/`. Não reutilize contexto, sessões, evidências ou histórico operacional de outro projeto.
+
+As regras-base continuam obrigatórias em todos os modos: resolver identidade/acesso, carregar governança, inspecionar evidências e estado atual do artefato, resolver ownership/escopo, validar, persistir e fazer handoff.
+
 
 ---
 
@@ -670,7 +682,7 @@ O framework genérico é o master das regras reutilizáveis. Runtimes privados c
 
 ## Canonical runtime layout
 
-Instantiate [runtime/](runtime/00_START_CHAT.md) using [the classified inventory](runtime/package.index.json). Filenames match the instance root. Root templates are compatibility mirrors. See [synchronization](docs/FRAMEWORK_RUNTIME_SYNC.md) for update planning and privacy boundaries. Framework 3.4.0 remains a candidate until its live gates pass.
+Instantiate [runtime/](runtime/00_START_CHAT.md) using [the classified inventory](runtime/package.index.json). Filenames match the instance root. Root templates are compatibility mirrors. See [synchronization](docs/FRAMEWORK_RUNTIME_SYNC.md) for update planning and privacy boundaries. Framework 3.6.0 remains a candidate until its independent release gates pass.
 
 
 ## Canonical repository comparison

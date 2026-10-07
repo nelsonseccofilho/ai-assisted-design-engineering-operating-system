@@ -146,6 +146,10 @@
       "mode": "shared"
     },
     {
+      "path": "compat/ALIASES.local.md",
+      "mode": "configured"
+    },
+    {
       "path": "scripts/runtime_sync.py",
       "mode": "shared",
       "compatibility_alias": "scripts/runtime_sync.py"

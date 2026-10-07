@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "AI-Assisted Design Engineering Operating System",
-    "version": "3.5.0",
+    "version": "3.6.0",
     "status": "CANONICAL_DERIVATIVE",
     "canonical_source": "PROMPT_OPERACIONAL_MASTER.md",
     "scope": "generic",
@@ -200,7 +200,15 @@
     "chat_memory_authority": "non-authoritative convenience only",
     "live_artifact_rule": "Current inspected artifact state outranks stale runtime snapshots.",
     "canonical_runtime_root": "runtime",
-    "package_index": "runtime/package.index.json"
+    "package_index": "runtime/package.index.json",
+    "startup_intents": [
+      "CONTINUE_WORKSTREAM",
+      "START_NEW_WORKSTREAM",
+      "START_NEW_PROJECT"
+    ],
+    "intent_rule": "Resolve startup intent before selecting a Workstream. Never auto-continue an existing Workstream when the user explicitly starts new work.",
+    "new_workstream_rule": "Load project runtime base contract, check scope overlap, then create a new operator-independent Workstream before project mutation.",
+    "new_project_rule": "Instantiate a separate private Project Runtime from the generic runtime package; never reuse another project's populated runtime."
   },
   "continuity": {
     "continuous_handoff": true,

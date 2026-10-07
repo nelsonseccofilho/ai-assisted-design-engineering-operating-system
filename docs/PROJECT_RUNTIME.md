@@ -110,3 +110,16 @@ A conversation-limit warning triggers controlled continuity: close the atomic op
 ## Complete template surface and upstreaming
 
 Use [framework/runtime synchronization](FRAMEWORK_RUNTIME_SYNC.md) for deterministic assembly, manifest configuration, template mapping, schema compatibility and promotion of reusable pilot learnings. Runtime-specific values remain private; reusable rules belong in the framework.
+
+
+## Startup intents for a zero-context chat
+
+A new chat must resolve intent before selecting a Workstream:
+
+- `CONTINUE_WORKSTREAM`
+- `START_NEW_WORKSTREAM`
+- `START_NEW_PROJECT`
+
+`START_NEW_WORKSTREAM` means new independent work inside the same Project Runtime. It loads project-wide governance but must not inherit an existing Workstream's NEXT ACTION by default.
+
+`START_NEW_PROJECT` means a different persistent operational context. Create a separate private runtime instead of mixing populated histories.

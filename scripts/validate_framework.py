@@ -29,7 +29,7 @@ for source in ROOT.rglob("*.md"):
 master = read("PROMPT_OPERACIONAL_MASTER.md")
 derivative = json.loads(read("prompt-operacional.json"))
 version = re.search(r"\*\*Version:\*\* ([0-9.]+)", master).group(1)
-check(version == "3.5.0", "Unexpected framework version")
+check(version == "3.6.0", "Unexpected framework version")
 check(derivative["meta"]["version"] == version, "Master/JSON version mismatch")
 check(f"**Framework version:** {version}" in read("README.md"), "README version mismatch")
 
@@ -273,3 +273,11 @@ for item in runtime_index["files"]:
 check((ROOT / "runtime/evidence/README.md").is_file(), "Missing evidence surface")
 check((ROOT / "runtime/docs/decisions/PROJECT_ADR_TEMPLATE.md").is_file(), "Missing project ADR template")
 check(not (ROOT / "runtime-template").exists(), "Deprecated runtime-template root still present")
+
+
+# Zero-chat startup contract (ADR-0021).
+for token in ["CONTINUE_WORKSTREAM","START_NEW_WORKSTREAM","START_NEW_PROJECT"]:
+    check(token in read("runtime/00_START_CHAT.md"), "Missing startup intent: " + token)
+check((ROOT / "runtime/compat/ALIASES.local.md").is_file(), "Missing compatibility alias registry")
+check("START_NEW_WORKSTREAM" in read("README.md"), "README missing new-work example")
+check("START_NEW_PROJECT" in read("README.md"), "README missing new-project example")
