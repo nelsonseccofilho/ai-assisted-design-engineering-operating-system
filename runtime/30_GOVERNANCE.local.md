@@ -48,3 +48,10 @@ Use the report contract in the pinned Master and docs/OPERATOR_DAILY_REPORTS.md.
 ## Privacy
 
 Store populated runtime files in a separate governed private repository. Never copy confidential values, authentication material or unapproved raw evidence into the public framework.
+
+
+## Documentation ownership boundary
+
+Classify durable records as `FRAMEWORK_OWNED`, `PROJECT_OWNED`, `SHARED_CONTRACT` or `CROSS_REPO_REFERENCE`.
+
+Framework-owned reusable rules/history stay in the generic framework. Project-owned context/evidence/history stay in this runtime. Shared contracts are consumed from the pinned framework and are not independently edited here. Cross-repo references point to canonical owner records rather than duplicating them.

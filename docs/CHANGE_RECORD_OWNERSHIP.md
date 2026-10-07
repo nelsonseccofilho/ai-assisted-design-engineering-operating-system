@@ -1,6 +1,6 @@
 # Change record ownership
 
-The normative contract is [Master section 27](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/blob/feat/project-runtime-continuity/PROMPT_OPERACIONAL_MASTER.md#27-change-history), justified by [ADR-0014](decisions/ADR-0014-mutation-owned-change-records.md).
+The normative contract is [Master section 27](../PROMPT_OPERACIONAL_MASTER.md#27-change-history), justified by [ADR-0014](decisions/ADR-0014-mutation-owned-change-records.md).
 
 ## Workflow
 
@@ -45,4 +45,4 @@ Add a canonical copy to the correct owner's history with its own qualified ID an
 | Handoff / workstream / chat memory | Current continuity snapshot with persistent record links |
 | Artifact registry | Resolve owner locations/namespaces; not a fallback log |
 
-Read-only inspection creates no mutation record in the inspected artifact. It may still yield a significant decision requiring a persistent rationale record. See [fictional scenarios](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/blob/feat/project-runtime-continuity/examples/CHANGE_HISTORY.example.md).
+Read-only inspection creates no mutation record in the inspected artifact. It may still yield a significant decision requiring a persistent rationale record. See [fictional scenarios](../examples/CHANGE_HISTORY.example.md).

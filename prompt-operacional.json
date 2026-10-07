@@ -261,5 +261,20 @@
     "promote_reusable_findings": true,
     "stable_and_candidate_refs_separate": true,
     "pin_update": "after framework promotion via governed runtime PR"
+  },
+  "documentation_ownership": {
+    "decision": "ADR-0023",
+    "contract": "runtime/docs/contracts/DOCUMENTATION_OWNERSHIP.md",
+    "classes": [
+      "FRAMEWORK_OWNED",
+      "PROJECT_OWNED",
+      "SHARED_CONTRACT",
+      "CROSS_REPO_REFERENCE"
+    ],
+    "framework_owned": "reusable method, framework ADRs, framework CI/release history, generic templates/schemas/scripts/QA",
+    "project_owned": "project/client context, stakeholder requirements, proprietary evidence, project Decisions, populated runtime state/history",
+    "shared_contract_rule": "PUBLIC upstream -> released/pinned version -> PRIVATE consumer; do not edit private copies independently",
+    "cross_repo_reference_rule": "Link the canonical owner without duplicating the full owner history",
+    "promotion_flow": "private finding -> PROJECT_ONLY or UPSTREAM_PENDING -> public implementation/ADR -> public release -> private pin update -> PROMOTED reference"
   }
 }
