@@ -10,7 +10,7 @@ Populated operators/, sessions/, workstreams/ and reports/ belong in a separate 
 
 ## Private runtime boundary
 
-A project may intentionally version approved operational context in a private repository. Keep repository visibility and access governed. Private visibility does not permit authentication secrets or unapproved full transcripts/raw exports.
+A project may intentionally version approved operational context in a private repository. Keep repository visibility and access governed. Private visibility does not permit authentication secrets, unapproved full transcripts, heavyweight raw meeting recordings or raw exports.
 
 ## Upstreaming
 
