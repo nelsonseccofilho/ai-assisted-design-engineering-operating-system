@@ -49,6 +49,12 @@ All notable changes to the operating framework are documented here.
 - deprecated scattered compatibility pointer files in operational folders;
 - added ADR-0021.
 
+### Release finalization
+- promoted the validated Project Runtime capability to public `main` as framework 3.6.0;
+- real cross-chat and Daily Report live pilots passed in a private adopter runtime;
+- privacy/secret and structural parity checks passed before promotion;
+- hosted CI non-execution remains explicitly documented under ADR-0022 and is not represented as CI PASS.
+
 ### Release-gate disposition
 - added ADR-0022 to distinguish hosted CI non-execution from framework-source failure;
 - allows explicit infrastructure disposition only when no runner/steps/logs execute and independent static/live evidence is sufficient;

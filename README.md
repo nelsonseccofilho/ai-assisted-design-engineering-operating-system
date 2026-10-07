@@ -677,7 +677,7 @@ O framework genérico é o master das regras reutilizáveis. Runtimes privados c
 
 ## Canonical runtime layout
 
-Instantiate [runtime/](runtime/00_START_CHAT.md) using [the classified inventory](runtime/package.index.json). Filenames match the instance runtime root. Root-level templates belong to framework authoring; `runtime/` is the deployable Project Runtime package. See [synchronization](docs/FRAMEWORK_RUNTIME_SYNC.md) for update planning and privacy boundaries. Framework 3.6.0 remains a candidate until its independent release gates pass.
+Instantiate [runtime/](runtime/00_START_CHAT.md) using [the classified inventory](runtime/package.index.json). Filenames match the instance runtime root. Root-level templates belong to framework authoring; `runtime/` is the deployable Project Runtime package. See [synchronization](docs/FRAMEWORK_RUNTIME_SYNC.md) for update planning and privacy boundaries. Framework 3.6.0 is released on `main`. Required live pilots and privacy/static QA passed; hosted CI non-execution is explicitly recorded as `DISPOSITIONED_INFRASTRUCTURE` under ADR-0022, not as CI PASS.
 
 
 ## Canonical repository comparison
@@ -692,3 +692,19 @@ Those trees use the same canonical names and paths. Differences outside `runtime
 A hosted workflow that fails before any runner or step executes is not treated as framework-source validation. Under ADR-0022, release governance may explicitly disposition that infrastructure-only gate when independent static QA, live pilots and privacy checks have sufficient PASS evidence.
 
 The correct status is `DISPOSITIONED_INFRASTRUCTURE`, not CI PASS.
+
+
+## Release status — 3.6.0
+
+Framework 3.6.0 is the current released operating contract on `main`.
+
+Validated before promotion:
+
+- canonical `runtime/` package and 34-path structural contract;
+- cross-chat bootstrap and persistent-state recovery;
+- live artifact reconciliation in a private adopter runtime;
+- zero-chat startup modes;
+- real Daily Report DRAFT → external send → SENT confirmation and reporting cursor behavior;
+- public privacy and common secret-pattern scans.
+
+Hosted GitHub Actions did not execute validation steps: the observed jobs received no runner, exposed zero steps and no usable logs. ADR-0022 therefore records this gate as `DISPOSITIONED_INFRASTRUCTURE`, **not** as CI PASS.
