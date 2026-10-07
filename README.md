@@ -338,12 +338,7 @@ ai-assisted-design-engineering-operating-system/
         └── ADR-0001 ... ADR-0014
 ```
 
-Local runtime files are created from the templates and are not committed:
-
-```text
-PROJECT_CONTEXT.local.md
-HANDOFF_CURRENT.local.md
-```
+Legacy local-minimal mode may still use ignored local files, but persistent projects should prefer the canonical committed/private `runtime/` package. Do not confuse framework-authoring templates at repository root with Project Runtime state under `runtime/`.
 
 ---
 
@@ -682,7 +677,7 @@ O framework genérico é o master das regras reutilizáveis. Runtimes privados c
 
 ## Canonical runtime layout
 
-Instantiate [runtime/](runtime/00_START_CHAT.md) using [the classified inventory](runtime/package.index.json). Filenames match the instance root. Root templates are compatibility mirrors. See [synchronization](docs/FRAMEWORK_RUNTIME_SYNC.md) for update planning and privacy boundaries. Framework 3.6.0 remains a candidate until its independent release gates pass.
+Instantiate [runtime/](runtime/00_START_CHAT.md) using [the classified inventory](runtime/package.index.json). Filenames match the instance runtime root. Root-level templates belong to framework authoring; `runtime/` is the deployable Project Runtime package. See [synchronization](docs/FRAMEWORK_RUNTIME_SYNC.md) for update planning and privacy boundaries. Framework 3.6.0 remains a candidate until its independent release gates pass.
 
 
 ## Canonical repository comparison

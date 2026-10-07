@@ -125,6 +125,3 @@ All notable changes to the operating framework are documented here.
 ## 2.x
 
 Pre-3.0 versions were internal working iterations used to discover and validate the operating model. They are intentionally not included in the public repository because they contained project-specific context.
-## Candidate 3.4.0 — canonical runtime package
-
-- ADR-0019 adds runtime-template/, classified inventory, compatibility parity and read-only synchronization QA. Live release gates remain pending.

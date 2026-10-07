@@ -45,6 +45,9 @@ Never silently rewrite history.
 | [ADR-0017](docs/decisions/ADR-0017-operator-daily-reports.md) | 2026-10-06 | ACCEPTED | Derive operator daily reports from persistent runtime evidence with a confirmed reporting cursor |
 
 | [ADR-0018](docs/decisions/ADR-0018-framework-runtime-promotion.md) | 2026-10-06 | ACCEPTED | Promote reusable runtime learnings into generic templates and update instance pins after framework promotion |
+| [ADR-0019](docs/decisions/ADR-0019-canonical-runtime-package.md) | 2026-10-06 | SUPERSEDED | Initial classified runtime package; runtime-template root superseded by ADR-0020 |
+| [ADR-0020](docs/decisions/ADR-0020-canonical-runtime-root.md) | 2026-10-06 | ACCEPTED | Use the same canonical runtime/ root and relative paths in framework and project instances |
+| [ADR-0021](docs/decisions/ADR-0021-startup-intent-and-clean-runtime.md) | 2026-10-06 | ACCEPTED | Resolve startup intent before Workstream selection and consolidate legacy aliases |
 
 ---
 
@@ -64,7 +67,3 @@ The Handoff is not a replacement for the Decision Log.
 
 This index contains framework decisions, not external consumer mutation history. ADR-0014 separates rationale from owner-scoped Change History. Project decisions may be shared by linked owner records; unchanged evidence dependencies do not gain change records.
 
-- [ADR-0019 — Canonical runtime package](docs/decisions/ADR-0019-canonical-runtime-package.md)
-
-| [ADR-0020](docs/decisions/ADR-0020-canonical-runtime-root.md) | 2026-10-06 | ACCEPTED | Use the same canonical runtime/ root and relative paths in framework and project instances |
-| [ADR-0021](docs/decisions/ADR-0021-startup-intent-and-clean-runtime.md) | 2026-10-06 | ACCEPTED | Resolve startup intent before Workstream selection and consolidate legacy aliases |
