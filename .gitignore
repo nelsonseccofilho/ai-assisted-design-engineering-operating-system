@@ -17,3 +17,16 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.bak
+
+# Persistent project data belongs in a separate private runtime
+operators/
+sessions/
+workstreams/
+reports/
+runtime-manifest.json
+*.local.md
+
+# Canonical generic seeds only; QA rejects populated runtime records here.
+!runtime-template/
+!runtime-template/**/
+!runtime-template/**

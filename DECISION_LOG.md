@@ -40,6 +40,15 @@ Never silently rewrite history.
 | ADR-0012 | 2026-10-05 | ACCEPTED | Adopt Conventional Commits 1.0.0 for repository history |
 | ADR-0013 | 2026-10-05 | ACCEPTED | Link significant commits to persistent decision records |
 | [ADR-0014](docs/decisions/ADR-0014-mutation-owned-change-records.md) | 2026-10-06 | ACCEPTED | The mutation owner owns the persistent change record |
+| [ADR-0015](docs/decisions/ADR-0015-project-runtime.md) | 2026-10-06 | ACCEPTED | Use a persistent Project Runtime as the operational source of truth for long-running work |
+| [ADR-0016](docs/decisions/ADR-0016-operator-session-workstream-topology.md) | 2026-10-06 | ACCEPTED | Separate Operator, Session and Workstream identity and require deterministic cross-chat continuity |
+| [ADR-0017](docs/decisions/ADR-0017-operator-daily-reports.md) | 2026-10-06 | ACCEPTED | Derive operator daily reports from persistent runtime evidence with a confirmed reporting cursor |
+
+| [ADR-0018](docs/decisions/ADR-0018-framework-runtime-promotion.md) | 2026-10-06 | ACCEPTED | Promote reusable runtime learnings into generic templates and update instance pins after framework promotion |
+| [ADR-0019](docs/decisions/ADR-0019-canonical-runtime-package.md) | 2026-10-06 | SUPERSEDED | Initial classified runtime package; runtime-template root superseded by ADR-0020 |
+| [ADR-0020](docs/decisions/ADR-0020-canonical-runtime-root.md) | 2026-10-06 | ACCEPTED | Use the same canonical runtime/ root and relative paths in framework and project instances |
+| [ADR-0021](docs/decisions/ADR-0021-startup-intent-and-clean-runtime.md) | 2026-10-06 | ACCEPTED | Resolve startup intent before Workstream selection and consolidate legacy aliases |
+| [ADR-0022](docs/decisions/ADR-0022-hosted-ci-disposition.md) | 2026-10-06 | ACCEPTED | Allow explicit governance disposition when hosted CI fails before any runner/step executes and independent QA evidence is sufficient |
 
 ---
 
@@ -58,3 +67,4 @@ The Handoff is not a replacement for the Decision Log.
 ## Change ownership
 
 This index contains framework decisions, not external consumer mutation history. ADR-0014 separates rationale from owner-scoped Change History. Project decisions may be shared by linked owner records; unchanged evidence dependencies do not gain change records.
+

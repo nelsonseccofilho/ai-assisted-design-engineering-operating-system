@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "AI-Assisted Design Engineering Operating System",
-    "version": "3.3.0",
+    "version": "3.6.0",
     "status": "CANONICAL_DERIVATIVE",
     "canonical_source": "PROMPT_OPERACIONAL_MASTER.md",
     "scope": "generic",
@@ -9,7 +9,22 @@
   },
   "runtime_files": {
     "project_context": "PROJECT_CONTEXT.local.md",
-    "current_handoff": "HANDOFF_CURRENT.local.md"
+    "current_handoff": "HANDOFF_CURRENT.local.md",
+    "local_handoff": "HANDOFF_CURRENT.local.md",
+    "workstream_registry_template": "WORKSTREAM_REGISTRY_TEMPLATE.md",
+    "workstream_handoff_template": "HANDOFF_TEMPLATE.md",
+    "session_record_template": "SESSION_RECORD_TEMPLATE.md",
+    "runtime_state_template": "RUNTIME_STATE_TEMPLATE.json",
+    "operator_profile_template": "OPERATOR_PROFILE_TEMPLATE.md",
+    "operator_daily_report_template": "OPERATOR_DAILY_REPORT_TEMPLATE.md",
+    "report_state_template": "REPORT_STATE_TEMPLATE.json",
+    "runtime_manifest_template": "RUNTIME_MANIFEST_TEMPLATE.json",
+    "governance_template": "GOVERNANCE_TEMPLATE.md",
+    "artifact_registry_template": "ARTIFACT_REGISTRY_TEMPLATE.md",
+    "evidence_index_template": "EVIDENCE_INDEX_TEMPLATE.md",
+    "backlog_template": "BACKLOG_TEMPLATE.md",
+    "runtime_qa_template": "RUNTIME_QA_TEMPLATE.md",
+    "framework_dependency_template": "FRAMEWORK_DEPENDENCY_TEMPLATE.md"
   },
   "first_run": {
     "mode": "generic",
@@ -137,7 +152,13 @@
       "qa",
       "publication_note",
       "consumer_impact",
-      "supersession"
+      "supersession",
+      "timestamp_with_offset",
+      "timezone",
+      "human_operator",
+      "operator_alias",
+      "chat_label",
+      "workstream_id"
     ],
     "rules": {
       "owner_scoped": true,
@@ -158,5 +179,87 @@
     "current_state_inspection",
     "reconcile",
     "next_action"
-  ]
+  ],
+  "project_runtime": {
+    "preferred_for": "long-running multi-chat or multi-operator work",
+    "canonical_operational_source": true,
+    "canonical_ref_default": "main",
+    "workstream_id_pattern": "WS-YYYYMMDD-NNN-<slug>",
+    "session_record_pattern": "sessions/<OPERATOR_ALIAS>/<YYYY>/<MM>/<YYYY-MM-DD>_<chat-label>.md",
+    "identity_fields": [
+      "human_operator",
+      "operator_alias",
+      "chat_label",
+      "workstream_id"
+    ],
+    "access_modes": [
+      "READ_WRITE",
+      "READ_ONLY",
+      "UNAVAILABLE"
+    ],
+    "chat_memory_authority": "non-authoritative convenience only",
+    "live_artifact_rule": "Current inspected artifact state outranks stale runtime snapshots.",
+    "canonical_runtime_root": "runtime",
+    "package_index": "runtime/package.index.json",
+    "startup_intents": [
+      "CONTINUE_WORKSTREAM",
+      "START_NEW_WORKSTREAM",
+      "START_NEW_PROJECT"
+    ],
+    "intent_rule": "Resolve startup intent before selecting a Workstream. Never auto-continue an existing Workstream when the user explicitly starts new work.",
+    "new_workstream_rule": "Load project runtime base contract, check scope overlap, then create a new operator-independent Workstream before project mutation.",
+    "new_project_rule": "Instantiate a separate private Project Runtime from the generic runtime package; never reuse another project's populated runtime."
+  },
+  "continuity": {
+    "continuous_handoff": true,
+    "context_limit_trigger": "mandatory",
+    "next_action_count": 1,
+    "session_closure": "Only actual conversation end, context-limit trigger or explicit human handoff; a Git checkpoint alone does not close a Session Record."
+  },
+  "git_contract": {
+    "conventional_commits": "1.0.0",
+    "specification": "https://www.conventionalcommits.org/en/v1.0.0/",
+    "significant_commit_decision_reference": true
+  },
+  "operator_daily_reports": {
+    "supported": true,
+    "required_by_default": false,
+    "required_when_project_governance_enables": true,
+    "recommended_generate_command": "<operator_alias_lower>_report",
+    "recommended_sent_command": "<operator_alias_lower>_report_sent",
+    "statuses": [
+      "NOT_DUE",
+      "DUE",
+      "DRAFT",
+      "SENT",
+      "WAIVED",
+      "SUPERSEDED"
+    ],
+    "cursor_rule": "DRAFT never advances the reporting cursor; SENT advances it to the frozen interval_end, never sent_at.",
+    "recommended_first_report_baseline": "start_of_current_reporting_day",
+    "source_order": [
+      "last_confirmed_report_cursor",
+      "session_records",
+      "persistent_mutation_records",
+      "current_workstream_state",
+      "explicit_blockers_dependencies"
+    ],
+    "report_sections": [
+      "worked_since_last_update",
+      "planned_today_or_next",
+      "blockers_or_help"
+    ],
+    "blocker_rule": "Do not invent blockers. Distinguish blockers from dependencies.",
+    "last_sent_at": "actual external sending timestamp",
+    "waiver_advances_cursor": false
+  },
+  "framework_runtime_promotion": {
+    "decision": "ADR-0018",
+    "framework_owns": "reusable method, templates, schemas and QA",
+    "runtime_owns": "project configuration, operational state and pilot evidence",
+    "bootstrap_order_source": "runtime manifest bootstrap_files",
+    "promote_reusable_findings": true,
+    "stable_and_candidate_refs_separate": true,
+    "pin_update": "after framework promotion via governed runtime PR"
+  }
 }

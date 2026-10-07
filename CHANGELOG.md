@@ -2,6 +2,58 @@
 
 All notable changes to the operating framework are documented here.
 
+## 3.4.0 — 2026-10-06
+
+### Framework/runtime product parity
+- added manifest, governance, artifact/evidence registry, backlog, QA and dependency templates;
+- added explicit instance assembly and upstream promotion mapping with ADR-0018;
+- aligned Workstream state schema 1.1 with runtime version metadata;
+- made project report configuration and schema extension boundaries explicit.
+
+### Consolidation QA
+- repaired executable QA regular expressions and strengthened link, JSON and report-state validation;
+- clarified frozen report coverage, delivery timestamps, waiver and idempotent confirmation;
+- synchronized report template mappings, session closure and private runtime ignore paths.
+
+### Project Runtime
+- added generic Operator Daily Report contracts with report cursors, DRAFT/SENT semantics and project-configurable mandatory mode;
+- added report/state templates and ADR-0017;
+- added a persistent Project Runtime model for multi-chat / multi-operator continuity;
+- separated Operational Runtime truth from current artifact, Design System and evidence authority;
+- added Operator / Session / Workstream identity boundaries;
+- added operator-independent Workstream IDs and global Session Record paths;
+- added continuous handoff and mandatory conversation-limit continuity triggers;
+- added READ_WRITE / READ_ONLY / UNAVAILABLE runtime access modes;
+- added Project Runtime / Workstream / Session / Operator templates;
+- added ADR-0015 and ADR-0016;
+- retained ADR-0014 mutation-owned Change History and added optional timestamp/timezone + session provenance fields.
+
+## 3.5.0 — 2026-10-06
+
+### Canonical runtime root
+- replaced the candidate `runtime-template/` tree with canonical `runtime/`;
+- made framework and project instances use identical runtime-relative paths;
+- added classified `runtime/package.index.json`;
+- added generic evidence archive surface and metadata template;
+- separated Project Runtime decision templates from framework ADR history;
+- added explicit compatibility area and runtime READMEs;
+- added ADR-0020.
+
+## 3.6.0 — 2026-10-06
+
+### Zero-chat startup and runtime cleanup
+- added explicit startup intents: CONTINUE_WORKSTREAM, START_NEW_WORKSTREAM and START_NEW_PROJECT;
+- documented how to start a brand-new chat for new work without inheriting an unrelated NEXT ACTION;
+- documented separate-runtime creation for a completely new project/client;
+- added `runtime/compat/ALIASES.local.md` as the single place for legacy path/name mappings;
+- deprecated scattered compatibility pointer files in operational folders;
+- added ADR-0021.
+
+### Release-gate disposition
+- added ADR-0022 to distinguish hosted CI non-execution from framework-source failure;
+- allows explicit infrastructure disposition only when no runner/steps/logs execute and independent static/live evidence is sufficient;
+- this disposition is not a CI PASS and must remain visible in release notes.
+
 ## Unreleased
 
 ### Governance

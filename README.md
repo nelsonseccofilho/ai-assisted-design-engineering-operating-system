@@ -3,7 +3,7 @@
 > A personal research framework for persistent, evidence-driven collaboration between designers and AI agents across Product Design, UI, Design Systems, Figma, QA, and design operations.
 
 **Status:** Experimental / evolving  
-**Framework version:** 3.3.0  
+**Framework version:** 3.6.0  
 **Canonical operating contract:** `PROMPT_OPERACIONAL_MASTER.md`
 
 [English](#english) · [Português](#português)
@@ -134,6 +134,47 @@ Defines **what is happening now**:
 - exact next action.
 
 ---
+
+## Persistent Project Runtime
+
+For long-running work, the framework supports a **Project Runtime**: a project-specific, versioned operational memory that survives chat boundaries.
+
+It is the place where a project can persist governance, decisions, Workstreams, handoffs, deterministic state, operator identities and Session Records.
+
+It is **not** the universal source of truth:
+
+- requirements remain authoritative at their primary evidence source;
+- the current inspected artifact remains authoritative for current artifact state;
+- the canonical Design System remains authoritative for shared system state;
+- the Project Runtime is authoritative for operational continuity;
+- chat/model memory is convenience only.
+
+A useful model:
+
+```text
+Operating System = how we work
+Project Runtime  = where project operational state persists
+Artifact tools   = where current design / implementation lives
+AI session       = temporary executor
+```
+
+See [Project Runtime](docs/PROJECT_RUNTIME.md).
+
+## Operator daily reports
+
+A Project Runtime can derive concise status updates from persistent operational evidence.
+
+The generic model supports:
+
+- per-operator reporting cursors;
+- DRAFT versus SENT distinction;
+- project-configurable languages;
+- human-facing worked / planned / blockers-help summaries;
+- optional mandatory daily mode.
+
+Recommended commands are `<operator_alias_lower>_report` and `<operator_alias_lower>_report_sent`.
+
+See [Operator Daily Reports](docs/OPERATOR_DAILY_REPORTS.md).
 
 ## First run
 
@@ -272,6 +313,10 @@ ai-assisted-design-engineering-operating-system/
 ├── PROMPT_OPERACIONAL_MASTER.md
 ├── PROJECT_CONTEXT_TEMPLATE.md
 ├── HANDOFF_TEMPLATE.md
+├── WORKSTREAM_REGISTRY_TEMPLATE.md
+├── SESSION_RECORD_TEMPLATE.md
+├── RUNTIME_STATE_TEMPLATE.json
+├── OPERATOR_PROFILE_TEMPLATE.md
 ├── DECISION_LOG.md
 ├── CHANGELOG.md
 ├── LICENSE
@@ -287,36 +332,38 @@ ai-assisted-design-engineering-operating-system/
     ├── RATIONALE.md
     ├── PUBLICATION_CHECKLIST.md
     ├── CHANGE_RECORD_OWNERSHIP.md
+    ├── PROJECT_RUNTIME.md
     └── decisions/
         ├── ADR_TEMPLATE.md
         └── ADR-0001 ... ADR-0014
 ```
 
-Local runtime files are created from the templates and are not committed:
-
-```text
-PROJECT_CONTEXT.local.md
-HANDOFF_CURRENT.local.md
-```
+Legacy local-minimal mode may still use ignored local files, but persistent projects should prefer the canonical committed/private `runtime/` package. Do not confuse framework-authoring templates at repository root with Project Runtime state under `runtime/`.
 
 ---
 
-## How to start a new AI session
+## How to start a brand-new AI chat
 
-Provide:
+Use the canonical Project Runtime entrypoint:
 
-1. `START_CHAT.md`
-2. `PROMPT_OPERACIONAL_MASTER.md`
-3. `PROJECT_CONTEXT.local.md` if it exists
-4. `HANDOFF_CURRENT.local.md` if it exists
+`runtime/00_START_CHAT.md`
 
-If project context does not exist yet, the AI runs the First Run Onboarding.
+A new chat must first classify **what kind of start this is**:
 
-If it exists, the AI validates the current tool state and continues from `NEXT ACTION`.
+1. `CONTINUE_WORKSTREAM` — resume existing work;
+2. `START_NEW_WORKSTREAM` — new task, journey, flow or independent objective inside the same project;
+3. `START_NEW_PROJECT` — create a separate Project Runtime for a different project/client/product.
 
-A returning session can begin with:
+Example — new task in an existing project:
 
-> continue
+> Load the Project Runtime from main using `runtime/00_START_CHAT.md`. Intent: `START_NEW_WORKSTREAM`. New work: <describe it>. Do not continue an existing Workstream by default. Check scope overlap, create the new Workstream, and report initialized state before mutation.
+
+Example — completely new project:
+
+> Intent: `START_NEW_PROJECT`. Create a separate private Project Runtime from the generic `runtime/` package. Do not reuse populated context or history from another project.
+
+The base rules still apply in every mode: resolve identity/access, read project governance, inspect evidence and current artifact state, check mutation ownership/scope, validate, persist and hand off.
+
 
 ---
 
@@ -469,6 +516,33 @@ Define **o que estamos fazendo agora**.
 
 ---
 
+## Project Runtime persistente
+
+Para trabalhos de longa duração, o framework suporta um **Project Runtime**: uma memória operacional versionada e específica do projeto, independente da memória de uma conversa.
+
+Ele preserva governança, decisões, Workstreams, handoffs, estado determinístico, identidades de operadores e Session Records.
+
+Ele não substitui o estado real da ferramenta nem a evidência primária.
+
+```text
+Operating System = como trabalhamos
+Project Runtime  = onde o estado operacional do projeto persiste
+Ferramentas      = onde vive o artefato atual
+Sessão de IA     = executor temporário
+```
+
+Veja [Project Runtime](docs/PROJECT_RUNTIME.md).
+
+## Reports diários por operador
+
+Um Project Runtime pode gerar status diários concisos a partir de evidências operacionais persistentes.
+
+O modelo genérico suporta cursor por operador, distinção DRAFT/SENT, idiomas configuráveis e modo diário obrigatório definido pelo projeto.
+
+Comandos recomendados: `<operator_alias_lower>_report` e `<operator_alias_lower>_report_sent`.
+
+Veja [Operator Daily Reports](docs/OPERATOR_DAILY_REPORTS.md).
+
 ## Primeira execução
 
 O framework começa em **modo genérico**.
@@ -532,22 +606,28 @@ Esses dados pertencem aos arquivos locais de runtime.
 
 ---
 
-## Como iniciar uma nova sessão
+## Como iniciar um chat novo do zero
 
-Forneça:
+Use o ponto de entrada canônico:
 
-1. `START_CHAT.md`
-2. `PROMPT_OPERACIONAL_MASTER.md`
-3. `PROJECT_CONTEXT.local.md`, se existir
-4. `HANDOFF_CURRENT.local.md`, se existir
+`runtime/00_START_CHAT.md`
 
-Se ainda não houver Project Context, a IA executa o First Run Onboarding.
+Um chat novo precisa primeiro declarar **qual tipo de início está acontecendo**:
 
-Se já houver, ela valida o estado atual das ferramentas e continua a partir de `NEXT ACTION`.
+1. `CONTINUE_WORKSTREAM` — continuar um trabalho existente;
+2. `START_NEW_WORKSTREAM` — iniciar uma nova tarefa, jornada, fluxo ou objetivo independente dentro do mesmo projeto;
+3. `START_NEW_PROJECT` — criar um Project Runtime separado para outro projeto/cliente/produto.
 
-Uma sessão recorrente pode começar apenas com:
+Exemplo — nova tarefa dentro do mesmo projeto:
 
-> seguir
+> Carregue o Project Runtime pela `main` usando `runtime/00_START_CHAT.md`. Intent: `START_NEW_WORKSTREAM`. Novo trabalho: <descreva>. Não continue nenhum Workstream existente por padrão. Verifique sobreposição de escopo, crie o novo Workstream e reporte o estado inicializado antes de qualquer mutação.
+
+Exemplo — projeto completamente novo:
+
+> Intent: `START_NEW_PROJECT`. Crie um Project Runtime privado separado a partir do pacote genérico `runtime/`. Não reutilize contexto, sessões, evidências ou histórico operacional de outro projeto.
+
+As regras-base continuam obrigatórias em todos os modos: resolver identidade/acesso, carregar governança, inspecionar evidências e estado atual do artefato, resolver ownership/escopo, validar, persistir e fazer handoff.
+
 
 ---
 
@@ -586,3 +666,29 @@ Significant mutations have persistent records at each actually changed owner. Re
 Mudanças significativas são registradas em cada artefato realmente mutado. Dependências inspecionadas e evidências de consumers não geram records sem mutação. Registre localização e namespace por owner no contexto; resolva history ausente antes de FINAL. Correções históricas preservam o original como evidência archived/pointer e criam cópia canônica vinculada no owner correto.
 
 See [guide](docs/CHANGE_RECORD_OWNERSHIP.md), [ADR-0014](docs/decisions/ADR-0014-mutation-owned-change-records.md) and [generic scenarios](examples/CHANGE_HISTORY.example.md). Run `python scripts/validate_framework.py` plus [publication QA](docs/PUBLICATION_CHECKLIST.md). There is no dependency installation step. Startup order remains Master → Project Context → Handoff → relevant owner governance/records → current inspection → safe next action.
+
+## Framework and project runtime synchronization
+
+The generic framework owns reusable rules, templates, schemas and QA. Populated private runtimes configure and pilot them. See [promotion and assembly mapping](docs/FRAMEWORK_RUNTIME_SYNC.md) and [ADR-0018](docs/decisions/ADR-0018-framework-runtime-promotion.md).
+
+Generic sources now cover manifest, governance, artifact/evidence registries, operators, sessions, workstreams, reports, backlog, QA and dependency pinning. Public templates intentionally contain placeholders; real operational folders belong in the private instance. See [security boundary](SECURITY.md).
+
+O framework genérico é o master das regras reutilizáveis. Runtimes privados configuram e testam o fluxo. Avanços reutilizáveis devem entrar no framework por PR; depois da promoção, atualize o pin da instância. A estrutura genérica oferece templates, enquanto a instância contém dados reais e histórico privado.
+
+## Canonical runtime layout
+
+Instantiate [runtime/](runtime/00_START_CHAT.md) using [the classified inventory](runtime/package.index.json). Filenames match the instance runtime root. Root-level templates belong to framework authoring; `runtime/` is the deployable Project Runtime package. See [synchronization](docs/FRAMEWORK_RUNTIME_SYNC.md) for update planning and privacy boundaries. Framework 3.6.0 remains a candidate until its independent release gates pass.
+
+
+## Canonical repository comparison
+
+For structural parity, compare the `runtime/` directories in the generic framework and the adopting project repository.
+
+Those trees use the same canonical names and paths. Differences outside `runtime/` are intentional repository-role differences: framework research/docs/examples/licensing in public, and project-private operational history in an instance.
+
+
+### Hosted CI release-gate disposition
+
+A hosted workflow that fails before any runner or step executes is not treated as framework-source validation. Under ADR-0022, release governance may explicitly disposition that infrastructure-only gate when independent static QA, live pilots and privacy checks have sufficient PASS evidence.
+
+The correct status is `DISPOSITIONED_INFRASTRUCTURE`, not CI PASS.

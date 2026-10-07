@@ -1,6 +1,6 @@
 # AI-ASSISTED DESIGN ENGINEERING — OPERATING MASTER
 
-**Version:** 3.3.0  
+**Version:** 3.6.0  
 **Status:** CANONICAL  
 **Scope:** Generic / organization-agnostic  
 **Canonical source:** this Markdown file
@@ -995,3 +995,286 @@ Do not create meaningless ADRs solely to satisfy commit formatting.
 Owner Change History must also cite relevant implementation commits when Git is used. A commit or ADR does not replace an external artifact's persistent mutation record.
 
 The goal is traceability, not bureaucracy.
+
+
+---
+
+# 43. PROJECT RUNTIME
+
+For long-running work that must survive many AI conversations, prefer a persistent **Project Runtime** over conversational memory.
+
+A Project Runtime is a project-specific, versioned operational memory that may persist:
+
+- project context;
+- project governance;
+- project decision records;
+- artifact / mutation-owner registries;
+- evidence indexes;
+- Workstream registry;
+- Workstream handoffs;
+- machine-readable Workstream state;
+- operator profiles;
+- Session Records;
+- QA / continuity metadata.
+
+A private client implementation may be called a **Private Project Runtime**.
+
+The Project Runtime is canonical for **operational continuity**, not for every form of truth.
+
+Do not use full chat transcripts as the primary persistent state store.
+
+---
+
+# 44. AUTHORITY BOUNDARIES
+
+Keep sources of truth separated:
+
+- **Primary evidence / requirements** → authoritative at the original source;
+- **Current inspected artifact/tool state** → authoritative for current artifact state;
+- **Current canonical Design System** → authoritative for shared system state;
+- **Project Runtime** → authoritative for operational continuity, governance, coordination and recorded decisions;
+- **Chat/model memory** → non-authoritative convenience only.
+
+When a runtime snapshot and live artifact differ:
+
+`current inspected artifact state > stale runtime snapshot`
+
+Reconcile the difference and update persistent operational state. Do not silently overwrite newer work.
+
+---
+
+# 45. OPERATOR, SESSION, AND WORKSTREAM MODEL
+
+Treat these as independent entities:
+
+- **Human operator** — accountable person;
+- **Operator alias** — stable project-defined alias across chats;
+- **Chat label** — one conversation identifier;
+- **Workstream ID** — persistent unit of work.
+
+A Workstream may span many chats and may transfer between operators.
+
+Do not encode a mutable operator into the Workstream ID.
+
+Recommended ID:
+
+`WS-YYYYMMDD-NNN-<slug>`
+
+A material Session Record represents one chat and may reference multiple Workstreams.
+
+Recommended Session Record path:
+
+`sessions/<OPERATOR_ALIAS>/<YYYY>/<MM>/<YYYY-MM-DD>_<chat-label>.md`
+
+A closed Session Record should be immutable except for explicit append-only correction notes.
+
+A current Workstream handoff/state is not historical session storage.
+
+---
+
+# 46. CONTINUOUS HANDOFF AND CONTEXT-LIMIT TRIGGER
+
+A Workstream handoff is continuously maintained current state.
+
+Do not wait until the final message of a long conversation to reconstruct everything from memory.
+
+After meaningful checkpoints, persist the operational delta when write access exists.
+
+If the interface reports that the conversation reached its maximum duration/context and may continue in a new chat — or shows equivalent wording — treat it as a mandatory continuity trigger.
+
+At that trigger:
+
+1. do not begin new significant scope;
+2. complete or safely stop the current atomic operation;
+3. validate the latest completed checkpoint;
+4. update the Workstream handoff;
+5. update machine-readable state when used;
+6. synchronize the Workstream registry;
+7. update/close the material Session Record;
+8. persist the repository checkpoint;
+9. finish with exactly one `NEXT ACTION`.
+
+The next session reloads persistent state, reinspects live tool state, reconciles divergence, and only then continues.
+
+A context-limit trigger does not authorize new scope.
+
+---
+
+# 47. PROJECT RUNTIME ACCESS MODES
+
+Before relying on a Project Runtime, classify access:
+
+## READ_WRITE
+
+Normal operating mode.
+
+The agent may persist governed checkpoints to the runtime.
+
+## READ_ONLY
+
+The agent may inspect, analyze and reconcile.
+
+Do not perform significant project mutation whose safe continuity depends on writing the runtime.
+
+A human may explicitly authorize a degraded exception when owner-scoped artifact history can still be persisted and pending runtime synchronization is documented.
+
+## UNAVAILABLE
+
+Do not reconstruct project state from model/chat memory.
+
+Safe generic analysis may continue.
+
+Reconnect the Project Runtime before project mutation.
+
+---
+
+# 48. PROJECT RUNTIME DOCUMENT RESPONSIBILITIES
+
+Avoid normative drift by separating document roles:
+
+- **README** → explains the model to humans;
+- **Governance** → determines project rules;
+- **START_CHAT** → executes startup/continuity behavior;
+- **ADR / Decision Record** → explains why significant decisions exist;
+- **HANDOFF.md / state.json** → current Workstream state;
+- **Session Record** → historical material session record;
+- **owner-scoped Change History** → persistent record of actual artifact mutation.
+
+Do not duplicate the entire contract in every file.
+
+---
+
+# 49. SESSION ATTRIBUTION IN MUTATION HISTORY
+
+ADR-0014 remains the ownership rule:
+
+`THE FILE / ARTIFACT THAT OWNS THE MUTATION OWNS THE CHANGE RECORD`
+
+When a mutation is performed through an AI-assisted session, persistent Change History should capture session provenance when useful:
+
+- offset-aware timestamp;
+- timezone;
+- Human operator;
+- Operator alias;
+- Chat label;
+- Workstream ID.
+
+Git commit time is not a substitute for artifact-local mutation provenance.
+
+
+---
+
+# 50. OPERATOR DAILY REPORTS
+
+A Project Runtime may derive human-facing status reports from persistent operational evidence.
+
+This capability converts runtime memory into external team/client communication without making chat/model memory the source of truth.
+
+## 50.1 REPORT SOURCE ORDER
+
+Use:
+
+1. last confirmed report cursor;
+2. Session Records after the cursor;
+3. relevant owner-scoped mutation / Git records;
+4. current Workstream handoff/state;
+5. explicit blockers, dependencies, and help requests.
+
+Do not claim activity solely from conversational memory.
+
+## 50.2 REPORT STATES
+
+Recommended states:
+
+- `NOT_DUE`
+- `DUE`
+- `DRAFT`
+- `SENT`
+- `WAIVED`
+- `SUPERSEDED`
+
+Generation produces or refreshes DRAFT.
+
+DRAFT must not advance the reporting cursor.
+
+Actual sending changes the report to SENT and advances the cursor.
+
+WAIVED requires an explicit human reason.
+
+## 50.3 COMMAND CONVENTION
+
+Recommended default commands:
+
+`<operator_alias_lower>_report`
+
+`<operator_alias_lower>_report_sent`
+
+A project may configure other aliases.
+
+## 50.4 MANDATORY MODE
+
+Daily reporting is project-configurable.
+
+When project governance sets `daily_operator_reports.required = true`, an operator with material project activity must end the reporting day with:
+
+- SENT; or
+- WAIVED with explicit human reason.
+
+A DRAFT does not satisfy mandatory mode.
+
+This is a communication/day-close gate and does not redefine artifact QA or publication status.
+
+## 50.5 FIRST-REPORT BASELINE
+
+When no prior SENT report exists, use the project-configured baseline.
+
+Recommended default:
+
+`start of current reporting day in the configured project timezone`
+
+Do not silently assume an earlier report existed.
+
+## 50.6 OUTPUT CONTRACT
+
+Reports should be concise and recipient-facing.
+
+Prefer outcomes over:
+
+- commit SHAs;
+- node IDs;
+- internal Decision IDs;
+- implementation mechanics.
+
+Include identifiers only when they materially help the recipient.
+
+Use project-configured language(s). When multiple languages are required, preserve equivalent meaning rather than literal translation.
+
+Do not invent blockers.
+
+## 50.7 PERSISTENCE
+
+Recommended paths:
+
+`reports/daily/<OPERATOR_ALIAS>/state.json`
+
+`reports/daily/<OPERATOR_ALIAS>/<YYYY>/<MM>/<YYYY-MM-DD>_<HHmm>_daily-report.md`
+
+Report state is independent from Workstream state because one report may summarize multiple Workstreams.
+
+## Reporting coverage and confirmation
+
+Freeze an offset-aware `interval_end` when generating a DRAFT. On confirmed sending, set `last_confirmed_report_at` to that report's `interval_end`, not its `sent_at`; store the actual send time separately as `last_sent_at`. Activity after generation remains eligible for the next report. Read material deltas in OPEN Session Records as well as new records; a session's creation date alone cannot select its later updates.
+
+Confirmation requires READ_WRITE, an existing operator-matching DRAFT and evidence of actual sending. Invoking the sent command is the human's confirmation; ask only if that intent or the draft is ambiguous. Reject missing, superseded or already confirmed drafts without moving the cursor. Repeated confirmation is idempotent. Refreshing a draft preserves the previous draft as SUPERSEDED. WAIVED records the reporting date, human, time and reason, and does not advance the cursor. Day rollover recomputes DUE from material activity; absence of activity remains NOT_DUE.
+
+## Session closure discipline
+
+Keep Session Records OPEN while the conversation continues. A Git checkpoint or PR merge alone does not close a session. Close at actual conversation end, context-limit trigger or explicit human handoff. Preserve premature closures through transparent append-only correction notes.
+
+# 51. FRAMEWORK AND RUNTIME PROMOTION
+
+The generic framework owns reusable operating behavior. Project runtimes pilot and configure that behavior. Reusable findings must receive an upstream disposition in framework contracts, templates, schemas and QA; project-only values remain private.
+
+Follow docs/FRAMEWORK_RUNTIME_SYNC.md and ADR-0018. Manifest bootstrap_files define deterministic runtime load order and explicit filename translations. Keep framework version/pin, runtime version and schema versions independent and validated.
+
+Candidate capability remains separate from stable main until declared QA and live pilot gates pass. After promotion, update each runtime's dependency pin and vendored Master/companions through a governed PR. Do not edit generic method only inside a project's overrides indefinitely.

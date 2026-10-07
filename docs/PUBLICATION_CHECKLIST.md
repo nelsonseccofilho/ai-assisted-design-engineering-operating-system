@@ -108,3 +108,16 @@ Before publishing a release:
 - [ ] Decisions, owner records, Git implementation and Handoff/workstream links agree; chat memory is not persistent history.
 - [ ] Startup loads Master, context and handoff, resolves owner governance/records, inspects current state and only then mutates.
 - [ ] Run `python scripts/validate_framework.py`; inspect templates and generic examples manually.
+
+
+## Hosted CI disposition
+
+Before releasing with a non-executing hosted CI gate:
+
+- [ ] Confirm the job had no assigned runner and no executed steps/logs.
+- [ ] Confirm equivalent static/local QA passed.
+- [ ] Confirm required live pilots passed.
+- [ ] Confirm privacy/secret scans passed.
+- [ ] Record the governance decision and evidence.
+- [ ] Describe the gate as `DISPOSITIONED_INFRASTRUCTURE`, not `PASS`.
+- [ ] Keep a future real hosted run as follow-up evidence.
