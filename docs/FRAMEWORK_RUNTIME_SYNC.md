@@ -73,7 +73,7 @@ Static checks verify repository contracts. A live report pilot requires a persis
 
 ## Canonical runtime package (ADR-0019)
 
-The authoritative deployable layout is now `runtime-template/`. Strip that prefix to obtain the identical instance filename. `runtime-template.index.json` is the exhaustive allowlist and classifies each path as shared or configured. Root template names remain compatibility mirrors; edit the canonical source and regenerate its mirror in the same change. QA rejects different contents. Existing root framework entrypoints remain supported.
+The authoritative deployable layout is now `runtime/`. The framework and instance use the same `runtime/<path>` directly. `runtime/package.index.json` is the exhaustive allowlist and classifies each path as shared or configured. Root template names remain compatibility mirrors; edit the canonical source and regenerate its mirror in the same change. QA rejects different contents. Existing root framework entrypoints remain supported.
 
 Shared files are immutable installed content recorded by SHA-256 in the private `framework-lock.json`. A documented stable-baseline exception may retain an older immutable Master while a candidate is being piloted. Keep its stable commit/source/hash separate from candidate source/hash. Do not claim the candidate was released or adopted wholesale.
 
@@ -84,3 +84,12 @@ Run `python scripts/validate_framework.py` and `python scripts/runtime_sync.py -
 The private `upstream-disposition.json` records reusable findings with evidence and PROJECT_ONLY, UPSTREAM_PENDING or PROMOTED. PROMOTED means implemented in the linked candidate, not released; release gates remain explicit. New reusable changes must update this registry. The checker reports recorded pending items; it cannot infer semantic reuse from arbitrary prose.
 
 Compatibility migrations retain old path pointers for historical records. Do not rewrite closed sessions or reports. In an existing instance, migrate current references from an artifact-specific registry filename to `50_ARTIFACT_REGISTRY.local.md` and preserve the old name as an alias.
+
+
+## Canonical runtime root (ADR-0020)
+
+The canonical comparison boundary is `runtime/` in both repositories.
+
+Do not compare repository roots for parity: the public repository also carries framework research/docs/examples/licensing, while a private repository carries populated project history.
+
+Parity means identical canonical paths under `runtime/`, shared-content parity or documented immutable baseline exceptions, schema-compatible configured files, and privacy-safe populated instance data.

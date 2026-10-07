@@ -1,0 +1,7 @@
+{
+  "schema_version": "2.0",
+  "stable_pin": null,
+  "candidate_pin": null,
+  "package_index": "runtime/package.index.json",
+  "shared_baselines": {}
+}

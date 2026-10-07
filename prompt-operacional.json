@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "AI-Assisted Design Engineering Operating System",
-    "version": "3.4.0",
+    "version": "3.5.0",
     "status": "CANONICAL_DERIVATIVE",
     "canonical_source": "PROMPT_OPERACIONAL_MASTER.md",
     "scope": "generic",
@@ -198,7 +198,9 @@
       "UNAVAILABLE"
     ],
     "chat_memory_authority": "non-authoritative convenience only",
-    "live_artifact_rule": "Current inspected artifact state outranks stale runtime snapshots."
+    "live_artifact_rule": "Current inspected artifact state outranks stale runtime snapshots.",
+    "canonical_runtime_root": "runtime",
+    "package_index": "runtime/package.index.json"
   },
   "continuity": {
     "continuous_handoff": true,

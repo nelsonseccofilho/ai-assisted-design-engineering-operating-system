@@ -28,6 +28,17 @@ All notable changes to the operating framework are documented here.
 - added ADR-0015 and ADR-0016;
 - retained ADR-0014 mutation-owned Change History and added optional timestamp/timezone + session provenance fields.
 
+## 3.5.0 — 2026-10-06
+
+### Canonical runtime root
+- replaced the candidate `runtime-template/` tree with canonical `runtime/`;
+- made framework and project instances use identical runtime-relative paths;
+- added classified `runtime/package.index.json`;
+- added generic evidence archive surface and metadata template;
+- separated Project Runtime decision templates from framework ADR history;
+- added explicit compatibility area and runtime READMEs;
+- added ADR-0020.
+
 ## Unreleased
 
 ### Governance

@@ -3,7 +3,7 @@
 > A personal research framework for persistent, evidence-driven collaboration between designers and AI agents across Product Design, UI, Design Systems, Figma, QA, and design operations.
 
 **Status:** Experimental / evolving  
-**Framework version:** 3.4.0  
+**Framework version:** 3.5.0  
 **Canonical operating contract:** `PROMPT_OPERACIONAL_MASTER.md`
 
 [English](#english) · [Português](#português)
@@ -670,4 +670,11 @@ O framework genérico é o master das regras reutilizáveis. Runtimes privados c
 
 ## Canonical runtime layout
 
-Instantiate [runtime-template/](runtime-template/00_START_CHAT.md) using [the classified inventory](runtime-template.index.json). Filenames match the instance root. Root templates are compatibility mirrors. See [synchronization](docs/FRAMEWORK_RUNTIME_SYNC.md) for update planning and privacy boundaries. Framework 3.4.0 remains a candidate until its live gates pass.
+Instantiate [runtime/](runtime/00_START_CHAT.md) using [the classified inventory](runtime/package.index.json). Filenames match the instance root. Root templates are compatibility mirrors. See [synchronization](docs/FRAMEWORK_RUNTIME_SYNC.md) for update planning and privacy boundaries. Framework 3.4.0 remains a candidate until its live gates pass.
+
+
+## Canonical repository comparison
+
+For structural parity, compare the `runtime/` directories in the generic framework and the adopting project repository.
+
+Those trees use the same canonical names and paths. Differences outside `runtime/` are intentional repository-role differences: framework research/docs/examples/licensing in public, and project-private operational history in an instance.

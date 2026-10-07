@@ -1,6 +1,6 @@
 # ADR-0019 — Canonical runtime package and controlled synchronization
 
-Status: Accepted in candidate; release gates pending.
+Status: Superseded by ADR-0020 for runtime-root naming; synchronization principles remain historical context.
 
 ## Context
 
@@ -17,3 +17,8 @@ Check inventory, aliases, shared hashes, manifest/schema parity and privacy befo
 ## Consequences
 
 Configured files require review. Synchronization is never a bidirectional repository mirror. Upstream changes are generalized in clean public commits. Runtime version and framework version remain independent.
+
+
+## Supersession
+
+ADR-0020 replaces the `runtime-template/` prefix with identical `runtime/` roots in framework and instance.

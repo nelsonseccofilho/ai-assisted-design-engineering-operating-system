@@ -29,7 +29,7 @@ for source in ROOT.rglob("*.md"):
 master = read("PROMPT_OPERACIONAL_MASTER.md")
 derivative = json.loads(read("prompt-operacional.json"))
 version = re.search(r"\*\*Version:\*\* ([0-9.]+)", master).group(1)
-check(version == "3.4.0", "Unexpected framework version")
+check(version == "3.5.0", "Unexpected framework version")
 check(derivative["meta"]["version"] == version, "Master/JSON version mismatch")
 check(f"**Framework version:** {version}" in read("README.md"), "README version mismatch")
 
@@ -262,3 +262,14 @@ if errors:
     print("\n".join("FAIL: " + message for message in errors))
     raise SystemExit(1)
 print(f"PASS: {checks} package checks, including Project Runtime, Operator Daily Reports and mutation-owner scenarios")
+
+
+# Canonical runtime root contract (ADR-0020).
+runtime_index = json.loads(read("runtime/package.index.json"))
+check(runtime_index["schema_version"] == "2.0", "Runtime package index schema")
+check(runtime_index["runtime_root"] == "runtime", "Canonical runtime root")
+for item in runtime_index["files"]:
+    check((ROOT / "runtime" / item["path"]).is_file(), "Missing canonical runtime path: " + item["path"])
+check((ROOT / "runtime/evidence/README.md").is_file(), "Missing evidence surface")
+check((ROOT / "runtime/docs/decisions/PROJECT_ADR_TEMPLATE.md").is_file(), "Missing project ADR template")
+check(not (ROOT / "runtime-template").exists(), "Deprecated runtime-template root still present")
