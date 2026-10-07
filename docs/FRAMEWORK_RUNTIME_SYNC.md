@@ -93,3 +93,12 @@ The canonical comparison boundary is `runtime/` in both repositories.
 Do not compare repository roots for parity: the public repository also carries framework research/docs/examples/licensing, while a private repository carries populated project history.
 
 Parity means identical canonical paths under `runtime/`, shared-content parity or documented immutable baseline exceptions, schema-compatible configured files, and privacy-safe populated instance data.
+
+
+## Hosted CI non-execution disposition (ADR-0022)
+
+Hosted CI is preferred evidence, but a run that never receives a runner and exposes no executed steps/logs is infrastructure non-execution, not framework-source validation.
+
+A release may explicitly disposition that gate only when the ADR-0022 criteria are satisfied and documented. Record the result as `DISPOSITIONED_INFRASTRUCTURE`, never `PASS`.
+
+Future real hosted execution remains desirable and should replace the disposition when available.

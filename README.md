@@ -685,3 +685,10 @@ Instantiate [runtime/](runtime/00_START_CHAT.md) using [the classified inventory
 For structural parity, compare the `runtime/` directories in the generic framework and the adopting project repository.
 
 Those trees use the same canonical names and paths. Differences outside `runtime/` are intentional repository-role differences: framework research/docs/examples/licensing in public, and project-private operational history in an instance.
+
+
+### Hosted CI release-gate disposition
+
+A hosted workflow that fails before any runner or step executes is not treated as framework-source validation. Under ADR-0022, release governance may explicitly disposition that infrastructure-only gate when independent static QA, live pilots and privacy checks have sufficient PASS evidence.
+
+The correct status is `DISPOSITIONED_INFRASTRUCTURE`, not CI PASS.

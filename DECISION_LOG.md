@@ -48,6 +48,7 @@ Never silently rewrite history.
 | [ADR-0019](docs/decisions/ADR-0019-canonical-runtime-package.md) | 2026-10-06 | SUPERSEDED | Initial classified runtime package; runtime-template root superseded by ADR-0020 |
 | [ADR-0020](docs/decisions/ADR-0020-canonical-runtime-root.md) | 2026-10-06 | ACCEPTED | Use the same canonical runtime/ root and relative paths in framework and project instances |
 | [ADR-0021](docs/decisions/ADR-0021-startup-intent-and-clean-runtime.md) | 2026-10-06 | ACCEPTED | Resolve startup intent before Workstream selection and consolidate legacy aliases |
+| [ADR-0022](docs/decisions/ADR-0022-hosted-ci-disposition.md) | 2026-10-06 | ACCEPTED | Allow explicit governance disposition when hosted CI fails before any runner/step executes and independent QA evidence is sufficient |
 
 ---
 

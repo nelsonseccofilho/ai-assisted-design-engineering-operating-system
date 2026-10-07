@@ -49,6 +49,11 @@ All notable changes to the operating framework are documented here.
 - deprecated scattered compatibility pointer files in operational folders;
 - added ADR-0021.
 
+### Release-gate disposition
+- added ADR-0022 to distinguish hosted CI non-execution from framework-source failure;
+- allows explicit infrastructure disposition only when no runner/steps/logs execute and independent static/live evidence is sufficient;
+- this disposition is not a CI PASS and must remain visible in release notes.
+
 ## Unreleased
 
 ### Governance
