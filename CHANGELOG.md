@@ -62,6 +62,13 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### README and evidence-ingestion documentation
+- rewrote the public README as a practical project entrypoint covering problems, architecture, quick start, runtime usage, evidence provenance, QA, privacy, licensing and maintainer context;
+- added generic stakeholder-meeting evidence ingestion guidance;
+- added an optional local OBS/WhisperX transcription setup guide with CPU/GPU examples and security boundaries;
+- expanded the shared runtime evidence archive contract;
+- documented the recording → transcript → evidence → requirement → implementation → QA chain without treating machine transcription as automatic truth.
+
 ### Documentation ownership boundary
 - added ADR-0023 and a shared contract defining FRAMEWORK_OWNED, PROJECT_OWNED, SHARED_CONTRACT and CROSS_REPO_REFERENCE;
 - made the public framework the canonical owner of reusable method/history and private runtimes the canonical owners of project evidence/history;
