@@ -32,7 +32,12 @@ def assess(framework, runtime=None, deny=()):
     lock=json.loads(runtime.get(prefix+"framework-lock.json","{}"))
     if lock.get("schema_version")!="2.0": errors.append("Unsupported lock schema")
     if lock.get("package_index")!=index_path: errors.append("Lock package index drift")
-    if not re.fullmatch(r"[0-9a-f]{40}",lock.get("candidate_pin","") or ""): errors.append("Candidate must use immutable full commit")
+    stable_pin=lock.get("stable_pin")
+    candidate_pin=lock.get("candidate_pin")
+    if stable_pin is not None and not re.fullmatch(r"[0-9a-f]{40}",stable_pin):
+        errors.append("Stable pin must be null or an immutable full commit")
+    if candidate_pin is not None and not re.fullmatch(r"[0-9a-f]{40}",candidate_pin):
+        errors.append("Candidate pin must be null or an immutable full commit")
     baselines=lock.get("shared_baselines",{})
     for item in contract["files"]:
         rel=item["path"]; path=prefix+rel
