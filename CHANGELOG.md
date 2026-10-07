@@ -62,6 +62,13 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### Post-release runtime lock cleanup
+- allow `candidate_pin: null` after a framework candidate is promoted and no active candidate remains;
+- require any non-null stable/candidate lock pin to be a full immutable commit SHA;
+- clarify stable-vs-candidate synchronization and consolidate compatibility aliases in `compat/ALIASES.local.md`;
+- add regression coverage for released runtimes with no active candidate.
+
+
 ### Governance
 - added [ADR-0014](docs/decisions/ADR-0014-mutation-owned-change-records.md): mutation owners own persistent change records;
 - integrated owner history routing, artifact registry, append-only ownership correction, startup and completion checks across the Master, templates and JSON derivative;
