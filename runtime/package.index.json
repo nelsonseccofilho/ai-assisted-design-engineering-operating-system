@@ -5,8 +5,7 @@
   "files": [
     {
       "path": "00_START_CHAT.md",
-      "mode": "configured",
-      "compatibility_alias": "START_CHAT.md"
+      "mode": "configured"
     },
     {
       "path": "10_PROMPT_OPERACIONAL_MASTER.md",
