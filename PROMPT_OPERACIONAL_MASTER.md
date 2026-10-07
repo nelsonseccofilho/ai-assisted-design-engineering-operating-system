@@ -1278,3 +1278,21 @@ The generic framework owns reusable operating behavior. Project runtimes pilot a
 Follow docs/FRAMEWORK_RUNTIME_SYNC.md and ADR-0018. Manifest bootstrap_files define deterministic runtime load order and explicit filename translations. Keep framework version/pin, runtime version and schema versions independent and validated.
 
 Candidate capability remains separate from stable main until declared QA and live pilot gates pass. After promotion, update each runtime's dependency pin and vendored Master/companions through a governed PR. Do not edit generic method only inside a project's overrides indefinitely.
+
+
+# 52. DOCUMENTATION OWNERSHIP BOUNDARY
+
+Classify every durable documentation record before persisting it:
+
+- `FRAMEWORK_OWNED` — reusable method, framework ADRs, framework CI/release history, generic templates/schemas/scripts/QA. Canonical owner: public framework.
+- `PROJECT_OWNED` — client/project context, stakeholder requirements, proprietary evidence, project Decisions and populated runtime state/history. Canonical owner: private Project Runtime.
+- `SHARED_CONTRACT` — reusable contract authored upstream in the public framework and consumed through a pinned runtime dependency. Do not edit private copies independently.
+- `CROSS_REPO_REFERENCE` — link/adoption/promotion record that points to another canonical owner without duplicating its full history.
+
+When a reusable method is discovered in private project work:
+
+`private finding → PROJECT_ONLY or UPSTREAM_PENDING → public implementation/ADR → release → private pin update → PROMOTED reference`
+
+Preserve accepted historical overlap append-only. Do not delete or silently rewrite a prior project ADR merely because its reusable architecture was later promoted upstream; append an ownership/adoption note and point to the canonical public record.
+
+See `runtime/docs/contracts/DOCUMENTATION_OWNERSHIP.md` and ADR-0023.

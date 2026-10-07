@@ -32,3 +32,15 @@ Validate every template mapping, manifest defaults, schema/version relationships
 ## Supersession
 
 Extends ADR-0015, ADR-0016 and ADR-0017; does not supersede them.
+
+
+## Release outcome — 2026-10-07
+
+The candidate described above was promoted into the released framework 3.6.0.
+
+The historical candidate wording in this ADR is intentionally preserved. Current ownership is now explicit under ADR-0023:
+
+- reusable framework method and release history are `FRAMEWORK_OWNED`;
+- adopting runtime configuration/history are `PROJECT_OWNED`;
+- vendored reusable runtime contracts are `SHARED_CONTRACT`;
+- promotion/adoption links are `CROSS_REPO_REFERENCE`.

@@ -133,6 +133,11 @@
       "compatibility_alias": "docs/CHANGE_RECORD_OWNERSHIP.md"
     },
     {
+      "path": "docs/contracts/DOCUMENTATION_OWNERSHIP.md",
+      "mode": "shared",
+      "compatibility_alias": "docs/DOCUMENTATION_OWNERSHIP.md"
+    },
+    {
       "path": "docs/decisions/README.md",
       "mode": "shared"
     },

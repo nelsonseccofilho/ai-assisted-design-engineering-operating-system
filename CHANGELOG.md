@@ -62,6 +62,13 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### Documentation ownership boundary
+- added ADR-0023 and a shared contract defining FRAMEWORK_OWNED, PROJECT_OWNED, SHARED_CONTRACT and CROSS_REPO_REFERENCE;
+- made the public framework the canonical owner of reusable method/history and private runtimes the canonical owners of project evidence/history;
+- added the ownership contract to the canonical runtime package inventory;
+- corrected stale candidate-branch links in Change Record Ownership guidance;
+- documented the release outcome of ADR-0018 without rewriting its historical candidate context.
+
 ### Post-release runtime lock cleanup
 - allow `candidate_pin: null` after a framework candidate is promoted and no active candidate remains;
 - require any non-null stable/candidate lock pin to be a full immutable commit SHA;

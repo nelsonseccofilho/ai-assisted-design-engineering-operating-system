@@ -700,7 +700,7 @@ Framework 3.6.0 is the current released operating contract on `main`.
 
 Validated before promotion:
 
-- canonical `runtime/` package and 34-path structural contract;
+- canonical `runtime/` package and 35-path structural contract;
 - cross-chat bootstrap and persistent-state recovery;
 - live artifact reconciliation in a private adopter runtime;
 - zero-chat startup modes;
@@ -708,3 +708,15 @@ Validated before promotion:
 - public privacy and common secret-pattern scans.
 
 Hosted GitHub Actions did not execute validation steps: the observed jobs received no runner, exposed zero steps and no usable logs. ADR-0022 therefore records this gate as `DISPOSITIONED_INFRASTRUCTURE`, **not** as CI PASS.
+
+
+### Documentation ownership boundary
+
+Durable documentation is classified before persistence:
+
+- `FRAMEWORK_OWNED` — generic framework method/history;
+- `PROJECT_OWNED` — private project context/evidence/history;
+- `SHARED_CONTRACT` — framework-authored contract consumed through a pinned runtime;
+- `CROSS_REPO_REFERENCE` — link between canonical owners without duplicated history.
+
+See [ADR-0023](docs/decisions/ADR-0023-documentation-ownership-boundary.md) and the [shared runtime contract](runtime/docs/contracts/DOCUMENTATION_OWNERSHIP.md).

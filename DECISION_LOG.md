@@ -49,6 +49,7 @@ Never silently rewrite history.
 | [ADR-0020](docs/decisions/ADR-0020-canonical-runtime-root.md) | 2026-10-06 | ACCEPTED | Use the same canonical runtime/ root and relative paths in framework and project instances |
 | [ADR-0021](docs/decisions/ADR-0021-startup-intent-and-clean-runtime.md) | 2026-10-06 | ACCEPTED | Resolve startup intent before Workstream selection and consolidate legacy aliases |
 | [ADR-0022](docs/decisions/ADR-0022-hosted-ci-disposition.md) | 2026-10-06 | ACCEPTED | Allow explicit governance disposition when hosted CI fails before any runner/step executes and independent QA evidence is sufficient |
+| [ADR-0023](docs/decisions/ADR-0023-documentation-ownership-boundary.md) | 2026-10-07 | ACCEPTED | Classify durable documentation as framework-owned, project-owned, shared-contract or cross-repo reference |
 
 ---
 

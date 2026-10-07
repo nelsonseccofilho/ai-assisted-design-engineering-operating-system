@@ -102,3 +102,15 @@ Hosted CI is preferred evidence, but a run that never receives a runner and expo
 A release may explicitly disposition that gate only when the ADR-0022 criteria are satisfied and documented. Record the result as `DISPOSITIONED_INFRASTRUCTURE`, never `PASS`.
 
 Future real hosted execution remains desirable and should replace the disposition when available.
+
+
+## Documentation ownership boundary
+
+Apply [ADR-0023](decisions/ADR-0023-documentation-ownership-boundary.md) and the shared [documentation ownership contract](../runtime/docs/contracts/DOCUMENTATION_OWNERSHIP.md) before moving information between framework and runtime repositories.
+
+- framework architecture/history: `FRAMEWORK_OWNED`;
+- project context/evidence/history: `PROJECT_OWNED`;
+- shared runtime contracts: `SHARED_CONTRACT`;
+- promotion/adoption links: `CROSS_REPO_REFERENCE`.
+
+A private runtime may record that a framework release or PR was adopted, but the public repository remains the canonical owner of that framework mutation/release history.
