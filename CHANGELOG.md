@@ -62,6 +62,11 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### Downloadable human handoff preparation
+- preserved five frozen fictional participant files for online reading and offline download, with external-reader instructions v1.1 and a documented return/review procedure;
+- kept answer keys, prior AI responses and participant identities outside the public packet; human execution remains NOT RUN and pilot classifications unchanged;
+- linked preparation and fixed comprehension criteria under existing ADR-0025 and GOV-VAL-001 / ADR-0029, without changing core/runtime contracts or releasing a new version.
+
 ### Transfer coverage and proportionate next steps
 - consolidated the 35-topic catalog into a bounded transfer checkpoint, separating 25 reusable private-origin topics, six existing core topics, three user-requested extensions and one intentional private exclusion;
 - recorded each optional pilot's observed evidence and remaining acceptance boundary; deferred the unexecuted delivery-efficiency comparison for the current documentary scope under GOV-VAL-001 / ADR-0029;
