@@ -1,0 +1,25 @@
+{
+  "protocol_id": "fictional-local-functional-v1",
+  "target": "METH-020",
+  "recorded_before_execution": true,
+  "scope": "Local SQLite workflow under trusted fictional actor contexts; no real authentication or external publication.",
+  "required_cases": {
+    "F01": "Allowed editor rename persists a new revision and event",
+    "F02": "Reader cannot mutate and rejection leaves persisted state unchanged",
+    "F03": "Cross-scope reads and mutations are denied without state changes",
+    "F04": "Publication without current fictional approval is denied",
+    "F05": "Fictional reviewer approval permits editor local publication",
+    "F06": "Editor cannot grant its own reviewer approval",
+    "F07": "Editing invalidates approval for an earlier revision",
+    "F08": "Invalid title leaves no partial write or event",
+    "F09": "Failure after writes rolls back state and event; recovery succeeds",
+    "F10": "A fresh process reads persisted publication and revision",
+    "F11": "Unknown role and empty actor are rejected without changes",
+    "F12": "Initialization preserves an existing database",
+    "F13": "An unknown action is rejected without changes",
+    "F14": "Published records cannot be renamed by this draft-only fixture",
+    "F15": "Changes in one scope preserve unrelated scope records"
+  },
+  "closure": "All required cases observed PASS, fixture/source identity retained, failures and limits recorded. No global pilot promotion.",
+  "excluded_claims": ["production authentication", "tamper-proof authorization", "private product validation", "human approval", "native editor validation", "external publication", "delivery efficiency", "financial savings"]
+}

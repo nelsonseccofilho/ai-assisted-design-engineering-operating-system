@@ -266,9 +266,11 @@
       "disposition": "OPTIONAL_PILOT",
       "maturity": "PILOT_PENDING",
       "targets": [
-        "runtime/docs/contracts/REVIEW_AND_ACCEPTANCE.md"
+        "runtime/docs/contracts/REVIEW_AND_ACCEPTANCE.md",
+        "examples/functional-mvp/README.md",
+        "docs/LOCAL_FUNCTIONAL_MVP_2026-10-15.md"
       ],
-      "validation_scope": "Locally authorized process direction; real permissions and acceptance are not bypassed.",
+      "validation_scope": "Locally authorized process direction; real permissions and acceptance are not bypassed. Fifteen synthetic local functional scenarios observed under trusted fictional actors; production authentication, human/native acceptance and general pilot effectiveness remain unverified.",
       "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
       "release_status": "UNRELEASED_REVIEW",
       "origin": "PRIVATE_DOCUMENT_REVIEW"
