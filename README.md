@@ -191,6 +191,12 @@ See:
 
 ## Quick start
 
+### Set up with an AI assistant
+
+Use the [copyable setup prompt](INSTALL_WITH_AI.md) with ChatGPT, Gemini, or an assistant you choose. It guides environment checks, public framework setup, optional private runtime initialization and first-use verification. The assistant must establish whether it can act locally or only guide you; its name does not imply access.
+
+Follow the [AI-assisted setup procedure](docs/AI_ASSISTED_SETUP.md) for acceptance criteria and troubleshooting. Manual setup remains available below. No paid API or optional design/transcription integration is required. Independent clean-machine/provider trials remain pending; this is guided onboarding, not one-click installation.
+
 ### Prerequisites
 
 For the framework itself:
@@ -440,6 +446,10 @@ See:
 - [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md)
 
 This repository is source-available for noncommercial use and should not be described as OSI Open Source.
+
+## About this project
+
+An evidence-driven framework for human-AI collaboration in Product Design and Design Engineering, with persistent project context, Design System governance, QA, and traceable delivery.
 
 ## About the author
 

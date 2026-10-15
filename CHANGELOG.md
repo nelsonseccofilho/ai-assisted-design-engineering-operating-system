@@ -62,6 +62,12 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### AI-assisted onboarding
+- added a provider-neutral copyable setup prompt and an explicit guided/tool-assisted procedure for exploration or private-project initialization;
+- linked onboarding from README and START_CHAT, preserving runtime intents, mandatory bootstrap and private configuration;
+- documented environment/pin inspection, existing-install preservation, QA and first-session acceptance without claiming unexecuted clean-machine/provider trials;
+- proposed ADR-0027 and updated the English repository About description, read back independently from GitHub metadata.
+
 ### Methodology promotion candidate
 - proposed ADR-0024 and ADR-0025 with a sanitized maturity review, additive evidence/delivery, foundation QA and optional task-ownership contracts, and unconfigured private review seeds;
 - kept incomplete UX, handoff, component maturity, canvas, phase sequencing and efficiency pilots optional with explicit limits;

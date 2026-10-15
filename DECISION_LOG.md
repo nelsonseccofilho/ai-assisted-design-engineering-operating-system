@@ -55,6 +55,8 @@ Never silently rewrite history.
 | [ADR-0025](docs/decisions/ADR-0025-pilot-maturity-and-promotion.md) | 2026-10-15 | PROPOSED | Preserve validation scope and pilot promotion boundaries |
 | [ADR-0026](docs/decisions/ADR-0026-complete-package-qa.md) | 2026-10-15 | PROPOSED | Validate the complete current package before PASS |
 
+| [ADR-0027](docs/decisions/ADR-0027-ai-assisted-onboarding.md) | 2026-10-15 | PROPOSED | Make AI-assisted setup an explicit verified onboarding path |
+
 ---
 
 ## Rule
