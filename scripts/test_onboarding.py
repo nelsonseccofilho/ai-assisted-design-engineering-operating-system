@@ -20,7 +20,8 @@ BOOTSTRAP = [
 WS = "WS-20261015-001-onboarding-smoke"
 OPERATOR = "Fictional Operator"
 ALIAS = "EXAMPLE"
-NEXT = "Review the fictional project brief without editing external artifacts."
+BRIEF = "evidence/fictional-brief.md"
+NEXT = "Review evidence/fictional-brief.md without editing external artifacts."
 STAMP = "2026-10-15T12:00:00+00:00"
 PUBLIC = "https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system"
 # Synthetic immutable-shaped test inputs unless --stable-pin is explicitly supplied.
@@ -78,6 +79,12 @@ def initialize_fixture(project):
         stream.write("\n## Fictional fixture scope\n"
                      "Local setup/readback only. Reports remain optional and disabled.\n"
                      "No product, design, external artifact, remote or release mutation.\n")
+    (runtime / BRIEF).write_text(
+        "# Fictional local brief\n\n"
+        "Synthetic input for this onboarding fixture only.\n"
+        "Task: review this brief and report unresolved requirements.\n"
+        "Scope: read-only local analysis; no product or external artifact mutation.\n"
+        "No real client, stakeholder, recording, transcript or product data.\n", encoding="utf-8")
     profile = runtime / "operators/EXAMPLE/OPERATOR_PROFILE.md"
     profile.parent.mkdir()
     profile.write_text(
@@ -172,6 +179,11 @@ def recover(runtime):
             "next_action": state["next_action"], "bootstrap_count": len(bootstrap)}
 
 
+def action_source_available(runtime):
+    """Source availability is separate from context recovery and full readiness."""
+    return (runtime / BRIEF).is_file()
+
+
 class OnboardingTest(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix="fictional-onboarding-")
@@ -202,12 +214,18 @@ class OnboardingTest(unittest.TestCase):
         self.assertEqual(0, child.returncode, child.stderr)
         result = json.loads(child.stdout)
         self.assertEqual(NEXT, result["next_action"])
+        self.assertTrue(action_source_available(self.runtime))
         self.assertEqual(8, result["bootstrap_count"])
         self.assertEqual(WS, result["workstream_id"])
         self.assertEqual(OPERATOR, result["human_operator"])
         self.assertEqual(ALIAS, result["alias"])
         self.assertEqual("ACTIVE", result["status"])
         self.assertEqual(before, digest_tree(self.runtime), "Validation/recovery must be read-only")
+
+    def test_missing_action_source_does_not_imply_lost_context(self):
+        (self.runtime / BRIEF).unlink()
+        self.assertEqual(NEXT, recover(self.runtime)["next_action"])
+        self.assertFalse(action_source_available(self.runtime))
 
     def test_existing_destination_is_preserved(self):
         before = digest_tree(self.project)
