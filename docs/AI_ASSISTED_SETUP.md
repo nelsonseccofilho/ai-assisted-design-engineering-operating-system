@@ -82,7 +82,7 @@ Static validators check package structure and parity. They do not establish corr
 
 Use the existing START_NEW_PROJECT intent for a new project; then follow runtime/00_START_CHAT.md and the manifest's eight-file bootstrap. No new setup intent or permanent bootstrap file is introduced.
 
-Confirm actual runtime access, operator identity, scope and initial Workstream. Recover its handoff/state and one concrete next action. For a stronger continuity claim, open a separate session and recover the same state from the persisted runtime without reexplaining project history. If that trial was not performed, leave it NOT RUN. No Figma, production or library mutation is needed to test onboarding.
+Confirm actual runtime access, operator identity, scope and initial Workstream. Recover its handoff/state and one concrete next action. Check that the action identifies an available source/target and that essential configuration is resolved; coherent text recovery alone cannot establish execution readiness. For a stronger continuity claim, open a separate session and recover the same state from the persisted runtime without reexplaining project history. If that trial was not performed, leave it NOT RUN. No Figma, production or library mutation is needed to test onboarding.
 
 ## Acceptance record
 
@@ -98,7 +98,7 @@ Do not persist credentials, full terminal histories or personal machine details 
 
 ## Validation scope for this proposal
 
-Repository link, privacy and package checks validate this documentation change. The scoped Windows checkout/configuration trial and fresh-process readback are recorded in [the onboarding validation record](validation/ONBOARDING_VALIDATION.md). Clean-machine trials on Windows/macOS/Linux and independent ChatGPT/Gemini guided sessions remain NOT RUN. Keep release and pilot gates explicit; do not advertise one-click installation or universal compatibility.
+Repository link, privacy and package checks validate this documentation change. The scoped Windows checkout/configuration trial, fresh-process readback and one independent Codex conversation recovery trial are recorded in [the onboarding validation record](validation/ONBOARDING_VALIDATION.md). Clean-machine trials on Windows/macOS/Linux and independent ChatGPT/Gemini guided sessions remain NOT RUN. Keep release and pilot gates explicit; do not advertise one-click installation or universal compatibility.
 
 ## Repository About
 
