@@ -62,6 +62,10 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### Temporary hosted QA suspension
+- recorded the maintainer-requested suspension of this repository's Static QA workflow and the PR #10 infrastructure disposition under ADR-0022;
+- preserved the workflow and local validation commands, with explicit restoration steps in [Hosted CI status](docs/HOSTED_CI_STATUS.md); no hosted PASS, release or pilot promotion is claimed.
+
 ### Eight-session retrieval comparison
 - recorded eight fresh AI sessions and sixteen eligible synthetic recovery/critique observations under frozen protocol v1.1;
 - observed explicit index retrieval in every available-index case, with approximately 18.6% more case-source bytes and no avoided case-document reads;
