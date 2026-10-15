@@ -41,3 +41,6 @@ Report formal completed tasks as numerator/denominator from the owner ledger. Re
 Actual mutations use each artifact's existing owner history. Read-only inspection creates no fictitious artifact change. Preserve source material; a missing historical node is not permission to recreate deliberately removed content. Do not send external communications without applicable authorization.
 
 The broader deliverable-first efficiency policy, review-depth tuning and phase sequencing remain pilots in the [promotion guide](../../../docs/METHODOLOGY_PROMOTION.md). This contract does not claim their productivity or end-to-end effectiveness.
+
+
+For the full source-chain and scenario procedure, see [evidence reconciliation](EVIDENCE_RECONCILIATION.md). Use [review and acceptance](REVIEW_AND_ACCEPTANCE.md) for controlled comparisons, scoped waivers and pilot delivery checks.

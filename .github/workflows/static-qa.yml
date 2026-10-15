@@ -13,3 +13,5 @@ jobs:
       - run: python scripts/validate_framework.py
       - run: python scripts/test_runtime_sync.py
       - run: python scripts/test_methodology.py
+      - run: python scripts/audit_methodology.py --framework .
+      - run: python scripts/test_audit_methodology.py

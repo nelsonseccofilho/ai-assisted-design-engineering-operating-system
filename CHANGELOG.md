@@ -62,6 +62,12 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### Bounded methodology audit
+- proposed ADR-0028 and a privacy-safe 34-topic methodology catalog, separating file coverage from finding maturity;
+- completed eight reusable procedures and five unconfigured seeds for evidence, migration, decision integrity, comparison/acceptance, annotation, canvas/content, editorial and knowledge/efficiency work;
+- kept source-level project mappings local/restricted, with immutable blob identities and explicit exclusions;
+- added read-only catalog/source-coverage QA and negative regressions, and repaired the runtime validator's premature result block; no original-media replay, live pilot completion, private repair, merge or release is implied.
+
 ### AI-assisted onboarding
 - added a provider-neutral copyable setup prompt and an explicit guided/tool-assisted procedure for exploration or private-project initialization;
 - linked onboarding from README and START_CHAT, preserving runtime intents, mandatory bootstrap and private configuration;

@@ -57,6 +57,8 @@ Never silently rewrite history.
 
 | [ADR-0027](docs/decisions/ADR-0027-ai-assisted-onboarding.md) | 2026-10-15 | PROPOSED | Make AI-assisted setup an explicit verified onboarding path |
 
+| [ADR-0028](docs/decisions/ADR-0028-traceable-methodology-audit.md) | 2026-10-15 | PROPOSED | Audit bounded source coverage and complete reusable methodology procedures |
+
 ---
 
 ## Rule

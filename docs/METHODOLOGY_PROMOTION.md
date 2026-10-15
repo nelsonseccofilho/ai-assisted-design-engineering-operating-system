@@ -5,6 +5,10 @@
 
 This review compares the public core with a private adopter's persisted governance, pilot records, session consolidation and an attributed independent handoff assessment inspected on 2026-10-15. Original source locators and operational audit records remain private. No recordings, transcripts, original Figma state or human acceptance were newly reproduced in this review.
 
+## Audit follow-through
+
+The [bounded source audit](METHODOLOGY_AUDIT.md) and [methodology catalog](methodology-catalog.json) complete the source-to-destination review. Previously summary-only topics now have reusable procedures and seeds, with their original validation limits preserved. No private source ledger is published.
+
 ## Disposition and strength of evidence
 
 | Finding | Evidence-supported maturity | Public disposition |

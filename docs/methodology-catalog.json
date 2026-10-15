@@ -1,0 +1,467 @@
+{
+  "schema_version": "1.0",
+  "scope": "Generic methodology coverage; source-level project traceability is kept outside the public package.",
+  "baseline_version": "3.6.0",
+  "entries": [
+    {
+      "id": "METH-001",
+      "title": "Persistent project runtime",
+      "disposition": "EXISTING_CORE",
+      "maturity": "EXISTING_CORE",
+      "targets": [
+        "docs/PROJECT_RUNTIME.md",
+        "runtime/README.md"
+      ],
+      "validation_scope": "Existing released architecture; project configuration is independent.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "EXISTING_PUBLIC_CORE"
+    },
+    {
+      "id": "METH-002",
+      "title": "Operator, session, workstream and concurrent ownership",
+      "disposition": "EXISTING_CORE",
+      "maturity": "EXISTING_CORE",
+      "targets": [
+        "docs/PROJECT_RUNTIME.md",
+        "runtime/operators/README.md",
+        "runtime/sessions/README.md"
+      ],
+      "validation_scope": "Existing identity/concurrency contract; individual assignments remain private.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "EXISTING_PUBLIC_CORE"
+    },
+    {
+      "id": "METH-003",
+      "title": "Deterministic startup and immutable dependency pins",
+      "disposition": "EXISTING_CORE",
+      "maturity": "EXISTING_CORE",
+      "targets": [
+        "runtime/00_START_CHAT.md",
+        "docs/FRAMEWORK_RUNTIME_SYNC.md"
+      ],
+      "validation_scope": "Existing bootstrap and pin contract; candidate adoption is separate from release.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "EXISTING_PUBLIC_CORE"
+    },
+    {
+      "id": "METH-004",
+      "title": "Chronological reconciliation and source independence",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/EVIDENCE_RECONCILIATION.md",
+        "runtime/docs/templates/EVIDENCE_RECONCILIATION.md"
+      ],
+      "validation_scope": "Persisted policy and source-analysis cases; original media not replayed in this audit.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-005",
+      "title": "Context recovery and current-target evidence",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/EVIDENCE_AND_DELIVERY.md"
+      ],
+      "validation_scope": "Reuse bounded evidence, recheck changed targets; no blanket live-state claim.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-006",
+      "title": "Authority fidelity and independent design critique",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/DECISION_INTEGRITY.md",
+        "runtime/docs/contracts/REVIEW_AND_ACCEPTANCE.md"
+      ],
+      "validation_scope": "Textual safeguards and scoped applications; independent behavioral efficacy pending.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-007",
+      "title": "Single owner task ledger and source-qualified mirrors",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/TASK_OWNERSHIP.md",
+        "runtime/docs/templates/TASK_REVIEW.md"
+      ],
+      "validation_scope": "Adopted policy and populated examples; complete migration effectiveness not established.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-008",
+      "title": "Product topology, journeys and source-to-scenario coverage",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/EVIDENCE_RECONCILIATION.md"
+      ],
+      "validation_scope": "Coverage mapping method; no private functional hierarchy or current completeness imported.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-009",
+      "title": "Foundation provenance and whole-screen design QA",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/DESIGN_FOUNDATION_QA.md"
+      ],
+      "validation_scope": "Local gate and scoped records; no whole-file compliance inferred.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-010",
+      "title": "Compatible component migration, publication and consumer adoption",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/DESIGN_CHANGE_CONTROL.md",
+        "runtime/docs/templates/COMPONENT_MIGRATION.md"
+      ],
+      "validation_scope": "Documented repairs/adoption cases; component APIs and release authority remain local.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-011",
+      "title": "Mutation-owned records and append-only correction",
+      "disposition": "EXISTING_CORE",
+      "maturity": "EXISTING_CORE",
+      "targets": [
+        "runtime/docs/contracts/CHANGE_RECORD_OWNERSHIP.md"
+      ],
+      "validation_scope": "Existing owner-history contract; private history is not copied.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "EXISTING_PUBLIC_CORE"
+    },
+    {
+      "id": "METH-012",
+      "title": "Decision identity, aliases and index integrity",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/DECISION_INTEGRITY.md"
+      ],
+      "validation_scope": "Documented collision-repair policy; audit observations do not repair private records.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-013",
+      "title": "Reporting coverage, delivery cursor and scoped waivers",
+      "disposition": "EXISTING_CORE",
+      "maturity": "EXISTING_CORE",
+      "targets": [
+        "docs/OPERATOR_DAILY_REPORTS.md"
+      ],
+      "validation_scope": "Existing reporting semantics; project language/mandatory policy remains configurable.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "EXISTING_PUBLIC_CORE"
+    },
+    {
+      "id": "METH-014",
+      "title": "Bounded autonomy, scope and design-system approval",
+      "disposition": "EXISTING_CORE",
+      "maturity": "EXISTING_CORE",
+      "targets": [
+        "PROMPT_OPERACIONAL_MASTER.md"
+      ],
+      "validation_scope": "Existing authorization/impact gates; no transfer of product authority.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "EXISTING_PUBLIC_CORE"
+    },
+    {
+      "id": "METH-015",
+      "title": "Target-specific access and mutation readback",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/EVIDENCE_AND_DELIVERY.md"
+      ],
+      "validation_scope": "Actual public reads/writes read back in authoring; no general access entitlement.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-016",
+      "title": "Static, interactive, runtime and human acceptance boundaries",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/REVIEW_AND_ACCEPTANCE.md",
+        "runtime/docs/templates/ACCEPTANCE_CASES.md"
+      ],
+      "validation_scope": "Scoped acceptance/exception records; unexecuted checks remain unexecuted.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-017",
+      "title": "Separate inventory, candidate coverage and formal completion",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/REVIEW_AND_ACCEPTANCE.md",
+        "runtime/docs/contracts/EVIDENCE_AND_DELIVERY.md"
+      ],
+      "validation_scope": "Source-qualified denominators; no retrospective task completion.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-018",
+      "title": "Deliverable-first iteration efficiency",
+      "disposition": "OPTIONAL_PILOT",
+      "maturity": "PILOT_PENDING",
+      "targets": [
+        "runtime/docs/contracts/REVIEW_AND_ACCEPTANCE.md"
+      ],
+      "validation_scope": "Policy adoption is evidenced; requested efficacy measurement not demonstrated.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-019",
+      "title": "Adaptive review depth and actual pair critique",
+      "disposition": "OPTIONAL_PILOT",
+      "maturity": "PILOT_PENDING",
+      "targets": [
+        "runtime/docs/contracts/REVIEW_AND_ACCEPTANCE.md"
+      ],
+      "validation_scope": "Review-loop proposal/adoption; no simulated peer opinion or universal benefit.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-020",
+      "title": "Reversible MVP and build/prototype/QA sequencing",
+      "disposition": "OPTIONAL_PILOT",
+      "maturity": "PILOT_PENDING",
+      "targets": [
+        "runtime/docs/contracts/REVIEW_AND_ACCEPTANCE.md"
+      ],
+      "validation_scope": "Locally authorized process direction; real permissions and acceptance are not bypassed.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-021",
+      "title": "Shared knowledge, selective retrieval and cost measurement",
+      "disposition": "OPTIONAL_PILOT",
+      "maturity": "PILOT_PENDING",
+      "targets": [
+        "runtime/docs/contracts/KNOWLEDGE_AND_EFFICIENCY_PILOTS.md"
+      ],
+      "validation_scope": "Independent interoperability and savings trials pending; mandatory bootstrap retained.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-022",
+      "title": "Comment attribution, triage and root-cause grouping",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/KNOWLEDGE_AND_EFFICIENCY_PILOTS.md",
+        "runtime/docs/templates/COMMENT_TRIAGE.md"
+      ],
+      "validation_scope": "Persisted triage records; thread resolution and product acceptance remain distinct.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-023",
+      "title": "Contextual annotations and independent handoff assessment",
+      "disposition": "OPTIONAL_PILOT",
+      "maturity": "NARROWLY_VERIFIED",
+      "targets": [
+        "runtime/docs/contracts/ANNOTATION_HANDOFF_PILOT.md"
+      ],
+      "validation_scope": "Attributed contextual recovery case only; visual conditional and functional incomplete. Not rerun here.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-024",
+      "title": "Containment, dependent reflow and native editor occupancy",
+      "disposition": "OPTIONAL_PILOT",
+      "maturity": "PILOT_PENDING",
+      "targets": [
+        "runtime/docs/contracts/CANVAS_AND_CONTENT_QA.md"
+      ],
+      "validation_scope": "Structural cases exist; native-visual and representative rollout acceptance incomplete.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-025",
+      "title": "Controlled comparison with fixed audience and dataset",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/REVIEW_AND_ACCEPTANCE.md",
+        "runtime/docs/templates/CONTROLLED_COMPARISON.md"
+      ],
+      "validation_scope": "Static comparison fixtures are documented; enforcement/causality not established by drawings.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-026",
+      "title": "Locale-aware counts and protected compound indicators",
+      "disposition": "CONFIGURABLE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/EDITORIAL_REVIEW.md"
+      ],
+      "validation_scope": "Project editorial choice and scoped fixes; no universal grammar or locale rule.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-027",
+      "title": "Contextual terminology and actor/effect semantics",
+      "disposition": "CONFIGURABLE",
+      "maturity": "PILOT_PENDING",
+      "targets": [
+        "runtime/docs/contracts/EDITORIAL_REVIEW.md"
+      ],
+      "validation_scope": "Local proposals and copy checks; no backend entity or business-policy rename.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-028",
+      "title": "Responsive stress, scroll reachability and test layers",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/CANVAS_AND_CONTENT_QA.md",
+        "runtime/docs/templates/ACCEPTANCE_CASES.md"
+      ],
+      "validation_scope": "Static findings/test plans; actual keyboard/scroll/runtime checks require execution.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-029",
+      "title": "Privacy-safe acceptance and indirect leakage checks",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/REVIEW_AND_ACCEPTANCE.md",
+        "runtime/docs/templates/ACCEPTANCE_CASES.md",
+        "SECURITY.md"
+      ],
+      "validation_scope": "Generic positive/negative test framing; actual roles, hidden data and permission matrices excluded.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-030",
+      "title": "Historical preservation, sample limits and independent-test counting",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "OPERATIONALLY_ADOPTED",
+      "targets": [
+        "runtime/docs/contracts/EVIDENCE_RECONCILIATION.md",
+        "runtime/docs/contracts/ANNOTATION_HANDOFF_PILOT.md"
+      ],
+      "validation_scope": "Persisted historical distinctions; source inspection is not a newly reproduced experiment.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-031",
+      "title": "External-method intake, licensing and stop criteria",
+      "disposition": "OPTIONAL_PILOT",
+      "maturity": "PILOT_PENDING",
+      "targets": [
+        "runtime/docs/contracts/KNOWLEDGE_AND_EFFICIENCY_PILOTS.md"
+      ],
+      "validation_scope": "Reference-review process only; no third-party code/text adopted or performance claim.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-032",
+      "title": "Provider-neutral AI-assisted onboarding",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "PILOT_PENDING",
+      "targets": [
+        "INSTALL_WITH_AI.md",
+        "docs/AI_ASSISTED_SETUP.md"
+      ],
+      "validation_scope": "User-requested extension; clean-machine/provider trials NOT RUN.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "USER_REQUEST"
+    },
+    {
+      "id": "METH-033",
+      "title": "Private product data and policy exclusion",
+      "disposition": "EXCLUDED_PRIVATE",
+      "maturity": "PROJECT_ONLY",
+      "targets": [
+        "SECURITY.md"
+      ],
+      "validation_scope": "Original identities, source records, locators, product policy and populated history stay private.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "PRIVATE_DOCUMENT_REVIEW"
+    },
+    {
+      "id": "METH-034",
+      "title": "Bounded source inventory and finding-level coverage audit",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "PILOT_PENDING",
+      "targets": [
+        "docs/METHODOLOGY_AUDIT.md",
+        "scripts/audit_methodology.py"
+      ],
+      "validation_scope": "User-requested audit process; file disposition does not establish live behavior or perpetual completeness.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "USER_REQUEST"
+    }
+  ]
+}

@@ -14,3 +14,6 @@
 Adoption is explicit and project-local. This package does not create a task directory, prescribe new TODO/BLOCKED/DONE values, migrate populated ledgers or modify private configuration. Use the [task review seed](../templates/TASK_REVIEW.md) only if the existing ledger lacks the necessary fields; prefer extending the owner record over creating a second tracker.
 
 Component maturity order, display column limits and presentation geometry require separate local validation. No private file layout or functional permission is a generic requirement.
+
+
+Use [evidence reconciliation](EVIDENCE_RECONCILIATION.md) for journey/source mapping and [design change control](DESIGN_CHANGE_CONTROL.md) for API and consumer adoption checks. These procedures do not install a new ledger.

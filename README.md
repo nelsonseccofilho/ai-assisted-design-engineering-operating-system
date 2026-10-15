@@ -407,6 +407,10 @@ Never publish:
 
 See [SECURITY.md](SECURITY.md).
 
+## Audited methodology coverage
+
+The [bounded audit](docs/METHODOLOGY_AUDIT.md) and [34-topic catalog](docs/methodology-catalog.json) link reusable procedures, existing core contracts, configurable choices and optional pilots. Detailed project-source traceability stays outside this public repository. Coverage of a source snapshot does not mean every pilot or original source was independently retested.
+
 ## Unreleased methodology review
 
 The [methodology promotion review](docs/METHODOLOGY_PROMOTION.md) distinguishes existing core capabilities, operationally adopted safeguards and incomplete pilots. Additive contracts and unconfigured review seeds preserve 3.6.0, the mandatory bootstrap and private configuration. The proposal does not claim general pilot effectiveness or update installed runtimes.

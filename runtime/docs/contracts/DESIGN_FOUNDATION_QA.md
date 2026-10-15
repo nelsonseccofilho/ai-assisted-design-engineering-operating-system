@@ -25,3 +25,6 @@ Record per-screen criteria and results, exact private artifact locators in the p
 Use the existing project QA vocabulary. Unchecked scenes stay pending; passing a layout check does not validate functional permissions, runtime behavior or stakeholder acceptance. Track actual failures and approved exceptions. Do not label a complete journey ready for human review when an essential affected scene remains unverified.
 
 Actual changes use owner Change History and the existing Git/handoff conventions. This contract does not require a second QA tracker, authorize library publication, or claim the original adopter's complete screen set passed.
+
+
+See [design change control](DESIGN_CHANGE_CONTROL.md) for compatible migrations and publication/adoption, and [canvas/content QA](CANVAS_AND_CONTENT_QA.md) for containment, native overlays and execution-layer distinctions.
