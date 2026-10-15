@@ -413,7 +413,9 @@ See [SECURITY.md](SECURITY.md).
 
 ## Audited methodology coverage
 
-The [bounded audit](docs/METHODOLOGY_AUDIT.md) and [34-topic catalog](docs/methodology-catalog.json) link reusable procedures, existing core contracts, configurable choices and optional pilots. Detailed project-source traceability stays outside this public repository. Coverage of a source snapshot does not mean every pilot or original source was independently retested.
+The [bounded audit](docs/METHODOLOGY_AUDIT.md) and [35-topic catalog](docs/methodology-catalog.json) link reusable procedures, existing core contracts, configurable choices and optional pilots. Detailed project-source traceability stays outside this public repository. Coverage of a source snapshot does not mean every pilot or original source was independently retested.
+
+The [transfer checkpoint](docs/UPSTREAM_TRANSFER_STATUS_2026-10-15.md) distinguishes documented coverage, observed pilot results and remaining release/adoption gates. It also records why further efficiency experiments are deferred for the current documentation scope.
 
 ## Unreleased methodology review
 

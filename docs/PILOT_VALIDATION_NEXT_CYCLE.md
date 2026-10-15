@@ -1,7 +1,7 @@
 # Next pilot validation cycle
 
-**Status:** first comparison executed; remaining work packages pending.
-**Baseline:** public main `8e72681bde72a7aeadbc9959f9f59b52f9959118`, architecture 3.6.0.
+**Status:** retrieval and local functional units completed within their declared bounds; further delivery-efficiency execution deferred after decision-value review; human/native packages pending.
+**Original planning baseline:** public main `8e72681bde72a7aeadbc9959f9f59b52f9959118`, architecture 3.6.0. The [current transfer checkpoint](UPSTREAM_TRANSFER_STATUS_2026-10-15.md) uses main after PR #12.
 **Governance:** proposed ADR-0025 and ADR-0027; no new acceptance or maturity decision.
 
 The [previous bounded report](PILOT_VALIDATION_2026-10-15.md) records what is observed and what remains missing. This cycle turns the gaps into separate work packages rather than promoting seven pilots together.
@@ -9,10 +9,10 @@ The [previous bounded report](PILOT_VALIDATION_2026-10-15.md) records what is ob
 | Order | Work package | Prepared or pending | Evidence required before acceptance |
 |---|---|---|---|
 | 1 | Retrieval comparison — METH-021 | Eight fresh AI sessions / sixteen scoped assessments completed; no case-source volume saving | Frozen balanced assignments, eligible fresh participants, complete bootstrap, reviewed correctness and actual source/overhead measurements |
-| 2 | Local functional MVP — METH-020; delivery comparison — METH-018 | Fifteen synthetic local functional cases passed; delivery comparison NOT RUN | Fictional local permissions/persistence/failure/recovery checks; matched delivery tasks with observed effort and quality before any sequencing-efficiency claim |
+| 2 | Local functional MVP — METH-020; delivery comparison — METH-018 | Local functional unit completed with caveats, fifteen cases passed; delivery comparison DEFERRED / NOT RUN | Functional evidence is bounded to the fixture; matched tasks, independent execution and observed effort/quality remain required before any sequencing-efficiency claim |
 | 3 | Human handoff and critique — METH-019, METH-021, METH-023 | NOT RUN; requires people and an agreed participant scope | Actual independent human recovery and critique, source-based review, discrepancies and approval boundaries; AI answers cannot replace human outcomes |
 | 4 | Native annotation/reflow — METH-023, METH-024 | NOT RUN; requires a separately authorized fictional editor environment | Fresh native screenshots, legibility, component provenance, collapsed/expanded occupancy, dependent reflow and post-library-sync behavior in that environment |
-| 5 | Per-pilot disposition | Pending new evidence and accountable review | Accept only the demonstrated aspect, retain failed/pending criteria, check compatibility/privacy and record a separate scoped decision |
+| 5 | Per-pilot disposition | Current evidence and gaps consolidated in the transfer checkpoint; broader acceptance pending | Accept only the demonstrated aspect, retain failed/pending criteria, check compatibility/privacy and record a separate scoped decision |
 
 METH-031 applies throughout: review an external method only when a real measurement gap exists, its original source and exact asset rights are verified, and its dependencies are justified. The earlier DEFER decision does not require adopting a method later.
 
@@ -71,3 +71,9 @@ These are acceptance criteria, not results. The functional unit remains NOT RUN 
 The [fictional local functional report](LOCAL_FUNCTIONAL_MVP_2026-10-15.md) records fifteen passing predeclared scenarios after an initial environment-blocked setup attempt. It supplies local role/scope/revision, persistence and atomic recovery evidence under trusted fictional actor inputs. It is not production authentication, private-product validation, native-editor acceptance or global pilot promotion. The original pre-execution checkpoint above remains historical.
 
 The local functional unit is COMPLETED_WITH_CAVEATS for its declared scope. Next assess the decision value and resource needs of a matched METH-018 delivery comparison before execution; the prior retrieval study is closed for its existing fixture and is not repeated. Human and native-editor packages remain separately scoped and pending.
+
+## Decision-value review after the functional unit
+
+The [transfer checkpoint](UPSTREAM_TRANSFER_STATUS_2026-10-15.md) records this assessment under GOV-VAL-001: **defer execution of the METH-018 efficiency comparison for the current documentation delivery**. A positive, neutral or negative result would not change its current disposition: optional pilot guidance with no efficiency claim. This is not evidence that the method works or fails, and does not remove any criterion needed for future efficacy acceptance.
+
+Reopen when there is a concrete sequencing/adoption decision whose outcome could change, matched representative tasks, a fixed quality threshold and measurement method, eligible independent execution resources, and accountable scope approval. Human and native-editor work remains pending in its own environment. No new chats, participants, editor work, paid API, release or private adoption are scheduled or authorized here.
