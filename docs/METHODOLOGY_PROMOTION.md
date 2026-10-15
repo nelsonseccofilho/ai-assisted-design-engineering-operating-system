@@ -9,6 +9,8 @@ This review compares the public core with a private adopter's persisted governan
 
 The [bounded source audit](METHODOLOGY_AUDIT.md) and [methodology catalog](methodology-catalog.json) complete the source-to-destination review. Previously summary-only topics now have reusable procedures and seeds, with their original validation limits preserved. No private source ledger is published.
 
+The [2026-10-15 synthetic pilot trial](PILOT_VALIDATION_2026-10-15.md) adds scoped recovery, critique and browser observations. It demonstrates no index saving and does not promote any pilot or change ADR status.
+
 ## Disposition and strength of evidence
 
 | Finding | Evidence-supported maturity | Public disposition |
