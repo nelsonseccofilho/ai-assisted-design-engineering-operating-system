@@ -32,4 +32,15 @@ lock["candidate_pin"] = "not-a-sha"
 candidate["runtime/framework-lock.json"] = json.dumps(lock, indent=2) + "\n"
 assert any("Candidate pin" in x for x in assess(framework, candidate)[0])
 
+# Documentation pointers retain their entrypoint without requiring byte parity.
+for pointer in ("docs/CHANGE_RECORD_OWNERSHIP.md", "docs/DOCUMENTATION_OWNERSHIP.md"):
+    broken = dict(framework)
+    broken[pointer] = "[wrong](missing.md)"
+    assert any("Documentation pointer drift" in x for x in assess(broken)[0])
+    broken.pop(pointer)
+    assert any("Missing documentation pointer" in x for x in assess(broken)[0])
+broken = dict(framework)
+broken.pop("REPORT_STATE_TEMPLATE.json")
+assert any("Missing compatibility alias" in x for x in assess(broken)[0])
+
 print("PASS: public synchronization regression scenarios for canonical runtime root")

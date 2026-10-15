@@ -51,6 +51,8 @@ Create these files in a separate private runtime. Public templates are generic s
 | PACKAGE_QA.md | RUNTIME_QA_TEMPLATE.md |
 | BACKLOG.local.md | BACKLOG_TEMPLATE.md |
 | operators/<OPERATOR_ALIAS>.md | OPERATOR_PROFILE_TEMPLATE.md |
+| operators/_template/OPERATOR_PROFILE.md | OPERATOR_PROFILE_TEMPLATE.md |
+| docs/decisions/PROJECT_ADR_TEMPLATE.md | docs/decisions/ADR_TEMPLATE.md |
 | sessions/_template/SESSION_RECORD.md | SESSION_RECORD_TEMPLATE.md |
 | workstreams/_template/HANDOFF.md | HANDOFF_TEMPLATE.md |
 | workstreams/_template/state.json | RUNTIME_STATE_TEMPLATE.json |
@@ -114,3 +116,8 @@ Apply [ADR-0023](decisions/ADR-0023-documentation-ownership-boundary.md) and the
 - promotion/adoption links: `CROSS_REPO_REFERENCE`.
 
 A private runtime may record that a framework release or PR was adopted, but the public repository remains the canonical owner of that framework mutation/release history.
+
+
+## Additive methodology review
+
+See [methodology promotion](METHODOLOGY_PROMOTION.md). New shared contracts and configured review seeds are candidate inventory additions, not mandatory bootstrap or a private migration. Root documentation entrypoints declared with `documentation_pointer` link to their canonical runtime contract; only `compatibility_alias` entries require byte-identical content. Preserve both forms during updates. No configured file is overwritten.

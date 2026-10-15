@@ -130,12 +130,12 @@
     {
       "path": "docs/contracts/CHANGE_RECORD_OWNERSHIP.md",
       "mode": "shared",
-      "compatibility_alias": "docs/CHANGE_RECORD_OWNERSHIP.md"
+      "documentation_pointer": "docs/CHANGE_RECORD_OWNERSHIP.md"
     },
     {
       "path": "docs/contracts/DOCUMENTATION_OWNERSHIP.md",
       "mode": "shared",
-      "compatibility_alias": "docs/DOCUMENTATION_OWNERSHIP.md"
+      "documentation_pointer": "docs/DOCUMENTATION_OWNERSHIP.md"
     },
     {
       "path": "docs/decisions/README.md",
@@ -162,6 +162,26 @@
     {
       "path": "scripts/validate_runtime.py",
       "mode": "configured"
+    },
+    {
+      "path": "docs/contracts/EVIDENCE_AND_DELIVERY.md",
+      "mode": "shared"
+    },
+    {
+      "path": "docs/contracts/TASK_OWNERSHIP.md",
+      "mode": "shared"
+    },
+    {
+      "path": "docs/templates/METHOD_REVIEW.md",
+      "mode": "configured"
+    },
+    {
+      "path": "docs/templates/TASK_REVIEW.md",
+      "mode": "configured"
+    },
+    {
+      "path": "docs/contracts/DESIGN_FOUNDATION_QA.md",
+      "mode": "shared"
     }
   ],
   "populated_roots": [

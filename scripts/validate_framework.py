@@ -201,7 +201,7 @@ check("ADR-0014" in read("CHANGELOG.md") and "3.3.0" in read("CHANGELOG.md"),
 
 # Framework/runtime template parity from ADR-0018.
 manifest = json.loads(read("RUNTIME_MANIFEST_TEMPLATE.json"))
-check(manifest["schema_version"] == "1.0", "Manifest schema version")
+check(manifest["schema_version"] == "1.1", "Manifest schema version")
 check(manifest["canonical_runtime_ref"] == "main", "Manifest canonical ref")
 check(manifest["runtime_repository"] is None and manifest["operator_identity"] == [],
       "Manifest contains instance identity")
@@ -215,14 +215,19 @@ expected_bootstrap = [
     "30_GOVERNANCE.local.md", "40_PROJECT_DECISION_LOG.local.md", "50_ARTIFACT_REGISTRY.local.md",
     "60_EVIDENCE_INDEX.local.md", "70_WORKSTREAM_REGISTRY.local.md"]
 check(manifest["bootstrap_files"] == expected_bootstrap, "Deterministic bootstrap drift")
-mapping = manifest["template_sources"]
+package_index = json.loads(read("runtime/package.index.json"))
 assembly = read("docs/FRAMEWORK_RUNTIME_SYNC.md")
-for destination, source in mapping.items():
-    check((ROOT / source).is_file(), f"Missing runtime source: {source}")
-    check(destination in assembly and source in assembly, f"Unmapped assembly source: {source}")
+for item in package_index["files"]:
+    destination = item["path"]
+    check((ROOT / "runtime" / destination).is_file(), f"Missing runtime source: {destination}")
+    source = item.get("compatibility_alias")
+    if source:
+        check((ROOT / source).is_file(), f"Missing compatibility source: {source}")
+        check(destination in assembly and source in assembly,
+              f"Unmapped assembly source: {source}")
 check(manifest["project_decision_index"]["destination"] == expected_bootstrap[4],
       "Project decision index bootstrap")
-check((ROOT / manifest["project_decision_index"]["record_template"]).is_file(),
+check((ROOT / "runtime" / manifest["project_decision_index"]["record_template"]).is_file(),
       "Missing project decision template")
 for field in ["governance_template", "artifact_registry_template", "evidence_index_template",
               "backlog_template", "runtime_qa_template", "framework_dependency_template",
@@ -258,10 +263,7 @@ for message in package_errors:
     check(False, message)
 check(not package_errors, "Canonical package parity")
 
-if errors:
-    print("\n".join("FAIL: " + message for message in errors))
-    raise SystemExit(1)
-print(f"PASS: {checks} package checks, including Project Runtime, Operator Daily Reports and mutation-owner scenarios")
+
 
 
 # Canonical runtime root contract (ADR-0020).
@@ -281,3 +283,8 @@ for token in ["CONTINUE_WORKSTREAM","START_NEW_WORKSTREAM","START_NEW_PROJECT"]:
 check((ROOT / "runtime/compat/ALIASES.local.md").is_file(), "Missing compatibility alias registry")
 check("START_NEW_WORKSTREAM" in read("README.md"), "README missing new-work example")
 check("START_NEW_PROJECT" in read("README.md"), "README missing new-project example")
+
+if errors:
+    print("\n".join("FAIL: " + message for message in errors))
+    raise SystemExit(1)
+print(f"PASS: {checks} package checks, including Project Runtime, Operator Daily Reports and mutation-owner scenarios")

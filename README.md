@@ -401,6 +401,10 @@ Never publish:
 
 See [SECURITY.md](SECURITY.md).
 
+## Unreleased methodology review
+
+The [methodology promotion review](docs/METHODOLOGY_PROMOTION.md) distinguishes existing core capabilities, operationally adopted safeguards and incomplete pilots. Additive contracts and unconfigured review seeds preserve 3.6.0, the mandatory bootstrap and private configuration. The proposal does not claim general pilot effectiveness or update installed runtimes.
+
 ## Validation and current maturity
 
 Framework 3.6.0 is the current released operating contract.

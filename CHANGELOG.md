@@ -62,6 +62,12 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### Methodology promotion candidate
+- proposed ADR-0024 and ADR-0025 with a sanitized maturity review, additive evidence/delivery, foundation QA and optional task-ownership contracts, and unconfigured private review seeds;
+- kept incomplete UX, handoff, component maturity, canvas, phase sequencing and efficiency pilots optional with explicit limits;
+- retained released 3.6.0 metadata, mandatory bootstrap, private pins and all populated/private artifacts;
+- proposed ADR-0026 to repair current-manifest QA, documentation pointer classification and premature PASS reporting; added failure regressions and repaired portable ownership links without changing operative rules.
+
 ### README and evidence-ingestion documentation
 - rewrote the public README as a practical project entrypoint covering problems, architecture, quick start, runtime usage, evidence provenance, QA, privacy, licensing and maintainer context;
 - added generic stakeholder-meeting evidence ingestion guidance;

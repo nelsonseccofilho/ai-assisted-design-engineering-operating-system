@@ -613,7 +613,7 @@ Historical ownership corrections are append-only: create a canonical copy at the
 
 Change History records what changed at the owner; Decisions/ADRs explain why significant choices exist; Handoff/workstream/chat memory summarize continuity; Git records implementation. None substitutes for the others. Handoffs must link persistent owner records, never act as their only storage.
 
-For the framework repository itself, `CHANGELOG.md` is its owner-scoped release history, Git identifies changed source files, and `docs/decisions/` stores rationale. This does not authorize recording external consumer mutations in the framework changelog. See [ownership guide](docs/CHANGE_RECORD_OWNERSHIP.md) and [ADR-0014](docs/decisions/ADR-0014-mutation-owned-change-records.md).
+For the framework repository itself, `CHANGELOG.md` is its owner-scoped release history, Git identifies changed source files, and `docs/decisions/` stores rationale. This does not authorize recording external consumer mutations in the framework changelog. See [ownership guide](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/blob/main/runtime/docs/contracts/CHANGE_RECORD_OWNERSHIP.md) and [ADR-0014](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/blob/main/docs/decisions/ADR-0014-mutation-owned-change-records.md).
 
 ---
 
