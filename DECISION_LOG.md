@@ -51,6 +51,14 @@ Never silently rewrite history.
 | [ADR-0022](docs/decisions/ADR-0022-hosted-ci-disposition.md) | 2026-10-06 | ACCEPTED | Allow explicit governance disposition when hosted CI fails before any runner/step executes and independent QA evidence is sufficient |
 | [ADR-0023](docs/decisions/ADR-0023-documentation-ownership-boundary.md) | 2026-10-07 | ACCEPTED | Classify durable documentation as framework-owned, project-owned, shared-contract or cross-repo reference |
 
+| [ADR-0024](docs/decisions/ADR-0024-evidence-and-owner-task-clarification.md) | 2026-10-15 | PROPOSED | Clarify evidence, delivery and optional owner-task contracts |
+| [ADR-0025](docs/decisions/ADR-0025-pilot-maturity-and-promotion.md) | 2026-10-15 | PROPOSED | Preserve validation scope and pilot promotion boundaries |
+| [ADR-0026](docs/decisions/ADR-0026-complete-package-qa.md) | 2026-10-15 | PROPOSED | Validate the complete current package before PASS |
+
+| [ADR-0027](docs/decisions/ADR-0027-ai-assisted-onboarding.md) | 2026-10-15 | PROPOSED | Make AI-assisted setup an explicit verified onboarding path |
+
+| [ADR-0028](docs/decisions/ADR-0028-traceable-methodology-audit.md) | 2026-10-15 | PROPOSED | Audit bounded source coverage and complete reusable methodology procedures |
+
 ---
 
 ## Rule

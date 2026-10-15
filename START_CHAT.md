@@ -16,6 +16,10 @@ A Project Runtime is a versioned, project-specific operational memory. It does *
 
 ---
 
+## Before first use: setup requests
+
+For installation or environment setup, use [Install with AI](INSTALL_WITH_AI.md) and the [setup procedure](docs/AI_ASSISTED_SETUP.md). Determine actual local/browsing access, preserve existing files and verify configuration before claiming readiness. Onboarding does not select an unrelated Workstream, grant product mutation authority, add a runtime intent or replace the operational bootstrap below.
+
 ## Always load
 
 1. `PROMPT_OPERACIONAL_MASTER.md`

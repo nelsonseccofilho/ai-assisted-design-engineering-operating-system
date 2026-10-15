@@ -121,3 +121,15 @@ Before releasing with a non-executing hosted CI gate:
 - [ ] Record the governance decision and evidence.
 - [ ] Describe the gate as `DISPOSITIONED_INFRASTRUCTURE`, not `PASS`.
 - [ ] Keep a future real hosted run as follow-up evidence.
+
+
+## Methodology maturity and readback
+
+- [ ] Distinguish existing core, narrowly verified, operationally adopted, pilot pending and project-only findings.
+- [ ] Attribute reported tests; do not imply they were freshly reproduced.
+- [ ] Review the entire candidate content, filenames, commit and PR body for private identifiers and distinctive combinations.
+- [ ] Run `python scripts/test_methodology.py`, `python scripts/audit_methodology.py --framework .`, `python scripts/test_audit_methodology.py`, `python scripts/test_onboarding.py` and all existing package/synchronization checks.
+- [ ] Keep fictional fixture/fresh-process checks separate from clean-machine, independent-provider and cross-chat acceptance.
+- [ ] Read back every changed file at the resulting commit; compare it with the tested payload.
+- [ ] Record hosted CI for this candidate independently; an old disposition is not automatic approval.
+- [ ] Keep Draft until required live evidence and approvals exist; candidate, release and private adoption remain separate.

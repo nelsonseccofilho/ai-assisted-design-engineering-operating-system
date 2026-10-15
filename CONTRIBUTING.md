@@ -126,3 +126,8 @@ Use these scopes when useful:
 Persistent Project Runtime repositories that adopt this framework should also use Conventional Commits 1.0.0 unless stricter governance is documented.
 
 A runtime-specific client Decision prefix may be used privately; never copy confidential project values into this public repository.
+
+
+## Methodology coverage
+
+For methodology promotions, run `python scripts/audit_methodology.py --framework .` and `python scripts/test_audit_methodology.py`. Follow the [bounded audit procedure](docs/METHODOLOGY_AUDIT.md); keep populated source inventories and ledgers outside the public package. A documented source disposition is not live validation.

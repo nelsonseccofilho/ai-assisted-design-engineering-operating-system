@@ -191,6 +191,12 @@ See:
 
 ## Quick start
 
+### Set up with an AI assistant
+
+Use the [copyable setup prompt](INSTALL_WITH_AI.md) with ChatGPT, Gemini, or an assistant you choose. It guides environment checks, public framework setup, optional private runtime initialization and first-use verification. The assistant must establish whether it can act locally or only guide you; its name does not imply access.
+
+Follow the [AI-assisted setup procedure](docs/AI_ASSISTED_SETUP.md) for acceptance criteria and troubleshooting. Manual setup remains available below. No paid API or optional design/transcription integration is required. Independent clean-machine/provider trials remain pending; this is guided onboarding, not one-click installation.
+
 ### Prerequisites
 
 For the framework itself:
@@ -401,6 +407,14 @@ Never publish:
 
 See [SECURITY.md](SECURITY.md).
 
+## Audited methodology coverage
+
+The [bounded audit](docs/METHODOLOGY_AUDIT.md) and [34-topic catalog](docs/methodology-catalog.json) link reusable procedures, existing core contracts, configurable choices and optional pilots. Detailed project-source traceability stays outside this public repository. Coverage of a source snapshot does not mean every pilot or original source was independently retested.
+
+## Unreleased methodology review
+
+The [methodology promotion review](docs/METHODOLOGY_PROMOTION.md) distinguishes existing core capabilities, operationally adopted safeguards and incomplete pilots. Additive contracts and unconfigured review seeds preserve 3.6.0, the mandatory bootstrap and private configuration. The proposal does not claim general pilot effectiveness or update installed runtimes.
+
 ## Validation and current maturity
 
 Framework 3.6.0 is the current released operating contract.
@@ -436,6 +450,10 @@ See:
 - [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md)
 
 This repository is source-available for noncommercial use and should not be described as OSI Open Source.
+
+## About this project
+
+An evidence-driven framework for human-AI collaboration in Product Design and Design Engineering, with persistent project context, Design System governance, QA, and traceable delivery.
 
 ## About the author
 

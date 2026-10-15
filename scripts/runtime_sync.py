@@ -1,5 +1,6 @@
 """Read-only framework/runtime parity and update planning. Python 3.9+."""
 import argparse, json, re
+import posixpath
 from pathlib import Path
 
 def snapshot(root):
@@ -20,6 +21,15 @@ def assess(framework, runtime=None, deny=()):
         alias=item.get("compatibility_alias")
         if alias and alias in framework and framework[alias] != framework[source]:
             errors.append("Compatibility alias drift: "+alias)
+        if alias and alias not in framework:
+            errors.append("Missing compatibility alias: "+alias)
+        pointer=item.get("documentation_pointer")
+        if pointer:
+            target=posixpath.relpath(source, posixpath.dirname(pointer) or ".")
+            if pointer not in framework:
+                errors.append("Missing documentation pointer: "+pointer)
+            elif not re.search(r"\]\(" + re.escape(target) + r"(?:#[^)]*)?\)", framework[pointer]):
+                errors.append("Documentation pointer drift: "+pointer)
     for path,text in framework.items():
         if path.startswith(prefix):
             rel=path[len(prefix):]

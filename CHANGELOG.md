@@ -62,6 +62,28 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### Bounded methodology audit
+- proposed ADR-0028 and a privacy-safe 34-topic methodology catalog, separating file coverage from finding maturity;
+- completed eight reusable procedures and five unconfigured seeds for evidence, migration, decision integrity, comparison/acceptance, annotation, canvas/content, editorial and knowledge/efficiency work;
+- kept source-level project mappings local/restricted, with immutable blob identities and explicit exclusions;
+- added read-only catalog/source-coverage QA and negative regressions, and repaired the runtime validator's premature result block; no original-media replay, live pilot completion, private repair, merge or release is implied.
+
+### AI-assisted onboarding
+- repaired the fictional next-action source found by independent review and added a regression separating recovered context from source availability; the original trial record remains historical and no production-readiness gate is inferred;
+- recorded one independent Codex conversation recovering fictional persisted context, while preserving unresolved configuration/source blockers and the distinction between contextual recovery and operational readiness;
+- added seven isolated fictional-runtime regressions for safe initialization, immutable-pin configuration, read-only fresh-process recovery and failure cases; documented the observed Windows scope and unexecuted independent trials;
+- required explicit candidate source selection when onboarding files are absent from the selected released/default ref, completed the documented check list and diagnosed hosted CI non-execution from its run annotation;
+- added a provider-neutral copyable setup prompt and an explicit guided/tool-assisted procedure for exploration or private-project initialization;
+- linked onboarding from README and START_CHAT, preserving runtime intents, mandatory bootstrap and private configuration;
+- documented environment/pin inspection, existing-install preservation, QA and first-session acceptance without claiming unexecuted clean-machine/provider trials;
+- proposed ADR-0027 and updated the English repository About description, read back independently from GitHub metadata.
+
+### Methodology promotion candidate
+- proposed ADR-0024 and ADR-0025 with a sanitized maturity review, additive evidence/delivery, foundation QA and optional task-ownership contracts, and unconfigured private review seeds;
+- kept incomplete UX, handoff, component maturity, canvas, phase sequencing and efficiency pilots optional with explicit limits;
+- retained released 3.6.0 metadata, mandatory bootstrap, private pins and all populated/private artifacts;
+- proposed ADR-0026 to repair current-manifest QA, documentation pointer classification and premature PASS reporting; added failure regressions and repaired portable ownership links without changing operative rules.
+
 ### README and evidence-ingestion documentation
 - rewrote the public README as a practical project entrypoint covering problems, architecture, quick start, runtime usage, evidence provenance, QA, privacy, licensing and maintainer context;
 - added generic stakeholder-meeting evidence ingestion guidance;

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "fictional-retrieval",
+    "maturity": "NARROWLY_VERIFIED",
+    "claim": "Fictional operator recovered one documented rule.",
+    "scope": "One retrieval case only",
+    "limitations": "Synthetic fixture; no actual user or functional test.",
+    "disposition": "OPTIONAL_PILOT",
+    "effectiveness_validated": false,
+    "evidence": "fictional-fixture",
+    "reviewer": "Fictional reviewer",
+    "validation_scope": "Context retrieval only",
+    "verified_at": "2026-01-01T12:00:00+00:00",
+    "required_bootstrap_change": false
+  },
+  {
+    "id": "fictional-policy",
+    "maturity": "OPERATIONALLY_ADOPTED",
+    "claim": "Fictional team approved trying a delivery policy.",
+    "scope": "Local policy",
+    "limitations": "Effectiveness not measured.",
+    "disposition": "CLARIFICATION",
+    "effectiveness_validated": false,
+    "required_bootstrap_change": false
+  },
+  {
+    "id": "fictional-pilot",
+    "maturity": "PILOT_PENDING",
+    "claim": "Fictional efficiency hypothesis.",
+    "scope": "Optional experiment",
+    "limitations": "Independent trial not executed.",
+    "disposition": "OPTIONAL_PILOT",
+    "effectiveness_validated": false,
+    "required_bootstrap_change": false
+  },
+  {
+    "id": "fictional-private-rule",
+    "maturity": "PROJECT_ONLY",
+    "claim": "Placeholder product policy.",
+    "scope": "Private adopter only",
+    "limitations": "Not generic method.",
+    "disposition": "EXCLUDE",
+    "effectiveness_validated": false,
+    "required_bootstrap_change": false
+  }
+]
