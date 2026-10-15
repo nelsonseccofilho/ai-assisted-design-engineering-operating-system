@@ -11,7 +11,7 @@ The source-level ledger contains private paths, blob identities, review disposit
 Review consisted of complete text retrieval and structured per-file content screening, contextual review of policy/decision/incident-bearing material, cross-document chronology and public destination comparison. It was not line-by-line human verification of every historical assertion or replay of original media. Untracked material, inaccessible original recordings and future commits are outside this bounded claim.
 
 ## Finding-level coverage
-The [machine-readable catalog](methodology-catalog.json) contains 34 generic topics, including two user-requested onboarding/audit extensions identified separately by origin. Existing core capabilities are referenced, repeated observations are consolidated, summary-only methods receive usable procedures/templates, optional pilots retain their limits, and product-specific content is excluded.
+The [machine-readable catalog](methodology-catalog.json) contains 35 generic topics. The original bounded audit catalog had 34, including two user-requested onboarding/audit extensions; GOV-VAL-001 is a third user-requested extension, identified separately by origin. This addition does not reclassify original findings or claim new private-source evidence. Existing core capabilities are referenced, repeated observations are consolidated, summary-only methods receive usable procedures/templates, optional pilots retain their limits, and product-specific content is excluded.
 
 | Area | Reusable destination |
 |---|---|

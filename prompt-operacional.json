@@ -276,5 +276,36 @@
     "shared_contract_rule": "PUBLIC upstream -> released/pinned version -> PRIVATE consumer; do not edit private copies independently",
     "cross_repo_reference_rule": "Link the canonical owner without duplicating the full owner history",
     "promotion_flow": "private finding -> PROJECT_ONLY or UPSTREAM_PENDING -> public implementation/ADR -> public release -> private pin update -> PROMOTED reference"
+  },
+  "validation_and_closure": {
+    "id": "GOV-VAL-001",
+    "name": "Risk-Proportionate Validation & Evidence-Based Closure",
+    "decision": "ADR-0029",
+    "contract": "runtime/docs/contracts/VALIDATION_AND_CLOSURE.md",
+    "mandatory": true,
+    "acceptance_before_testing": true,
+    "required_checks_precede_closure": true,
+    "cost_waives_mandatory_checks": false,
+    "agent_may_lower_criteria": false,
+    "changes_runtime_states": false,
+    "closure_implies_publication_authority": false,
+    "test_categories": [
+      "MANDATORY",
+      "CONDITIONAL",
+      "OPTIONAL",
+      "REDUNDANT"
+    ],
+    "assessment_outcomes": [
+      "COMPLETED",
+      "COMPLETED_WITH_CAVEATS",
+      "BLOCKED"
+    ],
+    "evidence_reuse_requires": [
+      "scope",
+      "source_revision_or_content",
+      "environment",
+      "dependencies",
+      "no_material_invalidation"
+    ]
   }
 }

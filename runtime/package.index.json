@@ -234,6 +234,10 @@
     {
       "path": "docs/templates/ACCEPTANCE_CASES.md",
       "mode": "configured"
+    },
+    {
+      "path": "docs/contracts/VALIDATION_AND_CLOSURE.md",
+      "mode": "shared"
     }
   ],
   "populated_roots": [

@@ -2,6 +2,8 @@
 
 **Ownership:** SHARED_CONTRACT. **Maturity:** proposed method and optional pilot procedures; static illustrations do not prove operational effectiveness.
 
+Apply the mandatory [GOV-VAL-001](VALIDATION_AND_CLOSURE.md) validation and closure contract throughout. Its adopted policy is separate from the optional procedures and pilot-efficacy claims below.
+
 ## Independent critique and proportional depth
 Separate stakeholder intent from a suggested solution. Understand the user task, critique risks, consult relevant evidence/references, compare options including retaining the current solution, recommend, then record the actual decision and its limits.
 

@@ -284,6 +284,15 @@ check((ROOT / "runtime/compat/ALIASES.local.md").is_file(), "Missing compatibili
 check("START_NEW_WORKSTREAM" in read("README.md"), "README missing new-work example")
 check("START_NEW_PROJECT" in read("README.md"), "README missing new-project example")
 
+# GOV-VAL-001 must remain wired into the canonical operating contract.
+from validation_contract import assess_validation_contract
+validation_errors = assess_validation_contract(derivative, master,
+        read("runtime/docs/contracts/VALIDATION_AND_CLOSURE.md"),
+        read("runtime/docs/templates/ACCEPTANCE_CASES.md"))
+for message in validation_errors:
+    check(False, message)
+check(not validation_errors, "GOV-VAL-001 integration")
+
 if errors:
     print("\n".join("FAIL: " + message for message in errors))
     raise SystemExit(1)

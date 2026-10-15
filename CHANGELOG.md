@@ -62,6 +62,11 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### GOV-VAL-001 — validation and evidence-based closure
+- adopted the maintainer-approved mandatory contract with valid evidence reuse, protected acceptance gates, justified additional tests and scoped closure under ADR-0029;
+- aligned the canonical Master/runtime mirror, JSON derivative, shared inventory and existing acceptance seed without changing startup, runtime states, pins or released version;
+- added targeted integration guards and a user-requested catalog extension; no efficiency or pilot promotion claim.
+
 ### Temporary hosted QA suspension
 - recorded the maintainer-requested suspension of this repository's Static QA workflow and the PR #10 infrastructure disposition under ADR-0022;
 - preserved the workflow and local validation commands, with explicit restoration steps in [Hosted CI status](docs/HOSTED_CI_STATUS.md); no hosted PASS, release or pilot promotion is claimed.

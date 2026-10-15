@@ -462,6 +462,21 @@
       "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
       "release_status": "UNRELEASED_REVIEW",
       "origin": "USER_REQUEST"
+    },
+    {
+      "id": "METH-035",
+      "title": "Risk-proportionate validation and evidence-based closure",
+      "disposition": "CANDIDATE_PROCEDURE",
+      "maturity": "NARROWLY_VERIFIED",
+      "targets": [
+        "runtime/docs/contracts/VALIDATION_AND_CLOSURE.md",
+        "runtime/docs/templates/ACCEPTANCE_CASES.md",
+        "PROMPT_OPERACIONAL_MASTER.md"
+      ],
+      "validation_scope": "User-adopted mandatory operating policy; static contract/integration checks only. No measured efficiency, universal operator-compliance or pilot-efficacy claim.",
+      "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
+      "release_status": "UNRELEASED_REVIEW",
+      "origin": "USER_REQUEST"
     }
   ]
 }

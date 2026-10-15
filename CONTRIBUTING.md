@@ -131,3 +131,8 @@ A runtime-specific client Decision prefix may be used privately; never copy conf
 ## Methodology coverage
 
 For methodology promotions, run `python scripts/audit_methodology.py --framework .` and `python scripts/test_audit_methodology.py`. Follow the [bounded audit procedure](docs/METHODOLOGY_AUDIT.md); keep populated source inventories and ledgers outside the public package. A documented source disposition is not live validation.
+
+
+## Proportionate validation
+
+Apply [GOV-VAL-001](runtime/docs/contracts/VALIDATION_AND_CLOSURE.md). Record acceptance and evidence validity proportionately in existing owner records. Preserve the full-package checks required above; reuse unrelated still-valid results without representing them as new executions. When changing this contract, its JSON policy or integration guards, also run `python scripts/test_validation_closure.py`. Those are static policy-integration regressions, not proof of AI compliance or delivery efficiency.
