@@ -62,6 +62,11 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### Transfer coverage and proportionate next steps
+- consolidated the 35-topic catalog into a bounded transfer checkpoint, separating 25 reusable private-origin topics, six existing core topics, three user-requested extensions and one intentional private exclusion;
+- recorded each optional pilot's observed evidence and remaining acceptance boundary; deferred the unexecuted delivery-efficiency comparison for the current documentary scope under GOV-VAL-001 / ADR-0029;
+- corrected the README catalog count and retained all catalog classifications, proposed ADR statuses, release/private-adoption gates and architecture 3.6.0.
+
 ### Fictional local functional MVP
 - exercised fifteen predeclared local role/scope, revision-approval, persistence and rollback/recovery cases for METH-020, retaining a prior sandbox setup failure;
 - added a reproducible standard-library SQLite lab and bounded report under ADR-0025 and GOV-VAL-001 / ADR-0029; production identity, human/native-editor acceptance and delivery efficiency remain unverified;

@@ -42,6 +42,7 @@ A complete source mapping means every inventoried file has findings or a reasone
 The restricted audit records ambiguous historical decision identities, index omissions and installed shared-source/pin differences where observed. It distinguishes inherited public-package QA defects from adopter-specific drift. These observations inform generic integrity procedures; they do not authorize rewriting private governance or presenting historical snapshots as current live authority.
 
 ## Remaining gates
+- The [2026-10-15 transfer checkpoint](UPSTREAM_TRANSFER_STATUS_2026-10-15.md) closes the bounded documentary coverage assessment with caveats; it does not close the distinct gates below.
 - Independent live/behavioral acceptance for each pilot and any necessary local adoption.
 - Clean-machine/provider onboarding trials, real design/runtime/keyboard/native-editor tests where relevant.
 - Hosted CI execution and explicit review of proposed ADRs.
