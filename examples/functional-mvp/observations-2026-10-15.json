@@ -1,0 +1,101 @@
+{
+  "report_date": "2026-10-15",
+  "framework_baseline": "10acae80a3b5b13f01c106aa51cb2ccb1e608a29",
+  "protocol_id": "fictional-local-functional-v1",
+  "execution_kind": "SYNTHETIC_LOCAL_FUNCTIONAL",
+  "recording": "Coordinator transcription of observed successful command output; its source hashes were checked against current files.",
+  "test_count": 15,
+  "required_cases_complete": true,
+  "cases": {
+    "F01": "PASS",
+    "F02": "PASS",
+    "F03": "PASS",
+    "F04": "PASS",
+    "F05": "PASS",
+    "F06": "PASS",
+    "F07": "PASS",
+    "F08": "PASS",
+    "F09": "PASS",
+    "F10": "PASS",
+    "F11": "PASS",
+    "F12": "PASS",
+    "F13": "PASS",
+    "F14": "PASS",
+    "F15": "PASS"
+  },
+  "pass": true,
+  "source_normalization": "UTF-8 LF",
+  "source_sha256": {
+    "acceptance.json": "73fa8b1685d0c618917578092b95820352bbf64c4bc833a8564f7a50f6de22cd",
+    "local_mvp.py": "ffe26ddece9d562d17b39109b2c3c43a2e3f3003ea4c0dd8eb947eb0c61fd9ad",
+    "test_local_mvp.py": "c01caa74fefca698b397eec5fd70b45ca16bb466a82e0c037e1e2fd38c3936a4"
+  },
+  "source_unchanged_after_execution": true,
+  "attempts": [
+    {
+      "attempt": 1,
+      "result": "BLOCKED_SETUP",
+      "exit_code": 1,
+      "cases": {
+        "F01": "ERROR",
+        "F02": "ERROR",
+        "F03": "ERROR",
+        "F04": "ERROR",
+        "F05": "ERROR",
+        "F06": "ERROR",
+        "F07": "ERROR",
+        "F08": "ERROR",
+        "F09": "ERROR",
+        "F10": "ERROR",
+        "F11": "ERROR",
+        "F12": "ERROR",
+        "F13": "ERROR",
+        "F14": "ERROR",
+        "F15": "ERROR"
+      },
+      "source_sha256": {
+        "acceptance.json": "73fa8b1685d0c618917578092b95820352bbf64c4bc833a8564f7a50f6de22cd",
+        "local_mvp.py": "ffe26ddece9d562d17b39109b2c3c43a2e3f3003ea4c0dd8eb947eb0c61fd9ad",
+        "test_local_mvp.py": "095e9c1cd805e5efcb266a8eb65ff7d18da65b06bd8ace971a0de06b134c7963"
+      },
+      "reason": "Sandbox file permissions prevented temporary SQLite creation before functional assertions; no functional result."
+    },
+    {
+      "attempt": 2,
+      "result": "PASS",
+      "exit_code": 0,
+      "cases": {
+        "F01": "PASS",
+        "F02": "PASS",
+        "F03": "PASS",
+        "F04": "PASS",
+        "F05": "PASS",
+        "F06": "PASS",
+        "F07": "PASS",
+        "F08": "PASS",
+        "F09": "PASS",
+        "F10": "PASS",
+        "F11": "PASS",
+        "F12": "PASS",
+        "F13": "PASS",
+        "F14": "PASS",
+        "F15": "PASS"
+      },
+      "source_sha256": {
+        "acceptance.json": "73fa8b1685d0c618917578092b95820352bbf64c4bc833a8564f7a50f6de22cd",
+        "local_mvp.py": "ffe26ddece9d562d17b39109b2c3c43a2e3f3003ea4c0dd8eb947eb0c61fd9ad",
+        "test_local_mvp.py": "c01caa74fefca698b397eec5fd70b45ca16bb466a82e0c037e1e2fd38c3936a4"
+      },
+      "changes_before_attempt": "Local test execution received temporary-file access. Snapshot helper explicitly closes SQLite connections for reliable cleanup; acceptance criteria and application implementation unchanged."
+    }
+  ],
+  "humans": 0,
+  "actor_context": "TRUSTED_FICTIONAL_INPUT",
+  "production_authentication_validated": false,
+  "human_acceptance": false,
+  "private_product_validated": false,
+  "external_publication": false,
+  "native_editor_validated": false,
+  "delivery_efficiency_demonstrated": false,
+  "general_pilot_promotion": false
+}

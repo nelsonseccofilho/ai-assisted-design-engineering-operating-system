@@ -9,7 +9,7 @@ The [previous bounded report](PILOT_VALIDATION_2026-10-15.md) records what is ob
 | Order | Work package | Prepared or pending | Evidence required before acceptance |
 |---|---|---|---|
 | 1 | Retrieval comparison — METH-021 | Eight fresh AI sessions / sixteen scoped assessments completed; no case-source volume saving | Frozen balanced assignments, eligible fresh participants, complete bootstrap, reviewed correctness and actual source/overhead measurements |
-| 2 | Local functional MVP — METH-020; delivery comparison — METH-018 | NOT RUN in this cycle; earlier preview feasibility remains bounded | Fictional local permissions/persistence/failure/recovery checks; matched delivery tasks with observed effort and quality before any sequencing-efficiency claim |
+| 2 | Local functional MVP — METH-020; delivery comparison — METH-018 | Fifteen synthetic local functional cases passed; delivery comparison NOT RUN | Fictional local permissions/persistence/failure/recovery checks; matched delivery tasks with observed effort and quality before any sequencing-efficiency claim |
 | 3 | Human handoff and critique — METH-019, METH-021, METH-023 | NOT RUN; requires people and an agreed participant scope | Actual independent human recovery and critique, source-based review, discrepancies and approval boundaries; AI answers cannot replace human outcomes |
 | 4 | Native annotation/reflow — METH-023, METH-024 | NOT RUN; requires a separately authorized fictional editor environment | Fresh native screenshots, legibility, component provenance, collapsed/expanded occupancy, dependent reflow and post-library-sync behavior in that environment |
 | 5 | Per-pilot disposition | Pending new evidence and accountable review | Accept only the demonstrated aspect, retain failed/pending criteria, check compatibility/privacy and record a separate scoped decision |
@@ -64,3 +64,10 @@ The next separate delivery is the fictional local functional MVP, before any del
 - explicit separation of local fixture success from real authentication, private-product behavior, native editor acceptance, publication and human acceptance.
 
 These are acceptance criteria, not results. The functional unit remains NOT RUN at this checkpoint. Matched delivery-efficiency tasks, human participants and native-editor work remain separate packages. Do not expand this unit into another retrieval study or claim measured productivity from passing functional tests.
+
+
+## Functional unit follow-through
+
+The [fictional local functional report](LOCAL_FUNCTIONAL_MVP_2026-10-15.md) records fifteen passing predeclared scenarios after an initial environment-blocked setup attempt. It supplies local role/scope/revision, persistence and atomic recovery evidence under trusted fictional actor inputs. It is not production authentication, private-product validation, native-editor acceptance or global pilot promotion. The original pre-execution checkpoint above remains historical.
+
+The local functional unit is COMPLETED_WITH_CAVEATS for its declared scope. Next assess the decision value and resource needs of a matched METH-018 delivery comparison before execution; the prior retrieval study is closed for its existing fixture and is not repeated. Human and native-editor packages remain separately scoped and pending.

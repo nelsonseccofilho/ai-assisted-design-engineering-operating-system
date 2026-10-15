@@ -62,6 +62,11 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### Fictional local functional MVP
+- exercised fifteen predeclared local role/scope, revision-approval, persistence and rollback/recovery cases for METH-020, retaining a prior sandbox setup failure;
+- added a reproducible standard-library SQLite lab and bounded report under ADR-0025 and GOV-VAL-001 / ADR-0029; production identity, human/native-editor acceptance and delivery efficiency remain unverified;
+- retained pilot maturity, existing core/runtime contracts and the hosted automation suspension.
+
 ### GOV-VAL-001 — validation and evidence-based closure
 - adopted the maintainer-approved mandatory contract with valid evidence reuse, protected acceptance gates, justified additional tests and scoped closure under ADR-0029;
 - aligned the canonical Master/runtime mirror, JSON derivative, shared inventory and existing acceptance seed without changing startup, runtime states, pins or released version;
