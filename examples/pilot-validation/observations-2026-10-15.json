@@ -1,0 +1,187 @@
+{
+  "source_commit": "30b11995a09e2a86a40e27b193ac9be8b4593333",
+  "participants": {
+    "independent_ai_sessions": 2,
+    "human_operators": 0
+  },
+  "observations": [
+    {
+      "reviewer": "reviewer-a",
+      "case": "GARDEN",
+      "index_available": true,
+      "index_consulted": false,
+      "source_bytes_inspected": 3593,
+      "bytes_returned": 4101,
+      "unique_paths": 12,
+      "operations": 11,
+      "source_recovery": "PASS",
+      "boundary_and_critique": "PASS",
+      "first_case_operation_to_completion_seconds": 23.03
+    },
+    {
+      "reviewer": "reviewer-a",
+      "case": "SKY",
+      "index_available": false,
+      "index_consulted": false,
+      "source_bytes_inspected": 3649,
+      "bytes_returned": 4139,
+      "unique_paths": 12,
+      "operations": 11,
+      "source_recovery": "PASS",
+      "boundary_and_critique": "PASS",
+      "first_case_operation_to_completion_seconds": 20.68
+    },
+    {
+      "reviewer": "reviewer-b",
+      "case": "GARDEN",
+      "index_available": false,
+      "index_consulted": false,
+      "source_bytes_inspected": 3593,
+      "bytes_returned": 4092,
+      "unique_paths": 12,
+      "operations": 11,
+      "source_recovery": "PASS",
+      "boundary_and_critique": "PASS",
+      "first_case_operation_to_completion_seconds": 23.77
+    },
+    {
+      "reviewer": "reviewer-b",
+      "case": "SKY",
+      "index_available": true,
+      "index_consulted": false,
+      "source_bytes_inspected": 3649,
+      "bytes_returned": 4148,
+      "unique_paths": 12,
+      "operations": 11,
+      "source_recovery": "PASS",
+      "boundary_and_critique": "PASS",
+      "first_case_operation_to_completion_seconds": 19.55
+    }
+  ],
+  "integrity": [
+    {
+      "reviewer": "reviewer-a",
+      "files_verified": 87,
+      "changed": [],
+      "bootstrap_attempts": 3,
+      "bootstrap_bytes_inspected": 125799
+    },
+    {
+      "reviewer": "reviewer-b",
+      "files_verified": 87,
+      "changed": [],
+      "bootstrap_attempts": 3,
+      "bootstrap_bytes_inspected": 125799
+    }
+  ],
+  "ui_checks": [
+    {
+      "case": "U1-one",
+      "pass": true,
+      "result": {
+        "capacity": true,
+        "cards": 1,
+        "clearDisabled": false,
+        "count": "1 seed"
+      }
+    },
+    {
+      "case": "U1-zero",
+      "pass": true,
+      "result": {
+        "capacity": true,
+        "cards": 0,
+        "count": "0 seeds",
+        "empty": "No matching seeds in this preview."
+      }
+    },
+    {
+      "case": "U1-many-reset",
+      "pass": true,
+      "result": {
+        "cards": 3,
+        "clearDisabled": true,
+        "count": "3 seeds"
+      }
+    },
+    {
+      "case": "U2-expand-reflow-disabled",
+      "pass": true,
+      "before": {
+        "publishDisabled": true,
+        "publishTop": 807.3125,
+        "sectionHeight": 226.8125
+      },
+      "after": {
+        "noteBottom": 947.3125,
+        "noteVisible": true,
+        "publishDisabled": true,
+        "publishTop": 963.3125,
+        "sectionHeight": 398.8125
+      }
+    },
+    {
+      "case": "U3-long-sample",
+      "pass": true,
+      "result": {
+        "label": "VeryLongFictionalSunflowerLabelForLocalWrappingWithoutChangingSourceAuthorityOrPublishingAnything",
+        "overflow": false,
+        "publishDisabled": true
+      }
+    },
+    {
+      "case": "U3-reset",
+      "pass": true,
+      "result": {
+        "active": "query",
+        "collapsed": true,
+        "count": "3 seeds",
+        "label": "Sunflower",
+        "publishDisabled": true,
+        "status": "Preview reset. Nothing was saved or published."
+      }
+    },
+    {
+      "case": "layout-360-long-expanded",
+      "pass": true,
+      "result": {
+        "headingOverflow": false,
+        "noteBottom": 831.515625,
+        "noteOpen": true,
+        "publishDisabled": true,
+        "publishTop": 847.515625,
+        "scrollWidth": 345,
+        "width": 360
+      }
+    },
+    {
+      "case": "keyboard-note-enter-space",
+      "pass": true
+    },
+    {
+      "case": "layout-768-long-expanded",
+      "pass": true,
+      "result": {
+        "headingOverflow": false,
+        "noteBottom": 464.9375,
+        "publishDisabled": true,
+        "publishTop": 480.9375,
+        "scrollWidth": 753,
+        "width": 768
+      }
+    },
+    {
+      "case": "layout-1280-long-expanded",
+      "pass": true,
+      "result": {
+        "headingOverflow": false,
+        "noteBottom": 465.3125,
+        "publishDisabled": true,
+        "publishTop": 481.3125,
+        "scrollWidth": 1265,
+        "width": 1280
+      }
+    }
+  ],
+  "grading": "Source-derived identity checks and source-path existence were automated; authority, annotation scope, proportional critique and missing requirements were inspected by the coordinator. This is not a blinded independent grading panel."
+}
