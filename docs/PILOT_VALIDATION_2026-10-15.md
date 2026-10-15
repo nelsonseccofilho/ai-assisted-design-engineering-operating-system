@@ -80,6 +80,8 @@ A real primary reference was reviewed to exercise METH-031: the official [NASA T
 
 The catalog classifications remain `OPTIONAL_PILOT`; existing maturity values remain unchanged (including the earlier, separately attributed narrow evidence for METH-023). ADRs remain proposed. A later promotion requires a separately scoped review of the missing evidence, accountable acceptance and compatibility checks. This report creates no new waiver or permission to mutate a private runtime or design file.
 
+The [next-cycle plan](PILOT_VALIDATION_NEXT_CYCLE.md) prepares a separate comparison protocol; preparation and mechanical checks are not new independent-session results.
+
 ## Follow-through review of the portable lab
 
 Review found that the first portable generator copied the working runtime directory, including any Git-ignored local files. The revised generator copies only tracked runtime blobs from the fixed public commit, refuses destinations inside the framework checkout, and preserves the dirty/untracked-input and overwrite gates. The reader now decodes canonical Git output explicitly as UTF-8 and uses an explicit manifest comparison that remains active with Python optimization.

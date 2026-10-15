@@ -62,6 +62,11 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### Prepared retrieval comparison
+- added a prespecified, counterbalanced optional-index comparison protocol separating spontaneous choice from guided consultation;
+- added local fictional-input preparation, read-only receipt summaries and mechanical regressions, with unreviewed/mechanical runs excluded from efficacy groups;
+- documented staged human/native-editor evidence needs; no new independent trial, savings, maturity promotion or release is claimed.
+
 ### Exploratory pilot validation
 - recorded two independent synthetic AI reviews (four case observations), ten local browser checks, and one external-method intake stop decision;
 - published portable fictional fixtures, read-only measurement tooling and explicit reproduction/claim limits;
