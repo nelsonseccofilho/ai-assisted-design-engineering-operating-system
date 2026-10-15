@@ -84,6 +84,10 @@ Prefer canonical Design System components and patterns before inventing new ones
 
 Read-only dependencies do not become central logs for consumer changes.
 
+### Risk-proportionate validation and closure
+
+[GOV-VAL-001](runtime/docs/contracts/VALIDATION_AND_CLOSURE.md) requires acceptance criteria before tests, valid evidence reuse and scoped closure. Preserve mandatory safeguards; stop extra validation when it has no proportionate decision value.
+
 ### Persistent continuity
 
 Chat/model memory is useful but non-authoritative. Durable state belongs in versioned project/runtime records.

@@ -568,6 +568,8 @@ from:
 
 # 26. POSTFLIGHT
 
+Apply GOV-VAL-001 in section 53 when selecting evidence and deciding closure. Binding checks below remain required when applicable.
+
 Before considering a change complete, validate as applicable:
 
 - visual result;
@@ -1296,3 +1298,17 @@ When a reusable method is discovered in private project work:
 Preserve accepted historical overlap append-only. Do not delete or silently rewrite a prior project ADR merely because its reusable architecture was later promoted upstream; append an ownership/adoption note and point to the canonical public record.
 
 See `runtime/docs/contracts/DOCUMENTATION_OWNERSHIP.md` and ADR-0023.
+
+# 53. RISK-PROPORTIONATE VALIDATION AND EVIDENCE-BASED CLOSURE
+
+**GOV-VAL-001 is mandatory** for authorized human operators and AI agents. Full canonical contract: `runtime/docs/contracts/VALIDATION_AND_CLOSURE.md`.
+
+Define the selected deliverable, decision, acceptance criteria and mandatory checks before testing. Every test needs a concrete decision-relevant question. Classify checks as MANDATORY, CONDITIONAL (required when its risk/evidence trigger applies), OPTIONAL or REDUNDANT. Do not execute redundant checks or let optional improvements block satisfied mandatory criteria.
+
+Reuse approved evidence only when its scope, source revision or relevant content, environment, dependencies and assumptions remain valid without material invalidation. Reassess affected evidence after changes and retain every current governing gate, including full-package or live checks where required. Never relabel a historical result as a new run.
+
+Consider time, compute, human effort, mutation risk and information value. Justify extra testing with the risk, hypothesis or missing evidence, possible outcomes, how they could change the decision and proportional cost. Otherwise recommend closure and advance to the next authorized activity.
+
+Close the named scope once mandatory criteria and essential evidence are satisfied, blocking risks are treated and non-blocking limitations are documented. COMPLETED, COMPLETED_WITH_CAVEATS and BLOCKED are assessment outcomes in existing owner records; they do not replace runtime states. A completed analysis, design or prototype does not complete dependent functional work or grant publication/merge authority.
+
+Cost alone cannot waive mandatory security, privacy, data protection, integrity, compliance, loss-prevention or other binding acceptance checks. High impact may require costly validation. Agents cannot lower criteria retrospectively or create waiver authority. Reuse existing records proportionately; incidents do not automatically create another test campaign. Reopen only for material new evidence or changed scope.

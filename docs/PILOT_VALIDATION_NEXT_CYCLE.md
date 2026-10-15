@@ -47,3 +47,20 @@ The public core, mandatory bootstrap, compatibility aliases, catalog values, run
 For the first delivery: run the six existing framework Python workflow steps and the comparison regressions locally, scan privacy/protected paths, and read back every file on the PR head. Hosted CI remains a distinct gate; local results do not establish a hosted PASS. A previous merge's exception does not authorize a future merge or release.
 
 Any new independent chat execution, human involvement or native editor work needs its own concrete scope. No automatic background work, messaging or release is scheduled by this document.
+
+## Resume checkpoint and acceptance before the next unit
+
+On 2026-10-15, a fresh read-only commit-identity comparison found no private-adopter change since the immutable source snapshot used by the bounded audit. Its documented source coverage remains reusable; no new full source retrieval or experiment is justified by source drift. This does not establish that every possible inference has been discovered. Private provenance stays restricted.
+
+The maintainer adopted [GOV-VAL-001](../runtime/docs/contracts/VALIDATION_AND_CLOSURE.md) with the five reviewed safeguards. It adds mandatory operating policy without accepting any pending pilot. Reuse the completed retrieval trial and its no-savings disposition; do not rerun it merely because work resumes.
+
+The next separate delivery is the fictional local functional MVP, before any delivery-efficiency comparison. Establish its test fixture and authority assumptions explicitly, then require observed evidence for:
+
+- an allowed local action and a denied action with unchanged persisted state;
+- persistence across a fresh process, using only fictional temporary data;
+- validation/error handling with no partial write;
+- recoverable injected failure and subsequent successful operation;
+- isolation between unrelated fictional records/scopes;
+- explicit separation of local fixture success from real authentication, private-product behavior, native editor acceptance, publication and human acceptance.
+
+These are acceptance criteria, not results. The functional unit remains NOT RUN at this checkpoint. Matched delivery-efficiency tasks, human participants and native-editor work remain separate packages. Do not expand this unit into another retrieval study or claim measured productivity from passing functional tests.
