@@ -62,6 +62,11 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### Eight-session retrieval comparison
+- recorded eight fresh AI sessions and sixteen eligible synthetic recovery/critique observations under frozen protocol v1.1;
+- observed explicit index retrieval in every available-index case, with approximately 18.6% more case-source bytes and no avoided case-document reads;
+- retained bootstrap repetition, zero-benefit evidence and grading/provider/timing limitations; kept pilot maturity, architecture 3.6.0 and release gates unchanged.
+
 ### Prepared retrieval comparison
 - added a prespecified, counterbalanced optional-index comparison protocol separating spontaneous choice from guided consultation;
 - added local fictional-input preparation, read-only receipt summaries and mechanical regressions, with unreviewed/mechanical runs excluded from efficacy groups;

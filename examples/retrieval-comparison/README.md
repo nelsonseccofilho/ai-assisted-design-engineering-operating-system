@@ -1,7 +1,7 @@
 # Retrieval comparison laboratory
 
-**Protocol:** retrieval-comparison-v1.1. **Status:** PREPARED / NOT RUN. Target: optional pilot METH-021. Architecture: 3.6.0.
-This kit prepares fictional reviewer inputs and measures reader receipts. It has run no new human or independent AI session and demonstrates no index benefit. See the [next-cycle plan](../../docs/PILOT_VALIDATION_NEXT_CYCLE.md) and [earlier bounded trial](../../docs/PILOT_VALIDATION_2026-10-15.md).
+**Protocol:** retrieval-comparison-v1.1. **Recorded trial:** completed, exploratory AI evidence. Target: optional pilot METH-021. Architecture: 3.6.0.
+This kit prepares fictional reviewer inputs and measures reader receipts. Eight fresh AI sessions completed the [recorded comparison](../../docs/RETRIEVAL_COMPARISON_2026-10-15.md): sixteen scoped recovery assessments passed, while indexes added reader bytes without avoiding case-document reads. No efficiency benefit was demonstrated. Human and cross-provider validation remain pending. See the [next-cycle plan](../../docs/PILOT_VALIDATION_NEXT_CYCLE.md) and [earlier bounded trial](../../docs/PILOT_VALIDATION_2026-10-15.md).
 
 ## Question and design
 
@@ -35,6 +35,8 @@ Preparation creates SP01–SP04 and GD01–GD04, each a local Git repository wit
 - `quality-review.json`: initially null review decisions, role and evidence notes.
 
 Keep this root, the answer key, the other rooms, reports and protocol conditions away from fresh reviewers. Give each only its assigned room and TASK.md. The folder layout and prompt do not provide an OS sandbox; enforce an actual access boundary where available. The source-derived key does not constitute a real product decision or human approval.
+
+The frozen `protocol.json` retains PREPARED_NOT_RUN as the input specification at preparation time. Actual execution is recorded separately in the report/results; editing that frozen input to close a trial would invalidate its hash. Preparation of another laboratory still creates no participants or measured benefit.
 
 ## Before independent execution
 
@@ -82,7 +84,7 @@ Receipts and locally stored hashes detect ordinary drift against the frozen reco
 
 Version 1.1 fixes a measurement false positive in the original prepared v1: a search could inspect INDEX.md without returning it, yet count as consultation. The two metrics are now separate; guided order is checked at operation level. Protocol sample counts, required quality checks and baseline/version fields are also checked against the implemented design.
 
-The original v1 is retained in Git history at `cac55e1eefd9d251f7845b3f8b72a4339ea31a2c`. No independent v1 trial was run. Frozen v1 preparation directories must be regenerated with v1.1 before dispatch; do not relabel or rewrite prior logs. The review changes the measurement specification, not framework version 3.6.0 or pilot maturity.
+The original v1 is retained in Git history at `cac55e1eefd9d251f7845b3f8b72a4339ea31a2c`. No independent v1 trial was run. The later eight-session trial used frozen v1.1 inputs. Frozen v1 preparation directories must be regenerated with v1.1 before any new dispatch; do not relabel or rewrite prior logs. The review changes the measurement specification, not framework version 3.6.0 or pilot maturity.
 
 ## Acceptance and stop rules
 

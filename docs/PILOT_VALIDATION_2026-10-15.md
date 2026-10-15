@@ -80,7 +80,7 @@ A real primary reference was reviewed to exercise METH-031: the official [NASA T
 
 The catalog classifications remain `OPTIONAL_PILOT`; existing maturity values remain unchanged (including the earlier, separately attributed narrow evidence for METH-023). ADRs remain proposed. A later promotion requires a separately scoped review of the missing evidence, accountable acceptance and compatibility checks. This report creates no new waiver or permission to mutate a private runtime or design file.
 
-The [next-cycle plan](PILOT_VALIDATION_NEXT_CYCLE.md) prepares a separate comparison protocol; preparation and mechanical checks are not new independent-session results.
+The [next-cycle plan](PILOT_VALIDATION_NEXT_CYCLE.md) led to a [separately recorded eight-session comparison](RETRIEVAL_COMPARISON_2026-10-15.md). Its later evidence does not change the bounds of this earlier report; preparation and mechanical checks remain distinct from participant observations.
 
 ## Follow-through review of the portable lab
 
