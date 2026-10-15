@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.1",
+  "protocol_id": "retrieval-comparison-v1.1",
+  "status": "PREPARED_NOT_RUN",
+  "framework_version": "3.6.0",
+  "baseline_commit": "8e72681bde72a7aeadbc9959f9f59b52f9959118",
+  "seed_commit": "30b11995a09e2a86a40e27b193ac9be8b4593333",
+  "target": "METH-021",
+  "primary_question": "Does optional source-index availability reduce measured retrieval while preserving correct authority and scope?",
+  "planned_independent_sessions": 8,
+  "planned_case_observations": 16,
+  "regimes": {
+    "spontaneous": "Choose sources normally; no instruction to consult an index.",
+    "guided": "If the selected case has INDEX.md, consult it before reading case documents; otherwise choose sources normally."
+  },
+  "sessions": [
+    {
+      "id": "SP01",
+      "regime": "spontaneous",
+      "order": [
+        "GARDEN",
+        "SKY"
+      ],
+      "conditions": {
+        "GARDEN": "INDEX",
+        "SKY": "FLAT"
+      }
+    },
+    {
+      "id": "SP02",
+      "regime": "spontaneous",
+      "order": [
+        "GARDEN",
+        "SKY"
+      ],
+      "conditions": {
+        "GARDEN": "FLAT",
+        "SKY": "INDEX"
+      }
+    },
+    {
+      "id": "SP03",
+      "regime": "spontaneous",
+      "order": [
+        "SKY",
+        "GARDEN"
+      ],
+      "conditions": {
+        "GARDEN": "FLAT",
+        "SKY": "INDEX"
+      }
+    },
+    {
+      "id": "SP04",
+      "regime": "spontaneous",
+      "order": [
+        "SKY",
+        "GARDEN"
+      ],
+      "conditions": {
+        "GARDEN": "INDEX",
+        "SKY": "FLAT"
+      }
+    },
+    {
+      "id": "GD01",
+      "regime": "guided",
+      "order": [
+        "GARDEN",
+        "SKY"
+      ],
+      "conditions": {
+        "GARDEN": "INDEX",
+        "SKY": "FLAT"
+      }
+    },
+    {
+      "id": "GD02",
+      "regime": "guided",
+      "order": [
+        "GARDEN",
+        "SKY"
+      ],
+      "conditions": {
+        "GARDEN": "FLAT",
+        "SKY": "INDEX"
+      }
+    },
+    {
+      "id": "GD03",
+      "regime": "guided",
+      "order": [
+        "SKY",
+        "GARDEN"
+      ],
+      "conditions": {
+        "GARDEN": "FLAT",
+        "SKY": "INDEX"
+      }
+    },
+    {
+      "id": "GD04",
+      "regime": "guided",
+      "order": [
+        "SKY",
+        "GARDEN"
+      ],
+      "conditions": {
+        "GARDEN": "INDEX",
+        "SKY": "FLAT"
+      }
+    }
+  ],
+  "required_quality_checks": [
+    "continuity_correct",
+    "authority_correct",
+    "annotation_scope_correct",
+    "requirements_correct",
+    "no_unsupported_acceptance"
+  ],
+  "claims_excluded": [
+    "causal productivity",
+    "financial savings",
+    "human acceptance",
+    "cross-provider generalization",
+    "global pilot promotion"
+  ],
+  "measurement": "Normalized UTF-8 source bytes and all reader operations, with bootstrap overhead reported separately. Case intervals end at explicit completion markers; answer composition is excluded.",
+  "stop_rules": [
+    "Source mutation or incorrect authority/scope blocks acceptance.",
+    "Missing bootstrap, case contamination, unverified independence or prior case exposure excludes an observation from comparison.",
+    "No actual index use supports only an availability/adoption observation.",
+    "Mechanical dry runs never count as participant observations."
+  ],
+  "grading": "Coordinator-source checks plus explicit manual quality review; no independent grading panel is implied.",
+  "index_consultation_definition": "Explicit full INDEX.md retrieval through the read operation. Search inspection alone is recorded separately and does not prove consultation or understanding."
+}

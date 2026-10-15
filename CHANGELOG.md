@@ -62,6 +62,21 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### Temporary hosted QA suspension
+- recorded the maintainer-requested suspension of this repository's Static QA workflow and the PR #10 infrastructure disposition under ADR-0022;
+- preserved the workflow and local validation commands, with explicit restoration steps in [Hosted CI status](docs/HOSTED_CI_STATUS.md); no hosted PASS, release or pilot promotion is claimed.
+
+### Eight-session retrieval comparison
+- recorded eight fresh AI sessions and sixteen eligible synthetic recovery/critique observations under frozen protocol v1.1;
+- observed explicit index retrieval in every available-index case, with approximately 18.6% more case-source bytes and no avoided case-document reads;
+- retained bootstrap repetition, zero-benefit evidence and grading/provider/timing limitations; kept pilot maturity, architecture 3.6.0 and release gates unchanged.
+
+### Prepared retrieval comparison
+- added a prespecified, counterbalanced optional-index comparison protocol separating spontaneous choice from guided consultation;
+- added local fictional-input preparation, read-only receipt summaries and mechanical regressions, with unreviewed/mechanical runs excluded from efficacy groups;
+- reviewed protocol v1.1 to distinguish search inspection from explicit index retrieval, enforce guided order and bind declared design metadata to implementation;
+- documented staged human/native-editor evidence needs; no new independent trial, savings, maturity promotion or release is claimed.
+
 ### Exploratory pilot validation
 - recorded two independent synthetic AI reviews (four case observations), ten local browser checks, and one external-method intake stop decision;
 - published portable fictional fixtures, read-only measurement tooling and explicit reproduction/claim limits;
