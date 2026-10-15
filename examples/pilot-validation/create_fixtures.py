@@ -34,17 +34,37 @@ def write(path,text):
  path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text,encoding="utf-8")
 def js(path,data):write(path,json.dumps(data,indent=2)+"\n")
 source_tree=subprocess.check_output(["git","-C",str(SOURCE),"rev-parse",PIN+"^{tree}"],text=True).strip()
-assert source_tree=="71330627b8ad3b5ef41ff2cfc9f663cc012fe896"
+if source_tree!="71330627b8ad3b5ef41ff2cfc9f663cc012fe896":
+ raise SystemExit("Unexpected public input tree")
+source_top=Path(subprocess.check_output(["git","-C",str(SOURCE),"rev-parse","--show-toplevel"],text=True,encoding="utf-8").strip()).resolve()
+if SOURCE!=source_top:
+ raise SystemExit("Framework path must be the repository root")
+if ROOT.is_relative_to(SOURCE):
+ raise SystemExit("Laboratory destination must be outside the framework checkout")
 if subprocess.check_output(["git","-C",str(SOURCE),"diff",PIN,"--","runtime"],text=True).strip():
  raise SystemExit("Framework runtime differs from the pinned inputs")
 if subprocess.check_output(["git","-C",str(SOURCE),"ls-files","--others","--exclude-standard","runtime"],text=True).strip():
  raise SystemExit("Untracked runtime inputs are not allowed")
+seed_blobs={}
+entries=subprocess.check_output(["git","-C",str(SOURCE),"ls-tree","-rz",PIN,"--","runtime/"])
+for entry in entries.split(b"\0"):
+ if not entry: continue
+ metadata,raw_path=entry.split(b"\t",1)
+ mode,kind,oid=metadata.split()
+ name=raw_path.decode("utf-8")
+ if mode not in (b"100644",b"100755") or kind!=b"blob" or not name.startswith("runtime/") or ".." in Path(name).parts:
+  raise SystemExit("Unsupported public seed entry")
+ seed_blobs[name]=subprocess.check_output(["git","-C",str(SOURCE),"cat-file","blob",oid.decode("ascii")])
+if not seed_blobs: raise SystemExit("No pinned runtime seeds found")
 ROOT.mkdir(parents=True,exist_ok=False)
 for reviewer, indexed in (("reviewer-a","GARDEN"),("reviewer-b","SKY")):
  project=ROOT/reviewer
  if project.exists(): raise SystemExit("Refusing existing fixture destination")
  runtime=project/"runtime"
- shutil.copytree(SOURCE/"runtime",runtime)
+ for name,data in seed_blobs.items():
+  target=project/name
+  target.parent.mkdir(parents=True,exist_ok=True)
+  target.write_bytes(data)
  manifest=json.loads((runtime/"runtime-manifest.json").read_text(encoding="utf-8"))
  manifest.update(runtime_name="Fictional pilot laboratory",runtime_version="0.1.0-fixture",candidate_ref=PIN)
  manifest["framework"].update(repository="https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system",stable_pin=STABLE,version="3.6.0",candidate=PIN)

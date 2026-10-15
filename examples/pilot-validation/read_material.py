@@ -17,8 +17,9 @@ def read(path):
  text=path.read_text(encoding="utf-8");paths.append(path.relative_to(ROOT).as_posix());inspected+=len(text.encode())
  return text
 if a.operation=="manifest":
- text=subprocess.check_output(["git","-C",str(ROOT),"show","main:runtime/runtime-manifest.json"],text=True)
- assert json.loads(text)==json.loads((RUNTIME/"runtime-manifest.json").read_text(encoding="utf-8"))
+ text=subprocess.check_output(["git","-C",str(ROOT),"show","main:runtime/runtime-manifest.json"],text=True,encoding="utf-8")
+ if json.loads(text)!=json.loads((RUNTIME/"runtime-manifest.json").read_text(encoding="utf-8")):
+  raise SystemExit("Canonical manifest differs from the working copy")
  parts=[text];paths=["runtime/runtime-manifest.json"];inspected=len(text.encode())
 elif a.operation=="bootstrap":
  manifest=json.loads((RUNTIME/"runtime-manifest.json").read_text(encoding="utf-8"))

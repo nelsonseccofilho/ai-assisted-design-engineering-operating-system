@@ -65,6 +65,7 @@ All notable changes to the operating framework are documented here.
 ### Exploratory pilot validation
 - recorded two independent synthetic AI reviews (four case observations), ten local browser checks, and one external-method intake stop decision;
 - published portable fictional fixtures, read-only measurement tooling and explicit reproduction/claim limits;
+- hardened fixture creation to use only pinned public Git blobs, reject nested destinations and retain manifest authority under Python optimization, with eight local regressions;
 - retained all pilot maturity, ADR statuses and architecture 3.6.0; no index savings, human validation, native-editor rollout, merge or release is claimed.
 
 ### Bounded methodology audit

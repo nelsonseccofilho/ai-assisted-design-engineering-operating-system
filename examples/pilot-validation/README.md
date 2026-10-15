@@ -4,7 +4,7 @@ This optional laboratory accompanies the [bounded report](../../docs/PILOT_VALID
 
 ## Prepare inputs
 
-Use a public framework checkout containing commit `30b11995a09e2a86a40e27b193ac9be8b4593333`, with runtime files matching that pin and no untracked runtime inputs. The generator refuses an existing destination. Substitute your own paths:
+Use a public framework checkout containing commit `30b11995a09e2a86a40e27b193ac9be8b4593333`, with runtime files matching that pin and no untracked runtime inputs. The generator refuses an existing destination or a destination inside the framework checkout. Only tracked runtime blobs from the pinned public commit are copied; ignored local files are never inputs. Substitute your own paths:
 
 ```text
 python examples/pilot-validation/create_fixtures.py <new-laboratory-directory> --framework <public-framework-checkout>
@@ -12,7 +12,17 @@ python examples/pilot-validation/create_fixtures.py <new-laboratory-directory> -
 
 The generator writes two separate fictional runtimes, a protocol, source hashes and a source-derived answer key. Only the coordinator sees the laboratory root and answer key. Give each fresh reviewer access solely to its own `reviewer-a` or `reviewer-b` directory, with no previous conversation, this report, generated expectations or the other answer. Do not fork an existing review chat. Use an actual access boundary or restricted reader when available; a prompt alone is not a filesystem sandbox.
 
-The published generator adds portable path arguments, pin/dirty-runtime guards and overwrite refusal to the original local preparation script. These packaging changes are not a rerun of the original AI trial. Fixture timestamps and local Git identities will differ; compare semantic inputs and per-run hashes rather than expecting identical new repository commits.
+The published generator adds portable path arguments, pin/dirty-runtime guards, pinned Git-blob copying and overwrite refusal to the original local preparation script. These packaging changes are not a rerun of the original AI trial. Fixture timestamps and local Git identities will differ; compare semantic inputs and per-run hashes rather than expecting identical new repository commits.
+
+## Local lab regression gate
+
+Before distributing generated inputs, run the eight local privacy, destination-preservation and reader-authority regressions from a checkout containing the pinned commit:
+
+```text
+python examples/pilot-validation/test_fixture_generation.py
+```
+
+These tests create temporary local clones without network access and use only a synthetic ignored-file marker. They are an additional local gate; the six-step hosted workflow is unchanged. They verify that ignored material is excluded, pinned shared seeds are retained, existing destinations survive, nested destinations/changed or untracked seeds/non-root sources are refused, reader operations preserve sources, and manifest mismatch is rejected even with Python optimization.
 
 ## Reviewer instruction
 
