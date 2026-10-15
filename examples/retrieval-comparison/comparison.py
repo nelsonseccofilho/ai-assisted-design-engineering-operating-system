@@ -5,7 +5,6 @@ from datetime import datetime
 import hashlib
 import json
 from pathlib import Path
-import re
 import shutil
 import statistics
 import subprocess
@@ -37,6 +36,14 @@ def command(args, cwd=None):
 
 def plan():
     value = load(HERE / "protocol.json")
+    implemented = {"schema_version": "1.1", "protocol_id": "retrieval-comparison-v1.1",
+        "status": "PREPARED_NOT_RUN", "framework_version": "3.6.0",
+        "baseline_commit": "8e72681bde72a7aeadbc9959f9f59b52f9959118",
+        "seed_commit": "30b11995a09e2a86a40e27b193ac9be8b4593333", "target": "METH-021",
+        "planned_independent_sessions": 8, "planned_case_observations": 16,
+        "required_quality_checks": CHECKS}
+    if any(value.get(key) != expected for key, expected in implemented.items()):
+        raise ValueError("Protocol metadata differs from the implemented design")
     rows = value["sessions"]
     if len(rows) != 8 or len({r["id"] for r in rows}) != 8:
         raise ValueError("Protocol must contain eight unique sessions")
@@ -58,7 +65,7 @@ def plan():
 
 
 def kit_hashes():
-    return {str(p.relative_to(HERE.parent)): digest(p.read_bytes()) for p in
+    return {p.relative_to(HERE.parent).as_posix(): digest(p.read_bytes()) for p in
             [HERE / "comparison.py", HERE / "protocol.json",
              FIXTURES / "create_fixtures.py", FIXTURES / "read_material.py"]}
 
@@ -217,10 +224,12 @@ def summarize(root):
             part = [r for r in case_receipts if r["case"] == case]
             paths = {p for r in part for p in r["paths"]}
             index = f"runtime/evidence/pilot-cases/{case}/INDEX.md"
-            index_used = index in paths
+            index_inspected = index in paths
+            index_used = any(r["operation"] == "read" and r["paths"] == [index] for r in part)
             case_errors = list(errors)
-            documents = [p for r in part for p in r["paths"] if f"/pilot-cases/{case}/" in p]
-            if row["regime"] == "guided" and row["conditions"][case] == "INDEX" and part and (not documents or documents[0] != index):
+            document_reads = [r for r in part if any(f"/pilot-cases/{case}/" in p for p in r["paths"])]
+            first_is_index = bool(document_reads) and document_reads[0]["operation"] == "read" and document_reads[0]["paths"] == [index]
+            if row["regime"] == "guided" and row["conditions"][case] == "INDEX" and part and not first_is_index:
                 case_errors.append("guided index consultation missing or late")
             grade = reviews[sid][case]
             if any(grade[k] is not None and type(grade[k]) is not bool for k in CHECKS):
@@ -234,6 +243,7 @@ def summarize(root):
                 "has_receipts": bool(part), "source_integrity": intact,
                 "protocol_errors": sorted(set(case_errors)), "quality": quality,
                 "comparison_eligible": eligible, "index_consulted": index_used,
+                "index_inspected": index_inspected,
                 "unique_paths": len(paths), "reader_operations": len(part),
                 "source_bytes_inspected": sum(r["bytes_inspected"] for r in part),
                 "bytes_returned": sum(r["bytes_returned"] for r in part),

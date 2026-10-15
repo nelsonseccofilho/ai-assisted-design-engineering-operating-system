@@ -30,6 +30,14 @@ On 2026-10-15, the six existing Python workflow steps passed locally on Windows/
 
 The tests prepared temporary fictional rooms and exercised the reader and summaries. They did not execute human or independent AI participants; the protocol remains PREPARED / NOT RUN. Native editor behavior, cross-provider operation, token/financial savings and causal efficiency remain untested. Hosted runner/setup actions were not reproduced.
 
+## Protocol review follow-through
+
+The original prepared protocol v1 counted any source inspection of INDEX.md as consultation, including a search that returned no index content. Revision v1.1 separates inspected bytes from explicit full-index retrieval and checks guided order by operation. The protocol now rejects declared sample sizes, required quality checks or baseline/version fields that disagree with the implemented design.
+
+Review QA for v1.1 passed all six existing workflow Python steps locally (584 package checks, runtime sync, 17 methodology checks, the 34-topic zero-error audit, 23 audit checks and seven onboarding tests) and seventeen comparison regressions. The new search-inspection regression failed as expected against the original PR implementation, then passed with the correction. Privacy/protected-file checks passed.
+
+The initial v1 preparation and its fourteen mechanical checks remain historical tooling evidence. No new independent trial was executed. Regenerate prepared material after the revision; preserve old hashes and records under their original protocol version.
+
 ## Scope and completion gates
 
 All source records and raw answers remain local/restricted by default; public evidence contains generic procedures and reviewed, sanitized aggregates. Use participant roles rather than personal names in public documents. Preserve incompatible or failed outcomes.

@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.0",
-  "protocol_id": "retrieval-comparison-v1",
+  "schema_version": "1.1",
+  "protocol_id": "retrieval-comparison-v1.1",
   "status": "PREPARED_NOT_RUN",
   "framework_version": "3.6.0",
   "baseline_commit": "8e72681bde72a7aeadbc9959f9f59b52f9959118",
@@ -132,5 +132,6 @@
     "No actual index use supports only an availability/adoption observation.",
     "Mechanical dry runs never count as participant observations."
   ],
-  "grading": "Coordinator-source checks plus explicit manual quality review; no independent grading panel is implied."
+  "grading": "Coordinator-source checks plus explicit manual quality review; no independent grading panel is implied.",
+  "index_consultation_definition": "Explicit full INDEX.md retrieval through the read operation. Search inspection alone is recorded separately and does not prove consultation or understanding."
 }

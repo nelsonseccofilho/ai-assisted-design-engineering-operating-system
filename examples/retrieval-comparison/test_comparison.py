@@ -7,6 +7,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 HERE = Path(__file__).resolve().parent
 spec = importlib.util.spec_from_file_location("comparison", HERE / "comparison.py")
@@ -36,7 +37,7 @@ class ComparisonTest(unittest.TestCase):
         comparison.save(self.lab / "quality-review.json", copy.deepcopy(self.quality))
         comparison.save(self.lab / "coordinator.json", copy.deepcopy(self.frozen))
 
-    def trace(self, sid="SP01", use_index=False, repeat_bootstrap=False):
+    def trace(self, sid="SP01", use_index=False, repeat_bootstrap=False, search_before_docs=False):
         row = next(r for r in comparison.plan()["sessions"] if r["id"] == sid)
         room = self.lab / sid
         def read(*args):
@@ -51,6 +52,8 @@ class ComparisonTest(unittest.TestCase):
         for case in row["order"]:
             read("state", case)
             read("list", case)
+            if search_before_docs:
+                read("search", case, "unmatched-synthetic-search-token")
             if use_index and row["conditions"][case] == "INDEX":
                 read("read", case, "INDEX.md")
             for filename in ("01-brief.md", "02-accepted-decision.md",
@@ -220,6 +223,34 @@ class ComparisonTest(unittest.TestCase):
         for row in observed:
             self.assertEqual(row["source_bytes_inspected"],
                 sum(r["bytes_inspected"] for r in receipts if r["case"] == row["case"]))
+
+    def test_search_inspection_is_not_index_consultation(self):
+        self.trace(search_before_docs=True)
+        result = comparison.summarize(self.lab)
+        garden = next(r for r in result["observations"] if r["session"] == "SP01" and r["case"] == "GARDEN")
+        self.assertFalse(garden["index_consulted"])
+        self.assertTrue(garden["index_inspected"])
+        self.assertFalse(garden["protocol_errors"])
+
+    def test_guided_search_before_index_is_late_consultation(self):
+        self.trace("GD01", use_index=True, search_before_docs=True)
+        result = comparison.summarize(self.lab)
+        garden = next(r for r in result["observations"] if r["session"] == "GD01" and r["case"] == "GARDEN")
+        self.assertTrue(garden["index_consulted"])
+        self.assertTrue(garden["index_inspected"])
+        self.assertIn("guided index consultation missing or late", garden["protocol_errors"])
+
+    def test_protocol_metadata_matches_implemented_design(self):
+        original = comparison.plan()
+        for key, changed in (("planned_independent_sessions", 9),
+                             ("planned_case_observations", 18),
+                             ("required_quality_checks", comparison.CHECKS[:-1]),
+                             ("framework_version", "4.0.0")):
+            altered = copy.deepcopy(original)
+            altered[key] = changed
+            with self.subTest(key=key), patch.object(comparison, "load", return_value=altered):
+                with self.assertRaisesRegex(ValueError, "metadata differs"):
+                    comparison.plan()
 
     def test_changed_frozen_protocol_is_rejected(self):
         frozen = copy.deepcopy(self.frozen)

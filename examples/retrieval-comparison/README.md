@@ -1,6 +1,6 @@
 # Retrieval comparison laboratory
 
-**Status:** PREPARED / NOT RUN. Target: optional pilot METH-021. Architecture: 3.6.0.
+**Protocol:** retrieval-comparison-v1.1. **Status:** PREPARED / NOT RUN. Target: optional pilot METH-021. Architecture: 3.6.0.
 This kit prepares fictional reviewer inputs and measures reader receipts. It has run no new human or independent AI session and demonstrates no index benefit. See the [next-cycle plan](../../docs/PILOT_VALIDATION_NEXT_CYCLE.md) and [earlier bounded trial](../../docs/PILOT_VALIDATION_2026-10-15.md).
 
 ## Question and design
@@ -66,17 +66,23 @@ The quality review is manual. Do not substitute a mechanical trace, a self-repor
 `summarize` reads existing material and receipts; it does not modify them. It reports:
 
 - normalized UTF-8 source bytes inspected, returned bytes, unique source paths and reader operations;
-- actual index consultation and guided index-first compliance;
+- index source inspection (including a search scan), explicit full-index retrieval and guided index-first compliance;
 - first-case-operation-to-completion intervals;
 - manifest/bootstrap overhead once per session, separately from case totals, including every repeated invocation;
 - source integrity, protocol errors and manual-quality status;
 - eligible counts and mean source bytes per regime, case and availability.
 
-Search counts every file inspected, not just matching snippets. Listings/output headings affect returned bytes. Counters cover instrumented source payloads, not every filesystem/metadata access or setup/grading operation. These are reader measurements, not token usage, billing, cognitive effort or end-to-end delivery duration. Token consumption and financial savings remain null.
+Search counts every file inspected, not just matching snippets. `index_inspected` records any such access. `index_consulted` counts only an explicit full INDEX.md retrieval through the read operation: a search scan alone, even with a matching snippet, does not satisfy consultation. Neither field proves understanding. Guided compliance requires that explicit index retrieval be the first case-document access; a search before it is late consultation. Listings/output headings affect returned bytes. Counters cover instrumented source payloads, not every filesystem/metadata access or setup/grading operation. These are reader measurements, not token usage, billing, cognitive effort or end-to-end delivery duration. Token consumption and financial savings remain null.
 
 Eligibility requires receipts, verified declared independence, no prior exposure, source preservation, complete ordered bootstrap/cases, guided-procedure compliance when applicable and explicit manual-quality PASS. Unknown fields and incomplete sessions remain visible but excluded. Mechanical dry runs never enter eligible groups, even if they successfully exercise the tools.
 
 Receipts and locally stored hashes detect ordinary drift against the frozen record, not malicious alteration of all records or unlogged access. The tool cannot authenticate a person, prove provider identity, enforce read-only permissions or verify an independence assertion by itself.
+
+## Protocol review revision
+
+Version 1.1 fixes a measurement false positive in the original prepared v1: a search could inspect INDEX.md without returning it, yet count as consultation. The two metrics are now separate; guided order is checked at operation level. Protocol sample counts, required quality checks and baseline/version fields are also checked against the implemented design.
+
+The original v1 is retained in Git history at `cac55e1eefd9d251f7845b3f8b72a4339ea31a2c`. No independent v1 trial was run. Frozen v1 preparation directories must be regenerated with v1.1 before dispatch; do not relabel or rewrite prior logs. The review changes the measurement specification, not framework version 3.6.0 or pilot maturity.
 
 ## Acceptance and stop rules
 

@@ -65,6 +65,7 @@ All notable changes to the operating framework are documented here.
 ### Prepared retrieval comparison
 - added a prespecified, counterbalanced optional-index comparison protocol separating spontaneous choice from guided consultation;
 - added local fictional-input preparation, read-only receipt summaries and mechanical regressions, with unreviewed/mechanical runs excluded from efficacy groups;
+- reviewed protocol v1.1 to distinguish search inspection from explicit index retrieval, enforce guided order and bind declared design metadata to implementation;
 - documented staged human/native-editor evidence needs; no new independent trial, savings, maturity promotion or release is claimed.
 
 ### Exploratory pilot validation
