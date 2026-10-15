@@ -58,6 +58,9 @@ From the public framework checkout, run:
 python scripts/validate_framework.py
 python scripts/test_runtime_sync.py
 python scripts/test_methodology.py
+python scripts/audit_methodology.py --framework .
+python scripts/test_audit_methodology.py
+python scripts/test_onboarding.py
 python scripts/runtime_sync.py --framework .
 ```
 
@@ -70,6 +73,8 @@ python scripts/runtime_sync.py --framework "<framework-checkout>" --runtime "<pr
 ```
 
 The project root contains runtime/. Verify the framework checkout's immutable commit against the selected lock pin independently. Read-only synchronization reports configured-file differences for review; it does not overwrite them.
+
+The onboarding regression creates and removes only fictional fixtures in a temporary directory, checks configured-runtime parity and a fresh-process readback, and refuses an existing fixture destination. Its default pins are synthetic test inputs, not upstream provenance. For a real checkout trial, independently verify the stable commit, then use `python scripts/test_onboarding.py --stable-pin <full-verified-stable-commit>`; the candidate is read from the actual local Git HEAD. This is an integration test, not a general-purpose installer or an independent assistant/chat trial.
 
 Static validators check package structure and parity. They do not establish correct project facts, installed connector permissions, security acceptance or successful user onboarding. Inspect remaining placeholders and null fields according to the selected mode; generic seeds are intentionally unconfigured. Verify pin agreement, bootstrap order, owner locations and no accidental public/private mixing. Record PASS/FAIL/NOT RUN for each applicable gate.
 
@@ -93,7 +98,7 @@ Do not persist credentials, full terminal histories or personal machine details 
 
 ## Validation scope for this proposal
 
-Repository link, privacy and package checks can validate this documentation change. Clean-machine trials on Windows/macOS/Linux and independent ChatGPT/Gemini guided sessions are NOT RUN until actual results are recorded. Keep release and pilot gates explicit; do not advertise one-click installation or universal compatibility.
+Repository link, privacy and package checks validate this documentation change. The scoped Windows checkout/configuration trial and fresh-process readback are recorded in [the onboarding validation record](validation/ONBOARDING_VALIDATION.md). Clean-machine trials on Windows/macOS/Linux and independent ChatGPT/Gemini guided sessions remain NOT RUN. Keep release and pilot gates explicit; do not advertise one-click installation or universal compatibility.
 
 ## Repository About
 

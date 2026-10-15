@@ -14,7 +14,7 @@ Add a provider-neutral copyable setup prompt and a linked procedure. Distinguish
 This is documentation-driven onboarding, not a bundled agent, background service, paid dependency or one-click installer. Manual setup remains available. It introduces no new runtime intent, status enum or mandatory bootstrap step. It does not grant local execution, remote publication, connector permissions or product mutation authority. Existing review, privacy, pin and release gates prevail.
 
 ## Validation
-Run package/link and synchronization checks and read back changed files. Inspect prompt coverage of missing access, existing installations, failed validation and candidate selection. Independent fresh-machine and provider/OS onboarding trials remain NOT RUN; do not claim them from documentation QA.
+Run package/link and synchronization checks and read back changed files. Inspect prompt coverage of missing access, existing installations, failed validation and candidate selection. Add isolated fictional-runtime integration tests for initialization, preservation of existing destinations, configured parity, fresh-process recovery and failure cases. The [scoped validation record](../validation/ONBOARDING_VALIDATION.md) distinguishes those observed checks from independent fresh-machine, provider/OS and cross-chat trials, which remain NOT RUN.
 
 ## Supersession
 None.

@@ -69,6 +69,8 @@ All notable changes to the operating framework are documented here.
 - added read-only catalog/source-coverage QA and negative regressions, and repaired the runtime validator's premature result block; no original-media replay, live pilot completion, private repair, merge or release is implied.
 
 ### AI-assisted onboarding
+- added six isolated fictional-runtime regressions for safe initialization, immutable-pin configuration, read-only fresh-process recovery and failure cases; documented the observed Windows scope and unexecuted independent trials;
+- required explicit candidate source selection when onboarding files are absent from the selected released/default ref, completed the documented check list and diagnosed hosted CI non-execution from its run annotation;
 - added a provider-neutral copyable setup prompt and an explicit guided/tool-assisted procedure for exploration or private-project initialization;
 - linked onboarding from README and START_CHAT, preserving runtime intents, mandatory bootstrap and private configuration;
 - documented environment/pin inspection, existing-install preservation, QA and first-session acceptance without claiming unexecuted clean-machine/provider trials;
