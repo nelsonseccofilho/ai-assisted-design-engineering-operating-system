@@ -11,6 +11,8 @@ The [bounded source audit](METHODOLOGY_AUDIT.md) and [methodology catalog](metho
 
 The [2026-10-15 synthetic pilot trial](PILOT_VALIDATION_2026-10-15.md) adds scoped recovery, critique and browser observations. It demonstrates no index saving and does not promote any pilot or change ADR status.
 
+The later [fictional native report](NATIVE_ANNOTATION_LAB_2026-10-15.md) supplies actual one-file native-display and local-component/reflow observations with retained overlap and label caveats. Individual collapse behavior, human comprehension and published-library consumer synchronization remain unverified. This evidence update does not change any pilot classification.
+
 ## Disposition and strength of evidence
 
 | Finding | Evidence-supported maturity | Public disposition |
@@ -21,12 +23,12 @@ The [2026-10-15 synthetic pilot trial](PILOT_VALIDATION_2026-10-15.md) adds scop
 | Published foundation provenance and whole-screen parity | Current adopter Master adds a mandatory local gate; complete effectiveness is not established | [Design foundation QA](../runtime/docs/contracts/DESIGN_FOUNDATION_QA.md) as a generic candidate; no automatic rollout |
 | Single work-package/artifact task owner and source-ledger mirrors | Operator-adopted policy with persisted task artifacts; complete migration/rollout effectiveness not established | Optional [Task ownership](../runtime/docs/contracts/TASK_OWNERSHIP.md), no automatic migration |
 | Mermaid visual documentation | A persisted record attributes rendering, legibility and recovery in another chat to an operator; not freshly repeated here | Narrowly reported validation only; prefer colocated diagrams when they clarify meaning |
-| Annotation handoff | An attributed independent report supports contextual recovery in one case; visual composition conditional and functional specification insufficient | Retain a pilot; do not claim production or general handoff readiness |
+| Annotation handoff | Earlier attributed contextual recovery plus one fictional native note/display observation with occupancy/label caveats; human comprehension and functional completeness pending | Retain a pilot; no individual collapse, post-library-sync adoption, production or general handoff readiness claim |
 | Evidence-based UX review and pair design | Policy accepted; complete pilot acceptance remains pending | Optional pilot, with evidence/decision/permission boundaries preserved |
 | Deliverable-first iteration policy | Operator-adopted; requested multi-iteration efficacy measurement not demonstrated | Optional pilot; report actual delivered units and separate formal completion |
 | Build → prototype → consolidated QA | Scoped pilot with later exceptions and optional automation | Preserve as local experiment; never weaken mandatory security, runtime or acceptance criteria |
 | Journey → local component → shared library → consumer adoption | Pilot direction; all-stage repeated acceptance not established | Optional maturity experiment; existing reuse, publication and owner gates prevail |
-| Canvas sections, annotation clearance and native labels | Structural measurements exist; native visual acceptance remains incomplete | Require visible QA; no universal dimensions, hardcoded spacing or bulk migration |
+| Canvas sections, annotation clearance and native labels | One fictional file supplies native occupancy and local dependent reflow; overlap and weak auxiliary labels were observed | Require scoped visible QA; individual collapse and representative rollout pending; no universal clearance, dimensions or bulk migration |
 | Shared knowledge, selective loading and cost efficiency | Pilot setup exists; independent two-operator test and savings measurement explicitly not executed | Keep mandatory bootstrap; no vendor, multi-agent, memory service or paid API requirement |
 | Locale count wording | Project editorial convention with protected contextual exceptions | Configurable editorial choice; no universal grammar or blanket replacement rule |
 | Product roles, permissions, routes, object model and named project decisions | Project-specific authority and evidence | PROJECT_ONLY; excluded from public examples and templates |

@@ -62,6 +62,11 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### Bounded native annotation and layout evidence
+- recorded one fictional local-component lab, including native annotation visible/hidden/restored observations, dependent reflow, preserved overrides and owner-history readback;
+- retained overlay obstruction, weak editor-label contrast and prior access failures; visibility toggling does not establish individual collapse behavior or cross-file library adoption;
+- updated METH-023/METH-024 evidence scopes under existing ADR-0025 and GOV-VAL-001 / ADR-0029, preserving all pilot classifications, architecture 3.6.0 and separate approval/release gates.
+
 ### Downloadable human handoff preparation
 - preserved five frozen fictional participant files for online reading and offline download, with external-reader instructions v1.1 and a documented return/review procedure;
 - kept answer keys, prior AI responses and participant identities outside the public packet; human execution remains NOT RUN and pilot classifications unchanged;
