@@ -417,9 +417,10 @@
       "disposition": "OPTIONAL_PILOT",
       "maturity": "PILOT_PENDING",
       "targets": [
-        "runtime/docs/contracts/KNOWLEDGE_AND_EFFICIENCY_PILOTS.md"
+        "runtime/docs/contracts/KNOWLEDGE_AND_EFFICIENCY_PILOTS.md",
+        "docs/EXTERNAL_METHOD_ADAPTATION.md"
       ],
-      "validation_scope": "Reference-review process only; no third-party code/text adopted or performance claim.",
+      "validation_scope": "Reference-review process plus a pinned three-repository documentary comparison and original optional guide/seed/examples. No upstream files or substantial prose imported; no external code execution, method-efficacy or performance claim. Pilot acceptance remains pending.",
       "claim": "BOUNDED_DOCUMENTARY_COVERAGE",
       "release_status": "UNRELEASED_REVIEW",
       "origin": "PRIVATE_DOCUMENT_REVIEW"

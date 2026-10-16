@@ -238,6 +238,10 @@
     {
       "path": "docs/contracts/VALIDATION_AND_CLOSURE.md",
       "mode": "shared"
+    },
+    {
+      "path": "docs/templates/COMPONENT_BEHAVIOR.md",
+      "mode": "configured"
     }
   ],
   "populated_roots": [
