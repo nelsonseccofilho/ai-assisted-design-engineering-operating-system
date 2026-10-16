@@ -62,6 +62,18 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+No additional changes are assigned beyond the candidate below.
+
+## 3.7.0 — CANDIDATE (not released)
+
+### Candidate preparation
+- consolidated accumulated compatible additions into a separately reviewed minor-release candidate under proposed ADR-0030; candidate labels do not announce publication;
+- aligned Master, exact runtime mirror, JSON derivative, README and package QA to candidate version 3.7.0 while retaining the documented 3.6.0 released baseline;
+- drafted release notes, compatibility/adoption steps and explicit pending integration, hosted-CI and publication gates in [the candidate record](docs/RELEASE_3_7_0.md);
+- preserved historical evidence below, proposed ADR statuses, catalog classifications, seven optional pilots, runtime schemas/states/bootstrap, immutable pins and licensing; no installed runtime is updated.
+
+The entries below retain their original implementation-time evidence and version statements; their inclusion in this candidate does not relabel earlier experiments or mark a release complete.
+
 ### Critical adaptation of design methods
 - added an optional method-selection guide, original component-behavior seed, fictional recovery/denial specification and source-linked decision-brief example;
 - attributed pinned external references, reused existing governance/triage and preserved the distinction between expected behavior, actual evidence and authorization;

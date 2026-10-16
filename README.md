@@ -3,7 +3,9 @@
 > A versioned operating framework for persistent, evidence-driven collaboration between Product Designers and AI agents across Product Design, UI, Design Systems, Figma, QA, documentation and design operations.
 
 **Status:** Experimental / evolving  
-**Framework version:** 3.6.0  
+**Framework version:** 3.7.0
+**Release status:** CANDIDATE — NOT RELEASED. Documented released baseline: 3.6.0.
+See the [release candidate, drafted notes and pending gates](docs/RELEASE_3_7_0.md).
 **Canonical operating contract:** `PROMPT_OPERACIONAL_MASTER.md`
 
 ## What this is
@@ -423,13 +425,13 @@ A [fictional native annotation report](docs/NATIVE_ANNOTATION_LAB_2026-10-15.md)
 
 For a concrete design task, the optional [method-selection guide](docs/DESIGN_METHOD_ENTRYPOINTS.md) helps choose the next deliverable after mandatory startup. The [external-method adaptation](docs/EXTERNAL_METHOD_ADAPTATION.md) explains the original behavior seed and decision-brief example, their pinned references and existing authority/evidence boundaries.
 
-## Unreleased methodology review
+## Methodology review and candidate scope
 
-The [methodology promotion review](docs/METHODOLOGY_PROMOTION.md) distinguishes existing core capabilities, operationally adopted safeguards and incomplete pilots. Additive contracts and unconfigured review seeds preserve 3.6.0, the mandatory bootstrap and private configuration. The proposal does not claim general pilot effectiveness or update installed runtimes.
+The [methodology promotion review](docs/METHODOLOGY_PROMOTION.md) distinguishes existing core capabilities, operationally adopted safeguards and incomplete pilots. The 3.7.0 candidate retains the v3.6 runtime architecture, mandatory bootstrap and private configuration. Its optional contracts and review seeds do not accept proposed ADRs, establish general pilot effectiveness or update installed runtimes. Historical review/catalog metadata keeps its original baseline and scope.
 
 ## Validation and current maturity
 
-Framework 3.6.0 is the current released operating contract.
+Framework 3.6.0 remains the documented released operating baseline. This checkout prepares 3.7.0 and is not a published release; consult the [candidate record](docs/RELEASE_3_7_0.md) before selecting an installation source.
 
 Validated capabilities include:
 
@@ -441,7 +443,7 @@ Validated capabilities include:
 - documentation ownership and public/private boundaries;
 - privacy/secret scanning and local static QA.
 
-Hosted CI is currently documented under ADR-0022 as `DISPOSITIONED_INFRASTRUCTURE`, **not** as CI PASS. The local validation scripts remain available independently of hosted CI.
+The historical hosted-CI disposition is documented under ADR-0022, **not** as CI PASS. Static QA is now [temporarily manually suspended](docs/HOSTED_CI_STATUS.md); a release-specific decision remains pending for 3.7.0. Prior integration exceptions do not authorize this release. The local validation scripts remain available independently of hosted CI.
 
 This is a living framework, not a finished industry standard.
 
