@@ -421,6 +421,8 @@ A [fictional human handoff packet](examples/human-handoff/README.md) is availabl
 
 A [fictional native annotation report](docs/NATIVE_ANNOTATION_LAB_2026-10-15.md) records local component/reflow checks and native annotation visibility with occupancy/legibility caveats. Individual collapse behavior, human acceptance and cross-file published-library adoption remain unverified; pilot classifications are unchanged.
 
+For a concrete design task, the optional [method-selection guide](docs/DESIGN_METHOD_ENTRYPOINTS.md) helps choose the next deliverable after mandatory startup. The [external-method adaptation](docs/EXTERNAL_METHOD_ADAPTATION.md) explains the original behavior seed and decision-brief example, their pinned references and existing authority/evidence boundaries.
+
 ## Unreleased methodology review
 
 The [methodology promotion review](docs/METHODOLOGY_PROMOTION.md) distinguishes existing core capabilities, operationally adopted safeguards and incomplete pilots. Additive contracts and unconfigured review seeds preserve 3.6.0, the mandatory bootstrap and private configuration. The proposal does not claim general pilot effectiveness or update installed runtimes.

@@ -62,6 +62,11 @@ All notable changes to the operating framework are documented here.
 
 ## Unreleased
 
+### Critical adaptation of design methods
+- added an optional method-selection guide, original component-behavior seed, fictional recovery/denial specification and source-linked decision-brief example;
+- attributed pinned external references, reused existing governance/triage and preserved the distinction between expected behavior, actual evidence and authorization;
+- classified only the new seed as configured in the existing inventory under ADR-0025, ADR-0028 and GOV-VAL-001 / ADR-0029; architecture 3.6.0, mandatory bootstrap, licenses and pilot maturity remain unchanged.
+
 ### Bounded native annotation and layout evidence
 - recorded one fictional local-component lab, including native annotation visible/hidden/restored observations, dependent reflow, preserved overrides and owner-history readback;
 - retained overlay obstruction, weak editor-label contrast and prior access failures; visibility toggling does not establish individual collapse behavior or cross-file library adoption;
