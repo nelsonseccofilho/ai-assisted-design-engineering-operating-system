@@ -1,6 +1,6 @@
 # Next pilot validation cycle
 
-**Status:** retrieval and local functional units completed within their declared bounds; further delivery-efficiency execution deferred after decision-value review; human/native packages pending.
+**Status:** retrieval, local functional and one fictional native unit completed within their declared bounds; further delivery-efficiency execution deferred; human responses, individual annotation collapse behavior and cross-file published-library adoption pending.
 **Original planning baseline:** public main `8e72681bde72a7aeadbc9959f9f59b52f9959118`, architecture 3.6.0. The [current transfer checkpoint](UPSTREAM_TRANSFER_STATUS_2026-10-15.md) uses main after PR #12.
 **Governance:** proposed ADR-0025 and ADR-0027; no new acceptance or maturity decision.
 
@@ -11,7 +11,7 @@ The [previous bounded report](PILOT_VALIDATION_2026-10-15.md) records what is ob
 | 1 | Retrieval comparison — METH-021 | Eight fresh AI sessions / sixteen scoped assessments completed; no case-source volume saving | Frozen balanced assignments, eligible fresh participants, complete bootstrap, reviewed correctness and actual source/overhead measurements |
 | 2 | Local functional MVP — METH-020; delivery comparison — METH-018 | Local functional unit completed with caveats, fifteen cases passed; delivery comparison DEFERRED / NOT RUN | Functional evidence is bounded to the fixture; matched tasks, independent execution and observed effort/quality remain required before any sequencing-efficiency claim |
 | 3 | Human handoff and critique — METH-019, METH-021, METH-023 | Documentary reading packet v1.1 prepared for external distribution; human execution NOT RUN | Actual human response and declared familiarity/exposure/assistance, source-based review, discrepancies and approval boundaries; this small packet does not exercise full runtime bootstrap or native-editor behavior |
-| 4 | Native annotation/reflow — METH-023, METH-024 | NOT RUN; requires a separately authorized fictional editor environment | Fresh native screenshots, legibility, component provenance, collapsed/expanded occupancy, dependent reflow and post-library-sync behavior in that environment |
+| 4 | Native annotation/reflow — METH-023, METH-024 | One separately authorized fictional file completed with caveats; native display visibility and local reflow observed | Keep overlay/label caveats; individual collapsed/expanded occupancy, human usability and post-library-sync consumer behavior remain pending; display visibility is not a substitute for those criteria |
 | 5 | Per-pilot disposition | Current evidence and gaps consolidated in the transfer checkpoint; broader acceptance pending | Accept only the demonstrated aspect, retain failed/pending criteria, check compatibility/privacy and record a separate scoped decision |
 
 METH-031 applies throughout: review an external method only when a real measurement gap exists, its original source and exact asset rights are verified, and its dependencies are justified. The earlier DEFER decision does not require adopting a method later.
@@ -81,3 +81,9 @@ Reopen when there is a concrete sequencing/adoption decision whose outcome could
 ## Prepared external human reading packet
 
 The [human exercise documentation](HUMAN_HANDOFF_TRIAL.md) and [participant download/read instructions](../examples/human-handoff/README.md) preserve a small fictional packet for later use. Version v1.1 adapts the previously prepared local instructions to an external reader; the scenario and six comprehension criteria remain unchanged. Human responses remain NOT RUN, and the earlier authoring-AI review is not substituted for them. Distribution/response handling belongs to the maintainer; no stakeholder message or trial execution is performed by publishing these materials.
+
+## Native unit follow-through
+
+The [native annotation report](NATIVE_ANNOTATION_LAB_2026-10-15.md) supersedes the earlier NOT RUN checkpoint only for one fictional file's declared local cases. Authenticated native captures now show annotations visible, hidden and restored in 75% framing. Local component provenance, overrides, note scope and dependent panel reflow were observed; previous unaffected evidence was reused. Overlay obstruction and weak auxiliary label contrast remain explicit.
+
+This does not complete the original larger native package: individual collapsed/expanded occupancy and post-library-sync consumer adoption remain unexecuted. Do not relabel display visibility as an individual collapsed popover or repeat the existing fixture to imply representative validation. The eight-case unit's scoped closure is not pilot promotion. Human responses remain NOT RUN, and no new editor/library action, participant, paid service or private mutation is authorized by this report.

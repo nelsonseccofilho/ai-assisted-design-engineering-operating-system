@@ -419,6 +419,8 @@ The [transfer checkpoint](docs/UPSTREAM_TRANSFER_STATUS_2026-10-15.md) distingui
 
 A [fictional human handoff packet](examples/human-handoff/README.md) is available to read online or download for a later Portuguese-language comprehension exercise. Human results remain pending; preparation and the authoring AI's review are not human acceptance.
 
+A [fictional native annotation report](docs/NATIVE_ANNOTATION_LAB_2026-10-15.md) records local component/reflow checks and native annotation visibility with occupancy/legibility caveats. Individual collapse behavior, human acceptance and cross-file published-library adoption remain unverified; pilot classifications are unchanged.
+
 ## Unreleased methodology review
 
 The [methodology promotion review](docs/METHODOLOGY_PROMOTION.md) distinguishes existing core capabilities, operationally adopted safeguards and incomplete pilots. Additive contracts and unconfigured review seeds preserve 3.6.0, the mandatory bootstrap and private configuration. The proposal does not claim general pilot effectiveness or update installed runtimes.
