@@ -121,3 +121,7 @@ A private runtime may record that a framework release or PR was adopted, but the
 ## Additive methodology review
 
 See [methodology promotion](METHODOLOGY_PROMOTION.md). New shared contracts and configured review seeds are candidate inventory additions, not mandatory bootstrap or a private migration. Root documentation entrypoints declared with `documentation_pointer` link to their canonical runtime contract; only `compatibility_alias` entries require byte-identical content. Preserve both forms during updates. No configured file is overwritten.
+
+## 3.7.0 candidate adoption boundary
+
+The [release candidate](RELEASE_3_7_0.md) is not an installed update. After a released immutable pin exists, compare three sources: the installed declared source, the actual private shared files, and the target package. Unexplained local shared-file differences require reconciliation, not overwrite. New configured paths require explicit seed review; populated records and unknown extensions stay private and unchanged. Update dependency/lock/manifest consistently in a separate project PR, verify shared hashes and configured migrations, and retain a rollback source. A public candidate PR cannot authorize this adoption.

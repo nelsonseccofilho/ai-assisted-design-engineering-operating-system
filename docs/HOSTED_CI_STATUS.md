@@ -40,3 +40,7 @@ When hosted execution is available again, the maintainer should:
 4. Update this status and CHANGELOG.md with the actual run, revision and outcome. Close the temporary suspension only after real hosted execution is verified.
 
 The suspension has no automatic expiry or scheduled reactivation. Repository automation remains disabled until explicitly re-enabled; this document does not repair an account-level restriction. See [GitHub's workflow controls](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows).
+
+## 3.7.0 candidate — separate release decision pending
+
+The [3.7.0 preparation](RELEASE_3_7_0.md) preserves this suspension and the historical PR-specific evidence above. No candidate run or release-specific disposition is asserted by that record. A manually disabled workflow supplies no new runner/step result and is not itself proof of ADR-0022 eligibility. Publication requires real hosted evidence or a documented governing decision for the exact release scope; previous PR approvals are insufficient. Local candidate results belong in its reviewed PR.

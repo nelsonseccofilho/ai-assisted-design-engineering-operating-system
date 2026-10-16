@@ -29,7 +29,12 @@ for source in ROOT.rglob("*.md"):
 master = read("PROMPT_OPERACIONAL_MASTER.md")
 derivative = json.loads(read("prompt-operacional.json"))
 version = re.search(r"\*\*Version:\*\* ([0-9.]+)", master).group(1)
-check(version == "3.6.0", "Unexpected framework version")
+check(version == "3.7.0", "Unexpected framework version")
+check(derivative["meta"].get("release_status") == "CANDIDATE" and
+      derivative["meta"].get("released_baseline") == "3.6.0", "Candidate release metadata mismatch")
+check("**Release status:** CANDIDATE — NOT RELEASED" in master and
+      "**Release status:** CANDIDATE — NOT RELEASED" in read("README.md"),
+      "Candidate must not claim a published release")
 check(derivative["meta"]["version"] == version, "Master/JSON version mismatch")
 check(f"**Framework version:** {version}" in read("README.md"), "README version mismatch")
 

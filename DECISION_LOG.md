@@ -60,6 +60,7 @@ Never silently rewrite history.
 | [ADR-0028](docs/decisions/ADR-0028-traceable-methodology-audit.md) | 2026-10-15 | PROPOSED | Audit bounded source coverage and complete reusable methodology procedures |
 
 | [ADR-0029](docs/decisions/ADR-0029-risk-proportionate-validation.md) | 2026-10-15 | ACCEPTED | Adopt GOV-VAL-001 risk-proportionate validation and evidence-based scoped closure |
+| [ADR-0030](docs/decisions/ADR-0030-framework-3-7-0-release-candidate.md) | 2026-10-15 | PROPOSED | Prepare compatible 3.7.0 candidate with separate publication and private-adoption gates |
 
 ---
 
