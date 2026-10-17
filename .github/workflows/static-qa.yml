@@ -16,3 +16,4 @@ jobs:
       - run: python scripts/audit_methodology.py --framework .
       - run: python scripts/test_audit_methodology.py
       - run: python scripts/test_onboarding.py
+      - run: python scripts/test_current_state.py

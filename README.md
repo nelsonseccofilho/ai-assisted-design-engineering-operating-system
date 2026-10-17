@@ -9,6 +9,8 @@ The version identifies package contents; a branch/version header does not establ
 See [3.7.0 notes](docs/releases/v3.7.0.md) and the [publication review and pending gates](docs/RELEASE_3_7_0_FINALIZATION.md).
 **Canonical operating contract:** `PROMPT_OPERACIONAL_MASTER.md`
 
+An unreleased [state/handoff candidate](docs/RUNTIME_STATE_UPSTREAM_AUDIT_2026-10-17.md) adds optional typed extensions, explicit current routing and a migration review seed. It preserves existing templates and startup behavior; it is not part of the published v3.7.0 source or an installed project update.
+
 ## What this is
 
 AI can already inspect interfaces, compare variants, generate UI, reason about Design Systems, help with implementation and automate repetitive work.

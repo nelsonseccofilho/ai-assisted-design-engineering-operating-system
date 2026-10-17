@@ -2,6 +2,12 @@
 
 The generic framework is the canonical master of reusable behavior. A populated project runtime is an instance and a place to test that behavior against real work.
 
+## Optional state and handoff evolution (unreleased)
+
+The [bounded delta audit](RUNTIME_STATE_UPSTREAM_AUDIT_2026-10-17.md) adds an optional [state contract](../runtime/docs/contracts/CURRENT_STATE_AND_HANDOFF.md), shared read-only checker and one configured [migration seed](../runtime/docs/templates/CURRENT_STATE_MIGRATION.md). Their package classification is for candidate distribution, not adoption. Existing schema 1.1, fourteen state fields, manifest seed, ordered bootstrap, compatibility aliases, dependency pins and default validator remain unchanged.
+
+Use an explicit project decision before binding a profile, selecting a new current handoff or integrating the optional check. Preserve all unknown values, exact before-images and old audit results. A new current structural PASS cannot become a past PASS under different criteria. Baseline hashes document review provenance rather than indefinitely freezing legitimate same-type values. Keep populated profiles and operational ownership/source gates private.
+
 ## Ownership of evolution
 
 1. Capture the issue, evidence and operational result in the project runtime.
