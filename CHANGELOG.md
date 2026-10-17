@@ -66,6 +66,11 @@ No additional changes are assigned beyond the candidate below.
 
 ## 3.7.0 — prepared for publication review (not a release announcement)
 
+### Release-specific exception accepted — 2026-10-17
+- recorded explicit maintainer acceptance of ADR-0031, limited to the reviewed v3.7.0 publication path during manual Actions suspension; local PASS remains distinct from hosted non-execution;
+- aligned the decision index, current CI status, README, finalization and release-note text with that acceptance, preserving the earlier proposal/history and all mandatory evidence conditions;
+- retained separate exact-commit publication and private-adoption approvals; no tag/release, hosted execution/reactivation, other ADR acceptance, pilot promotion or private mutation occurred.
+
 ### Publication finalization preparation — 2026-10-17
 - removed temporary candidate-only labels/JSON metadata while preserving version 3.7.0 and every operational rule; version content is distinct from the external GitHub tag/release record;
 - prepared reusable release notes and finite integration/publication/adoption gates in [finalization](docs/RELEASE_3_7_0_FINALIZATION.md);

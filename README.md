@@ -444,7 +444,7 @@ Validated capabilities include:
 - documentation ownership and public/private boundaries;
 - privacy/secret scanning and local static QA.
 
-The historical hosted-CI disposition is documented under ADR-0022, **not** as CI PASS. Static QA is now [temporarily manually suspended](docs/HOSTED_CI_STATUS.md); the [3.7.0 release-specific proposal](docs/decisions/ADR-0031-scoped-3-7-0-manual-ci-release-decision.md) remains PROPOSED at this preparation checkpoint. Prior integration exceptions do not authorize publication. The local validation scripts remain available independently of hosted CI.
+The historical hosted-CI disposition is documented under ADR-0022, **not** as CI PASS. Static QA is now [temporarily manually suspended](docs/HOSTED_CI_STATUS.md); the maintainer accepted the finite [3.7.0 release-specific exception](docs/decisions/ADR-0031-scoped-3-7-0-manual-ci-release-decision.md) on 2026-10-17. Its evidence conditions and separate final publication approval remain binding; this is not hosted PASS or a standing waiver. The local validation scripts remain available independently of hosted CI.
 
 This is a living framework, not a finished industry standard.
 
