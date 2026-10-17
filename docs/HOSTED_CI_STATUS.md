@@ -44,3 +44,7 @@ The suspension has no automatic expiry or scheduled reactivation. Repository aut
 ## 3.7.0 candidate — separate release decision pending
 
 The [3.7.0 preparation](RELEASE_3_7_0.md) preserves this suspension and the historical PR-specific evidence above. No candidate run or release-specific disposition is asserted by that record. A manually disabled workflow supplies no new runner/step result and is not itself proof of ADR-0022 eligibility. Publication requires real hosted evidence or a documented governing decision for the exact release scope; previous PR approvals are insufficient. Local candidate results belong in its reviewed PR.
+
+## 3.7.0 finalization — proposed manual-suspension decision
+
+[ADR-0031](decisions/ADR-0031-scoped-3-7-0-manual-ci-release-decision.md) proposes a finite, separate publication path for the already manually suspended workflow. It remains PROPOSED and inactive. Manual suspension is not a fresh runner-zero observation and does not itself satisfy ADR-0022. No hosted PASS, release waiver, approval, reactivation or private update is asserted. The [finalization sequence](RELEASE_3_7_0_FINALIZATION.md) requires exact local evidence, review, accountable governance recording and separate publication authorization.

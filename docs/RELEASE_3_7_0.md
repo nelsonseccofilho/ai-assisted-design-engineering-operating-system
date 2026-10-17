@@ -1,4 +1,6 @@
-# Framework 3.7.0 — release candidate
+# Framework 3.7.0 — historical candidate preparation
+
+**Update — 2026-10-17:** candidate preparation was integrated through [PR #17](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/pull/17), merge `e91a785a33b9628a555df2332f97dc76357a1af1`. The original checklist and labels below are preserved as that preparation snapshot, not current package metadata. See [publication finalization](RELEASE_3_7_0_FINALIZATION.md) for the next deliverable and pending release-specific decision. This update does not announce a release.
 
 **Status:** CANDIDATE — NOT RELEASED.
 **Documented released baseline:** 3.6.0.
