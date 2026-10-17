@@ -4,8 +4,9 @@
 
 **Status:** Experimental / evolving  
 **Framework version:** 3.7.0
-**Release status:** CANDIDATE — NOT RELEASED. Documented released baseline: 3.6.0.
-See the [release candidate, drafted notes and pending gates](docs/RELEASE_3_7_0.md).
+**Publication record:** [GitHub Releases](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases).
+The version identifies package contents; a branch/version header does not establish publication or project adoption.
+See [3.7.0 notes](docs/releases/v3.7.0.md) and the [publication review and pending gates](docs/RELEASE_3_7_0_FINALIZATION.md).
 **Canonical operating contract:** `PROMPT_OPERACIONAL_MASTER.md`
 
 ## What this is
@@ -425,13 +426,13 @@ A [fictional native annotation report](docs/NATIVE_ANNOTATION_LAB_2026-10-15.md)
 
 For a concrete design task, the optional [method-selection guide](docs/DESIGN_METHOD_ENTRYPOINTS.md) helps choose the next deliverable after mandatory startup. The [external-method adaptation](docs/EXTERNAL_METHOD_ADAPTATION.md) explains the original behavior seed and decision-brief example, their pinned references and existing authority/evidence boundaries.
 
-## Methodology review and candidate scope
+## Methodology scope and release review
 
-The [methodology promotion review](docs/METHODOLOGY_PROMOTION.md) distinguishes existing core capabilities, operationally adopted safeguards and incomplete pilots. The 3.7.0 candidate retains the v3.6 runtime architecture, mandatory bootstrap and private configuration. Its optional contracts and review seeds do not accept proposed ADRs, establish general pilot effectiveness or update installed runtimes. Historical review/catalog metadata keeps its original baseline and scope.
+The [methodology promotion review](docs/METHODOLOGY_PROMOTION.md) distinguishes existing core capabilities, operationally adopted safeguards and incomplete pilots. Version 3.7.0 retains the v3.6 runtime architecture, mandatory bootstrap and private configuration. Its optional contracts and review seeds do not accept proposed ADRs, establish general pilot effectiveness or update installed runtimes. Historical review/catalog metadata keeps its original baseline and scope.
 
 ## Validation and current maturity
 
-Framework 3.6.0 remains the documented released operating baseline. This checkout prepares 3.7.0 and is not a published release; consult the [candidate record](docs/RELEASE_3_7_0.md) before selecting an installation source.
+Version metadata describes this source contract. Confirm the actual published tag and immutable target through GitHub Releases before selecting an installation source. The [3.6.0 baseline and 3.7.0 candidate preparation](docs/RELEASE_3_7_0.md) remain historical records; [finalization](docs/RELEASE_3_7_0_FINALIZATION.md) separates publication, evidence and private adoption.
 
 Validated capabilities include:
 
@@ -443,7 +444,7 @@ Validated capabilities include:
 - documentation ownership and public/private boundaries;
 - privacy/secret scanning and local static QA.
 
-The historical hosted-CI disposition is documented under ADR-0022, **not** as CI PASS. Static QA is now [temporarily manually suspended](docs/HOSTED_CI_STATUS.md); a release-specific decision remains pending for 3.7.0. Prior integration exceptions do not authorize this release. The local validation scripts remain available independently of hosted CI.
+The historical hosted-CI disposition is documented under ADR-0022, **not** as CI PASS. Static QA is now [temporarily manually suspended](docs/HOSTED_CI_STATUS.md); the [3.7.0 release-specific proposal](docs/decisions/ADR-0031-scoped-3-7-0-manual-ci-release-decision.md) remains PROPOSED at this preparation checkpoint. Prior integration exceptions do not authorize publication. The local validation scripts remain available independently of hosted CI.
 
 This is a living framework, not a finished industry standard.
 

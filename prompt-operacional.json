@@ -2,8 +2,6 @@
   "meta": {
     "name": "AI-Assisted Design Engineering Operating System",
     "version": "3.7.0",
-    "release_status": "CANDIDATE",
-    "released_baseline": "3.6.0",
     "status": "CANONICAL_DERIVATIVE",
     "canonical_source": "PROMPT_OPERACIONAL_MASTER.md",
     "scope": "generic",

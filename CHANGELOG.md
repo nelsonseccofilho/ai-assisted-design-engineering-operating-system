@@ -64,7 +64,13 @@ All notable changes to the operating framework are documented here.
 
 No additional changes are assigned beyond the candidate below.
 
-## 3.7.0 — CANDIDATE (not released)
+## 3.7.0 — prepared for publication review (not a release announcement)
+
+### Publication finalization preparation — 2026-10-17
+- removed temporary candidate-only labels/JSON metadata while preserving version 3.7.0 and every operational rule; version content is distinct from the external GitHub tag/release record;
+- prepared reusable release notes and finite integration/publication/adoption gates in [finalization](docs/RELEASE_3_7_0_FINALIZATION.md);
+- proposed ADR-0031 for a release-specific decision on manual hosted-QA suspension, without activating an exception, rewriting ADR-0022 or accepting any proposed ADR;
+- retained historical candidate evidence, pending pilots, frozen reports, schemas/states/bootstrap, inventory, private pins and licensing; no publication or private adoption is performed.
 
 ### Candidate preparation
 - consolidated accumulated compatible additions into a separately reviewed minor-release candidate under proposed ADR-0030; candidate labels do not announce publication;

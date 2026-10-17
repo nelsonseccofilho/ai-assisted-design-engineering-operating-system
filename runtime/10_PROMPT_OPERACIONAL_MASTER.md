@@ -1,7 +1,6 @@
 # AI-ASSISTED DESIGN ENGINEERING — OPERATING MASTER
 
 **Version:** 3.7.0
-**Release status:** CANDIDATE — NOT RELEASED (documented released baseline: 3.6.0)
 **Status:** CANONICAL  
 **Scope:** Generic / organization-agnostic  
 **Canonical source:** this Markdown file
