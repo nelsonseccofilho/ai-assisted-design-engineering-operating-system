@@ -61,7 +61,7 @@ Never silently rewrite history.
 
 | [ADR-0029](docs/decisions/ADR-0029-risk-proportionate-validation.md) | 2026-10-15 | ACCEPTED | Adopt GOV-VAL-001 risk-proportionate validation and evidence-based scoped closure |
 | [ADR-0030](docs/decisions/ADR-0030-framework-3-7-0-release-candidate.md) | 2026-10-15 | PROPOSED | Prepare compatible 3.7.0 candidate with separate publication and private-adoption gates |
-| [ADR-0031](docs/decisions/ADR-0031-scoped-3-7-0-manual-ci-release-decision.md) | 2026-10-17 | PROPOSED | Request a finite 3.7.0 publication decision for manually suspended hosted QA |
+| [ADR-0031](docs/decisions/ADR-0031-scoped-3-7-0-manual-ci-release-decision.md) | 2026-10-17 | ACCEPTED | Permit a finite, conditional v3.7.0 publication decision during manual hosted-QA suspension; publication remains separately authorized |
 
 ---
 

@@ -1,12 +1,12 @@
 # 3.7.0 — publication finalization for review
 
 **Preparation date:** 2026-10-17.
-**Status:** preparation only; publication and hosted-gate decision pending.
+**Status:** hosted exception accepted on 2026-10-17; final publication approval and execution pending.
 **Integrated candidate:** [PR #17](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/pull/17), main `e91a785a33b9628a555df2332f97dc76357a1af1`, tree `21283bd35ec23a3bc2e399eaa36512c5a44094ff`.
 
 ## Deliverable
 
-Prepare the final distributable source and [release-note text](releases/v3.7.0.md), plus the explicit [release-specific proposal](decisions/ADR-0031-scoped-3-7-0-manual-ci-release-decision.md). No tag, GitHub Release, hosted reactivation, private mutation or pilot promotion occurs here.
+Prepare the final distributable source and [release-note text](releases/v3.7.0.md), plus the explicitly accepted [release-specific decision](decisions/ADR-0031-scoped-3-7-0-manual-ci-release-decision.md). No tag, GitHub Release, hosted reactivation, private mutation or pilot promotion occurs here.
 
 Package version 3.7.0 identifies the contents. Temporary candidate-only labels/JSON fields are removed without inserting a claim that publication occurred. [GitHub Releases](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases) and its immutable tag target are the distribution record; branch presence and a version header are not publication or adoption. Historical candidate metadata/QA remain in the [preparation record](RELEASE_3_7_0.md), PR #17 and Git history.
 
@@ -25,9 +25,9 @@ The 35-topic catalog and seven optional pilots remain unchanged. Human comprehen
 | Stage | Required disposition |
 |---|---|
 | Finalization preparation | Six local workflow steps, relevant publication/version guard regressions, full privacy/rights/protected-file review and immutable changed-file readback at the finalization head. Results in its PR. |
-| Finalization integration | Separate explicit approval for the exact reviewed PR/head. Verify actual merge/main tree against tested content. |
-| Hosted release decision | ADR-0031 remains PROPOSED. Either obtain authorized real hosted PASS or separately obtain and record explicit acceptance of the finite 3.7.0 exception. Existing ADR-0022 and PR approvals alone do not cover manual suspension for publication. |
-| Governance record | If accepted, append the accountable approval/source/revision and make its persistent ADR/index disposition explicit in a reviewed change. Do not rewrite ADR-0022 or accept ADR-0024–0028/0030 by implication. Validate only affected content plus applicable mandatory package gates. |
+| Finalization integration | PR #18 was explicitly approved and integrated as `8c00cec3f510579329794312f30af49e9f5890e0`; its actual main tree matched the tested finalization. Acceptance-record integration/readback belongs to its own reviewed PR. |
+| Hosted release decision | ADR-0031 explicitly ACCEPTED by the maintainer on 2026-10-17 for v3.7.0 only. Its conditions remain binding. Hosted QA was not executed because of manual suspension; no hosted PASS or ADR-0022 runner-zero eligibility is inferred. |
+| Governance record | Acceptance scope, accountable owner, approval date and reviewed baseline are recorded in ADR-0031/index. Validate and read back this recording change before its separate integration decision. ADR-0022 and ADR-0024–0028/0030 remain unchanged. |
 | Publication authorization | Present the actual final immutable commit/tree and final note text, QA/privacy/readback, hosted disposition and limitations for explicit approval. No open-ended permission for future revisions/releases. |
 | Publish and verify | Create v3.7.0 tag and GitHub Release only after authorization. Read back the exact tag target, release status/notes and source identity; report the actual result. Do not claim completion from a pending request. |
 | Private adoption | Separate project PR and reviewed three-way reconciliation using the actually published immutable pin. Preserve configured data/history; no private update is performed by this record. |
