@@ -1,0 +1,56 @@
+{
+  "fictional": true,
+  "files": {
+    "runtime-manifest.json": {
+      "schema_version": "1.1",
+      "runtime_version": "0.0.0",
+      "workstream_registry": "registry.md",
+      "operator_identity": [
+        {"human_operator": "Fictional Reviewer", "operator_alias": "DEMO", "profile": "operator.md"}
+      ],
+      "current_state_contract": {
+        "id": "GOV-RUNTIME-STATE-001", "version": "1.0", "path": "governance/current-state-contract.json"
+      }
+    },
+    "governance/current-state-contract.json": {
+      "contract_id": "GOV-RUNTIME-STATE-001",
+      "version": "1.0",
+      "adoption_status": "PROPOSED",
+      "decision": "decision.md",
+      "workstreams": {
+        "WS-20300101-001-fictional-review": {
+          "extensions": {"review_round": ["integer"], "review_note": ["string", "null"]},
+          "artifact_fields": {"system": ["string"], "id": ["string", "null"], "scope": ["string", "null"]},
+          "handoff": "workstreams/WS-20300101-001-fictional-review/CURRENT_HANDOFF.md",
+          "required_operator": "DEMO",
+          "required_status": "PAUSED",
+          "entry_gate": "Keep paused until a separately recorded scope decision."
+        }
+      }
+    },
+    "operator.md": "# Fictional operator\nFictional Reviewer / DEMO. Example only.\n",
+    "session.md": "# Fictional review session\nExample read-only context; no product execution.\n",
+    "decision.md": "# Fictional proposal\nStatus: PROPOSED. No adoption approval exists in this fixture.\n",
+    "registry.md": "| Workstream ID | Human operator | Operator alias | Chat label | Scope | Mutation scope | Status | Handoff | State | Last validated |\n|---|---|---|---|---|---|---|---|---|---|\n| WS-20300101-001-fictional-review | Fictional Reviewer | DEMO | fictional-review | local evidence | none | PAUSED | workstreams/WS-20300101-001-fictional-review/CURRENT_HANDOFF.md | workstreams/WS-20300101-001-fictional-review/state.json | 2030-01-01T12:00:00+00:00 |\n",
+    "workstreams/WS-20300101-001-fictional-review/state.json": {
+      "schema_version": "1.1",
+      "runtime_version": "0.0.0",
+      "workstream_id": "WS-20300101-001-fictional-review",
+      "legacy_workstream_ids": [],
+      "status": "PAUSED",
+      "current_human_operator": "Fictional Reviewer",
+      "operator_alias": "DEMO",
+      "latest_chat_label": "fictional-review",
+      "artifact": {"system": "local-text", "id": "fictional-brief", "scope": "read-only review"},
+      "latest_persistent_change": {"kind": "fictional-example", "note": "Outer shape only; no product acceptance."},
+      "latest_session_record": "session.md",
+      "last_completed_action": "Prepare fictional review context.",
+      "next_action": "Wait for a separately recorded scope decision.",
+      "last_validated_at": "2030-01-01T12:00:00+00:00",
+      "review_round": 1,
+      "review_note": null
+    },
+    "workstreams/WS-20300101-001-fictional-review/HANDOFF.md": "# Fictional historical handoff\nNEXT ACTION: Old fictional action, retained as history.\nNEXT ACTION: Another obsolete fictional action, never selected by recency.\n",
+    "workstreams/WS-20300101-001-fictional-review/CURRENT_HANDOFF.md": "# Fictional selected current handoff\nEntry gate: remain PAUSED until separately approved.\nNEXT ACTION: Wait for a separately recorded scope decision.\n"
+  }
+}

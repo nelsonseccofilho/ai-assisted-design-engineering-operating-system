@@ -242,6 +242,18 @@
     {
       "path": "docs/templates/COMPONENT_BEHAVIOR.md",
       "mode": "configured"
+    },
+    {
+      "path": "docs/contracts/CURRENT_STATE_AND_HANDOFF.md",
+      "mode": "shared"
+    },
+    {
+      "path": "scripts/check_current_state.py",
+      "mode": "shared"
+    },
+    {
+      "path": "docs/templates/CURRENT_STATE_MIGRATION.md",
+      "mode": "configured"
     }
   ],
   "populated_roots": [

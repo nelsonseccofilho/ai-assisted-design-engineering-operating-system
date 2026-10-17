@@ -2,6 +2,13 @@
 
 All notable changes to the operating framework are documented here.
 
+## Unreleased — optional current-state candidate
+
+- classified eleven recent runtime-state lessons: existing coverage, reusable gaps, private-only material and pending evidence;
+- added an optional generic typed-extension/current-handoff contract, read-only checker, unconfigured migration seed and fictional regressions;
+- preserved schemas, state fields, bootstrap, aliases, pins, installed behavior and historical evidence; no project activation, pilot promotion or release;
+- design rationale: ADR-0032 (PROPOSED).
+
 ## 3.4.0 — 2026-10-06
 
 ### Framework/runtime product parity
