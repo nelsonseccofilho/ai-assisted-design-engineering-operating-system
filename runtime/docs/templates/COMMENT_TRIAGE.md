@@ -8,3 +8,5 @@ Resolution evidence:
 Implementation evidence:
 Acceptance evidence:
 These are separate facts. Do not create a task solely from comment count or resolve a thread merely because a text was changed.
+
+For a reproducible PowerShell snapshot of Figma-native comments, follow the [read-only export and comparison procedure](../contracts/FIGMA_COMMENTS_READ_ONLY_EXPORT.md). Scope root discussion IDs to the current page before calculating page-specific closure metrics.
