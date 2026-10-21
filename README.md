@@ -3,7 +3,9 @@
 > A versioned operating framework for persistent, evidence-driven collaboration between Product Designers and AI agents across Product Design, UI, Design Systems, Figma, QA, documentation and design operations.
 
 **Status:** Experimental / evolving  
-**Framework version:** 3.7.0
+**Framework version:** 3.8.0
+
+**3.8.0 source candidate:** optional contextual reading; not an installed project update or release announcement. See [preservation and rollout](docs/CONTROLLED_CONTEXT_LOADING.md). Existing published3.7.0 evidence remains historical and scoped.
 **Publication record:** [GitHub Releases](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases).
 The version identifies package contents; a branch/version header does not establish publication or project adoption.
 See [3.7.0 notes](docs/releases/v3.7.0.md) and the [publication review and pending gates](docs/RELEASE_3_7_0_FINALIZATION.md).

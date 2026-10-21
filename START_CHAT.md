@@ -255,3 +255,7 @@ Confirmation requires READ_WRITE, an existing operator-matching DRAFT and eviden
 ## Runtime manifest and template assembly
 
 When a runtime manifest exists, load its declared bootstrap_files in order, resolve generic/private filename translations and verify framework dependency metadata. Check operator command mappings, report policy, timezone and languages against profile/state. See [assembly and promotion](docs/FRAMEWORK_RUNTIME_SYNC.md). Missing configuration is not permission to infer private project facts.
+
+## Optional adopted contextual reading
+
+When the project manifest explicitly binds GOV-CTX-001, follow its reviewed [context-loading contract](runtime/docs/contracts/CONTEXT_LOADING.md) and profile. Keep full Master and ordered00–70 discovery; load mandatory activity/Workstream modules before dependent action. Unknown adoption or invalid profile falls back to full normal bootstrap for safe reading, without granting mutation authority.

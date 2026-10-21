@@ -82,3 +82,7 @@ Before updating shared files, run `scripts/runtime_sync.py` against an independe
 Configured files require review; never overwrite project data from templates.
 
 Keep stable and candidate framework pins distinct.
+
+## Optional explicit contextual reading
+
+A manifest-bound GOV-CTX-001 profile may emit reviewed indexes for selected00–70 documents. Read [the contract](docs/contracts/CONTEXT_LOADING.md), keep the full Master and load applicable context modules before dependent action. The unconfigured seed is inactive. Reader PASS never proves approval or execution authority; READ_ONLY initialization does not create records.

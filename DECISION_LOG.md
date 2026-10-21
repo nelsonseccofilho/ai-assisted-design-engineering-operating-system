@@ -63,6 +63,8 @@ Never silently rewrite history.
 | [ADR-0030](docs/decisions/ADR-0030-framework-3-7-0-release-candidate.md) | 2026-10-15 | PROPOSED | Prepare compatible 3.7.0 candidate with separate publication and private-adoption gates |
 | [ADR-0031](docs/decisions/ADR-0031-scoped-3-7-0-manual-ci-release-decision.md) | 2026-10-17 | ACCEPTED | Permit a finite, conditional v3.7.0 publication decision during manual hosted-QA suspension; publication remains separately authorized |
 | [ADR-0032](docs/decisions/ADR-0032-typed-state-and-current-handoff.md) | 2026-10-17 | PROPOSED | Distribute optional typed state and explicit current-handoff guidance without automatic project adoption |
+| [ADR-0033](docs/decisions/ADR-0033-controlled-context-loading.md) | 2026-10-21 | ACCEPTED / OPTIONAL ADOPTION | Preserve normative sources while explicitly routing contextual reads and current work; no automatic project activation |
+| [ADR-0034](docs/decisions/ADR-0034-scoped-local-validation-consolidation.md) | 2026-10-21 | ACCEPTED / 3.8.0 ONLY | Maintainer-directed continued hosted suspension; exact local evidence and online review/readback required |
 
 ---
 
@@ -81,4 +83,6 @@ The Handoff is not a replacement for the Decision Log.
 ## Change ownership
 
 This index contains framework decisions, not external consumer mutation history. ADR-0014 separates rationale from owner-scoped Change History. Project decisions may be shared by linked owner records; unchanged evidence dependencies do not gain change records.
+
+
 
