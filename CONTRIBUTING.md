@@ -138,3 +138,7 @@ For methodology promotions, run `python scripts/audit_methodology.py --framework
 For changes to the optional current-state contract, checker or seed, also run `python scripts/test_current_state.py`. Use fictional fixtures; keep populated profiles and audit provenance private. The selected-scope check supplements existing QA and cannot supply project activation authority.
 
 Apply [GOV-VAL-001](runtime/docs/contracts/VALIDATION_AND_CLOSURE.md). Record acceptance and evidence validity proportionately in existing owner records. Preserve the full-package checks required above; reuse unrelated still-valid results without representing them as new executions. When changing this contract, its JSON policy or integration guards, also run `python scripts/test_validation_closure.py`. Those are static policy-integration regressions, not proof of AI compliance or delivery efficiency.
+
+## Contextual reading changes
+
+For GOV-CTX-001 changes, also run `python scripts/test_runtime_context.py`. Keep original normative content, compare complete section routing and preserve full-bootstrap fallback. Fictional fresh-process checks are not independent AI/operator trials.

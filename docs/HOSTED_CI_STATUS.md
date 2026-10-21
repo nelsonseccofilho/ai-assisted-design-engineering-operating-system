@@ -52,3 +52,7 @@ The [3.7.0 preparation](RELEASE_3_7_0.md) preserves this suspension and the hist
 ## Current 3.7.0 release-specific decision — accepted 2026-10-17
 
 The framework maintainer explicitly accepted [ADR-0031](decisions/ADR-0031-scoped-3-7-0-manual-ci-release-decision.md) only for v3.7.0 and authorized recording that decision. This supersedes the pending/proposed decision status above, without rewriting the historical PR-specific evidence. Static QA remains manually suspended; hosted QA did not execute, and local Windows PASS is not hosted Linux PASS. ADR-0022 runner-zero eligibility is not inferred. The exception remains conditional on the exact final source, all applicable local/privacy/rights/live evidence and readback, followed by separate explicit publication approval. It grants no standing waiver, tag/release, pilot promotion, private adoption, hosted reactivation or Figma authority.
+
+## Current3.8.0 scoped decision — 2026-10-21
+
+The maintainer explicitly requests continued suspension and local QA with online Git review/consolidation. [ADR-0034](decisions/ADR-0034-scoped-local-validation-consolidation.md) governs this exact3.8.0 candidate only. Hosted QA is NOT RUN, not PASS; no reactivation occurs. Actual local results and immutable candidate/readback belong in the PR and release receipt. Prior exceptions remain scoped history.

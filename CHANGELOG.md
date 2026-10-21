@@ -1,15 +1,23 @@
 # CHANGELOG
 
+## Unreleased â€” 3.8.0 controlled contextual reading
+
+- ADR-0033 adds optional GOV-CTX-001, read-only reading packets, source hashes, explicit module/Workstream routing and scoped integrity/fresh-process regressions. Existing Master obligations, default00â€“70, schemas/enums, pins and populated data are preserved.
+- ADR-0034 records continued hosted suspension and exact local evidence with online Git consolidation for this release scope.
+- Classifies the existing comments-export procedure in the exhaustive package inventory.
+- Candidate QA/readback and hosted evidence remain revision-specific; no independent AI/operator compliance, release or productivity result follows from this record.
+
+
 All notable changes to the operating framework are documented here.
 
-## Unreleased — optional current-state candidate
+## Unreleased â€” optional current-state candidate
 
 - classified eleven recent runtime-state lessons: existing coverage, reusable gaps, private-only material and pending evidence;
 - added an optional generic typed-extension/current-handoff contract, read-only checker, unconfigured migration seed and fictional regressions;
 - preserved schemas, state fields, bootstrap, aliases, pins, installed behavior and historical evidence; no project activation, pilot promotion or release;
 - design rationale: ADR-0032 (PROPOSED).
 
-## 3.4.0 — 2026-10-06
+## 3.4.0 â€” 2026-10-06
 
 ### Framework/runtime product parity
 - added manifest, governance, artifact/evidence registry, backlog, QA and dependency templates;
@@ -35,7 +43,7 @@ All notable changes to the operating framework are documented here.
 - added ADR-0015 and ADR-0016;
 - retained ADR-0014 mutation-owned Change History and added optional timestamp/timezone + session provenance fields.
 
-## 3.5.0 — 2026-10-06
+## 3.5.0 â€” 2026-10-06
 
 ### Canonical runtime root
 - replaced the candidate `runtime-template/` tree with canonical `runtime/`;
@@ -46,7 +54,7 @@ All notable changes to the operating framework are documented here.
 - added explicit compatibility area and runtime READMEs;
 - added ADR-0020.
 
-## 3.6.0 — 2026-10-06
+## 3.6.0 â€” 2026-10-06
 
 ### Zero-chat startup and runtime cleanup
 - added explicit startup intents: CONTINUE_WORKSTREAM, START_NEW_WORKSTREAM and START_NEW_PROJECT;
@@ -71,14 +79,14 @@ All notable changes to the operating framework are documented here.
 
 No additional changes are assigned beyond the candidate below.
 
-## 3.7.0 — prepared for publication review (not a release announcement)
+## 3.7.0 â€” prepared for publication review (not a release announcement)
 
-### Release-specific exception accepted — 2026-10-17
+### Release-specific exception accepted â€” 2026-10-17
 - recorded explicit maintainer acceptance of ADR-0031, limited to the reviewed v3.7.0 publication path during manual Actions suspension; local PASS remains distinct from hosted non-execution;
 - aligned the decision index, current CI status, README, finalization and release-note text with that acceptance, preserving the earlier proposal/history and all mandatory evidence conditions;
 - retained separate exact-commit publication and private-adoption approvals; no tag/release, hosted execution/reactivation, other ADR acceptance, pilot promotion or private mutation occurred.
 
-### Publication finalization preparation — 2026-10-17
+### Publication finalization preparation â€” 2026-10-17
 - removed temporary candidate-only labels/JSON metadata while preserving version 3.7.0 and every operational rule; version content is distinct from the external GitHub tag/release record;
 - prepared reusable release notes and finite integration/publication/adoption gates in [finalization](docs/RELEASE_3_7_0_FINALIZATION.md);
 - proposed ADR-0031 for a release-specific decision on manual hosted-QA suspension, without activating an exception, rewriting ADR-0022 or accepting any proposed ADR;
@@ -117,7 +125,7 @@ The entries below retain their original implementation-time evidence and version
 - added a reproducible standard-library SQLite lab and bounded report under ADR-0025 and GOV-VAL-001 / ADR-0029; production identity, human/native-editor acceptance and delivery efficiency remain unverified;
 - retained pilot maturity, existing core/runtime contracts and the hosted automation suspension.
 
-### GOV-VAL-001 — validation and evidence-based closure
+### GOV-VAL-001 â€” validation and evidence-based closure
 - adopted the maintainer-approved mandatory contract with valid evidence reuse, protected acceptance gates, justified additional tests and scoped closure under ADR-0029;
 - aligned the canonical Master/runtime mirror, JSON derivative, shared inventory and existing acceptance seed without changing startup, runtime states, pins or released version;
 - added targeted integration guards and a user-requested catalog extension; no efficiency or pilot promotion claim.
@@ -170,7 +178,7 @@ The entries below retain their original implementation-time evidence and version
 - added generic stakeholder-meeting evidence ingestion guidance;
 - added an optional local OBS/WhisperX transcription setup guide with CPU/GPU examples and security boundaries;
 - expanded the shared runtime evidence archive contract;
-- documented the recording → transcript → evidence → requirement → implementation → QA chain without treating machine transcription as automatic truth.
+- documented the recording â†’ transcript â†’ evidence â†’ requirement â†’ implementation â†’ QA chain without treating machine transcription as automatic truth.
 
 ### Documentation ownership boundary
 - added ADR-0023 and a shared contract defining FRAMEWORK_OWNED, PROJECT_OWNED, SHARED_CONTRACT and CROSS_REPO_REFERENCE;
@@ -196,7 +204,7 @@ The entries below retain their original implementation-time evidence and version
 - added `ADR-0013` requiring significant commits to reference their Decision ID;
 - added commit-to-decision traceability to the Master and publication checklist.
 
-## 3.3.0 — 2026-10-05
+## 3.3.0 â€” 2026-10-05
 
 ### Decision governance
 - added `DECISION_LOG.md` as the permanent index of significant framework decisions;
@@ -210,7 +218,7 @@ The entries below retain their original implementation-time evidence and version
 - documented the public repository identity and publication decision in `ADR-0011`;
 - synchronized framework version metadata to `3.3.0` across canonical files.
 
-## 3.2.0 — 2026-10-05
+## 3.2.0 â€” 2026-10-05
 
 ### Licensing
 - added `LICENSE` using PolyForm Noncommercial License 1.0.0 for framework/software-like materials;
@@ -221,7 +229,7 @@ The entries below retain their original implementation-time evidence and version
 - added licensing checks to the public-release checklist;
 - added structured licensing metadata to `prompt-operacional.json`.
 
-## 3.1.0 — 2026-10-05
+## 3.1.0 â€” 2026-10-05
 
 ### Added
 - `docs/RATIONALE.md` documenting the problem, design rationale, architecture, intended usage, consulting hypothesis and potential product evolution.
@@ -231,7 +239,7 @@ The entries below retain their original implementation-time evidence and version
 ### Changed
 - README now links directly to the framework rationale.
 
-## 3.0.0 — 2026-10-05
+## 3.0.0 â€” 2026-10-05
 
 ### Architecture
 - converted the framework from a project-derived operating prompt into an organization-agnostic operating system;

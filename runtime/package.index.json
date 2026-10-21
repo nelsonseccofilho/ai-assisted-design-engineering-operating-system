@@ -254,6 +254,22 @@
     {
       "path": "docs/templates/CURRENT_STATE_MIGRATION.md",
       "mode": "configured"
+    },
+    {
+      "path": "docs/contracts/FIGMA_COMMENTS_READ_ONLY_EXPORT.md",
+      "mode": "shared"
+    },
+    {
+      "path": "scripts/runtime_context.py",
+      "mode": "shared"
+    },
+    {
+      "path": "context-loading.json",
+      "mode": "configured"
+    },
+    {
+      "path": "docs/contracts/CONTEXT_LOADING.md",
+      "mode": "shared"
     }
   ],
   "populated_roots": [
