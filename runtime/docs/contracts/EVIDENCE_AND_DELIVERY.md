@@ -44,3 +44,43 @@ The broader deliverable-first efficiency policy, review-depth tuning and phase s
 
 
 For the full source-chain and scenario procedure, see [evidence reconciliation](EVIDENCE_RECONCILIATION.md). Use [review and acceptance](REVIEW_AND_ACCEPTANCE.md) for controlled comparisons, scoped waivers and pilot delivery checks.
+
+## Optional supplied action-claim consistency checker (generic candidate)
+
+The optional, **read-only** `scripts/check_action_claim.py` can compare a
+self-reported action classification to a strictly typed JSON statement containing
+an operation identifier, target reference, attempted flag, tool-result
+classification, attributable tool-response reference, independently cited
+readback classification and the claim being reported. The supplied record is
+**not** an authenticated tool log: a coherent `VERIFIED` label has meaning
+*only within the supplied declarations*. The checker always emits
+`observed_execution_verified: false` and `mutation_authorized: false`.
+It cannot prove that a tool ran, read an external target, verified a write,
+or that the operator had permission; compare actual host traces and independent
+target readback under the original authority contract.
+
+After separately reviewing its applicability, from a configured runtime root:
+
+```sh
+python -B runtime/scripts/check_action_claim.py --input path/to/reviewed-claim.json
+python -B runtime/scripts/check_action_claim.py --input - < reviewed-claim.json
+```
+
+The input is one object or a nonempty array with exactly eight fields:
+`operation_id`, `target`, `attempted`, `tool_result`,
+`tool_response_ref`, `readback_result`, `readback_ref`, and `reported`.
+Record only generic references or other privacy-reviewed identifiers.
+Do not copy private real tool traces, credentials, client information or
+transcripts into the public repository. Strict JSON rejects duplicate keys,
+missing/extra fields, invalid outcome combinations, contradictions, duplicate
+operation IDs and unjustified `VERIFIED` claims. Nonzero CLI exit indicates
+invalid or inconsistent supplied evidence, not necessarily a failed
+original operation. A self-consistent declaration does not substitute for
+an independent reviewer.
+
+This optional helper adds **no** authority to execute, merge, approve,
+publish, or change state; it creates no new status system, Workstream,
+Session, memory ledger or report cursor. This candidate requires new
+exact-SHA QA, proportionate privacy/licensing review and a separate
+human-approved merge. It does not retroactively change v3.8.0, the
+current private project pin, proposed ADRs, or optional pilots.

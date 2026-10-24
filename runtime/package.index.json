@@ -274,6 +274,10 @@
     {
       "path": "scripts/context_read_guard.py",
       "mode": "shared"
+    },
+    {
+      "path": "scripts/check_action_claim.py",
+      "mode": "shared"
     }
   ],
   "populated_roots": [
