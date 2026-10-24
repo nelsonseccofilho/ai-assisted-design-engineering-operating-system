@@ -4,6 +4,9 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('runtime_context',ROOT/'runtime/scripts/runtime_context.py')
 module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+sys.modules.setdefault('runtime_context',module)
+guard_spec=importlib.util.spec_from_file_location('context_read_guard',ROOT/'runtime/scripts/context_read_guard.py')
+guard=importlib.util.module_from_spec(guard_spec);guard_spec.loader.exec_module(guard)
 WID='WS-20261021-001-fictional-reading'
 def dump(root,path,value): (root/path).write_text(json.dumps(value),encoding='utf-8')
 def fixture(root):
@@ -66,4 +69,81 @@ class ContextTests(unittest.TestCase):
             self.assertEqual(p.returncode,0,p.stderr);report=json.loads(p.stdout)
             self.assertIn('ação, permissão.',json.dumps(report,ensure_ascii=False))
             self.assertEqual(report['workstream'],WID);self.assertFalse(report['execution_authorized']);self.assertEqual(digest(root),before)
+
+    def test_bounded_manifest_and_lossless_unicode_roundtrip(self):
+        # Fictional fixture only; never a verified human or agent reading event.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            fixture(root)
+            master = root / '10_PROMPT_OPERACIONAL_MASTER.md'
+            master.write_text('Generic Master.\n' + ('Contexto á 😀 line.\n' * 360), encoding='utf-8')
+            before = digest(root)
+            report = module.packet(root, 'bootstrap')
+            manifest = guard.bounded_packet(report)
+            index = next(i for i, item in enumerate(report['sources'])
+                         if item['path'] == '10_PROMPT_OPERACIONAL_MASTER.md')
+            entry = manifest['sources'][index]
+            self.assertEqual(manifest['kind'], 'READ_ONLY_CONTEXT_SOURCE_MANIFEST')
+            self.assertFalse(manifest['reading_verified'])
+            self.assertFalse(manifest['external_actions_observed'])
+            self.assertFalse(manifest['execution_authorized'])
+            self.assertFalse(manifest['writes'])
+            self.assertTrue(all('content' not in item for item in manifest['sources']))
+            self.assertGreater(entry['part_count'], 1)
+            self.assertEqual(entry['raw_source_sha256'], report['sources'][index]['sha256'])
+            parts = [guard.bounded_packet(report, index, n) for n in range(entry['part_count'])]
+            joined = ''.join(part['part'] for part in parts)
+            self.assertEqual(joined, report['sources'][index]['content'])
+            self.assertEqual(guard.digest(joined), entry['selected_content_sha256'])
+            for i, part in enumerate(parts):
+                self.assertEqual(part['part_index'], i)
+                self.assertLessEqual(part['part_chars'], guard.PART_CHARS)
+                self.assertEqual(part['part_start_char'], guard.PART_CHARS * i)
+                self.assertEqual(part['part_sha256'], guard.digest(part['part']))
+                self.assertFalse(part['reading_verified'])
+                self.assertFalse(part['execution_authorized'])
+                self.assertFalse(part['writes'])
+            self.assertEqual(before, digest(root))
+
+    def test_bounded_invalid_requests_fail_closed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            fixture(root)
+            report = module.packet(root, 'bootstrap')
+            before = digest(root)
+            for source, part in ((None, 0), (-1, 0), (99, 0), (0, -1), (0, 999),
+                                 (False, 0), (0, True), (0, None)):
+                with self.subTest(source=source, part=part):
+                    with self.assertRaises(module.ContextError):
+                        guard.bounded_packet(report, source, part)
+            self.assertEqual(before, digest(root))
+
+    def test_bounded_cli_fresh_process_is_read_only(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            fixture(root)
+            before = digest(root)
+            cli = ROOT / 'runtime/scripts/context_read_guard.py'
+            args = [sys.executable, '-B', str(cli), '--runtime', str(root),
+                    '--phase', 'bootstrap']
+            env = {**os.environ, 'PYTHONDONTWRITEBYTECODE': '1'}
+            manifest_run = subprocess.run(args, capture_output=True, text=True,
+                                          encoding='utf-8', cwd=root.parent, env=env)
+            self.assertEqual(manifest_run.returncode, 0, manifest_run.stderr)
+            manifest = json.loads(manifest_run.stdout)
+            self.assertEqual(manifest['kind'], 'READ_ONLY_CONTEXT_SOURCE_MANIFEST')
+            one = subprocess.run(args + ['--source-index', '1', '--part-index', '0'],
+                                 capture_output=True, text=True, encoding='utf-8',
+                                 cwd=root.parent, env=env)
+            self.assertEqual(one.returncode, 0, one.stderr)
+            part = json.loads(one.stdout)
+            self.assertEqual(part['kind'], 'READ_ONLY_CONTEXT_SOURCE_PART')
+            self.assertEqual(part['path'], '10_PROMPT_OPERACIONAL_MASTER.md')
+            self.assertFalse(part['reading_verified'])
+            bad = subprocess.run(args + ['--part-index', '0'], capture_output=True,
+                                 text=True, encoding='utf-8', cwd=root.parent, env=env)
+            self.assertNotEqual(bad.returncode, 0)
+            self.assertEqual(json.loads(bad.stdout)['code'], 'SOURCE_INDEX_REQUIRED')
+            self.assertEqual(before, digest(root))
+
 if __name__=='__main__':unittest.main(verbosity=2)

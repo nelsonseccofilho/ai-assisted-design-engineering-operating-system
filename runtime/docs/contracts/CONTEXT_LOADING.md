@@ -27,3 +27,43 @@ From the repository root, use `python -B runtime/scripts/runtime_context.py --ru
 Require existing package/sync checks and affected positive/negative/fresh-process regressions for missing routes, unknown modules, wrong order, path escape, duplicate JSON, stale/ambiguous headings, unclassified normative sections and state/registry/action inconsistency. Preserve exact historical inputs/results. Fresh-process fixtures are distinct from independent fresh-chat behavior and actual operator trials. Evaluate both authority recovery and tool-action traces before claiming behavioral effectiveness. Record NOT RUN separately.
 
 Rollback only adopted plan/manifest/selected current records to reviewed sources, preserving later unrelated work and all history. Legacy full bootstrap remains the safe fallback when profile adoption or integrity is unresolved; fallback does not authorize mutation.
+
+## Optional bounded source delivery (generic candidate; no automatic adoption)
+
+For large selected sources, the opt-in `scripts/context_read_guard.py` emits a
+manifest of **every** `runtime_context.packet()` selected source followed by
+exactly one requested part at a time. This is an output transport helper, not
+a new authority or context selector. It inherits the existing adoption, module,
+workstream route, integrity and read-only checks of GOV-CTX-001.
+
+From the repository root, after a project has adopted a contextual profile:
+
+```sh
+python -B runtime/scripts/context_read_guard.py --runtime runtime --phase bootstrap
+python -B runtime/scripts/context_read_guard.py --runtime runtime --phase bootstrap --source-index 1 --part-index 0
+python -B runtime/scripts/context_read_guard.py --runtime runtime --phase context --activity analysis --workstream WS-YYYYMMDD-NNN-example
+```
+
+Inspect the manifest before requesting parts. Source indices are zero-based,
+each part is at most 2400 **Python characters**, and `part_count` may be greater
+than one. `raw_source_sha256` hashes the original source bytes as selected by
+the existing reader; `selected_content_sha256` hashes the UTF-8 representation
+of the selected text; each `part_sha256` hashes exactly the returned part.
+Reconstruct each source in ascending part-index order, compare length and hash,
+and never infer a complete read from a partial response. Character count is not
+a token budget or guaranteed byte bound.
+
+Both manifest and parts explicitly report `reading_verified: false`.
+Generation of a source, its manifest, its parts, or passing these regressions
+does **not** prove an AI agent received, reconstructed or used them. Only an
+independent host trace and a faithful review may support that behavioral claim.
+The CLI does not write state, capture private transcripts, perform background
+work, grant tool/merge authority or update reporting cursors. Errors fail closed
+without publishing another source part. Legacy full-context reading remains
+supported; opting in to transport does not activate a candidate project.
+
+The new helper and fictional regressions are **proposed for review only** until
+the exact public candidate SHA passes required package checks, privacy/rights
+review and a separately approved integration. This addition does not modify
+the immutable v3.8.0 release, project pins or the decision statuses of optional
+pilots or ADR-0025/ADR-0032.
