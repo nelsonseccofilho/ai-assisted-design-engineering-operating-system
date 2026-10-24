@@ -66,6 +66,7 @@ Never silently rewrite history.
 | [ADR-0033](docs/decisions/ADR-0033-controlled-context-loading.md) | 2026-10-21 | ACCEPTED / OPTIONAL ADOPTION | Preserve normative sources while explicitly routing contextual reads and current work; no automatic project activation |
 | [ADR-0034](docs/decisions/ADR-0034-scoped-local-validation-consolidation.md) | 2026-10-21 | ACCEPTED / 3.8.0 ONLY | Maintainer-directed continued hosted suspension; exact local evidence and online review/readback required |
 | [ADR-0035](docs/decisions/ADR-0035-3-9-0-additive-tools-candidate.md) | 2026-10-24 | PROPOSED | Prepare compatible v3.9.0 candidate with new exact-SHA QA and separate hosted publication/adoption authority |
+| [ADR-0036](docs/decisions/ADR-0036-scoped-3-9-0-hosted-qa-disposition-proposal.md) | 2026-10-24 | PROPOSED | Evaluate v3.9.0-specific hosted QA paths without treating local PASS as hosted PASS or automatically accepting a waiver |
 
 ---
 
