@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 3.9.0 — 2026-10-24 (release candidate, NOT RELEASED)
+
+- Prepared a compatible, **not yet published** additive package candidate over released v3.8.0. The immutable GitHub v3.8.0 tag/release and private adopters' pins remain unchanged; a merged branch does not establish a release.
+- Integrated public PRs #23, #24 and #25 supply three opt-in generic tools: bounded contextual source delivery with hashes, self-reported action-claim consistency checks, and an explicit, read-only Workstream cycle-focus packet. Their exact-SHA local Windows QA and accepted PR-specific caveats are documented in those PRs. PR #22 was documentary release/pilot-readiness reconciliation and adds no runtime API.
+- Retained the original GOV-CTX-001 reader, every existing package index entry and public license/compatibility boundaries; the index now has 65 classified paths, including three new shared Python scripts. Runtime schemas, bootstrap order, populated project data and current pinned dependency references are unchanged.
+- Changed the framework version header, exact Master runtime mirror, derivative metadata, README and package QA version expectation only for this candidate. No new authority, automatic project adoption, method/pilot acceptance or claim of observed independent agent behavior follows.
+- Release preparation: [candidate gates](docs/RELEASE_3_9_0.md), [draft release notes](docs/releases/v3.9.0.md) and [PROPOSED ADR-0035](docs/decisions/ADR-0035-3-9-0-additive-tools-candidate.md). Exact new candidate tree QA, full rights/privacy/source review and release-specific hosted CI disposition are **PENDING**. The previous PR-local accepted Windows symlink SKIP and hosted NOT VERIFIED are not blanket release waivers.
+
 ## 3.8.0 — 2026-10-21 (published; optional controlled contextual reading)
 
 - Release [v3.8.0](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases/tag/v3.8.0) is published at exact commit `0d0b8ffffa3a640d937e97c54062c517c5b88029`; adoption is separately controlled. Hosted QA remains `NOT RUN` under the release-specific ADR-0034 disposition, not PASS. Later private-adopter runtime improvements do not retroactively become part of this public release. Dated pilot-readiness follow-up: [transfer checkpoint](docs/UPSTREAM_TRANSFER_STATUS_2026-10-15.md#2026-10-24--subsequent-pilot-readiness-and-private-adopter-delta).
