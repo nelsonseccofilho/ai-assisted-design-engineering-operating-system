@@ -7,6 +7,8 @@ module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
 sys.modules.setdefault('runtime_context',module)
 guard_spec=importlib.util.spec_from_file_location('context_read_guard',ROOT/'runtime/scripts/context_read_guard.py')
 guard=importlib.util.module_from_spec(guard_spec);guard_spec.loader.exec_module(guard)
+cycle_spec=importlib.util.spec_from_file_location('op_cycle',ROOT/'runtime/scripts/op_cycle.py')
+cycle=importlib.util.module_from_spec(cycle_spec);cycle_spec.loader.exec_module(cycle)
 WID='WS-20261021-001-fictional-reading'
 def dump(root,path,value): (root/path).write_text(json.dumps(value),encoding='utf-8')
 def fixture(root):
@@ -145,5 +147,86 @@ class ContextTests(unittest.TestCase):
             self.assertNotEqual(bad.returncode, 0)
             self.assertEqual(json.loads(bad.stdout)['code'], 'SOURCE_INDEX_REQUIRED')
             self.assertEqual(before, digest(root))
+
+
+    def test_cycle_focus_all_phases_keep_explicit_scope_without_authority(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            fixture(root)
+            before = digest(root)
+            for phase in cycle.PHASES:
+                with self.subTest(phase=phase):
+                    result = cycle.cycle_packet(root, WID, 'analysis', phase)
+                    self.assertEqual(result['kind'], 'READ_ONLY_CYCLE_FOCUS_PACKET')
+                    self.assertEqual(result['workstream'], WID)
+                    self.assertEqual(result['operator'], 'EXAMPLE')
+                    self.assertEqual(result['workstream_status'], 'ACTIVE')
+                    self.assertEqual(result['phase'], phase)
+                    self.assertEqual(result['next_action'], 'Read the fictional brief without editing.')
+                    self.assertIsNone(result['objective'])
+                    self.assertEqual(result['objective_status'], 'REQUIRES_SOURCE_RECONSTRUCTION')
+                    self.assertEqual(len(result['objective_source_candidates']), 2)
+                    self.assertFalse(result['execution_authorized'])
+                    self.assertFalse(result['merge_authorized'])
+                    self.assertFalse(result['acceptance_verified'])
+                    self.assertFalse(result['source_read_by_agent_verified'])
+                    self.assertFalse(result['writes'])
+            self.assertEqual(digest(root), before)
+
+    def test_cycle_focus_rejects_unverified_and_cross_scope_inputs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            fixture(root)
+            before = digest(root)
+            for params in ((WID, 'analysis', 'MERGE'),
+                           (None, 'analysis', 'STATUS'),
+                           (WID, None, 'STATUS'),
+                           ('WS-20261021-999-fictional-missing', 'analysis', 'STATUS'),
+                           (WID, 'absent', 'STATUS')):
+                with self.subTest(params=params):
+                    with self.assertRaises(module.ContextError):
+                        cycle.cycle_packet(root, *params)
+            self.assertEqual(digest(root), before)
+
+    def test_cycle_focus_fails_on_stale_action_and_unadopted_context(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            m, c = fixture(root)
+            route = root / 'workstreams' / WID / 'CURRENT_HANDOFF.md'
+            route.write_text('NEXT ACTION: Historical action is not current.\n',
+                             encoding='utf-8')
+            with self.assertRaises(module.ContextError):
+                cycle.cycle_packet(root, WID, 'analysis', 'CONTINUAR')
+            route.write_text('NEXT ACTION: Read the fictional brief without editing.\n',
+                             encoding='utf-8')
+            m.pop('context_loading')
+            dump(root, 'runtime-manifest.json', m)
+            with self.assertRaises(module.ContextError):
+                cycle.cycle_packet(root, WID, 'analysis', 'STATUS')
+
+    def test_cycle_focus_fresh_process_reports_without_writes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            fixture(root)
+            before = digest(root)
+            cli = ROOT / 'runtime/scripts/op_cycle.py'
+            args = [sys.executable, '-B', str(cli), '--runtime', str(root),
+                    '--workstream', WID, '--activity', 'analysis']
+            env = {**os.environ, 'PYTHONDONTWRITEBYTECODE': '1'}
+            process = subprocess.run(args + ['--phase', 'CONTINUAR'],
+                                     capture_output=True, text=True,
+                                     encoding='utf-8', cwd=root.parent, env=env)
+            self.assertEqual(process.returncode, 0, process.stderr)
+            record = json.loads(process.stdout)
+            self.assertEqual(record['objective_status'], 'REQUIRES_SOURCE_RECONSTRUCTION')
+            self.assertEqual(record['workstream'], WID)
+            self.assertFalse(record['execution_authorized'])
+            self.assertFalse(record['writes'])
+            denied = subprocess.run(args + ['--phase', 'MERGE'],
+                                    capture_output=True, text=True,
+                                    encoding='utf-8', cwd=root.parent, env=env)
+            self.assertNotEqual(denied.returncode, 0)
+            self.assertEqual(json.loads(denied.stdout)['code'], 'UNKNOWN_CYCLE_PHASE')
+            self.assertEqual(digest(root), before)
 
 if __name__=='__main__':unittest.main(verbosity=2)

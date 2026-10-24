@@ -278,6 +278,10 @@
     {
       "path": "scripts/check_action_claim.py",
       "mode": "shared"
+    },
+    {
+      "path": "scripts/op_cycle.py",
+      "mode": "shared"
     }
   ],
   "populated_roots": [

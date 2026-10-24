@@ -67,3 +67,44 @@ the exact public candidate SHA passes required package checks, privacy/rights
 review and a separately approved integration. This addition does not modify
 the immutable v3.8.0 release, project pins or the decision statuses of optional
 pilots or ADR-0025/ADR-0032.
+
+## Optional explicit cycle-focus preparation (generic candidate)
+
+The opt-in `scripts/op_cycle.py` prepares an **informational, read-only**
+packet for five semantic phases: `INICIAR`, `STATUS`, `CONTINUAR`,
+`VALIDAR` and `FINALIZAR`. It reuses the GOV-CTX-001 context reader
+rather than installing a command catalog, a second Workstream ledger, a new
+agent, or automatic background execution. The user must already know which
+Workstream is in scope and which activity is configured in a project-adopted
+context profile.
+
+```sh
+python -B runtime/scripts/op_cycle.py --runtime runtime --workstream WS-YYYYMMDD-NNN-example --activity analysis --phase STATUS
+```
+
+The helper requires exact current registry/state/handoff agreement as checked
+by `runtime_context.packet()`. It surfaces source revisions, responsible
+operator, current status, NEXT ACTION, and candidate sources for reconstructing
+the work objective. **An action line is not a verified work objective**.
+Therefore `objective=null`, `objective_status=REQUIRES_SOURCE_RECONSTRUCTION`,
+and `source_read_by_agent_verified=false` remain explicit, including when
+the packet passes. A Session reference may be reported as **unread**; it
+is not presented as evidence consumed by the tool. Human/agent review must
+read the authoritative source and resolve the objective within its owners
+before any dependent action.
+
+Every phase retains `execution_authorized=false`,
+`merge_authorized=false`, `acceptance_verified=false`,
+`adoption_verified=false` and `writes=false`. The names are suggestions
+for presenting a request, **not** built-in chatbot commands, implicit
+permissions, Figma/product actions, task state transitions, acceptance,
+or actual execution. Invalid phase, missing selection, stale NEXT ACTION,
+absent adoption and ambiguous source routing fail closed. No new
+project-specific `OP_COMMAND_CATALOG.json` or operator record is copied.
+
+The new CLI and four fictional regression methods are a **candidate** until
+the exact Git SHA has passed the existing official Python package workflow,
+appropriate privacy/rights review and separate human merge acceptance.
+These fixtures do not establish independent multi-chat objective continuity,
+human compliance or productivity. They neither change the historical v3.8.0
+release nor activate anything in a project or promote optional pilots.
