@@ -93,7 +93,7 @@ try {
     )
     $declared = @(
         foreach ($line in (Get-Content -LiteralPath $workflow)) {
-            if ($line -match '^\s*-\s+run:\s*(\S.*)\s*
+            if ($line -match '^\s*-\s+run:\s*(\S.*)\s*$') {
                 $Matches[1].Trim()
             }
         }
@@ -144,97 +144,6 @@ with tempfile.TemporaryDirectory(prefix="framework-symlink-qa-") as directory:
             throw ('EMPTY_STEP_OUTPUT step=' + ($i + 1))
         }
         if ($result -match '(?i)\bskipped\b(?!\s*=\s*0\b)|\bskips?\s*=\s*[1-9]\d*\b') {
-            throw ('SKIPPED_TESTS_DETECTED step=' + ($i + 1))
-        }
-        if ($i -eq 6) {
-            if ($result -notmatch 'Ran\s+8\s+tests' -or
-                $result -notmatch '(?m)^OK\s*$' -or
-                $result -notmatch 'test_base_contract_and_containment_of_resolved_links.*\.\.\. ok') {
-                throw 'CURRENT_STATE_8_OF_8_NOT_CONFIRMED'
-            }
-        }
-        Write-QALog ('STEP_' + ($i + 1) + '=PASS')
-    }
-
-    Assert-Clean 'AFTER'
-    Write-QALog 'LOCAL_WORKFLOW_COMMANDS=9/9_PASS'
-    Write-QALog 'CURRENT_STATE_TESTS=8/8_PASS'
-    Write-QALog 'SKIPPED_TESTS=0'
-    Write-QALog 'LOCAL_QA_RESULT=PASS'
-    Write-QALog 'HOSTED_CI=NOT_VERIFIED'
-}
-catch {
-    if ($logReady) {
-        Write-QALog ('LOCAL_QA_RESULT=FAIL')
-        Write-QALog ('FAILURE=' + $_.Exception.Message)
-    }
-    else {
-        Write-Error $_.Exception.Message
-    }
-    throw
-}
-finally {
-    Set-Location $originalLocation
-    if ($null -eq $previousBytecode) {
-        Remove-Item Env:PYTHONDONTWRITEBYTECODE -ErrorAction SilentlyContinue
-    }
-    else {
-        $env:PYTHONDONTWRITEBYTECODE = $previousBytecode
-    }
-    $PSNativeCommandUseErrorActionPreference = $previousNativePref
-    Write-Host ('QA_LOG=' + $logPath)
-}
-) {
-                $Matches[1].Trim()
-            }
-        }
-    )
-    if ($declared.Count -ne $expectedCommands.Count) { throw 'WORKFLOW_COMMAND_COUNT_DRIFT' }
-    for ($i = 0; $i -lt $expectedCommands.Count; $i++) {
-        if ($declared[$i] -cne $expectedCommands[$i]) {
-            throw ('WORKFLOW_COMMAND_DRIFT step=' + ($i + 1))
-        }
-    }
-    Write-QALog 'WORKFLOW_PARITY=9/9_MATCH'
-
-    $version = Invoke-NativeChecked $PythonExecutable @(
-        '-c', 'import sys; print("PYTHON_VERSION=" + sys.version.split()[0]); sys.exit(0 if sys.version_info >= (3,12) else 2)'
-    )
-    if ($version -notmatch 'PYTHON_VERSION=') { throw 'PYTHON_VERSION_UNVERIFIED' }
-
-    $probe = @'
-import tempfile
-from pathlib import Path
-with tempfile.TemporaryDirectory(prefix="framework-symlink-qa-") as directory:
-    root = Path(directory)
-    target = root / "target.txt"
-    link = root / "link.txt"
-    target.write_text("fictional QA\n", encoding="utf-8")
-    try:
-        link.symlink_to(target)
-    except OSError as error:
-        print("SYMLINK_CAPABILITY=BLOCKED")
-        print("WINERROR=" + str(getattr(error, "winerror", None)))
-        raise SystemExit(2)
-    if not link.is_symlink() or link.resolve() != target.resolve():
-        print("SYMLINK_CAPABILITY=INVALID")
-        raise SystemExit(3)
-    print("SYMLINK_CAPABILITY=READY")
-'@
-    $probeResult = Invoke-NativeChecked $PythonExecutable @('-B', '-c', $probe)
-    if ($probeResult -notmatch 'SYMLINK_CAPABILITY=READY') {
-        throw 'SYMLINK_CAPABILITY_NOT_READY'
-    }
-
-    for ($i = 0; $i -lt $expectedCommands.Count; $i++) {
-        $command = $expectedCommands[$i]
-        $arguments = @('-B') + @($command.Substring(7) -split '\s+')
-        Write-QALog ('=== STEP ' + ($i + 1) + '/9: ' + $command + ' ===')
-        $result = Invoke-NativeChecked $PythonExecutable $arguments
-        if ([string]::IsNullOrWhiteSpace($result)) {
-            throw ('EMPTY_STEP_OUTPUT step=' + ($i + 1))
-        }
-        if ($result -match '(?i)\bskipped\b|\bskip=\d+\b|\bskips=\d+\b') {
             throw ('SKIPPED_TESTS_DETECTED step=' + ($i + 1))
         }
         if ($i -eq 6) {
