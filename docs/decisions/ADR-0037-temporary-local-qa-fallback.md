@@ -13,6 +13,10 @@ Adopt [Controlled local QA fallback](../LOCAL_QA_FALLBACK.md) as the reference p
 
 **Local-QA PASS is not hosted-QA PASS.** No one may represent operator-supplied shell output as execution by ChatGPT, GitHub Actions or an independent agent. Any failed or skipped test blocks local PASS. Evidence must be bound to the exact source SHA and remain clear about Windows privilege differences, synthetic fixtures and unavailable hosted Linux steps.
 
+## Subsequent accepted release-specific exception — 2026-10-24
+
+The reference below to ADR-0036 as `PROPOSED` describes the state **when this procedure was first adopted**. The framework maintainer later **accepted Option B specifically for v3.9.0**, under `V3_9_0_MANUAL_HOSTED_SUSPENSION_DISPOSITION`; see [attributable decision](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/pull/27#issuecomment-6389104284) and [updated ADR-0036](ADR-0036-scoped-3-9-0-hosted-qa-disposition-proposal.md). Hosted QA remains `NOT VERIFIED`, not PASS. This subsequent approval is **not** a standing procedure waiver, not approval to reenable GitHub Actions, and **not** authorization to create the v3.9.0 tag/GitHub Release or modify a private adopter pin. Any new source SHA after recording this note requires exact-source QA before a publication decision.
+
 ## Publication boundary
 
 A distinct, **version-scoped** maintainer risk decision is required before substituting local evidence for the unavailable hosted gate in a particular release. Specifically, v3.9.0's [ADR-0036](ADR-0036-scoped-3-9-0-hosted-qa-disposition-proposal.md) remains **PROPOSED** until the human owner explicitly accepts its documented limitations. Neither this ADR nor v3.8.0-only ADR-0034 satisfies that gate. Even then, tag/GitHub Release needs separate explicit approval with final commit SHA, actual notes, checked diff/tree, rights/privacy and release rollback/readback.
