@@ -43,3 +43,11 @@ This dated checkpoint reconciles the **historical PENDING / NOT RUN** table abov
 - **Tag/release/pin:** no v3.9.0 ref was found during the checkpoint and **none is created by this documentation change**; v3.8.0 remains the verified baseline. Tag and hosted disposition each require a separate actual maintainer authorization. No private adopter/Workstream/pin is modified.
 
 **Next release decision (still open):** choose actual hosted execution with logs **or** explicitly accept a v3.9.0-only manual hosted-suspension risk disposition; then approve release against the **final immutable source SHA** and final public notes, with rollback and post-release readback. Documentation added after PR #26 changes the prospective final SHA and is not automatically covered by tests on the earlier SHA; apply the exact-SHA QA requirements at each later acceptance gate. Until these conditions are met, **do not tag or publish v3.9.0**.
+
+## Temporary local QA transition — 2026-10-24
+
+The framework maintainer authorized **use of a controlled local QA workflow while the hosted GitHub account/access limitation remains unresolved** and undertook to notify when regularized. This approval **adopts a validation procedure**, not a claim that a billing restriction caused hosted non-execution or a waiver for publication. See accepted [ADR-0037](decisions/ADR-0037-temporary-local-qa-fallback.md), [runbook](LOCAL_QA_FALLBACK.md), and newly proposed `scripts/qa_local.ps1`.
+
+**This implementation adds source to the future v3.9.0 tree.** Its own final pull-request SHA must be checked with Python 3.12+ and the complete local procedure before any merge or release decision. PR #26's historical test receipts remain valid **for their original SHA only**. The new wrapper has **NOT BEEN EXECUTED in the operator's Windows environment at this checkpoint**; script existence/static review is not an execution PASS.
+
+Proposed ADR-0036 is still **PROPOSED** for v3.9.0-specific CI risk acceptance. Hosted status remains **NOT VERIFIED**. Final tag/GitHub Release requires a **separate express maintainer decision after complete exact-final-SHA QA, public rights/privacy review and selected hosted disposition**. Never automatically reactivate GitHub Actions when the user later reports payment/access restored: confirm availability and request authorization before altering workflows.
