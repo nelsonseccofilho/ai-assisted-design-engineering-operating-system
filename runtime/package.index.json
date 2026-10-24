@@ -270,6 +270,10 @@
     {
       "path": "docs/contracts/CONTEXT_LOADING.md",
       "mode": "shared"
+    },
+    {
+      "path": "scripts/context_read_guard.py",
+      "mode": "shared"
     }
   ],
   "populated_roots": [
