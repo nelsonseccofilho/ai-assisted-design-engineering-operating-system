@@ -1,6 +1,8 @@
 # CHANGELOG
 
-## Unreleased â€” 3.8.0 controlled contextual reading
+## 3.8.0 — 2026-10-21 (published; optional controlled contextual reading)
+
+- Release [v3.8.0](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases/tag/v3.8.0) is published at exact commit `0d0b8ffffa3a640d937e97c54062c517c5b88029`; adoption is separately controlled. Hosted QA remains `NOT RUN` under the release-specific ADR-0034 disposition, not PASS. Later private-adopter runtime improvements do not retroactively become part of this public release. Dated pilot-readiness follow-up: [transfer checkpoint](docs/UPSTREAM_TRANSFER_STATUS_2026-10-15.md#2026-10-24--subsequent-pilot-readiness-and-private-adopter-delta).
 
 - ADR-0033 adds optional GOV-CTX-001, read-only reading packets, source hashes, explicit module/Workstream routing and scoped integrity/fresh-process regressions. Existing Master obligations, default00â€“70, schemas/enums, pins and populated data are preserved.
 - ADR-0034 records continued hosted suspension and exact local evidence with online Git consolidation for this release scope.

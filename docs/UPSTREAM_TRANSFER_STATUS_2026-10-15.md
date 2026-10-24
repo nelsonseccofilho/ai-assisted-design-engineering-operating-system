@@ -63,3 +63,44 @@ For documentary transfer, review each candidate's QA/privacy/readback and decide
 Release, proposed-ADR acceptance and private adoption remain distinct. A future private adoption must review canonical shared changes and preserve configured files/history through the existing [synchronization procedure](FRAMEWORK_RUNTIME_SYNC.md); this checkpoint changes no private pin or file. Preserve mandatory bootstrap, schemas/states, compatibility aliases, licenses and all applicable security/acceptance obligations.
 
 [Hosted CI](HOSTED_CI_STATUS.md) remains temporarily suspended. Local evidence is not hosted PASS, and previous PR approvals are not permission for this candidate's merge or release. No new trial chats, stakeholder messages, native editor changes, private mutations or automation are created by this record.
+
+## 2026-10-24 — Subsequent pilot readiness and private-adopter delta
+
+**Temporal scope:** this is a later, owner-reviewable addendum to the **2026-10-15 checkpoint**, not a rewrite of its original findings. The public framework `v3.8.0` was actually published on 2026-10-21 at `0d0b8ffffa3a640d937e97c54062c517c5b88029`. The catalog's 35 topics and original dispositions remain **6 EXISTING_CORE, 19 CANDIDATE_PROCEDURE, 7 OPTIONAL_PILOT, 2 CONFIGURABLE and 1 EXCLUDED_PRIVATE**. An `UNRELEASED_REVIEW` entry in the historical catalog represents its individual promotion/acceptance assessment, **not** a denial that the generic package v3.8.0 exists.
+
+### Pilot-by-pilot decision at the verified scope
+
+| Pilot | Available evidence | Absorption status | What would change that status |
+|---|---|---|---|
+| **METH-018** Deliverable-first iteration efficiency | Existing fictional delivered units and policy adoption; matched effort-versus-quality experiment deliberately deferred | **KEEP_OPTIONAL / efficacy NOT VERIFIED** | A real adoption decision requiring a measured, matched comparison; do not assume efficiency or mandate sequencing |
+| **METH-019** Review depth and pair critique | Bounded textual AI review and critique; external human pair review not independently observed | **KEEP_OPTIONAL / human benefit NOT VERIFIED** | Scoped independent human review with documented criteria, source fidelity and consent |
+| **METH-020** Reversible MVP sequencing | 15/15 local functional cases using trusted fictional actors, plus earlier bounded tests | **SCOPED_FUNCTIONAL_PASS / KEEP_OPTIONAL** | Representative production permission, transactional, rollback and human acceptance evidence; no production security claim |
+| **METH-021** Shared knowledge and selective retrieval | Eight earlier fresh AI sessions/sixteen scoped assessments; source-byte index comparison showed about **18.6% increase**, without avoided case reads. A later restricted project improved continuity, but did not measure public generic efficiency | **KEEP_OPTIONAL / no measured cost or productivity gain** | A decision-changing controlled study of actual retrieval cost and correctness, or independent cross-provider evidence before stronger claims |
+| **METH-023** Contextual annotations and handoff | A fictional native editor unit verified annotation target/category and visible/hidden/restored display with overlay/label caveats | **NARROWLY_VERIFIED / KEEP_OPTIONAL** | Individual collapsed/expanded state, human comprehension, functional and published-consumer review |
+| **METH-024** Containment and reflow | One fictional native file verified local component dependencies and two-width reflow under retained caveats | **SCOPED_NATIVE_PASS / KEEP_OPTIONAL** | Representative consumer re-import, state parity and library sync, real overlap/keyboard checks before general rules |
+| **METH-031** External-method intake | Documentary original-source and rights-screening method; previous external adoption legitimately deferred | **KEEP_OPTIONAL / no external method promotion** | A concrete gap and exact-source/asset rights, dependency, benefit and licensing review |
+
+**Decision:** no new mandatory promotion is evidence-ready on 2026-10-24. The generic optional guides and local methods already present in the public repository can remain distributable **without** claims of pilot maturity, measured effectiveness or project activation. Do not regress their completed narrow evidence, but do not silently relabel `NOT RUN` as `PASS`. [ADR-0025](decisions/ADR-0025-pilot-maturity-and-promotion.md) and [ADR-0032](decisions/ADR-0032-typed-state-and-current-handoff.md) remain `PROPOSED`; this addendum is **not** a human vote accepting either ADR.
+
+### Post-v3.8.0 restricted-adopter lessons: upstream classification
+
+The adopter's later Git-only work is **not** part of the immutable v3.8.0 public source. Restricted evidence remains in its owner repository. This is a bounded classification, **not** a new unreviewed import of private source files.
+
+| Candidate improvement | Provisional disposition | Safe next work |
+|---|---|---|
+| Durable selected-objective routing and generic follow-up continuity | **PUBLIC_CANDIDATE / NEEDS_SOURCE_REVIEW** | Compare to current GOV-CTX-001 and startup rules; adapt only demonstrably missing generic behavior, using fictional fixtures |
+| Read-only supervised OP cycle packet with no implied write or human gate | **PUBLIC_CANDIDATE / NEEDS_SOURCE_REVIEW** | Verify fit with public Workstream/session contracts; do not make project-specific command catalog normative |
+| Knowledge capture/archive and manifest integrity safeguards | **PUBLIC_CANDIDATE / PRIVACY_AND_RIGHTS_REVIEW** | Evaluate generic template and schema only; exclude transcripts, people, links, organizational context, credentials and project operational history |
+| Bounded complete-source reader with honest read receipts | **PUBLIC_CANDIDATE / DUPLICATION_AND_BEHAVIOR_REVIEW** | Check overlap with released contextual reader and measure actual source coverage; no automated guard-use claim without agent trace |
+| Evidence-of-action / claim-versus-tool-readback gates | **ALREADY_PARTLY_COVERED / INTEGRATION_REVIEW** | Compare with public evidence/validation contracts; reuse rather than duplicate authority rules |
+| Transcript-dependent prospective evidence trials and private operator/file-specific results | **PROJECT_ONLY** | Preserve solely in restricted runtime; promote only a separately approved, generic fictional test design if justified |
+| Historical PR and report cursor reconciliation | **OWNER_ADMINISTRATION / NOT_A_FRAMEWORK_FEATURE** | Reconcile in the owning project; neither old diverged branches nor stale report cursors authorize public code promotion |
+
+### Ordered next steps and release controls
+
+1. **Documentation status repair:** fix public top-level release wording and retain the original checkpoint verbatim with this dated addendum. Keep the methodology catalog statuses frozen; avoid retrospective acceptance.
+2. **Independent upstream delta audit:** assess genuinely new reusable behavior from the restricted adopter, duplicate coverage, privacy/licensing and negative fixtures. Keep actual private source and ownership in the restricted project. Complete existing PR administrative review separately.
+3. **Public candidate only if justified:** implement generic updates in an isolated branch, review changed-file privacy and contract compatibility, run package/synchronization/methodology/regression checks on the **exact** candidate revision; verify remote readback and separately establish hosted-QA disposition.
+4. **Explicit review before main/release:** an optional implementation can be distributed without becoming mandatory. A new release or private pin change needs its own scoped human approval, decision provenance and tested artifacts. The 3.8.0-specific hosted exception is **not** a waiver for a subsequent release.
+
+**Assessment of this addendum:** `DOCUMENTARY_UPSTREAM_READINESS_PREPARED`; original seven optional pilots remain unpromoted. This note does not change adopted runtime, the canonical Master, product/Figma/UI Kit, any project's status, or the public release tag.

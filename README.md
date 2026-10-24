@@ -5,13 +5,13 @@
 **Status:** Experimental / evolving  
 **Framework version:** 3.8.0
 
-**3.8.0 source candidate:** optional contextual reading; not an installed project update or release announcement. See [preservation and rollout](docs/CONTROLLED_CONTEXT_LOADING.md). Existing published3.7.0 evidence remains historical and scoped.
-**Publication record:** [GitHub Releases](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases).
-The version identifies package contents; a branch/version header does not establish publication or project adoption.
-See [3.7.0 notes](docs/releases/v3.7.0.md) and the [publication review and pending gates](docs/RELEASE_3_7_0_FINALIZATION.md).
-**Canonical operating contract:** `PROMPT_OPERACIONAL_MASTER.md`
+**Published release:** [v3.8.0](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases/tag/v3.8.0) (2026-10-21), source commit `0d0b8ffffa3a640d937e97c54062c517c5b88029`. This release distributes optional controlled contextual reading (GOV-CTX-001) with authority and bootstrap safeguards. It does **not** automatically install or activate a method in any adopter project; see [controlled rollout](docs/CONTROLLED_CONTEXT_LOADING.md) and [release record](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases/tag/v3.8.0).
 
-An unreleased [state/handoff candidate](docs/RUNTIME_STATE_UPSTREAM_AUDIT_2026-10-17.md) adds optional typed extensions, explicit current routing and a migration review seed. It preserves existing templates and startup behavior; it is not part of the published v3.7.0 source or an installed project update.
+**Publication record:** [GitHub Releases](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases). This is the external immutable release record; project adoption remains separately gated.
+
+**Current maturity:** generic candidate procedures, optional methodology pilots and opt-in state/handoff extensions are not mandatory pilot acceptance. [ADR-0032](docs/decisions/ADR-0032-typed-state-and-current-handoff.md) and [ADR-0025](docs/decisions/ADR-0025-pilot-maturity-and-promotion.md) remain `PROPOSED`. See the [dated promotion checkpoint](docs/UPSTREAM_TRANSFER_STATUS_2026-10-15.md#2026-10-24--subsequent-pilot-readiness-and-private-adopter-delta); original October 15 evidence retains its date and scope. The published [v3.7.0 history](docs/releases/v3.7.0.md) is preserved.
+
+**Canonical operating contract:** `PROMPT_OPERACIONAL_MASTER.md`
 
 ## What this is
 
