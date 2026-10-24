@@ -7,6 +7,8 @@
 
 **Published release:** [v3.8.0](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases/tag/v3.8.0) (2026-10-21), source commit `0d0b8ffffa3a640d937e97c54062c517c5b88029`. This release distributes optional controlled contextual reading (GOV-CTX-001) with authority and bootstrap safeguards. It does **not** automatically install or activate a method in any adopter project; see [controlled rollout](docs/CONTROLLED_CONTEXT_LOADING.md) and [release record](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases/tag/v3.8.0).
 
+**Publication record:** [GitHub Releases](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases). This is the external immutable release record; project adoption remains separately gated.
+
 **Current maturity:** generic candidate procedures, optional methodology pilots and opt-in state/handoff extensions are not mandatory pilot acceptance. [ADR-0032](docs/decisions/ADR-0032-typed-state-and-current-handoff.md) and [ADR-0025](docs/decisions/ADR-0025-pilot-maturity-and-promotion.md) remain `PROPOSED`. See the [dated promotion checkpoint](docs/UPSTREAM_TRANSFER_STATUS_2026-10-15.md#2026-10-24--subsequent-pilot-readiness-and-private-adopter-delta); original October 15 evidence retains its date and scope. The published [v3.7.0 history](docs/releases/v3.7.0.md) is preserved.
 
 **Canonical operating contract:** `PROMPT_OPERACIONAL_MASTER.md`
