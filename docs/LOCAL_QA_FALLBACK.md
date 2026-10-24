@@ -21,6 +21,8 @@ A local PASS is **not** a hosted GitHub Actions PASS, not a Linux runner result,
 
 ## One-command invocation (Windows)
 
+For operator-facing commands and diagnostic snippets, also follow the [PowerShell execution-context contract](POWERSHELL_EXECUTION_CONTEXT.md): select the absolute expected checkout directory with `Set-Location -LiteralPath`, confirm Git root/origin/exact SHA before QA, and restore the original directory in `finally`. The example below assumes the operator has already established that context; a runnable handoff to an operator must include these checks even when paths are absolute.
+
 From a **detached checkout** of the candidate SHA (not the private project repository):
 
 ```powershell
