@@ -67,6 +67,7 @@ Never silently rewrite history.
 | [ADR-0034](docs/decisions/ADR-0034-scoped-local-validation-consolidation.md) | 2026-10-21 | ACCEPTED / 3.8.0 ONLY | Maintainer-directed continued hosted suspension; exact local evidence and online review/readback required |
 | [ADR-0035](docs/decisions/ADR-0035-3-9-0-additive-tools-candidate.md) | 2026-10-24 | PROPOSED | Prepare compatible v3.9.0 candidate with new exact-SHA QA and separate hosted publication/adoption authority |
 | [ADR-0036](docs/decisions/ADR-0036-scoped-3-9-0-hosted-qa-disposition-proposal.md) | 2026-10-24 | PROPOSED | Evaluate v3.9.0-specific hosted QA paths without treating local PASS as hosted PASS or automatically accepting a waiver |
+| [ADR-0037](docs/decisions/ADR-0037-temporary-local-qa-fallback.md) | 2026-10-24 | ACCEPTED / CONDITIONAL PROCEDURE | Use controlled exact-SHA local QA during suspended hosted Actions; every release requires its own CI disposition and publication authorization |
 
 ---
 
