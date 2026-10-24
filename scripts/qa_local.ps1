@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+#Requires -Version 7.4
 <#
 .SYNOPSIS
   Controlled local QA for an exact, detached framework commit.
@@ -140,6 +140,9 @@ with tempfile.TemporaryDirectory(prefix="framework-symlink-qa-") as directory:
         $arguments = @('-B') + @($command.Substring(7) -split '\s+')
         Write-QALog ('=== STEP ' + ($i + 1) + '/9: ' + $command + ' ===')
         $result = Invoke-NativeChecked $PythonExecutable $arguments
+        if ([string]::IsNullOrWhiteSpace($result)) {
+            throw ('EMPTY_STEP_OUTPUT step=' + ($i + 1))
+        }
         if ($result -match '(?i)\bskipped\b|\bskip=\d+\b|\bskips=\d+\b') {
             throw ('SKIPPED_TESTS_DETECTED step=' + ($i + 1))
         }
