@@ -1,7 +1,7 @@
-# ADR-0036 — Proposed release-specific hosted QA disposition for v3.9.0
+# ADR-0036 — Release-specific hosted QA disposition for v3.9.0
 
 **Date:** 2026-10-24  
-**Status:** PROPOSED — NOT ACCEPTED  
+**Status:** ACCEPTED — OPTION B, `V3_9_0_MANUAL_HOSTED_SUSPENSION_DISPOSITION` / LIMITED TO v3.9.0  
 **Scope:** FRAMEWORK v3.9.0 ONLY; release governance, not runtime adoption  
 **Decision owner:** Framework maintainer
 
@@ -25,7 +25,19 @@ The maintainer has now approved a **temporary controlled local QA process** pend
 
 **C — defer publication:** keep v3.9.0 source in main without creating a tag/release or changing private adopter pins until hosted QA becomes available or a valid, release-specific risk acceptance is completed.
 
-**Proposed disposition:** if option A remains unavailable, prepare option B for the maintainer's *specific recorded decision*. This ADR is a proposal, **not that decision**. Broad authorization to continue preparing work must not be relabeled as acceptance of a hosted QA waiver.
+**Original proposal (historical):** if option A remains unavailable, prepare option B for the maintainer's *specific recorded decision*. This text was a proposal before the separate human acceptance recorded below. Broad authorization alone is not a hosted QA waiver.
+
+## 2026-10-24 — Maintainer acceptance of Option B, before release authorization
+
+**New attributable owner decision:** the maintainer was asked explicitly whether they approved **Option B** — `V3_9_0_MANUAL_HOSTED_SUSPENSION_DISPOSITION` — with its risk limited to v3.9.0, and then approved following that recommendation and authorized the related steps. Original-language acceptance and scope were recorded in the framework-owning repository: [PR #27 owner decision receipt](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/pull/27#issuecomment-6389104284).
+
+**Approved scope:** `V3_9_0_MANUAL_HOSTED_SUSPENSION_DISPOSITION = ACCEPTED_WITH_DOCUMENTED_RISK` applies **only to the v3.9.0 release gate**. It allows the separately reviewed release process to rely on fully attributed exact-SHA local QA while GitHub-hosted QA remains unverified. **`HOSTED_CI=NOT VERIFIED`, not PASS**; no actual hosted run or runner-zero condition is inferred, no historical `NOT RUN` is rewritten and the cause of hosted nonexecution is not established. v3.8.0/v3.7.0 exceptions are not reused, and no general waiver for a later version follows.
+
+**Evidence at acceptance checkpoint, not a license to skip later QA:** public source SHA `c9c30ebefeea00a9ff187f862914acccc10adebf`; operator-executed Windows Python 3.12.10 controlled PowerShell QA with `9/9` official commands PASS, `SKIPPED_TESTS=0`, `SYMLINK_CAPABILITY=READY`, `CURRENT_STATE_TESTS=8/8_PASS`, clean detached checkout. [Exact-SHA QA receipt](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/pull/27#issuecomment-6389077593). GitHub commit status and PR workflow-run queries returned no verified hosted QA on that source. The reviewed v3.8.0 → candidate diff covers 24 public paths, with bounded pattern/rights screening only; not a comprehensive confidentiality, rights or security guarantee.
+
+**Still a distinct required decision:** this risk acceptance **does not create or approve** the `v3.9.0` tag/GitHub Release, decide the final source SHA, accept the final release notes, or change any private adopter pin or product/operator state. The maintainer must separately authorize **publication of the exact final tested SHA and notes** after final tree/diff/rightfulness review, with rollback/correction procedure and independent release readback.
+
+**Publication readiness after this ADR is written:** writing the decision to a branch creates a **different candidate SHA**. The older `c9c30e...` QA receipt is authentic only for that original tree; require fresh exact-SHA QA of this documentary candidate and further review/merge before any prospective `v3.9.0` tag. Do not present the branch as released or assume this risk decision itself authorizes a merge without applicable review.
 
 ## Mandatory gates even if option B is accepted
 
