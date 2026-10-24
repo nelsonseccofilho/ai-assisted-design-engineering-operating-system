@@ -13,6 +13,10 @@ Operator-attributed Windows/Python 3.12.10 evidence on the exact PR #26 candidat
 
 The `.github/workflows/static-qa.yml` definition remains present with nine Python 3.12 steps. At the reviewed SHA the GitHub connector returned no traditional status checks or pull-request-triggered workflow runs. These endpoints do not establish an exhaustive repository-wide absence of runs, so classification remains **HOSTED_CI=NOT VERIFIED / no execution evidenced**, not PASS. Hosted automation was previously kept suspended under [ADR-0034](ADR-0034-scoped-local-validation-consolidation.md), expressly limited to v3.8.0. The older [ADR-0022](ADR-0022-hosted-ci-disposition.md) requires positive runner-zero evidence and other conditions not established for this v3.9.0 candidate. Neither is a transferable waiver.
 
+## Temporary QA procedure acceptance (separate from v3.9.0 exception)
+
+The maintainer has now approved a **temporary controlled local QA process** pending their notice of GitHub billing/access regularization. This procedure is separately recorded as **[ADR-0037](ADR-0037-temporary-local-qa-fallback.md), ACCEPTED / CONDITIONAL PROCEDURE**, with runbook [LOCAL_QA_FALLBACK](../LOCAL_QA_FALLBACK.md) and candidate `scripts/qa_local.ps1`. **This does not accept option B below and does not authorize release.** The wrapper itself needs executable QA on its own final SHA before acceptance. The unknown hosted root cause and all historical CI `NOT RUN` claims remain unchanged.
+
 ## Options for a new release-specific maintainer decision
 
 **A — preferred when available:** the maintainer explicitly authorizes reactivation or an execution path for hosted QA, confirms account/security/cost conditions, and obtains actual workflow step logs and results on the final publish SHA. Do not silently reactivate workflows or incur account charges.
