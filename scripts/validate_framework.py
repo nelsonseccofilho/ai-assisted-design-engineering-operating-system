@@ -29,7 +29,7 @@ for source in ROOT.rglob("*.md"):
 master = read("PROMPT_OPERACIONAL_MASTER.md")
 derivative = json.loads(read("prompt-operacional.json"))
 version = re.search(r"\*\*Version:\*\* ([0-9.]+)", master).group(1)
-check(version == "3.8.0", "Unexpected framework version")
+check(version == "3.9.0", "Unexpected framework version")
 check("release_status" not in derivative["meta"] and "released_baseline" not in derivative["meta"],
       "Temporary candidate metadata must not define publication")
 check("**Publication record:**" in read("README.md") and

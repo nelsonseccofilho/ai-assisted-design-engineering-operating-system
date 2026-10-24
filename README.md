@@ -3,7 +3,9 @@
 > A versioned operating framework for persistent, evidence-driven collaboration between Product Designers and AI agents across Product Design, UI, Design Systems, Figma, QA, documentation and design operations.
 
 **Status:** Experimental / evolving  
-**Framework version:** 3.8.0
+**Framework version:** 3.9.0
+
+**Candidate source:** v3.9.0 preparation only — **NOT RELEASED**. [Review the exact-source gate plan](docs/RELEASE_3_9_0.md). This branch is not a distribution record, tag, or private adopter pin. The release shown below remains the latest actual publication.
 
 **Published release:** [v3.8.0](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases/tag/v3.8.0) (2026-10-21), source commit `0d0b8ffffa3a640d937e97c54062c517c5b88029`. This release distributes optional controlled contextual reading (GOV-CTX-001) with authority and bootstrap safeguards. It does **not** automatically install or activate a method in any adopter project; see [controlled rollout](docs/CONTROLLED_CONTEXT_LOADING.md) and [release record](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases/tag/v3.8.0).
 
