@@ -34,6 +34,39 @@ def assess_validation_contract(derivative, master, contract, seed):
                   "AI responsibility and continuous improvement"]:
         if token not in contract:
             errors.append("Missing GOV-VAL-001 contract section: " + token)
+    # Mandatory documented policy, not a runtime agent.
+    marker = "## 3A. Parent-deliverable gate: prevent circular tests and PRs"
+    end = "## 4. Evidence-based closure"
+
+    if (
+        contract.count(marker) != 1
+        or contract.count(end) != 1
+        or contract.index(marker) >= contract.index(end)
+    ):
+        errors.append(
+            "Missing or misplaced GOV-VAL-001 parent-deliverable gate"
+        )
+    else:
+        gate = contract.split(marker, 1)[1].split(end, 1)[0]
+        requirements = {
+            "parent objective": "accountable parent objective",
+            "progress": "accepted parent outcomes separately from intermediate milestones",
+            "mandatory": "Perform every applicable MANDATORY check",
+            "conditional": "triggered CONDITIONAL check",
+            "reuse": "Reuse still-valid exact-source/environment evidence",
+            "material change": "only for a bounded, owned material change",
+            "authority": "separate human integration authority",
+            "closure": "required owner acceptance and independent target readback",
+            "loop trigger": "two consecutive discretionary iterations",
+            "loop response": "Stop speculative test/PR preparation",
+            "security": "do not retry by another tool",
+            "no duplicate ledger": "do not create a parallel anti-loop register",
+        }
+        for name, required_text in requirements.items():
+            if required_text not in gate:
+                errors.append(
+                    "Missing GOV-VAL-001 parent-deliverable safeguard: " + name
+                )
     if POLICY_ID not in seed:
         errors.append("Acceptance seed does not reference GOV-VAL-001")
     return errors
