@@ -64,3 +64,9 @@ The original acceptance-gate table and pre/post-merge checkpoints above are **hi
 - **Rollback/correction:** before tag creation, simply defer publication and leave the prior immutable `v3.8.0` as the current published baseline. After any future publication, never silently retarget or delete a published immutable tag; publish a separately reviewed correcting version/release, clearly document the defect, preserve prior evidence, and communicate adopter follow-up without overwriting configured/project history.
 
 **Current outcome:** `HOSTED_DISPOSITION=ACCEPTED_OPTION_B_V3_9_0_ONLY`; `LOCAL_MAIN_SHA_QA=c9c30e... PASS (HISTORICAL)`; `NEW_DOCUMENTARY_SHA_QA=NOT RUN`; `TAG_AND_RELEASE=NOT AUTHORIZED / NOT PUBLISHED`; `PRIVATE_ADOPTER_PIN=UNCHANGED`.
+
+## Published-release status reconciliation — later source checkpoint (2026-10-24)
+
+The proposal/NOT RELEASED gates above describe the **historical state when those sections were written**. They were superseded by an actual [GitHub Release v3.9.0](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases/tag/v3.9.0), published 2026-10-24 at immutable SHA `795cedc5737ae023371f5aca477db20a6f2d635b`. This is a fact of public tag/readback, not an inferred retroactive PASS or an amendment of the old decision.
+
+Public main later moved to `4d002b7d6e0a4aec0d6612ca8990070d534c37eb` following a documentation-only change. That subsequent commit is **not contained in the v3.9.0 tag** and no new release/pin is created by this note. Hosted CI remains NOT_VERIFIED with its v3.9.0-only recorded risk disposition; any later release needs its own approval and QA.

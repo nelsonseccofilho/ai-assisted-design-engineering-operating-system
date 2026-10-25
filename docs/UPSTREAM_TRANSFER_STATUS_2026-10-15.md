@@ -104,3 +104,7 @@ The adopter's later Git-only work is **not** part of the immutable v3.8.0 public
 4. **Explicit review before main/release:** an optional implementation can be distributed without becoming mandatory. A new release or private pin change needs its own scoped human approval, decision provenance and tested artifacts. The 3.8.0-specific hosted exception is **not** a waiver for a subsequent release.
 
 **Assessment of this addendum:** `DOCUMENTARY_UPSTREAM_READINESS_PREPARED`; original seven optional pilots remain unpromoted. This note does not change adopted runtime, the canonical Master, product/Figma/UI Kit, any project's status, or the public release tag.
+
+## 2026-10-24 — post-release sanitized upstream reconciliation candidate
+
+The [public-side equalization delta](UPSTREAM_EQUALIZATION_DELTA_2026-10-24.md) cross-checks available generic helpers against follow-up operational findings without importing private records or silently promoting pilots. Published release v3.9.0 is independently evidenced at `795cedc5737ae023371f5aca477db20a6f2d635b`; the later public `main` contains documentation updates not in that tag. This is a dated **candidate**, not a rewrite of the frozen 35-topic/26-origin historical audit, and it requires its own SHA-specific QA and maintainer integration decision.
