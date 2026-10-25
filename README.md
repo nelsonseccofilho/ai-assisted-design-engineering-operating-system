@@ -5,15 +5,17 @@
 **Status:** Experimental / evolving  
 **Framework version:** 3.9.0
 
-**Candidate source:** v3.9.0 preparation only — **NOT RELEASED**. [Review the exact-source gate plan](docs/RELEASE_3_9_0.md). This branch is not a distribution record, tag, or private adopter pin. The release shown below remains the latest actual publication.
+**Current published release:** [v3.9.0](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases/tag/v3.9.0) (2026-10-24), immutable source commit `795cedc5737ae023371f5aca477db20a6f2d635b`. It includes three opt-in read-only helpers for bounded source delivery, self-reported action-claim coherence and supervised work-cycle packets; it does not establish hosted CI PASS or independent agent behavioral conformance.
 
-**Published release:** [v3.8.0](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases/tag/v3.8.0) (2026-10-21), source commit `0d0b8ffffa3a640d937e97c54062c517c5b88029`. This release distributes optional controlled contextual reading (GOV-CTX-001) with authority and bootstrap safeguards. It does **not** automatically install or activate a method in any adopter project; see [controlled rollout](docs/CONTROLLED_CONTEXT_LOADING.md) and [release record](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases/tag/v3.8.0).
+**Post-release public main:** contains additional reviewed documentation that is **not part of the immutable v3.9.0 tag**. See the [dated historical release preparation](docs/RELEASE_3_9_0.md) and [previous v3.8.0 release](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases/tag/v3.8.0). No private adopter pin changes are automatic.
 
 **Publication record:** [GitHub Releases](https://github.com/nelsonseccofilho/ai-assisted-design-engineering-operating-system/releases). This is the external immutable release record; project adoption remains separately gated.
 
 **Temporary local QA:** During the explicitly controlled GitHub Actions suspension, use the [exact-SHA local QA procedure](docs/LOCAL_QA_FALLBACK.md) under [ADR-0037](docs/decisions/ADR-0037-temporary-local-qa-fallback.md). Local evidence is never hosted CI PASS, and release-specific exceptions/publication still need independent maintainer decisions.
 
-**PowerShell working-directory discipline (post-release proposal):** operator snippets must explicitly select and verify their checkout/source context and restore the entry directory; see the [proposed execution-context rule](docs/POWERSHELL_EXECUTION_CONTEXT.md). This does not amend the immutable published v3.9.0 tag or supply new QA evidence.
+**PowerShell working-directory discipline (integrated in public main after v3.9.0):** the [execution-context documentation](docs/POWERSHELL_EXECUTION_CONTEXT.md) was merged as a reviewed docs-only change; the immutable published v3.9.0 tag does not contain that later documentation, and it is not hosted-QA evidence.
+
+**Current upstream review:** the [sanitized post-release equalization comparison](docs/UPSTREAM_EQUALIZATION_DELTA_2026-10-24.md) tracks remaining generic gaps and evidence limitations without changing the historical 35-topic methodology catalog.
 
 **Current maturity:** generic candidate procedures, optional methodology pilots and opt-in state/handoff extensions are not mandatory pilot acceptance. [ADR-0032](docs/decisions/ADR-0032-typed-state-and-current-handoff.md) and [ADR-0025](docs/decisions/ADR-0025-pilot-maturity-and-promotion.md) remain `PROPOSED`. See the [dated promotion checkpoint](docs/UPSTREAM_TRANSFER_STATUS_2026-10-15.md#2026-10-24--subsequent-pilot-readiness-and-private-adopter-delta); original October 15 evidence retains its date and scope. The published [v3.7.0 history](docs/releases/v3.7.0.md) is preserved.
 
