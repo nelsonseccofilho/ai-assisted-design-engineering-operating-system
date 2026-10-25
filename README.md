@@ -13,6 +13,8 @@
 
 **Temporary local QA:** During the explicitly controlled GitHub Actions suspension, use the [exact-SHA local QA procedure](docs/LOCAL_QA_FALLBACK.md) under [ADR-0037](docs/decisions/ADR-0037-temporary-local-qa-fallback.md). Local evidence is never hosted CI PASS, and release-specific exceptions/publication still need independent maintainer decisions.
 
+**PowerShell working-directory discipline (post-release proposal):** operator snippets must explicitly select and verify their checkout/source context and restore the entry directory; see the [proposed execution-context rule](docs/POWERSHELL_EXECUTION_CONTEXT.md). This does not amend the immutable published v3.9.0 tag or supply new QA evidence.
+
 **Current maturity:** generic candidate procedures, optional methodology pilots and opt-in state/handoff extensions are not mandatory pilot acceptance. [ADR-0032](docs/decisions/ADR-0032-typed-state-and-current-handoff.md) and [ADR-0025](docs/decisions/ADR-0025-pilot-maturity-and-promotion.md) remain `PROPOSED`. See the [dated promotion checkpoint](docs/UPSTREAM_TRANSFER_STATUS_2026-10-15.md#2026-10-24--subsequent-pilot-readiness-and-private-adopter-delta); original October 15 evidence retains its date and scope. The published [v3.7.0 history](docs/releases/v3.7.0.md) is preserved.
 
 **Canonical operating contract:** `PROMPT_OPERACIONAL_MASTER.md`
