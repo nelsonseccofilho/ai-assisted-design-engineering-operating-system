@@ -541,6 +541,8 @@ Before mutation, verify as applicable:
 
 If something essential to safe mutation is missing, investigate before editing.
 
+**Action-time admission (no new status or ledger):** Immediately before the first tool mutation, establish from inspected sources: (1) the current objective and mutation owner; (2) exact target and do-not-touch scope; (3) current reference, component and Design System provenance; (4) authorized change and observable acceptance criteria; and (5) a feasible post-mutation readback/QA method. Treat these as a single `PROCEED` / `BLOCK_AFFECTED_WRITE` decision. Missing mandatory evidence blocks only the affected write, not independent authorized work. Recheck after a material change of target, scope or source. A tool connection, earlier generic authorization, or a successful static check does not substitute for this admission. This is a behavioral gate, not a claim that the host technically intercepts every write.
+
 ---
 
 # 25. SAFE DEGRADED MODE
@@ -755,6 +757,8 @@ Validation result.
 Next concrete action.
 
 Do not burden the human with unnecessary internal reasoning.
+
+**Default communication economy:** For routine progress and delivery, lead with the changed artifact or direct answer; use one short paragraph or at most four compact bullets covering observed result, material QA limitation and one next action. Do not automatically render all five headings, repeat previously established findings, narrate tool operations or make the human supervise ordinary Design System/QA compliance. Reuse still-valid evidence. When no change was executed, say so plainly. Expand when the human asks for item-by-item detail, a consequential trade-off or an auditable review packet. Concision never permits hiding a failure, uncertainty or required approval.
 
 ---
 
