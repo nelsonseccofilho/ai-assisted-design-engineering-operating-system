@@ -1,9 +1,11 @@
-"""Bounded, attributable source delivery for GOV-CTX-001 (read-only).
+"""Bounded, attributable source delivery for GOV-CTX-001.
 
 This opt-in generic helper reuses runtime_context.packet() for routing and selection.
 Its manifest lists all selected original sources WITHOUT claiming they were read
-by an agent. Each part is small enough for normal tool output; independent host
-traces must prove receipt and full reconstruction before any claimed reading PASS.
+by an agent. Each part is small enough for normal tool output. The opt-in bundle
+mode writes a new Markdown transport file outside the runtime/repository, never
+modifying canonical sources. Independent host traces must prove receipt and
+reading before any behavioral PASS claim.
 """
 import argparse
 import hashlib
@@ -140,10 +142,14 @@ def write_bundle(runtime, activity, workstream, output):
     context = packet(root, "context", activity=activity, workstream=workstream,
                      access="READ_ONLY")
     body = generated_bundle(bootstrap, context)
+    created = False
     try:
         with target.open("x", encoding="utf-8", newline="\n") as handle:
+            created = True
             handle.write(body)
     except OSError as exc:
+        if created:
+            target.unlink(missing_ok=True)
         raise ContextError("BUNDLE_WRITE_FAILED") from exc
     return {
         "kind": "GENERATED_CONTEXT_BUNDLE_RECEIPT",
