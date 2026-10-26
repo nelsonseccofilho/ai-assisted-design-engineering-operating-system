@@ -63,6 +63,8 @@ Then:
 16. reconcile live state against runtime snapshots;
 17. continue from exactly one `NEXT ACTION` only when it remains valid.
 
+**Optional one-file handoff:** If GOV-CTX-001 is adopted, the existing `runtime/scripts/context_read_guard.py --phase bundle` can generate a temporary Markdown containing the full selected bootstrap **and** activity context, outside the repository. See [the contextual-reading contract](runtime/docs/contracts/CONTEXT_LOADING.md#one-file-markdown-transport-opt-in-generated-not-a-new-contract). Explicitly open/read that file in the session; generating a bundle or citing its hash is not evidence that an agent read it and never authorizes editing.
+
 A Workstream survives chat and operator changes.
 
 A Session Record represents one material chat and may reference multiple Workstreams.
