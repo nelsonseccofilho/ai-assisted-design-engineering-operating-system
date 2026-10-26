@@ -1,9 +1,11 @@
-"""Bounded, attributable source delivery for GOV-CTX-001 (read-only).
+"""Bounded, attributable source delivery for GOV-CTX-001.
 
 This opt-in generic helper reuses runtime_context.packet() for routing and selection.
 Its manifest lists all selected original sources WITHOUT claiming they were read
-by an agent. Each part is small enough for normal tool output; independent host
-traces must prove receipt and full reconstruction before any claimed reading PASS.
+by an agent. Each part is small enough for normal tool output. The opt-in bundle
+mode writes a new Markdown transport file outside the runtime/repository, never
+modifying canonical sources. Independent host traces must prove receipt and
+reading before any behavioral PASS claim.
 """
 import argparse
 import hashlib
@@ -81,21 +83,113 @@ def bounded_packet(report, source_index=None, part_index=None):
     }
 
 
+
+def generated_bundle(bootstrap, context):
+    """Combine the selected originals into one generated Markdown transport."""
+    if bootstrap["phase"] != "bootstrap" or context["phase"] != "context":
+        raise ContextError("BUNDLE_PHASE_MISMATCH")
+    if bootstrap["authority"] != "READING_PACKET_ONLY" or context["authority"] != "READING_PACKET_ONLY":
+        raise ContextError("BUNDLE_AUTHORITY_MISMATCH")
+    chunks = [
+        "# GENERATED CONTEXT — NOT A SOURCE OF AUTHORITY\n\n",
+        "This temporary file collects canonical runtime excerpts. "
+        "It is not an adopted contract, an authorization or proof that an agent "
+        "received or read the sources. Read the full selected material below, "
+        "verify freshness and inspect the target before taking action.\n\n",
+        f"Activity: {context['activity']}  \n",
+        f"Workstream: {context['workstream'] or 'NONE'}  \n",
+        "source_read_by_agent_verified: false  \n",
+        "execution_authorized: false  \n\n",
+    ]
+    for heading, report in (("BOOTSTRAP — manifest order", bootstrap),
+                            ("CONTEXT — selected modules and current state", context)):
+        chunks.append(f"## {heading}\n\n")
+        for index, source in enumerate(report["sources"]):
+            body = source["content"]
+            meta = {
+                "path": source["path"], "role": source["role"],
+                "selectors": source["selectors"],
+                "raw_source_sha256": source["sha256"],
+                "selected_content_sha256": digest(body),
+                "selected_chars": len(body),
+            }
+            chunks.extend((
+                f"### Source {index + 1}: {source['path']}\n\n",
+                "~~~json\n", json.dumps(meta, ensure_ascii=False, sort_keys=True),
+                "\n~~~\n\n", f"<!-- BEGIN SOURCE {index + 1} -->\n",
+                body,
+                f"\n<!-- END SOURCE {index + 1} -->\n\n",
+            ))
+    return "".join(chunks)
+
+
+def write_bundle(runtime, activity, workstream, output):
+    """Write a new local transport copy, never the canonical runtime."""
+    root = Path(runtime).resolve()
+    target = Path(output)
+    if not target.is_absolute() or target.suffix.lower() != ".md":
+        raise ContextError("BUNDLE_ABSOLUTE_MD_PATH_REQUIRED")
+    target = target.resolve()
+    protected = (root.parent if root.name == "runtime" and
+                 (root.parent / ".git").exists() else root)
+    if target.is_relative_to(protected):
+        raise ContextError("BUNDLE_MUST_BE_OUTSIDE_RUNTIME_REPOSITORY")
+    if not target.parent.is_dir():
+        raise ContextError("BUNDLE_OUTPUT_DIRECTORY_MISSING")
+    if target.exists():
+        raise ContextError("BUNDLE_OUTPUT_EXISTS")
+    bootstrap = packet(root, "bootstrap", access="READ_ONLY")
+    context = packet(root, "context", activity=activity, workstream=workstream,
+                     access="READ_ONLY")
+    body = generated_bundle(bootstrap, context)
+    created = False
+    try:
+        with target.open("x", encoding="utf-8", newline="\n") as handle:
+            created = True
+            handle.write(body)
+    except OSError as exc:
+        if created:
+            target.unlink(missing_ok=True)
+        raise ContextError("BUNDLE_WRITE_FAILED") from exc
+    return {
+        "kind": "GENERATED_CONTEXT_BUNDLE_RECEIPT",
+        "bundle_path": str(target),
+        "bundle_sha256": digest(body),
+        "bundle_chars": len(body),
+        "bootstrap_sources": len(bootstrap["sources"]),
+        "context_sources": len(context["sources"]),
+        "activity": activity, "workstream": workstream,
+        "source_read_by_agent_verified": False,
+        "execution_authorized": False,
+        "source_mutation": False,
+        "local_bundle_written": True,
+    }
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--runtime", type=Path, required=True)
-    p.add_argument("--phase", choices=("bootstrap", "context"), required=True)
+    p.add_argument("--phase", choices=("bootstrap", "context", "bundle"), required=True)
     p.add_argument("--activity")
     p.add_argument("--workstream")
     p.add_argument("--source-index", type=int)
     p.add_argument("--part-index", type=int)
+    p.add_argument("--bundle-output", type=Path)
     args = p.parse_args()
     try:
-        if args.phase == "bootstrap" and (args.activity or args.workstream):
-            raise ContextError("BOOTSTRAP_SCOPE_UNEXPECTED")
-        report = packet(args.runtime, args.phase, activity=args.activity,
-                        workstream=args.workstream, access="READ_ONLY")
-        result = bounded_packet(report, args.source_index, args.part_index)
+        if args.phase == "bundle":
+            if args.bundle_output is None or not args.activity or args.source_index is not None or args.part_index is not None:
+                raise ContextError("BUNDLE_ARGUMENTS")
+            result = write_bundle(args.runtime, args.activity, args.workstream,
+                                  args.bundle_output)
+        else:
+            if args.bundle_output is not None:
+                raise ContextError("BUNDLE_PHASE_REQUIRED")
+            if args.phase == "bootstrap" and (args.activity or args.workstream):
+                raise ContextError("BOOTSTRAP_SCOPE_UNEXPECTED")
+            report = packet(args.runtime, args.phase, activity=args.activity,
+                            workstream=args.workstream, access="READ_ONLY")
+            result = bounded_packet(report, args.source_index, args.part_index)
     except (ContextError, OSError, TypeError, KeyError, ValueError) as exc:
         code = str(exc) if isinstance(exc, ContextError) else "INVALID_CONFIGURATION"
         print(json.dumps({"assessment": "FAIL", "code": code,

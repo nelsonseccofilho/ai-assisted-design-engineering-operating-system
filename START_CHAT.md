@@ -63,6 +63,8 @@ Then:
 16. reconcile live state against runtime snapshots;
 17. continue from exactly one `NEXT ACTION` only when it remains valid.
 
+**Required reading before dependent work:** When GOV-CTX-001 is adopted, load and actually read the selected bootstrap **and** applicable activity/workstream context, including the full Master, before any dependent mutation. Confirm coverage of the required original source bodies, not just names, hashes, a manifest or truncated excerpts. For a single transport artifact, prefer the existing `runtime/scripts/context_read_guard.py --phase bundle` when the host can deliver/read the entire generated Markdown; otherwise read all required bounded parts or originals. See [the contextual-reading contract](runtime/docs/contracts/CONTEXT_LOADING.md#one-file-markdown-transport-opt-in-generated-not-a-new-contract). The generated file is never an automatic ChatGPT import or evidence that the agent read it. If essential source delivery is incomplete, block only the affected write. Without an adopted profile, follow the existing full-bootstrap fallback.
+
 A Workstream survives chat and operator changes.
 
 A Session Record represents one material chat and may reference multiple Workstreams.

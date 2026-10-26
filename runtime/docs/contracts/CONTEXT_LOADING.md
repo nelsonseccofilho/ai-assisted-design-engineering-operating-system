@@ -68,6 +68,20 @@ review and a separately approved integration. This addition does not modify
 the immutable v3.8.0 release, project pins or the decision statuses of optional
 pilots or ADR-0025/ADR-0032.
 
+### One-file Markdown transport (opt-in; generated, not a new contract)
+
+To avoid copying many fragmented outputs into a new session, the **same** `context_read_guard.py` can combine the configured eight-file bootstrap and the selected activity/workstream context in one local, temporary Markdown file. Source text remains owned by the original files; the bundle is not checked into Git and is not an additional authority.
+
+From the repository root, after confirming the adopted profile and the actual Workstream:
+
+```sh
+python -B runtime/scripts/context_read_guard.py --runtime runtime --phase bundle --activity analysis-and-design --workstream WS-YYYYMMDD-NNN-example --bundle-output /absolute/path/outside-repository/context-YYYYMMDD.md
+```
+
+The output path must be an **absolute, new `.md` path outside the canonical runtime/repository**, in an existing directory. The tool will not overwrite an existing file. It resolves the normal `bootstrap` and `context` packets, retains their original order and selected text, labels each source with its role/selectors and raw/selected SHA-256, then prints only a small receipt containing the generated file SHA. Invalid profile, missing required module, unsafe path or stale Workstream route fails closed.
+
+**Read the generated file in the new chat before dependent actions.** The file does not load itself into ChatGPT; attach/open it explicitly or use an authorized host integration. It may contain project-private evidence and must never be published to the generic framework. Generation and matching hashes do **not** prove the model received or read it, establish live source freshness, grant mutation permission or waive ordinary postflight QA. The existing per-part mode remains available when a combined file is unavailable or too large for reliable delivery.
+
 ## Optional explicit cycle-focus preparation (generic candidate)
 
 The opt-in `scripts/op_cycle.py` prepares an **informational, read-only**
