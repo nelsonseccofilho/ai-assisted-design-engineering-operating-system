@@ -149,6 +149,67 @@ class ContextTests(unittest.TestCase):
             self.assertEqual(before, digest(root))
 
 
+
+    def test_generated_bundle_contains_both_phases_with_verifiable_sources(self):
+        # Fictional scenario: output is only a transport artifact, not a read receipt.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'runtime'
+            root.mkdir()
+            fixture(root)
+            before = digest(root)
+            target = Path(tmp) / 'fresh-context.md'
+            receipt = guard.write_bundle(root, 'analysis', WID, target)
+            body = target.read_text(encoding='utf-8')
+            self.assertEqual(receipt['kind'], 'GENERATED_CONTEXT_BUNDLE_RECEIPT')
+            self.assertEqual(receipt['bundle_sha256'], guard.digest(body))
+            self.assertFalse(receipt['source_read_by_agent_verified'])
+            self.assertFalse(receipt['execution_authorized'])
+            self.assertFalse(receipt['source_mutation'])
+            self.assertTrue(receipt['local_bundle_written'])
+            self.assertIn('BOOTSTRAP', body)
+            self.assertIn('CONTEXT', body)
+            self.assertIn('10_PROMPT_OPERACIONAL_MASTER.md', body)
+            self.assertIn('Read only; no external edits.', body)
+            self.assertIn('NEXT ACTION: Read the fictional brief', body)
+            self.assertEqual(receipt['bootstrap_sources'], len(module.BOOTSTRAP))
+            self.assertEqual(digest(root), before)
+            with self.assertRaises(module.ContextError):
+                guard.write_bundle(root, 'analysis', WID, target)
+            self.assertEqual(digest(root), before)
+
+    def test_generated_bundle_fresh_cli_and_unsafe_targets_fail_closed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'runtime'
+            root.mkdir()
+            fixture(root)
+            before = digest(root)
+            cli = ROOT / 'runtime/scripts/context_read_guard.py'
+            target = Path(tmp) / 'generated-context.md'
+            args = [sys.executable, '-B', str(cli), '--runtime', str(root),
+                    '--phase', 'bundle', '--activity', 'analysis',
+                    '--workstream', WID]
+            env = {**os.environ, 'PYTHONDONTWRITEBYTECODE': '1'}
+            run = subprocess.run(args + ['--bundle-output', str(target)],
+                                 capture_output=True, text=True, encoding='utf-8',
+                                 cwd=root.parent, env=env)
+            self.assertEqual(run.returncode, 0, run.stderr)
+            receipt = json.loads(run.stdout)
+            self.assertEqual(receipt['bundle_sha256'],
+                             guard.digest(target.read_text(encoding='utf-8')))
+            self.assertFalse(receipt['source_read_by_agent_verified'])
+            self.assertEqual(digest(root), before)
+            cases = [
+                (target, 'BUNDLE_OUTPUT_EXISTS'),
+                (root / 'inside.md', 'BUNDLE_MUST_BE_OUTSIDE_RUNTIME_REPOSITORY'),
+                (Path('relative.md'), 'BUNDLE_ABSOLUTE_MD_PATH_REQUIRED'),
+                (Path(tmp) / 'invalid.txt', 'BUNDLE_ABSOLUTE_MD_PATH_REQUIRED'),
+            ]
+            for bad_path, expected in cases:
+                with self.subTest(path=str(bad_path)):
+                    with self.assertRaisesRegex(module.ContextError, expected):
+                        guard.write_bundle(root, 'analysis', WID, bad_path)
+            self.assertEqual(digest(root), before)
+
     def test_cycle_focus_all_phases_keep_explicit_scope_without_authority(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
