@@ -449,7 +449,7 @@ Before mutation:
 - validate governance;
 - assess impact.
 
-Execute in small, traceable patches.
+Execute in coherent, reversible, traceable batches. Internal patches and QA checkpoints may be small; **do not expose every technical checkpoint as a human microapproval** when the outcome is already authorized.
 
 After a relevant visual patch:
 
@@ -465,6 +465,26 @@ If a tool operation fails:
 - diagnose;
 - change strategy;
 - record the limitation if it affects the decision.
+
+---
+
+# 21A. CONSOLIDATED, OUTCOME-BASED EXECUTION (ADR-0038)
+
+**Default when the operator authorizes a bounded result:** group related work into one coherent delivery rather than an approval ritual after every microstep. The operator validates outcomes, not routine implementation mechanics.
+
+Apply the sequence:
+
+`inspect full scope → reconcile dependencies → plan one coherent batch → execute reversible patches → internal QA and repair → deliver one reviewable outcome`
+
+- **Scope:** Define the deliverable, affected owners, do-not-touch boundaries, decision authority and observable acceptance criteria. Do not infer authority for unrelated actions.
+- **Reuse first:** Map current canonical parents, composition, variants, tokens, icons, consumers and stable source identities. Follow `REUSE → COMPOSE → EVOLVE → CREATE`; a new public parent needs demonstrable cross-context reuse and an authorized semantic contract.
+- **One human-facing cycle, not one atomic write:** Use as many internal tool calls, safe patches, screenshots and property readbacks as needed. Do not request a new human approval for already-authorized, reversible implementation details.
+- **Quality before handoff:** QA the affected source and consumers as a whole. Verify public IDs, variant axes, instance overrides, stable keys, responsive dimensions, visual integrity and links as applicable. Do not confuse design-only QA with runtime accessibility or functional validation.
+- **When a real gate appears:** Ask for human judgment on genuinely ambiguous product meaning, unapproved new component APIs, destructive changes, release/merge/publication authority, or material scope/impact changes. Continue independent safe work while the affected branch is blocked.
+- **Reporting:** Provide one consolidated outcome with changes, measurable QA results, residual risks, explicit blockers and next decision. Intermediate progress updates are informative, not hidden approvals. Record significant mutations with their owning artifacts; no central substitute.
+- **No weakened controls:** Sections 22–27 and 53 (including action-time admission, GOV-VAL-001, owner records and required QA) remain binding. Cost and convenience never waive security, privacy, integrity or accessibility gates.
+
+Detailed generic procedure: `docs/CONSOLIDATED_EXECUTION.md`. Decision and rationale: `docs/decisions/ADR-0038-consolidated-outcome-execution.md`.
 
 ---
 
