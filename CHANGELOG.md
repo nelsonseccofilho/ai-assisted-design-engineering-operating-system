@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Unreleased — proposed consolidated execution method (2026-11-18)
+
+- ADR-0038 formalizes outcome-oriented execution: full-scope analysis, dependency reconciliation, coherent reversible batches, internal QA and one consolidated human-facing review instead of repeated microapprovals.
+- Added `docs/CONSOLIDATED_EXECUTION.md` and updated the Operating Master and identical runtime mirror. GOV-VAL-001, owner change records, destructive/semantic decision gates and release/publication authority are unchanged.
+- This is a **candidate PR**, not a release, hosted CI PASS, observed production pilot or private-adopter pin update.
+
 ## 3.9.0 — 2026-10-24 (release candidate, NOT RELEASED)
 
 - Prepared a compatible, **not yet published** additive package candidate over released v3.8.0. The immutable GitHub v3.8.0 tag/release and private adopters' pins remain unchanged; a merged branch does not establish a release.
