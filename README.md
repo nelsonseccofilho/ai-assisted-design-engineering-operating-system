@@ -21,6 +21,8 @@
 
 **Canonical operating contract:** `PROMPT_OPERACIONAL_MASTER.md`
 
+**Outcome-based execution (ADR-0038 candidate):** [consolidated execution procedure](docs/CONSOLIDATED_EXECUTION.md) pairs one coherent human-facing delivery with internal reversible patches and GOV-VAL-001 QA. This is proposed in a review branch; no automatic release, private-adopter activation or waived approval gates follow.
+
 ## What this is
 
 AI can already inspect interfaces, compare variants, generate UI, reason about Design Systems, help with implementation and automate repetitive work.
