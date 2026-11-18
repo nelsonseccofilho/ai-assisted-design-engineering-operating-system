@@ -68,6 +68,7 @@ Never silently rewrite history.
 | [ADR-0035](docs/decisions/ADR-0035-3-9-0-additive-tools-candidate.md) | 2026-10-24 | PROPOSED | Prepare compatible v3.9.0 candidate with new exact-SHA QA and separate hosted publication/adoption authority |
 | [ADR-0036](docs/decisions/ADR-0036-scoped-3-9-0-hosted-qa-disposition-proposal.md) | 2026-10-24 | ACCEPTED / OPTION B / v3.9.0 ONLY | Accept `V3_9_0_MANUAL_HOSTED_SUSPENSION_DISPOSITION` as a bounded release-specific risk; hosted QA remains NOT VERIFIED, publication/tag still require separate approval |
 | [ADR-0037](docs/decisions/ADR-0037-temporary-local-qa-fallback.md) | 2026-10-24 | ACCEPTED / CONDITIONAL PROCEDURE | Use controlled exact-SHA local QA during suspended hosted Actions; every release requires its own CI disposition and publication authorization |
+| [ADR-0038](docs/decisions/ADR-0038-consolidated-outcome-execution.md) | 2026-11-18 | ACCEPTED / CANDIDATE CORE INTEGRATION | Consolidate authorized work into outcome-based delivery with internal risk-appropriate QA and one human-facing review; preserve existing authority gates |
 
 ---
 
