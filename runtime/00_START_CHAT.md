@@ -64,6 +64,8 @@ Regardless of startup intent:
 - keep HANDOFF/state current after material checkpoints;
 - for adopted Git-versioned Workstream continuity, compare live owner Change History to the current **selected branch** checkpoint (not only `main`), then verify owner record + Git QA report + state + handoff + registry with independent postwrite readback before claiming `SYNCED`; if missing, report `SYNC PENDING` without discarding separately valid artifact QA (Master §26A);
 - do not silently broaden scope;
+- for a bounded multi-wave program already authorized, continue each independent wave without new microapprovals; do not confuse execution permission with explicit human design sign-off (Master §26B);
+- for adopted Git-versioned Project Runtime, commit the material QA/decision/Workstream checkpoint on the authorized branch **for every wave**, with independent readback before a continuity claim; when unavailable report `SYNC PENDING` (Master §§26A–26B);
 - follow Conventional Commits and persistent Decision records for significant runtime changes.
 
 ## 4. Daily reports
