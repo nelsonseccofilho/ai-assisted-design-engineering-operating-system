@@ -593,6 +593,22 @@ For visible UI results, final visual QA is required.
 
 Structural-only changes may use structural inspection first, but visible side effects still require visual validation.
 
+## 26A. Cross-artifact persistence closeout gate
+
+**Mandatory when the adopting Project Runtime requires Git-versioned governance, QA or Workstream continuity for a material owner change.** This is an evidence gate within existing Postflight, not a new Workstream status, ledger, extra approval cycle or authority to commit, merge, publish or migrate.
+
+Before reporting a wave/unit as **fully persisted or continuity-ready**:
+
+1. Identify the selected Workstream, current owner artifact, its latest verified owner Change History ID/revision, current implementation branch/ref, and material decisions. Compare the **live owner record** with the latest Git Workstream state and handoff. Never infer the owner record from the chat summary, Git `main` age or a historical handoff.
+2. Verify that the project-required Git QA/evidence report, current `state.json`, registered current handoff and Workstream registry are updated at an authorized **non-merged** ref; each must agree on current owner Change ID, approval limits, next action and do-not-touch scope. The handoff is a pointer to owner evidence, not a competing source of truth.
+3. Independently **read back** persisted Git files and the branch/commit after writes. A tool success without source readback is not `SYNCED`. A Git commit alone does not prove Figma/other owner mutation, runtime QA or human approval. A new branch or PR alone is not a substitute for the required records.
+4. If any required write, permission or readback is missing, report the artifact-specific QA/approval **separately** and label operational continuity `SYNC PENDING` (descriptive, not a new runtime state). Do not claim `FINAL`, `SYNCED`, a valid cross-chat handoff or an advanced canonical NEXT ACTION based on unpersisted chat memory. Preserve the owner Change History and complete only independent authorized work.
+5. On next-chat bootstrap, perform **drift detection** before mutation. If the inspected owner Change History is newer than the Git snapshot, recover the delta from original owner records, attribute retrospective reconstruction as retrospective and persist proportionately **without retroactive timestamps or invented executions**. Continue from the reconciled Workstream, not the previous Git wave.
+
+**Acceptance cases (evidence-level):** owner W+1 but Git at W → `SYNC PENDING`; Git update without independent readback → `SYNC PENDING`; current branch updated while `main` remains older → compare the **selected branch**, do not invent a gap; owner QA PASS with human approval pending → leave owner acceptance pending even when Git is synced; actual owner record + current Git checkpoint + readback → continuity may be reported `SYNCED` for that bounded scope. A local static checker cannot attest to remote writes without observed tool readback.
+
+Project owners may configure an equivalent existing check/gate. This section does **not** require a Git repository for a project that never adopted Git-versioned continuity, and it does not alter the owner Change History rules of section 27.
+
 ---
 
 # 27. CHANGE HISTORY
