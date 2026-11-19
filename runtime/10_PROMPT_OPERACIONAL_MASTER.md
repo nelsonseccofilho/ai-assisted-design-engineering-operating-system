@@ -593,6 +593,36 @@ For visible UI results, final visual QA is required.
 
 Structural-only changes may use structural inspection first, but visible side effects still require visual validation.
 
+## 26A. Cross-artifact persistence closeout gate
+
+**Mandatory when the adopting Project Runtime requires Git-versioned governance, QA or Workstream continuity for a material owner change.** This is an evidence gate within existing Postflight, not a new Workstream status, ledger, extra approval cycle or authority to commit, merge, publish or migrate.
+
+Before reporting a wave/unit as **fully persisted or continuity-ready**:
+
+1. Identify the selected Workstream, current owner artifact, its latest verified owner Change History ID/revision, current implementation branch/ref, and material decisions. Compare the **live owner record** with the latest Git Workstream state and handoff. Never infer the owner record from the chat summary, Git `main` age or a historical handoff.
+2. Verify that the project-required Git QA/evidence report, current `state.json`, registered current handoff and Workstream registry are updated at an authorized **non-merged** ref; each must agree on current owner Change ID, approval limits, next action and do-not-touch scope. The handoff is a pointer to owner evidence, not a competing source of truth.
+3. Independently **read back** persisted Git files and the branch/commit after writes. A tool success without source readback is not `SYNCED`. A Git commit alone does not prove Figma/other owner mutation, runtime QA or human approval. A new branch or PR alone is not a substitute for the required records.
+4. If any required write, permission or readback is missing, report the artifact-specific QA/approval **separately** and label operational continuity `SYNC PENDING` (descriptive, not a new runtime state). Do not claim `FINAL`, `SYNCED`, a valid cross-chat handoff or an advanced canonical NEXT ACTION based on unpersisted chat memory. Preserve the owner Change History and complete only independent authorized work.
+5. On next-chat bootstrap, perform **drift detection** before mutation. If the inspected owner Change History is newer than the Git snapshot, recover the delta from original owner records, attribute retrospective reconstruction as retrospective and persist proportionately **without retroactive timestamps or invented executions**. Continue from the reconciled Workstream, not the previous Git wave.
+
+**Acceptance cases (evidence-level):** owner W+1 but Git at W → `SYNC PENDING`; Git update without independent readback → `SYNC PENDING`; current branch updated while `main` remains older → compare the **selected branch**, do not invent a gap; owner QA PASS with human approval pending → leave owner acceptance pending even when Git is synced; actual owner record + current Git checkpoint + readback → continuity may be reported `SYNCED` for that bounded scope. A local static checker cannot attest to remote writes without observed tool readback.
+
+Project owners may configure an equivalent existing check/gate. This section does **not** require a Git repository for a project that never adopted Git-versioned continuity, and it does not alter the owner Change History rules of section 27.
+
+## 26B. Approved-program autonomy and Git checkpoint discipline
+
+**Preserve effective execution.** When the accountable human has explicitly approved a bounded program of waves/cycles, including its objective, permitted mutation scope and applicable authority, the agent must **complete each authorized unit end-to-end without recurring microapprovals** for ordinary component adjustments, documentation, QA, checkpointing or transition to the next independent authorized unit. A unit/wave is the review boundary; it is not a permission request for every size, state, padding, token or example. Work in consolidated batches and present one meaningful owner review when a genuinely new owner decision is required.
+
+**Distinguish permission, technical QA and human acceptance.** Authorization to execute a multi-wave program is not blanket Design Owner approval of every deliverable. A page can finish scoped design QA while its formal human sign-off remains `PENDING OWNER`; this must be reported accurately. That pending sign-off does **not** block a different, independently authorized wave unless the unapproved decision is a real source dependency or an applicable gate. Conversely, no agent may publish, merge, migrate, release, redefine a business/legal/security rule, silently change a public component API incompatibly, or override an explicit `DEFER` just because the program is approved. Batch necessary owner decisions rather than asking repeated low-value questions.
+
+**Git is mandatory at every material checkpoint for projects that adopted Git-versioned Project Runtime.** For every completed material wave/cycle (and before changing chats if material unsaved work exists), persist the meaningful delta: source-owner Change History for actual visual changes; the **project's authorized Git work branch** for scoped QA/evidence, actual decisions, acceptance boundaries, Workstream state/current handoff and registry where required. Commit once per coherent delivery rather than once per microchange; a material interruption may require an intermediate checkpoint. Independently read back the commit and canonical records before claiming `SYNCED` or relying on them in a new conversation. Chat summaries, Figma-only CHANGE records, an open PR without current files, and stale `main` do **not** substitute for a Git checkpoint.
+
+**Fail visibly, never silently skip Git.** If the required Git commit/readback is impossible, keep valid owner-artifact QA distinct, label `SYNC PENDING`, identify the precise blocker and preserve an unpersisted transfer packet. Do not report the operational wave as completely handed off, invent a past commit, add shadow status stores, make unauthorized Git writes, or seek an unnecessary microapproval to replace a technical checkpoint. Material read-only research that produces a reusable governance/QA decision belongs in Git evidence when the project contract requires it; incidental queries and inspections do not require empty commits.
+
+**Acceptance cases:** (A) a 12-wave program and work-branch persistence already authorized → execute wave 1 through QA/commit/readback and continue wave 2 without renewed permission; (B) size/state/configuration adjustment within canonical scope → no human microapproval; (C) wave N design QA PASS but Owner verdict pending → preserve PENDING OWNER while proceeding with independent approved wave N+1; (D) owner approval needed for a new semantic/legal/API exception or publication → isolate only that dependency; (E) material wave with owner CHANGE but no Git commit or readback → `SYNC PENDING`, never `SYNCED`; (F) coherent wave with both owner history and authorized Git readback → `SYNCED` only for operational continuity, not automatically for product acceptance.
+
+These are operational rules, not automatic tool actions. A project that does not use Git must still persist equivalent required owner/handoff evidence in its adopted system. No rule in this subsection creates new mutation, branch, merge or release authorization.
+
 ---
 
 # 27. CHANGE HISTORY
