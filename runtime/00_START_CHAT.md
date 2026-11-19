@@ -62,6 +62,7 @@ Regardless of startup intent:
 - resolve mutation owner and owner-scoped Change History before meaningful mutation;
 - use Session Records for material chat history, not full transcripts;
 - keep HANDOFF/state current after material checkpoints;
+- for adopted Git-versioned Workstream continuity, compare live owner Change History to the current **selected branch** checkpoint (not only `main`), then verify owner record + Git QA report + state + handoff + registry with independent postwrite readback before claiming `SYNCED`; if missing, report `SYNC PENDING` without discarding separately valid artifact QA (Master §26A);
 - do not silently broaden scope;
 - follow Conventional Commits and persistent Decision records for significant runtime changes.
 
